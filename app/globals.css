@@ -62,34 +62,34 @@
 
 /* ─── Light Mode ───────────────────────────────────────────────────────────── */
 :root {
-  --bg:         #fdfaf5;
-  --fg:         #0f1729;
+  --bg:         #f5f5f6;
+  --fg:         #111113;
   --card-bg:    #ffffff;
-  --card-fg:    #0f1729;
-  --primary:    #0f1729;
-  --primary-fg: #fdfaf5;
-  --secondary:  #f0e9d8;
-  --muted:      #f0e9d8;
-  --muted-fg:   #6b7280;
-  --border:     #e8dcc5;
-  --accent:     #e8c547;
-  --accent-fg:  #0f1729;
+  --card-fg:    #111113;
+  --primary:    #111113;
+  --primary-fg: #f5f5f6;
+  --secondary:  #ebebec;
+  --muted:      #ebebec;
+  --muted-fg:   #71717a;
+  --border:     #d4d4d8;
+  --accent:     #d4a017;
+  --accent-fg:  #111113;
 }
 
 /* ─── Dark Mode ────────────────────────────────────────────────────────────── */
 .dark {
-  --bg:         #070d1a;
-  --fg:         #f7f2e9;
-  --card-bg:    #0f1729;
-  --card-fg:    #f7f2e9;
-  --primary:    #e8c547;
-  --primary-fg: #0f1729;
-  --secondary:  #162039;
-  --muted:      #1e2e50;
-  --muted-fg:   #9ca3af;
-  --border:     #1e2e50;
-  --accent:     #e8c547;
-  --accent-fg:  #0f1729;
+  --bg:         #0f0f10;
+  --fg:         #f4f4f5;
+  --card-bg:    #18181b;
+  --card-fg:    #f4f4f5;
+  --primary:    #d4a017;
+  --primary-fg: #0f0f10;
+  --secondary:  #1f1f23;
+  --muted:      #27272a;
+  --muted-fg:   #a1a1aa;
+  --border:     #27272a;
+  --accent:     #d4a017;
+  --accent-fg:  #0f0f10;
 }
 
 /* ─── Base Styles ──────────────────────────────────────────────────────────── */
