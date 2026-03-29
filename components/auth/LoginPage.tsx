@@ -1,10 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { TrendingUp, BookOpen, Zap, Award, ArrowLeft, ChevronRight } from 'lucide-react'
+import { useSearchParams } from 'next/navigation'
+import { TrendingUp, BookOpen, Zap, Award, ArrowLeft, ChevronRight, AlertCircle } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
-import { toast } from '@/lib/hooks/useToast'
 
 const BENEFITS = [
   { icon: BookOpen, text: '600+ lessons across all exam tracks' },
@@ -21,21 +21,64 @@ const GoogleIcon = () => (
   </svg>
 )
 
+const ERROR_MESSAGES: Record<string, string> = {
+  auth_callback_failed: 'Sign-in failed during redirect. Please try again.',
+  provider_not_configured: 'Google sign-in is not yet configured. Contact the site owner.',
+  access_denied: 'Access was denied. Please try again.',
+}
+
 export function LoginPage() {
   const [loading, setLoading] = useState<'signin' | 'signup' | null>(null)
+  const [error, setError] = useState<string | null>(null)
+  const searchParams = useSearchParams()
   const supabase = createClient()
 
+  // Show errors passed back from the callback route or Supabase
+  useEffect(() => {
+    const errParam = searchParams.get('error')
+    const errDesc = searchParams.get('error_description')
+    if (errParam) {
+      setError(ERROR_MESSAGES[errParam] ?? errDesc ?? 'An error occurred. Please try again.')
+    }
+  }, [searchParams])
+
   async function handleAuth(mode: 'signin' | 'signup') {
+    setError(null)
     setLoading(mode)
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo: `${window.location.origin}/callback`,
-        queryParams: { access_type: 'offline', prompt: 'consent' },
-      },
-    })
-    if (error) {
-      toast.error('Authentication failed', error.message)
+
+    try {
+      // Use skipBrowserRedirect so we can inspect the URL before following it
+      const { data, error: oauthError } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: `${window.location.origin}/callback`,
+          queryParams: { access_type: 'offline', prompt: 'consent' },
+          skipBrowserRedirect: true,
+        },
+      })
+
+      if (oauthError || !data?.url) {
+        setError(oauthError?.message ?? 'Could not start sign-in. Google may not be enabled — contact the site owner.')
+        setLoading(null)
+        return
+      }
+
+      // Validate the redirect URL goes to Google accounts (not somewhere unexpected)
+      const destination = new URL(data.url)
+      const isGoogleOrSupabase =
+        destination.hostname.endsWith('.google.com') ||
+        destination.hostname.endsWith('.supabase.co')
+
+      if (!isGoogleOrSupabase) {
+        setError('OAuth misconfiguration detected — unexpected redirect URL. Please contact the site owner.')
+        setLoading(null)
+        return
+      }
+
+      // All good — follow the redirect
+      window.location.href = data.url
+    } catch {
+      setError('An unexpected error occurred. Please try again.')
       setLoading(null)
     }
   }
@@ -43,8 +86,8 @@ export function LoginPage() {
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
 
-      {/* ── Left panel: branding ── */}
-      <div className="hidden lg:flex lg:w-1/2 flex-col justify-between p-12 bg-[#0f1729] relative overflow-hidden">
+      {/* Left panel — branding */}
+      <div className="hidden lg:flex lg:w-1/2 flex-col justify-between p-12 bg-[#111113] relative overflow-hidden">
         <div aria-hidden className="pointer-events-none absolute inset-0">
           <div className="absolute -top-32 -right-32 h-[500px] w-[500px] rounded-full bg-[var(--accent)]/5 blur-3xl" />
           <div className="absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-blue-500/5 blur-3xl" />
@@ -59,17 +102,17 @@ export function LoginPage() {
         </div>
         <div className="relative flex items-center gap-2.5">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--accent)]">
-            <TrendingUp className="h-5 w-5 text-[#0f1729]" strokeWidth={2.5} />
+            <TrendingUp className="h-5 w-5 text-[#111113]" strokeWidth={2.5} />
           </div>
           <span className="text-xl font-bold text-white">EconPulse</span>
         </div>
         <div className="relative space-y-6">
           <h2 className="text-4xl font-extrabold text-white leading-tight">
             Economics mastery{' '}
-            <span className="gradient-text">starts here.</span>
+            <span className="text-[var(--accent)]">starts here.</span>
           </h2>
           <p className="text-white/60 text-lg leading-relaxed max-w-sm">
-            The platform built for students who want to truly understand economics — not just pass the exam.
+            A student-built platform for anyone who wants to genuinely understand economics — not just pass the test.
           </p>
           <ul className="space-y-3">
             {BENEFITS.map(({ icon: Icon, text }) => (
@@ -90,7 +133,7 @@ export function LoginPage() {
         </div>
       </div>
 
-      {/* ── Right panel: auth ── */}
+      {/* Right panel — auth */}
       <div className="flex flex-1 flex-col items-center justify-center px-5 py-16 sm:px-10">
         {/* Mobile logo */}
         <div className="mb-10 flex items-center gap-2 lg:hidden">
@@ -100,7 +143,7 @@ export function LoginPage() {
           <span className="text-lg font-bold text-[var(--fg)]">EconPulse</span>
         </div>
 
-        <div className="w-full max-w-md space-y-8">
+        <div className="w-full max-w-md space-y-6">
           <Link
             href="/"
             className="inline-flex items-center gap-1.5 text-sm text-[var(--muted-fg)] hover:text-[var(--fg)] transition-colors"
@@ -108,26 +151,33 @@ export function LoginPage() {
             <ArrowLeft className="h-3.5 w-3.5" /> Back to home
           </Link>
 
-          {/* Heading */}
           <div>
             <h1 className="text-3xl font-extrabold text-[var(--fg)] tracking-tight">Get started</h1>
-            <p className="mt-2 text-[var(--muted-fg)]">Choose how you&apos;d like to continue.</p>
+            <p className="mt-1.5 text-[var(--muted-fg)]">Sign up or sign in — both use Google.</p>
           </div>
 
+          {/* Error banner */}
+          {error && (
+            <div className="flex items-start gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-600 dark:text-red-400">
+              <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+              <span>{error}</span>
+            </div>
+          )}
+
           {/* Sign Up card */}
-          <div className="rounded-2xl border-2 border-[var(--accent)]/30 bg-[var(--card-bg)] p-6 space-y-4 hover:border-[var(--accent)]/60 transition-colors">
+          <div className="rounded-2xl border-2 border-[var(--accent)]/40 bg-[var(--card-bg)] p-6 space-y-4">
             <div className="flex items-start justify-between">
               <div>
-                <div className="text-xs font-bold uppercase tracking-widest text-[var(--accent)] mb-1">New here?</div>
+                <div className="text-[10px] font-bold uppercase tracking-widest text-[var(--accent)] mb-1">New here?</div>
                 <h2 className="text-lg font-bold text-[var(--fg)]">Create an account</h2>
-                <p className="text-sm text-[var(--muted-fg)] mt-0.5">Join EconPulse and start your journey.</p>
+                <p className="text-sm text-[var(--muted-fg)] mt-0.5">Free · No credit card needed.</p>
               </div>
-              <div className="h-10 w-10 shrink-0 rounded-xl bg-[var(--accent)]/10 flex items-center justify-center">
+              <div className="h-9 w-9 shrink-0 rounded-xl bg-[var(--accent)]/10 flex items-center justify-center">
                 <Award className="h-5 w-5 text-[var(--accent)]" />
               </div>
             </div>
             <ul className="space-y-1.5 text-sm text-[var(--muted-fg)]">
-              {['600+ lessons across IB, DECA, AEO/IEO', 'AI tutor, flashcards & spaced repetition', 'XP, streaks, badges & leaderboard'].map((item) => (
+              {['IB, DECA, AEO/IEO curriculum', 'AI tutor + essay grading', 'Flashcards, quizzes & progress tracking'].map((item) => (
                 <li key={item} className="flex items-center gap-2">
                   <div className="h-1.5 w-1.5 rounded-full bg-[var(--accent)] shrink-0" />
                   {item}
@@ -137,10 +187,13 @@ export function LoginPage() {
             <button
               onClick={() => handleAuth('signup')}
               disabled={loading !== null}
-              className="w-full flex items-center justify-center gap-3 rounded-xl bg-[var(--accent)] px-4 py-3 text-sm font-bold text-[var(--accent-fg)] hover:opacity-90 transition-all disabled:opacity-60"
+              className="w-full flex items-center justify-center gap-2.5 rounded-xl bg-[var(--accent)] px-4 py-3 text-sm font-bold text-[var(--accent-fg)] hover:opacity-90 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading === 'signup' ? (
-                <span className="animate-pulse">Redirecting…</span>
+                <span className="flex items-center gap-2">
+                  <span className="h-4 w-4 rounded-full border-2 border-current border-t-transparent animate-spin" />
+                  Redirecting to Google…
+                </span>
               ) : (
                 <><GoogleIcon /> Sign up with Google <ChevronRight className="h-4 w-4 ml-auto" /></>
               )}
@@ -154,14 +207,17 @@ export function LoginPage() {
             <div className="flex-1 h-px bg-[var(--border)]" />
           </div>
 
-          {/* Sign In row */}
+          {/* Sign In button */}
           <button
             onClick={() => handleAuth('signin')}
             disabled={loading !== null}
-            className="w-full flex items-center justify-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--card-bg)] px-4 py-3 text-sm font-semibold text-[var(--fg)] hover:border-[var(--accent)]/50 hover:bg-[var(--muted)] transition-all disabled:opacity-60"
+            className="w-full flex items-center justify-center gap-2.5 rounded-xl border border-[var(--border)] bg-[var(--card-bg)] px-4 py-3 text-sm font-semibold text-[var(--fg)] hover:border-[var(--accent)]/50 hover:bg-[var(--muted)] active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading === 'signin' ? (
-              <span className="animate-pulse">Redirecting…</span>
+              <span className="flex items-center gap-2">
+                <span className="h-4 w-4 rounded-full border-2 border-current border-t-transparent animate-spin" />
+                Redirecting to Google…
+              </span>
             ) : (
               <><GoogleIcon /> Sign in with Google</>
             )}
