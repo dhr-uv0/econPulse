@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { createClient } from '@/lib/supabase/server'
 import { DashboardHome } from '@/components/dashboard/DashboardHome'
+import { CURRICULUM } from '@/lib/curriculum/data'
 
 export const metadata: Metadata = { title: 'Dashboard' }
 
@@ -39,6 +40,7 @@ export default async function Dashboard() {
       progress={progress ?? []}
       recentQuizzes={recentQuizzes ?? []}
       dueCardCount={dueCards?.length ?? 0}
+      curriculum={CURRICULUM}
     />
   )
 }

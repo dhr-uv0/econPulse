@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import type { QuizQuestion } from '@/lib/types'
 import { createClient } from '@/lib/supabase/client'
 import { cn } from '@/lib/utils'
@@ -16,17 +16,52 @@ interface Props {
   userId: string
   alreadyPassed: boolean
   onPass: () => void
+  onNextLesson?: () => void
 }
 
-export function LessonQuiz({ questions, lessonId, moduleId, userId, alreadyPassed, onPass }: Props) {
+// Fisher-Yates shuffle
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
+
+// Prepared question: options shuffled, correctAnswer remapped
+interface PreparedQuestion extends Omit<QuizQuestion, 'options' | 'correctAnswer'> {
+  options?: string[]
+  correctAnswer: string | number
+  shuffledOptions: string[]
+  shuffledCorrect: number
+}
+
+function prepareQuestions(questions: QuizQuestion[]): PreparedQuestion[] {
+  // Pick up to 4 randomly
+  const pool = shuffle(questions).slice(0, 4)
+  return pool.map((q) => {
+    if (!q.options || typeof q.correctAnswer !== 'number') {
+      return { ...q, options: q.options ?? [], shuffledOptions: q.options ?? [], shuffledCorrect: q.correctAnswer as number }
+    }
+    const correct = q.options[q.correctAnswer as number]
+    const shuffledOptions = shuffle(q.options)
+    const shuffledCorrect = shuffledOptions.indexOf(correct)
+    return { ...q, shuffledOptions, shuffledCorrect }
+  })
+}
+
+export function LessonQuiz({ questions, lessonId, moduleId, userId, alreadyPassed, onPass, onNextLesson }: Props) {
   const supabase = createClient()
+  // Prepare questions once on mount (stable reference via useMemo with no deps = run once)
+  const prepared = useMemo(() => prepareQuestions(questions), []) // eslint-disable-line
   const [current, setCurrent] = useState(0)
   const [selected, setSelected] = useState<number | null>(null)
-  const [answers, setAnswers] = useState<(number | null)[]>(new Array(questions.length).fill(null))
+  const [answers, setAnswers] = useState<(number | null)[]>(new Array(prepared.length).fill(null))
   const [submitted, setSubmitted] = useState(false)
   const [quizDone, setQuizDone] = useState(false)
 
-  if (!questions.length) {
+  if (!prepared.length) {
     return (
       <Card>
         <CardContent className="pt-6 text-center text-[var(--muted-fg)] py-12">
@@ -39,9 +74,9 @@ export function LessonQuiz({ questions, lessonId, moduleId, userId, alreadyPasse
     )
   }
 
-  const q = questions[current]
-  const score = answers.filter((a, i) => a === questions[i].correctAnswer).length
-  const passed = quizDone && score / questions.length >= 0.6
+  const q = prepared[current]
+  const score = answers.filter((a, i) => a === prepared[i].shuffledCorrect).length
+  const passed = quizDone && score / prepared.length >= 0.6
 
   async function handleSubmit() {
     if (selected === null) return
@@ -52,7 +87,7 @@ export function LessonQuiz({ questions, lessonId, moduleId, userId, alreadyPasse
   }
 
   function handleNext() {
-    if (current < questions.length - 1) {
+    if (current < prepared.length - 1) {
       setCurrent(current + 1)
       setSelected(null)
       setSubmitted(false)
@@ -62,15 +97,15 @@ export function LessonQuiz({ questions, lessonId, moduleId, userId, alreadyPasse
   }
 
   async function finishQuiz() {
-    const finalScore = answers.filter((a, i) => a === questions[i].correctAnswer).length
-    const pass = finalScore / questions.length >= 0.6
+    const finalScore = answers.filter((a, i) => a === prepared[i].shuffledCorrect).length
+    const pass = finalScore / prepared.length >= 0.6
     setQuizDone(true)
 
     await supabase.from('quiz_results').insert({
       user_id: userId,
       unit_id: moduleId,
       score: finalScore,
-      total_questions: questions.length,
+      total_questions: prepared.length,
       passed: pass,
       answers: { answers },
       completed_at: new Date().toISOString(),
@@ -84,7 +119,7 @@ export function LessonQuiz({ questions, lessonId, moduleId, userId, alreadyPasse
   function reset() {
     setCurrent(0)
     setSelected(null)
-    setAnswers(new Array(questions.length).fill(null))
+    setAnswers(new Array(prepared.length).fill(null))
     setSubmitted(false)
     setQuizDone(false)
   }
@@ -109,7 +144,7 @@ export function LessonQuiz({ questions, lessonId, moduleId, userId, alreadyPasse
               {passed ? 'Quiz Passed!' : 'Not quite — try again'}
             </h3>
             <p className="text-[var(--muted-fg)]">
-              You scored {score} out of {questions.length} ({Math.round(score / questions.length * 100)}%)
+              You scored {score} out of {prepared.length} ({Math.round(score / prepared.length * 100)}%)
             </p>
             {passed && (
               <div className="mt-2">
@@ -128,7 +163,7 @@ export function LessonQuiz({ questions, lessonId, moduleId, userId, alreadyPasse
               <div className="text-xs text-[var(--muted-fg)]">Correct</div>
             </div>
             <div className="rounded-xl border border-red-500/20 bg-red-500/10 p-3 text-center">
-              <div className="text-2xl font-black text-red-500">{questions.length - score}</div>
+              <div className="text-2xl font-black text-red-500">{prepared.length - score}</div>
               <div className="text-xs text-[var(--muted-fg)]">Incorrect</div>
             </div>
           </div>
@@ -139,8 +174,8 @@ export function LessonQuiz({ questions, lessonId, moduleId, userId, alreadyPasse
               Retry
             </Button>
             {passed && (
-              <Button variant="gold" onClick={() => {}} className="gap-1.5">
-                Next lesson
+              <Button variant="gold" onClick={onNextLesson} className="gap-1.5">
+                {onNextLesson ? 'Next lesson' : 'Back to curriculum'}
                 <ChevronRight className="h-3.5 w-3.5" />
               </Button>
             )}
@@ -151,15 +186,15 @@ export function LessonQuiz({ questions, lessonId, moduleId, userId, alreadyPasse
   }
 
   // Question screen
-  const isCorrect = submitted && selected === q.correctAnswer
+  const isCorrect = submitted && selected === q.shuffledCorrect
 
   return (
     <div className="space-y-4">
       {/* Progress */}
       <div className="flex items-center justify-between text-sm">
-        <span className="text-[var(--muted-fg)]">Question {current + 1} of {questions.length}</span>
+        <span className="text-[var(--muted-fg)]">Question {current + 1} of {prepared.length}</span>
         <div className="flex gap-1">
-          {questions.map((_, i) => (
+          {prepared.map((_, i) => (
             <div
               key={i}
               className={cn(
@@ -189,11 +224,11 @@ export function LessonQuiz({ questions, lessonId, moduleId, userId, alreadyPasse
           </div>
 
           {/* Options (MCQ) */}
-          {q.options && q.options.length > 0 && (
+          {q.shuffledOptions && q.shuffledOptions.length > 0 && (
             <div className="space-y-2">
-              {q.options.map((opt, i) => {
+              {q.shuffledOptions.map((opt, i) => {
                 const isSelected = selected === i
-                const correct = q.correctAnswer === i
+                const correct = q.shuffledCorrect === i
                 let variant: 'default' | 'correct' | 'wrong' | 'show-correct' = 'default'
                 if (submitted) {
                   if (isSelected && correct) variant = 'correct'

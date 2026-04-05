@@ -9,16 +9,64 @@ import {
 
 interface Props {
   lessonId: string
-  diagramType: string
+  diagramType: string | undefined
+}
+
+// Map lesson IDs to specific diagram types for Foundation/Intermediate modules
+const LESSON_DIAGRAM_MAP: Record<string, string> = {
+  'f1-l1': 'scarcity-slider',
+  'f1-l2': 'scarcity-slider',
+  'f1-l3': 'ppc-slider',
+  'f1-l4': 'scarcity-slider',
+  'f1-l5': 'demand-curve-shifter',
+  'f2-l1': 'demand-curve-shifter',
+  'f2-l2': 'demand-curve-shifter',
+  'f2-l3': 'price-mechanism-simulator',
+  'f2-l4': 'demand-curve-shifter',
+  'f2-l5': 'price-mechanism-simulator',
+  'f3-l1': 'elasticity-calculator',
+  'f3-l2': 'elasticity-calculator',
+  'f3-l3': 'elasticity-calculator',
+  'f3-l4': 'elasticity-calculator',
+  'f3-l5': 'tax-incidence',
+  'f4-l1': 'demand-curve-shifter',
+  'f4-l2': 'demand-curve-shifter',
+  'f4-l3': 'demand-curve-shifter',
+  'f4-l4': 'demand-curve-shifter',
+  'f5-l2': 'tax-incidence',
+  'f5-l3': 'price-mechanism-simulator',
+  'f5-l4': 'tax-incidence',
+  'f6-l1': 'gdp-components',
+  'f6-l2': 'business-cycle',
+  'f6-l5': 'adas-diagram',
+  'i1-l1': 'cost-curves',
+  'i1-l2': 'cost-curves',
+  'i1-l3': 'cost-curves',
+  'i1-l4': 'cost-curves',
+  'i2-l1': 'demand-curve-shifter',
+  'i2-l2': 'demand-curve-shifter',
+  'i4-l1': 'adas-diagram',
+  'i4-l2': 'adas-diagram',
+  'i4-l3': 'adas-diagram',
+  'i4-l4': 'adas-diagram',
+  'i4-l5': 'adas-diagram',
+  'i4-l6': 'demand-curve-shifter',
 }
 
 export function InteractiveDiagram({ lessonId, diagramType }: Props) {
-  switch (diagramType) {
-    case 'demand-curve-shifter': return <DemandCurveShifter />
-    case 'ppc-slider':           return <PPCSlider />
-    case 'scarcity-slider':      return <ScarcityDiagram />
+  const resolved = LESSON_DIAGRAM_MAP[lessonId] ?? diagramType
+  switch (resolved) {
+    case 'demand-curve-shifter':    return <DemandCurveShifter />
+    case 'ppc-slider':              return <PPCSlider />
+    case 'scarcity-slider':         return <ScarcityDiagram />
     case 'price-mechanism-simulator': return <PriceMechanism />
-    default:                     return <DefaultDiagram lessonId={lessonId} />
+    case 'elasticity-calculator':   return <ElasticityCalculator />
+    case 'tax-incidence':           return <TaxIncidence />
+    case 'cost-curves':             return <CostCurves />
+    case 'adas-diagram':            return <ADASDiagram />
+    case 'gdp-components':          return <GDPComponents />
+    case 'business-cycle':          return <BusinessCycle />
+    default:                        return <DefaultDiagram lessonId={lessonId} exerciseText={diagramType} />
   }
 }
 
@@ -399,8 +447,457 @@ function PriceMechanism() {
   )
 }
 
-/* ── Default placeholder ─────────────────────────────────────────────────── */
-function DefaultDiagram({ lessonId }: { lessonId: string }) {
+/* ── Elasticity Calculator ───────────────────────────────────────────────── */
+function ElasticityCalculator() {
+  const [p1, setP1] = useState(10)
+  const [p2, setP2] = useState(12)
+  const [q1, setQ1] = useState(100)
+  const [q2, setQ2] = useState(80)
+
+  const pctQ = ((q2 - q1) / ((q1 + q2) / 2)) * 100
+  const pctP = ((p2 - p1) / ((p1 + p2) / 2)) * 100
+  const ped = pctQ / pctP
+  const pedAbs = Math.abs(ped)
+
+  const classify = pedAbs > 1 ? 'Elastic' : pedAbs < 1 ? 'Inelastic' : 'Unit Elastic'
+  const classColor = pedAbs > 1 ? 'text-blue-500' : pedAbs < 1 ? 'text-red-500' : 'text-green-500'
+
+  return (
+    <Card>
+      <CardContent className="pt-6 space-y-6">
+        <div>
+          <h3 className="font-bold text-[var(--fg)] mb-1">Elasticity Calculator (Midpoint Method)</h3>
+          <p className="text-sm text-[var(--muted-fg)]">
+            PED = (% change in Qd) ÷ (% change in P). Adjust price and quantity to see elasticity change.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-6">
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <label className="text-sm font-semibold text-[var(--fg)]">Original Price (P₁): ${p1}</label>
+              <input type="range" min={1} max={20} value={p1} onChange={(e) => setP1(Number(e.target.value))} className="w-full accent-blue-500" />
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-semibold text-[var(--fg)]">New Price (P₂): ${p2}</label>
+              <input type="range" min={1} max={30} value={p2} onChange={(e) => setP2(Number(e.target.value))} className="w-full accent-blue-500" />
+            </div>
+          </div>
+          <div className="space-y-4">
+            <div className="space-y-2">
+              <label className="text-sm font-semibold text-[var(--fg)]">Original Qty (Q₁): {q1}</label>
+              <input type="range" min={10} max={200} value={q1} onChange={(e) => setQ1(Number(e.target.value))} className="w-full accent-green-500" />
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-semibold text-[var(--fg)]">New Qty (Q₂): {q2}</label>
+              <input type="range" min={10} max={200} value={q2} onChange={(e) => setQ2(Number(e.target.value))} className="w-full accent-green-500" />
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-3 gap-3 text-center">
+          <div className="rounded-xl border border-[var(--border)] p-3">
+            <div className="text-sm font-semibold text-[var(--muted-fg)]">% ΔQd</div>
+            <div className="text-xl font-black text-green-500">{pctQ.toFixed(1)}%</div>
+          </div>
+          <div className="rounded-xl border border-[var(--border)] p-3">
+            <div className="text-sm font-semibold text-[var(--muted-fg)]">% ΔP</div>
+            <div className="text-xl font-black text-blue-500">{pctP.toFixed(1)}%</div>
+          </div>
+          <div className="rounded-xl border border-[var(--accent)]/30 bg-[var(--accent)]/10 p-3">
+            <div className="text-sm font-semibold text-[var(--muted-fg)]">PED</div>
+            <div className={`text-xl font-black ${classColor}`}>{ped.toFixed(2)}</div>
+          </div>
+        </div>
+
+        <div className={`rounded-xl border-2 p-4 text-center ${pedAbs > 1 ? 'border-blue-500/30 bg-blue-500/10' : pedAbs < 1 ? 'border-red-500/30 bg-red-500/10' : 'border-green-500/30 bg-green-500/10'}`}>
+          <div className={`text-2xl font-black ${classColor}`}>{classify}</div>
+          <p className="text-sm text-[var(--muted-fg)] mt-1">
+            {pedAbs > 1 ? 'Consumers are sensitive to price. A price rise decreases total revenue.' :
+             pedAbs < 1 ? 'Consumers are insensitive to price. A price rise increases total revenue.' :
+             'Revenue unchanged — 1% price change = 1% quantity change.'}
+          </p>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
+/* ── Tax Incidence Diagram ───────────────────────────────────────────────── */
+function TaxIncidence() {
+  const [taxRate, setTaxRate] = useState(3)
+  const [pedSlider, setPedSlider] = useState(5) // 1=inelastic, 10=elastic
+
+  const D_INTERCEPT = 12
+  const S_INTERCEPT = 2
+  const D_SLOPE = -(1 + (pedSlider - 1) * 0.15)
+  const S_SLOPE = 0.6
+
+  const eqQ = (D_INTERCEPT - S_INTERCEPT) / (S_SLOPE - D_SLOPE)
+  const eqP = D_INTERCEPT + D_SLOPE * eqQ
+
+  const newSIntercept = S_INTERCEPT + taxRate
+  const newQ = (D_INTERCEPT - newSIntercept) / (S_SLOPE - D_SLOPE)
+  const pBuyer = D_INTERCEPT + D_SLOPE * newQ
+  const pSeller = pBuyer - taxRate
+
+  const consumerBurden = pBuyer - eqP
+  const producerBurden = eqP - pSeller
+
+  const data = Array.from({ length: 11 }, (_, i) => ({
+    q: i,
+    demand: Math.max(0, D_INTERCEPT + D_SLOPE * i),
+    supply: Math.max(0, S_INTERCEPT + S_SLOPE * i),
+    supplyTax: Math.max(0, newSIntercept + S_SLOPE * i),
+  }))
+
+  return (
+    <Card>
+      <CardContent className="pt-6 space-y-6">
+        <div>
+          <h3 className="font-bold text-[var(--fg)] mb-1">Tax Incidence Interactive</h3>
+          <p className="text-sm text-[var(--muted-fg)]">
+            See how a per-unit tax is split between consumers and producers depending on elasticity.
+          </p>
+        </div>
+
+        <ResponsiveContainer width="100%" height={260}>
+          <LineChart data={data} margin={{ top: 10, right: 30, bottom: 30, left: 0 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
+            <XAxis dataKey="q" label={{ value: 'Quantity', position: 'insideBottom', offset: -10, fill: 'var(--muted-fg)', fontSize: 11 }} tick={{ fill: 'var(--muted-fg)', fontSize: 11 }} />
+            <YAxis domain={[0, 14]} label={{ value: 'Price ($)', angle: -90, position: 'insideLeft', fill: 'var(--muted-fg)', fontSize: 11 }} tick={{ fill: 'var(--muted-fg)', fontSize: 11 }} />
+            <Tooltip contentStyle={{ background: 'var(--card-bg)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 11 }} />
+            <ReferenceLine y={pBuyer.toFixed(1)} stroke="#3b82f6" strokeDasharray="4 4" label={{ value: `Buyer $${pBuyer.toFixed(2)}`, fill: '#3b82f6', fontSize: 10 }} />
+            <ReferenceLine y={pSeller > 0 ? pSeller.toFixed(1) : 0} stroke="#22c55e" strokeDasharray="4 4" label={{ value: `Seller $${Math.max(0, pSeller).toFixed(2)}`, fill: '#22c55e', fontSize: 10, position: 'right' }} />
+            <Line type="monotone" dataKey="demand" stroke="#3b82f6" strokeWidth={2.5} dot={false} name="Demand" />
+            <Line type="monotone" dataKey="supply" stroke="#22c55e" strokeWidth={2} dot={false} name="Supply (pre-tax)" strokeDasharray="5 5" />
+            <Line type="monotone" dataKey="supplyTax" stroke="#ef4444" strokeWidth={2.5} dot={false} name="Supply (post-tax)" />
+          </LineChart>
+        </ResponsiveContainer>
+
+        <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <label className="text-sm font-semibold">Per-unit tax: ${taxRate}</label>
+            <input type="range" min={0} max={6} step={0.5} value={taxRate} onChange={(e) => setTaxRate(Number(e.target.value))} className="w-full accent-red-500" />
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm font-semibold">Demand elasticity: {pedSlider <= 3 ? 'Inelastic' : pedSlider >= 8 ? 'Elastic' : 'Moderate'}</label>
+            <input type="range" min={1} max={10} value={pedSlider} onChange={(e) => setPedSlider(Number(e.target.value))} className="w-full accent-blue-500" />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 text-center">
+          <div className="rounded-xl border border-blue-500/30 bg-blue-500/10 p-3">
+            <div className="text-lg font-black text-blue-500">${Math.max(0, consumerBurden).toFixed(2)}</div>
+            <div className="text-xs text-[var(--muted-fg)]">Consumer burden per unit</div>
+          </div>
+          <div className="rounded-xl border border-green-500/30 bg-green-500/10 p-3">
+            <div className="text-lg font-black text-green-500">${Math.max(0, producerBurden).toFixed(2)}</div>
+            <div className="text-xs text-[var(--muted-fg)]">Producer burden per unit</div>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
+/* ── Cost Curves ─────────────────────────────────────────────────────────── */
+function CostCurves() {
+  const [tfc, setTfc] = useState(100)
+  const [variable, setVariable] = useState(5) // variable cost coefficient
+
+  const data = Array.from({ length: 12 }, (_, q) => {
+    if (q === 0) return { q, afc: null, avc: null, atc: null, mc: null }
+    const tvc = variable * q + 0.3 * q * q
+    const tc = tfc + tvc
+    const mc = variable + 0.6 * q
+    return {
+      q,
+      afc: +(tfc / q).toFixed(2),
+      avc: +(tvc / q).toFixed(2),
+      atc: +(tc / q).toFixed(2),
+      mc: +mc.toFixed(2),
+    }
+  }).filter(d => d.q > 0)
+
+  const minATC = data.reduce((min, d) => d.atc! < min.atc! ? d : min)
+
+  return (
+    <Card>
+      <CardContent className="pt-6 space-y-6">
+        <div>
+          <h3 className="font-bold text-[var(--fg)] mb-1">Cost Curves Interactive</h3>
+          <p className="text-sm text-[var(--muted-fg)]">
+            Adjust fixed costs and variable costs to see how ATC, AVC, AFC, and MC shift. MC always intersects ATC at its minimum.
+          </p>
+        </div>
+
+        <ResponsiveContainer width="100%" height={270}>
+          <LineChart data={data} margin={{ top: 10, right: 20, bottom: 30, left: 0 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
+            <XAxis dataKey="q" label={{ value: 'Output (Q)', position: 'insideBottom', offset: -10, fill: 'var(--muted-fg)', fontSize: 11 }} tick={{ fill: 'var(--muted-fg)', fontSize: 11 }} />
+            <YAxis domain={[0, 80]} label={{ value: 'Cost ($)', angle: -90, position: 'insideLeft', fill: 'var(--muted-fg)', fontSize: 11 }} tick={{ fill: 'var(--muted-fg)', fontSize: 11 }} />
+            <Tooltip contentStyle={{ background: 'var(--card-bg)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 11 }} />
+            <ReferenceLine x={minATC.q} stroke="var(--accent)" strokeDasharray="5 5" label={{ value: `Min ATC @ Q=${minATC.q}`, fill: 'var(--accent)', fontSize: 10 }} />
+            <Line type="monotone" dataKey="afc" stroke="#94a3b8" strokeWidth={2} dot={false} name="AFC" />
+            <Line type="monotone" dataKey="avc" stroke="#22c55e" strokeWidth={2} dot={false} name="AVC" />
+            <Line type="monotone" dataKey="atc" stroke="#3b82f6" strokeWidth={2.5} dot={false} name="ATC" />
+            <Line type="monotone" dataKey="mc" stroke="#ef4444" strokeWidth={2.5} dot={false} name="MC" />
+          </LineChart>
+        </ResponsiveContainer>
+
+        <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <label className="text-sm font-semibold">Total Fixed Cost: ${tfc}</label>
+            <input type="range" min={20} max={300} step={10} value={tfc} onChange={(e) => setTfc(Number(e.target.value))} className="w-full accent-blue-500" />
+            <p className="text-xs text-[var(--muted-fg)]">Higher TFC → AFC curve shifts up, ATC shifts up</p>
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm font-semibold">Variable cost factor: {variable}</label>
+            <input type="range" min={1} max={10} value={variable} onChange={(e) => setVariable(Number(e.target.value))} className="w-full accent-green-500" />
+            <p className="text-xs text-[var(--muted-fg)]">Higher variable costs → AVC and MC shift up</p>
+          </div>
+        </div>
+
+        <div className="flex gap-4 text-xs flex-wrap">
+          {[['AFC','#94a3b8','Average Fixed Cost'], ['AVC','#22c55e','Average Variable Cost'], ['ATC','#3b82f6','Average Total Cost'], ['MC','#ef4444','Marginal Cost']].map(([k, c, label]) => (
+            <div key={k} className="flex items-center gap-1.5">
+              <div className="h-2 w-6 rounded-full" style={{ background: c }} />
+              <span className="text-[var(--muted-fg)]">{label}</span>
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
+/* ── AD/AS Diagram ───────────────────────────────────────────────────────── */
+function ADASDiagram() {
+  const [adShift, setAdShift] = useState(0)
+  const [srasShift, setSrasShift] = useState(0)
+  const [showLRAS, setShowLRAS] = useState(true)
+
+  const AD_INT = 14 + adShift * 1.5
+  const SRAS_INT = 2 + srasShift * 1.5
+  const AD_SLOPE = -0.9
+  const SRAS_SLOPE = 0.7
+  const LRAS_X = 8
+
+  const eqQ = (AD_INT - SRAS_INT) / (SRAS_SLOPE - AD_SLOPE)
+  const eqP = AD_INT + AD_SLOPE * eqQ
+
+  const data = Array.from({ length: 16 }, (_, i) => ({
+    q: i,
+    ad: Math.max(0, AD_INT + AD_SLOPE * i),
+    sras: Math.max(0, SRAS_INT + SRAS_SLOPE * i),
+  }))
+
+  const gap = eqQ - LRAS_X
+  const gapLabel = Math.abs(gap) < 0.3 ? 'At potential output' : gap > 0 ? 'Inflationary gap' : 'Recessionary gap'
+  const gapColor = Math.abs(gap) < 0.3 ? 'text-green-500' : gap > 0 ? 'text-red-500' : 'text-blue-500'
+
+  return (
+    <Card>
+      <CardContent className="pt-6 space-y-6">
+        <div>
+          <h3 className="font-bold text-[var(--fg)] mb-1">AD/AS Model Interactive</h3>
+          <p className="text-sm text-[var(--muted-fg)]">
+            Shift AD (demand shocks) and SRAS (supply shocks) to see output gaps and price level changes.
+          </p>
+        </div>
+
+        <ResponsiveContainer width="100%" height={270}>
+          <LineChart data={data} margin={{ top: 10, right: 30, bottom: 30, left: 0 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
+            <XAxis dataKey="q" label={{ value: 'Real GDP', position: 'insideBottom', offset: -10, fill: 'var(--muted-fg)', fontSize: 11 }} tick={{ fill: 'var(--muted-fg)', fontSize: 11 }} />
+            <YAxis domain={[0, 14]} label={{ value: 'Price Level', angle: -90, position: 'insideLeft', fill: 'var(--muted-fg)', fontSize: 11 }} tick={{ fill: 'var(--muted-fg)', fontSize: 11 }} />
+            <Tooltip contentStyle={{ background: 'var(--card-bg)', border: '1px solid var(--border)', borderRadius: 8, fontSize: 11 }} />
+            <ReferenceLine x={eqQ.toFixed(1)} stroke="var(--accent)" strokeDasharray="4 4" />
+            <ReferenceLine y={eqP.toFixed(1)} stroke="var(--accent)" strokeDasharray="4 4" />
+            {showLRAS && <ReferenceLine x={LRAS_X} stroke="#a855f7" strokeWidth={2.5} label={{ value: 'LRAS', fill: '#a855f7', fontSize: 11, position: 'top' }} />}
+            <Line type="monotone" dataKey="ad" stroke="#3b82f6" strokeWidth={2.5} dot={false} name="AD" />
+            <Line type="monotone" dataKey="sras" stroke="#f59e0b" strokeWidth={2.5} dot={false} name="SRAS" />
+          </LineChart>
+        </ResponsiveContainer>
+
+        <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-blue-500">AD Shift (demand shock): {adShift > 0 ? '+' : ''}{adShift}</label>
+            <input type="range" min={-3} max={3} step={0.5} value={adShift} onChange={(e) => setAdShift(Number(e.target.value))} className="w-full accent-blue-500" />
+            <p className="text-xs text-[var(--muted-fg)]">{adShift > 0 ? '📈 Positive demand shock (stimulus, confidence rise)' : adShift < 0 ? '📉 Negative demand shock (recession, fear, austerity)' : 'AD neutral'}</p>
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-amber-500">SRAS Shift (supply shock): {srasShift > 0 ? '+' : ''}{srasShift}</label>
+            <input type="range" min={-3} max={3} step={0.5} value={srasShift} onChange={(e) => setSrasShift(Number(e.target.value))} className="w-full accent-amber-500" />
+            <p className="text-xs text-[var(--muted-fg)]">{srasShift > 0 ? '✅ Favourable supply shock (tech, lower input costs)' : srasShift < 0 ? '⚠️ Adverse supply shock (oil crisis, stagflation)' : 'SRAS neutral'}</p>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-between">
+          <div className={`rounded-xl border-2 px-4 py-2 text-center ${Math.abs(gap) < 0.3 ? 'border-green-500/30 bg-green-500/10' : gap > 0 ? 'border-red-500/30 bg-red-500/10' : 'border-blue-500/30 bg-blue-500/10'}`}>
+            <div className={`font-black ${gapColor}`}>{gapLabel}</div>
+            <div className="text-xs text-[var(--muted-fg)]">Equilibrium GDP: {eqQ.toFixed(1)} | Potential: {LRAS_X}</div>
+          </div>
+          <button onClick={() => setShowLRAS(!showLRAS)} className="text-xs text-purple-500 border border-purple-500/30 rounded-lg px-3 py-2 hover:bg-purple-500/10 transition-colors">
+            {showLRAS ? 'Hide' : 'Show'} LRAS
+          </button>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
+/* ── GDP Components ──────────────────────────────────────────────────────── */
+function GDPComponents() {
+  const [consumption, setConsumption] = useState(65)
+  const [investment, setInvestment] = useState(15)
+  const [government, setGovernment] = useState(20)
+  const [netExports, setNetExports] = useState(-5)
+
+  const gdp = consumption + investment + government + netExports
+  const components = [
+    { label: 'C — Consumption', value: consumption, color: '#3b82f6', pct: (consumption / gdp * 100).toFixed(1) },
+    { label: 'I — Investment', value: investment, color: '#22c55e', pct: (investment / gdp * 100).toFixed(1) },
+    { label: 'G — Government', value: government, color: '#f59e0b', pct: (government / gdp * 100).toFixed(1) },
+    { label: 'X−M — Net Exports', value: netExports, color: netExports >= 0 ? '#8b5cf6' : '#ef4444', pct: (netExports / gdp * 100).toFixed(1) },
+  ]
+
+  return (
+    <Card>
+      <CardContent className="pt-6 space-y-6">
+        <div>
+          <h3 className="font-bold text-[var(--fg)] mb-1">GDP = C + I + G + (X−M)</h3>
+          <p className="text-sm text-[var(--muted-fg)]">
+            Adjust each component and see its share of GDP. This is the expenditure approach.
+          </p>
+        </div>
+
+        {/* Bar chart */}
+        <div className="space-y-3">
+          {components.map(({ label, value, color, pct }) => (
+            <div key={label}>
+              <div className="flex justify-between text-xs mb-1">
+                <span style={{ color }} className="font-semibold">{label}</span>
+                <span className="text-[var(--muted-fg)]">${value}B ({pct}%)</span>
+              </div>
+              <div className="h-5 rounded-full bg-[var(--muted)] overflow-hidden">
+                <div className="h-full rounded-full transition-all duration-300" style={{ width: `${Math.max(0, (value / 120 * 100))}%`, background: color }} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="rounded-xl border border-[var(--accent)]/30 bg-[var(--accent)]/10 p-4 text-center">
+          <div className="text-3xl font-black text-[var(--accent)]">GDP = ${gdp}B</div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-4">
+          {[
+            { label: 'Consumption (C)', val: consumption, set: setConsumption, min: 30, max: 100, color: 'blue' },
+            { label: 'Investment (I)', val: investment, set: setInvestment, min: 0, max: 40, color: 'green' },
+            { label: 'Government (G)', val: government, set: setGovernment, min: 0, max: 50, color: 'amber' },
+            { label: 'Net Exports (X−M)', val: netExports, set: setNetExports, min: -20, max: 20, color: 'purple' },
+          ].map(({ label, val, set, min, max, color }) => (
+            <div key={label} className="space-y-1">
+              <label className="text-xs font-semibold text-[var(--muted-fg)]">{label}: ${val}B</label>
+              <input type="range" min={min} max={max} value={val} onChange={(e) => set(Number(e.target.value))} className={`w-full accent-${color}-500`} />
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
+/* ── Business Cycle ──────────────────────────────────────────────────────── */
+function BusinessCycle() {
+  const [phase, setPhase] = useState(2) // 0=trough, 1=recovery, 2=peak, 3=recession
+
+  const phases = [
+    { name: 'Trough', color: '#ef4444', gdp: 'Below potential', unemployment: 'High (>6%)', inflation: 'Low (<2%)', policy: 'Expansionary fiscal & monetary policy' },
+    { name: 'Recovery', color: '#f59e0b', gdp: 'Rising toward potential', unemployment: 'Falling', inflation: 'Rising moderately', policy: 'Gradual removal of stimulus' },
+    { name: 'Peak / Boom', color: '#22c55e', gdp: 'Above potential (inflationary gap)', unemployment: 'Very low (<4%)', inflation: 'High (>3%)', policy: 'Contractionary policy (rate hikes)' },
+    { name: 'Recession', color: '#3b82f6', gdp: 'Falling below potential', unemployment: 'Rising', inflation: 'Falling', policy: 'Consider expansionary stimulus' },
+  ]
+
+  const cycleData = Array.from({ length: 37 }, (_, i) => ({
+    t: i,
+    gdp: 50 + 20 * Math.sin((i / 36) * 2 * Math.PI),
+    potential: 50,
+  }))
+
+  const current = phases[phase]
+  const phasePosition = [3, 10, 19, 28]
+
+  return (
+    <Card>
+      <CardContent className="pt-6 space-y-6">
+        <div>
+          <h3 className="font-bold text-[var(--fg)] mb-1">The Business Cycle</h3>
+          <p className="text-sm text-[var(--muted-fg)]">Select a phase to see GDP, unemployment, inflation, and appropriate policy response.</p>
+        </div>
+
+        <ResponsiveContainer width="100%" height={220}>
+          <LineChart data={cycleData} margin={{ top: 10, right: 20, bottom: 20, left: 0 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
+            <XAxis dataKey="t" hide />
+            <YAxis domain={[20, 80]} hide />
+            <ReferenceLine y={50} stroke="#a855f7" strokeWidth={1.5} strokeDasharray="5 5" label={{ value: 'Potential Output', fill: '#a855f7', fontSize: 10, position: 'right' }} />
+            <ReferenceLine x={phasePosition[phase]} stroke={current.color} strokeWidth={2} label={{ value: current.name, fill: current.color, fontSize: 11, position: 'top' }} />
+            <Line type="monotone" dataKey="gdp" stroke="#3b82f6" strokeWidth={3} dot={false} name="Real GDP" />
+          </LineChart>
+        </ResponsiveContainer>
+
+        <div className="flex gap-2 flex-wrap">
+          {phases.map((p, i) => (
+            <button key={p.name} onClick={() => setPhase(i)} className={`rounded-lg px-3 py-1.5 text-sm font-semibold transition-all border-2 ${phase === i ? 'text-white border-transparent' : 'border-[var(--border)] text-[var(--muted-fg)] hover:text-[var(--fg)]'}`} style={phase === i ? { background: p.color, borderColor: p.color } : {}}>
+              {p.name}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          {[
+            { label: 'GDP', value: current.gdp },
+            { label: 'Unemployment', value: current.unemployment },
+            { label: 'Inflation', value: current.inflation },
+            { label: 'Policy Response', value: current.policy },
+          ].map(({ label, value }) => (
+            <div key={label} className="rounded-xl border border-[var(--border)] p-3">
+              <div className="text-xs font-bold uppercase tracking-wider mb-1" style={{ color: current.color }}>{label}</div>
+              <div className="text-sm text-[var(--fg)]">{value}</div>
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
+/* ── Default — shows exercise instructions or placeholder ────────────────── */
+function DefaultDiagram({ lessonId, exerciseText }: { lessonId: string; exerciseText?: string }) {
+  if (exerciseText) {
+    return (
+      <Card>
+        <CardContent className="pt-6 space-y-4">
+          <div className="flex items-center gap-2">
+            <span className="text-2xl">📐</span>
+            <h3 className="font-bold text-[var(--fg)]">Diagram &amp; Exercise</h3>
+          </div>
+          <p className="text-sm text-[var(--muted-fg)] italic">
+            Work through this exercise on paper or in your notes:
+          </p>
+          <div className="rounded-xl border border-[var(--border)] bg-[var(--muted)]/40 p-4 text-sm text-[var(--fg)] leading-relaxed whitespace-pre-line">
+            {exerciseText}
+          </div>
+          <p className="text-xs text-[var(--muted-fg)]">
+            Tip: Sketch diagrams by hand — examiners award marks for labelled diagrams, and drawing them yourself reinforces your memory.
+          </p>
+        </CardContent>
+      </Card>
+    )
+  }
   return (
     <Card>
       <CardContent className="pt-6 text-center text-[var(--muted-fg)] py-12">

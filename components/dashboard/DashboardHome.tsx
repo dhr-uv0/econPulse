@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useMemo } from 'react'
-import type { Profile, Streak, CurriculumProgress, QuizResult } from '@/lib/types'
+import type { Profile, Streak, CurriculumProgress, QuizResult, CurriculumModule } from '@/lib/types'
 import { levelFromXP, clampProgress } from '@/lib/utils'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -23,39 +23,58 @@ interface Props {
   progress: CurriculumProgress[]
   recentQuizzes: QuizResult[]
   dueCardCount: number
+  curriculum: CurriculumModule[]
 }
 
-const MODULES = [
-  { id: 'ib-intro',   label: 'IB: Intro to Economics',  color: 'bg-blue-500'   },
-  { id: 'ib-micro',   label: 'IB: Microeconomics',       color: 'bg-indigo-500' },
-  { id: 'ib-macro',   label: 'IB: Macroeconomics',       color: 'bg-purple-500' },
-  { id: 'ib-intl',    label: 'IB: International Econ',   color: 'bg-violet-500' },
-  { id: 'aeo-micro',  label: 'AEO: Advanced Micro',      color: 'bg-amber-500'  },
-  { id: 'aeo-macro',  label: 'AEO: Advanced Macro',      color: 'bg-orange-500' },
-  { id: 'deca',       label: 'DECA Economics',            color: 'bg-green-500'  },
-  { id: 'principles', label: 'Principles of Econ',        color: 'bg-teal-500'   },
-]
+// Hex color → Tailwind-compatible bg class fallback
+const TIER_BG: Record<string, string> = {
+  FOUNDATIONS:  'bg-green-500',
+  INTERMEDIATE: 'bg-blue-500',
+  AP:           'bg-amber-500',
+  IB:           'bg-purple-500',
+  OLYMPIAD:     'bg-red-500',
+  DECA:         'bg-cyan-500',
+}
 
-export function DashboardHome({ profile, streak, progress, recentQuizzes, dueCardCount }: Props) {
+export function DashboardHome({ profile, streak, progress, recentQuizzes, dueCardCount, curriculum }: Props) {
   const xp = profile?.xp_points ?? 0
   const { level, title: levelTitle, nextLevelXP } = levelFromXP(xp)
   const xpPct = clampProgress((xp / nextLevelXP) * 100)
 
-  const completedCount = useMemo(
-    () => progress.filter((p) => p.status === 'completed').length,
+  const completedIds = useMemo(
+    () => new Set(progress.filter((p) => p.status === 'completed').map((p) => p.lesson_id)),
     [progress]
   )
-  const totalLessons = 600
-  const overallMastery = clampProgress(Math.round((completedCount / totalLessons) * 100))
 
+  const totalLessons = useMemo(() => curriculum.reduce((s, m) => s + m.lessons.length, 0), [curriculum])
+  const completedCount = completedIds.size
+  const overallMastery = clampProgress(Math.round((completedCount / Math.max(totalLessons, 1)) * 100))
+
+  // Per-module progress using real lesson IDs
   const moduleProgress = useMemo(() => {
-    return MODULES.map((mod) => {
-      const modProgress = progress.filter((p) => p.module_name === mod.id)
-      const done = modProgress.filter((p) => p.status === 'completed').length
-      const total = Math.max(modProgress.length, 1)
-      return { ...mod, pct: clampProgress(Math.round((done / total) * 100)) }
+    return curriculum.map((mod) => {
+      const done = mod.lessons.filter((l) => completedIds.has(l.id)).length
+      const total = mod.lessons.length
+      const tier = mod.tier ?? 'FOUNDATIONS'
+      return {
+        id: mod.id,
+        label: mod.title,
+        colorClass: TIER_BG[tier] ?? 'bg-blue-500',
+        pct: clampProgress(total > 0 ? Math.round((done / total) * 100) : 0),
+        done,
+        total,
+      }
     })
-  }, [progress])
+  }, [curriculum, completedIds])
+
+  // Find the actual next lesson to study
+  const nextLessonInfo = useMemo(() => {
+    for (const mod of curriculum) {
+      const next = mod.lessons.find((l) => !completedIds.has(l.id))
+      if (next) return { lesson: next, module: mod }
+    }
+    return null
+  }, [curriculum, completedIds])
 
   const avgScore = useMemo(() => {
     if (!recentQuizzes.length) return null
@@ -135,7 +154,7 @@ export function DashboardHome({ profile, streak, progress, recentQuizzes, dueCar
             <TrendingUp className="h-4 w-4 text-green-500" />
           </div>
           <div className="text-3xl font-black text-[var(--fg)]">{overallMastery}%</div>
-          <div className="text-xs text-[var(--muted-fg)] mt-0.5">{completedCount} / {totalLessons} lessons</div>
+          <div className="text-xs text-[var(--muted-fg)] mt-0.5">{completedCount} / {totalLessons} lessons done</div>
           <Progress value={overallMastery} className="mt-2 h-1.5" indicatorClassName="bg-green-500" />
         </Card>
 
@@ -183,19 +202,19 @@ export function DashboardHome({ profile, streak, progress, recentQuizzes, dueCar
               </div>
             </CardHeader>
             <CardContent className="space-y-3">
-              {moduleProgress.map(({ id, label, color, pct }) => (
-                <div key={id} className="space-y-1">
+              {moduleProgress.map(({ id, label, colorClass, pct, done, total }) => (
+                <Link key={id} href={`/curriculum`} className="block space-y-1 group">
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-[var(--fg)] font-medium">{label}</span>
-                    <span className="text-[var(--muted-fg)]">{pct}%</span>
+                    <span className="text-[var(--fg)] font-medium group-hover:text-[var(--accent)] transition-colors truncate max-w-[70%]">{label}</span>
+                    <span className="text-[var(--muted-fg)] shrink-0">{done}/{total}</span>
                   </div>
                   <div className="relative h-2 overflow-hidden rounded-full bg-[var(--muted)]">
                     <div
-                      className={`h-full rounded-full transition-all duration-700 ${color}`}
+                      className={`h-full rounded-full transition-all duration-700 ${colorClass}`}
                       style={{ width: `${pct}%` }}
                     />
                   </div>
-                </div>
+                </Link>
               ))}
             </CardContent>
           </Card>
@@ -238,10 +257,18 @@ export function DashboardHome({ profile, streak, progress, recentQuizzes, dueCar
             </CardHeader>
             <CardContent className="space-y-3">
               {[
-                { label: 'Continue: Supply & Demand', sub: 'IB Microeconomics · 8 min', href: '/curriculum', color: 'bg-blue-500/10 text-blue-600 dark:text-blue-400' },
-                { label: 'Review flashcards', sub: `${dueCardCount} cards due`, href: '/flashcards', color: 'bg-amber-500/10 text-amber-600 dark:text-amber-400' },
-                { label: 'Practice quiz', sub: 'Elasticities · 5 questions', href: '/quiz', color: 'bg-green-500/10 text-green-600 dark:text-green-400' },
-              ].map(({ label, sub, href, color }) => (
+                nextLessonInfo ? {
+                  label: `Continue: ${nextLessonInfo.lesson.title}`,
+                  sub: `${nextLessonInfo.module.title} · ${nextLessonInfo.lesson.estimatedMinutes} min`,
+                  href: `/curriculum/${nextLessonInfo.module.id}/${nextLessonInfo.lesson.id}`,
+                } : {
+                  label: 'Browse curriculum',
+                  sub: 'All lessons completed!',
+                  href: '/curriculum',
+                },
+                { label: 'Review flashcards', sub: dueCardCount > 0 ? `${dueCardCount} cards due` : 'All caught up', href: '/flashcards' },
+                { label: 'Practice quiz', sub: 'Random questions · 4 questions', href: '/quiz' },
+              ].map(({ label, sub, href }) => (
                 <Link
                   key={label}
                   href={href}

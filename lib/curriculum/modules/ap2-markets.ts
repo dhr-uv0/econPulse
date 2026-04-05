@@ -1,0 +1,436 @@
+import type { CurriculumModule, Lesson } from '@/lib/types'
+
+export const moduleInfo: Omit<CurriculumModule, 'lessons'> = {
+  id: 'ap2-markets',
+  title: 'AP Micro — Markets and Efficiency',
+  description: 'Cover every market structure question type the AP exam tests.',
+  tier: 'AP' as const,
+  track: 'AP' as const,
+  unit: 2,
+  estimatedHours: 4,
+  color: '#f59e0b',
+  icon: 'Target',
+}
+
+export const lessons: Lesson[] = [
+  {
+    id: 'ap2-l1',
+    moduleId: 'ap2-markets',
+    title: 'Perfect Competition — Full Profit Analysis',
+    description: 'Calculate TR, TC, profit/loss, and identify break-even and shut-down points.',
+    order: 1,
+    estimatedMinutes: 40,
+    tags: ['perfect-competition', 'profit'],
+    flashcards: [
+      {
+        id: 'fc-ap2-l1-1',
+        front: 'What is the profit-maximising rule for a perfectly competitive firm?',
+        back: 'Produce where MR = MC (with MC rising). Because P = MR for a price taker, this simplifies to: produce where P = MC.',
+        tags: ['perfect-competition', 'profit'],
+      },
+      {
+        id: 'fc-ap2-l1-2',
+        front: 'How do you calculate total economic profit from a cost diagram?',
+        back: 'Profit = (P − ATC) × Q*. The vertical distance (P − ATC) multiplied by the profit-maximising quantity gives the profit rectangle. If P < ATC, this rectangle is a loss.',
+        tags: ['perfect-competition', 'profit'],
+      },
+      {
+        id: 'fc-ap2-l1-3',
+        front: 'What characterises the long-run equilibrium of a perfectly competitive industry?',
+        back: 'P = MR = MC = minimum ATC. Economic profit equals zero — firms earn normal profit, which is just enough to keep them in the industry but insufficient to attract new entrants.',
+        tags: ['perfect-competition', 'profit'],
+      },
+    ],
+    quiz: [
+      {
+        id: 'q-ap2-l1-1',
+        type: 'mcq',
+        question: 'A perfectly competitive firm sells at P = $25, has ATC = $18, AVC = $14, and produces 80 units at MR = MC. Its total economic profit is:',
+        options: ['$560', '$880', '$1,120', '$2,000'],
+        correctAnswer: 0,
+        explanation: 'Economic profit = (P − ATC) × Q = ($25 − $18) × 80 = $7 × 80 = $560. AVC is irrelevant to the profit calculation (it matters only for the shutdown decision). Total revenue = $2,000 and total cost = $1,440, confirming profit = $560.',
+        marks: 1,
+        difficulty: 'higher',
+      },
+      {
+        id: 'q-ap2-l1-2',
+        type: 'mcq',
+        question: 'In a perfectly competitive market, long-run economic profit is driven to zero because:',
+        options: [
+          'Government price ceilings cap revenue at the level of average total cost',
+          'Free entry eliminates excess profit and free exit eliminates sustained losses, until P = minimum ATC',
+          'All firms are forced to adopt identical technologies, equalising costs',
+          'Consumer surplus exactly offsets producer surplus at every equilibrium price',
+        ],
+        correctAnswer: 1,
+        explanation: 'Economic profits attract new entrants who expand supply, lowering price until profit disappears. Economic losses trigger exit, contracting supply and raising price until losses disappear. The process terminates only when P = minimum ATC and economic profit = 0.',
+        marks: 1,
+        difficulty: 'higher',
+      },
+    ],
+    content: {
+      isStub: true,
+      conceptualExplanation: `A perfectly competitive firm is a price taker — it faces a perfectly elastic demand curve at the market price, meaning marginal revenue equals price for every unit sold. The firm maximises profit by producing where MR = MC, which simplifies to P = MC. Once the profit-maximising quantity Q* is found, total economic profit or loss is the rectangle (P − ATC) × Q*. If P > ATC, the firm earns positive economic profit; if ATC > P > AVC, it earns a loss but continues operating in the short run; if P < AVC, it shuts down. This framework lets you read any competitive firm diagram and immediately assess the firm's financial position.
+
+The power of the competitive model lies in its long-run dynamics. Positive profits attract new firms into the industry, rightward-shifting market supply and driving price down toward minimum ATC. Economic losses trigger exit, leftward-shifting supply and pushing price back up. The system gravitates toward a long-run equilibrium where P = minimum ATC, economic profit equals zero, and the market achieves both allocative efficiency (P = MC) and productive efficiency (minimum ATC). AP graders expect students to narrate this full adjustment story when asked about long-run effects — a diagram alone, without the entry/exit narrative, typically earns only partial credit.`,
+      prerequisiteRecap: `AP Module 1 established that a firm maximises profit by producing where marginal revenue equals marginal cost (MR = MC). Perfect competition extends this rule to a price-taking environment where P = MR at every output level, so the profit-maximising condition becomes P = MC — making the MC curve directly usable as a supply curve.`,
+      recallQuestions: [
+        {
+          id: 'ap2-l1-recall-1',
+          type: 'mcq' as const,
+          question: 'A profit-maximising firm produces the quantity at which MR = MC. For a perfectly competitive firm, why does this rule simplify to P = MC?',
+          options: [
+            'Because the firm faces a perfectly elastic demand curve, so P = MR at every unit sold',
+            'Because the firm sets its own price equal to marginal cost to maximise total revenue',
+            'Because average total cost equals marginal cost at the profit-maximising output',
+            'Because marginal cost is constant and equal to price in competitive markets',
+          ],
+          correctAnswer: 0,
+          explanation: 'A perfectly competitive firm is a price taker — it can sell any quantity at the market price without affecting it. Therefore marginal revenue (revenue from one more unit) equals the market price at every output level. Substituting P = MR into the MR = MC rule gives P = MC as the profit-maximising condition.',
+          marks: 1,
+          difficulty: 'standard' as const,
+        },
+      ],
+    },
+  },
+  {
+    id: 'ap2-l2',
+    moduleId: 'ap2-markets',
+    title: 'Monopoly — Calculation and Policy',
+    description: 'Find profit-maximising Q and P from demand and cost data; calculate DWL.',
+    order: 2,
+    estimatedMinutes: 40,
+    tags: ['monopoly', 'DWL', 'regulation'],
+    flashcards: [
+      {
+        id: 'fc-ap2-l2-1',
+        front: 'How does a monopolist determine its profit-maximising price and quantity?',
+        back: 'The monopolist finds Q* where MR = MC, then sets P* by going up to the demand curve at Q*. Since demand slopes down, P* > MR = MC — allocative inefficiency results.',
+        tags: ['monopoly', 'DWL'],
+      },
+      {
+        id: 'fc-ap2-l2-2',
+        front: 'What is the deadweight loss of monopoly, and where is it on the diagram?',
+        back: 'DWL is the triangle between the demand curve and MC, between the monopoly quantity and the competitive quantity (where D = MC). It represents mutually beneficial trades that the monopolist\'s output restriction prevents.',
+        tags: ['monopoly', 'DWL'],
+      },
+      {
+        id: 'fc-ap2-l2-3',
+        front: 'What is the marginal revenue formula for a monopolist with linear demand P = a − bQ?',
+        back: 'MR = a − 2bQ. MR has the same vertical intercept as demand but twice the slope. MR < P because lowering price to sell one more unit reduces revenue on all previous units sold.',
+        tags: ['monopoly', 'regulation'],
+      },
+    ],
+    quiz: [
+      {
+        id: 'q-ap2-l2-1',
+        type: 'mcq',
+        question: 'Compared to a perfectly competitive market with the same cost curves, a profit-maximising unregulated monopolist:',
+        options: [
+          'Produces more output at a lower price, maximising consumer surplus',
+          'Produces less output at a higher price, creating deadweight loss',
+          'Produces the same output but charges a higher price equal to ATC',
+          'Produces less output at the same price as the competitive equilibrium',
+        ],
+        correctAnswer: 1,
+        explanation: 'The monopolist restricts output below the competitive level (where D = MC) and charges a price above marginal cost, transferring consumer surplus to producer surplus and creating a deadweight loss triangle. The competitive equilibrium (P = MC) maximises total surplus.',
+        marks: 1,
+        difficulty: 'higher',
+      },
+      {
+        id: 'q-ap2-l2-2',
+        type: 'mcq',
+        question: 'A regulator sets price equal to ATC for a natural monopoly rather than MC because:',
+        options: [
+          'ATC pricing achieves allocative efficiency with no need for subsidies',
+          'MC pricing causes losses when LRAC is declining, requiring a government subsidy to keep the firm viable',
+          'ATC pricing maximises consumer surplus by pushing price as low as possible',
+          'MC pricing violates antitrust law for natural monopolies',
+        ],
+        correctAnswer: 1,
+        explanation: 'For a natural monopoly, LRAC is still declining at the competitive output level, so MC < ATC. Setting P = MC means revenue is insufficient to cover total cost — the firm would exit without a subsidy. P = ATC gives zero economic profit (commercially viable) at a price lower than the unregulated monopoly, though P > MC remains, leaving allocative inefficiency.',
+        marks: 1,
+        difficulty: 'higher',
+      },
+    ],
+    content: {
+      isStub: true,
+      conceptualExplanation: `A monopolist faces the entire downward-sloping market demand curve, so to sell more it must lower its price on all units. This makes marginal revenue less than price. For a linear demand curve (P = a − bQ), MR = a − 2bQ — MR has the same intercept but twice the slope of demand. The monopolist maximises profit by finding where MR = MC, reading off Q*, then going up to the demand curve to find the monopoly price P*. Economic profit is the rectangle (P* − ATC) × Q*. The deadweight loss triangle sits between Q* and the competitive quantity (where demand intersects MC) — these are trades worth more to consumers than they cost to produce, foregone because the monopolist restricts output.
+
+Policy responses to monopoly power include price regulation (setting P = ATC for a sustainable zero-profit outcome, or P = MC for allocative efficiency at the cost of a subsidy requirement), antitrust action to break up or prevent monopoly, and public ownership. The AP exam often asks students to compare regulated and unregulated outcomes, identify where on the diagram each policy equilibrium falls, and evaluate the efficiency-viability trade-off. A natural monopoly — with continuously declining LRAC — presents the hardest regulatory challenge: competitive market structure is not viable because one large firm always undercuts smaller rivals, yet unregulated monopoly pricing creates welfare loss.`,
+      prerequisiteRecap: `In perfect competition (Lesson 1), the firm is a price taker so MR = P and the profit-maximising rule P = MC leads to zero long-run economic profit. A monopolist breaks this by facing a downward-sloping demand curve, making MR < P at every output — allowing sustained economic profit but creating deadweight loss.`,
+      recallQuestions: [
+        {
+          id: 'ap2-l2-recall-1',
+          type: 'mcq' as const,
+          question: 'In long-run equilibrium a perfectly competitive firm earns zero economic profit. Which condition guarantees this outcome?',
+          options: [
+            'Free entry and exit drives price down to minimum ATC, eliminating economic profit',
+            'Government regulation caps prices at average total cost for competitive firms',
+            'The firm produces at the quantity where MR = MC, which always equals zero profit',
+            'Perfect information ensures all firms charge the same price equal to marginal cost',
+          ],
+          correctAnswer: 0,
+          explanation: 'Free entry attracts new firms whenever P > ATC, expanding supply and lowering price until economic profit is zero. Free exit eliminates losses by reducing supply until price rises back to minimum ATC. The free entry/exit mechanism — not government intervention or the MR = MC rule itself — is what drives the long-run zero-profit result.',
+          marks: 1,
+          difficulty: 'standard' as const,
+        },
+      ],
+    },
+  },
+  {
+    id: 'ap2-l3',
+    moduleId: 'ap2-markets',
+    title: 'Oligopoly — Game Theory and Nash Equilibrium',
+    description: "Set up a payoff matrix, find the Nash equilibrium, explain the prisoner's dilemma.",
+    order: 3,
+    estimatedMinutes: 35,
+    tags: ['oligopoly', 'Nash-equilibrium', 'game-theory'],
+    flashcards: [
+      {
+        id: 'fc-ap2-l3-1',
+        front: 'What is a Nash Equilibrium?',
+        back: 'A set of strategies where no player can improve their payoff by unilaterally changing their own strategy, given the strategies chosen by all other players.',
+        tags: ['oligopoly', 'Nash-equilibrium', 'game-theory'],
+      },
+      {
+        id: 'fc-ap2-l3-2',
+        front: 'What is a dominant strategy?',
+        back: 'A strategy that yields a better outcome for a player regardless of what the other player chooses. When both players have dominant strategies, the Nash equilibrium is the cell where both play them.',
+        tags: ['game-theory'],
+      },
+      {
+        id: 'fc-ap2-l3-3',
+        front: 'Why are cartels inherently unstable?',
+        back: 'Each cartel member has a dominant strategy to cheat — produce above quota to earn extra profit. The Nash equilibrium (all cheat) destroys the cartel price, even though mutual compliance would make all members better off.',
+        tags: ['oligopoly', 'Nash-equilibrium'],
+      },
+    ],
+    quiz: [
+      {
+        id: 'q-ap2-l3-1',
+        type: 'mcq',
+        question: "In the classic Prisoners' Dilemma, both players confess in equilibrium even though both staying silent would benefit them more. This outcome occurs because:",
+        options: [
+          'Confessing is a dominant strategy — it produces a better result regardless of what the other player does',
+          'Players cooperate to avoid the worst individual outcome',
+          'Confessing is only optimal if the other player stays silent',
+          'The Nash equilibrium maximises total payoffs across both players',
+        ],
+        correctAnswer: 0,
+        explanation: "Confess is a dominant strategy for each player: regardless of the other's choice, confessing results in a lighter personal sentence. Both playing their dominant strategy produces the Nash equilibrium (both confess), which is collectively worse than mutual silence — illustrating how individual rationality can produce collectively inferior outcomes.",
+        marks: 1,
+        difficulty: 'higher',
+      },
+      {
+        id: 'q-ap2-l3-2',
+        type: 'mcq',
+        question: 'The kinked demand curve model of oligopoly predicts price rigidity because:',
+        options: [
+          'All oligopolists agree to hold prices constant through formal agreements',
+          'Rivals match price cuts but ignore price increases, creating a gap in the MR curve at the prevailing price',
+          'The government sets a price floor equal to the prevailing market price',
+          'Each firm faces a perfectly elastic demand curve at the current price',
+        ],
+        correctAnswer: 1,
+        explanation: "The kink arises from asymmetric rival responses: a price cut is matched (so demand is inelastic below the kink — undercutting gains few customers), while a price rise is not matched (so demand is elastic above the kink — the firm loses many customers). The resulting gap in the MR curve means moderate cost changes don't shift profit-maximising output, producing sticky prices.",
+        marks: 1,
+        difficulty: 'higher',
+      },
+    ],
+    content: {
+      isStub: true,
+      conceptualExplanation: `Oligopoly is characterised by strategic interdependence: each firm's optimal decision depends on what rivals do. Game theory provides the analytical tools to predict outcomes. In a normal-form (payoff matrix) game, a dominant strategy — one that is best regardless of rivals' choices — simplifies the analysis. When both players have dominant strategies, the game has a unique Nash equilibrium at the intersection of those strategies. The classic Prisoners' Dilemma shows that individual rationality can produce collectively inferior outcomes: both firms advertising heavily (or both countries imposing tariffs) is a Nash equilibrium even though mutual restraint would make both better off.
+
+Applied to oligopoly, game theory explains why cartels are inherently fragile. Each cartel member earns more by exceeding its quota (if others comply) and at worst breaks even (if others also cheat), making cheating a dominant strategy. The Nash equilibrium — competitive-style overproduction — erodes cartel profits. Repeated interaction can sustain cooperation through punishment strategies (cooperate until the partner cheats, then punish forever), but only if firms interact frequently and discount future profits modestly. AP questions test the mechanics of reading payoff matrices, identifying dominant strategies and Nash equilibria, and explaining the tension between individual and collective rationality in oligopolistic markets.`,
+      prerequisiteRecap: `Lesson 2 showed that a monopolist restricts output below the competitive level (MR = MC < P) and creates deadweight loss. Oligopolists face the same temptation — restrict output to earn monopoly-like profits — but must account for rivals' reactions, which is why game theory replaces the simple MR = MC calculation used for monopoly.`,
+      recallQuestions: [
+        {
+          id: 'ap2-l3-recall-1',
+          type: 'mcq' as const,
+          question: 'A monopolist produces where MR = MC and sets price above MC, creating deadweight loss. What is the source of the deadweight loss triangle on the diagram?',
+          options: [
+            'Units between the monopoly quantity and the competitive quantity where demand exceeds MC but are not produced',
+            'The profit rectangle earned by the monopolist above ATC',
+            'The difference between price and marginal revenue at the monopoly output',
+            'Consumer spending redirected from the monopolist\'s good to substitute goods',
+          ],
+          correctAnswer: 0,
+          explanation: 'Deadweight loss represents mutually beneficial trades that do not occur. Between the monopoly quantity Q* and the competitive quantity (where D = MC), each unit is valued by consumers above its marginal cost of production — a potential surplus — but the monopolist does not produce those units. The triangular area between the demand curve and MC from Q* to the competitive output is the deadweight loss.',
+          marks: 1,
+          difficulty: 'standard' as const,
+        },
+      ],
+    },
+  },
+  {
+    id: 'ap2-l4',
+    moduleId: 'ap2-markets',
+    title: 'Monopolistic Competition — Short Run and Long Run',
+    description: 'Graph both short-run profit and long-run zero-profit equilibria; calculate excess capacity.',
+    order: 4,
+    estimatedMinutes: 30,
+    tags: ['monopolistic-competition', 'excess-capacity'],
+    flashcards: [
+      {
+        id: 'fc-ap2-l4-1',
+        front: 'What are the defining features of monopolistic competition?',
+        back: 'Many firms selling differentiated products, free entry and exit, and some market power — each firm faces a downward-sloping demand curve for its own variety.',
+        tags: ['monopolistic-competition'],
+      },
+      {
+        id: 'fc-ap2-l4-2',
+        front: 'What does the long-run equilibrium diagram for a monopolistically competitive firm look like?',
+        back: 'The demand curve is tangent to the ATC curve from above at the profit-maximising quantity, so P = ATC and economic profit = 0. But P > MC (allocative inefficiency) and output is left of minimum ATC (productive inefficiency / excess capacity).',
+        tags: ['monopolistic-competition', 'excess-capacity'],
+      },
+      {
+        id: 'fc-ap2-l4-3',
+        front: 'What is excess capacity in monopolistic competition?',
+        back: 'The gap between the actual long-run output (tangency quantity) and the output at minimum ATC. The firm could lower average cost by producing more, but the downward-sloping demand prevents it from reaching productive efficiency.',
+        tags: ['monopolistic-competition', 'excess-capacity'],
+      },
+    ],
+    quiz: [
+      {
+        id: 'q-ap2-l4-1',
+        type: 'mcq',
+        question: 'In long-run equilibrium, a monopolistically competitive firm is productively inefficient because:',
+        options: [
+          'It earns positive economic profit, keeping price above minimum ATC',
+          'It produces on the downward-sloping portion of its ATC curve, left of the minimum — excess capacity',
+          'Its demand curve is perfectly elastic, preventing price from falling to minimum ATC',
+          'Entry is restricted, allowing price to remain above average total cost',
+        ],
+        correctAnswer: 1,
+        explanation: "Free entry drives profit to zero in the long run, with demand tangent to ATC. However, this tangency occurs on the downward-sloping segment of ATC (left of minimum ATC), not at the trough. The firm operates with excess capacity — it could reduce per-unit cost by producing more, but the profit-maximising quantity is lower than the productively efficient quantity.",
+        marks: 1,
+        difficulty: 'higher',
+      },
+      {
+        id: 'q-ap2-l4-2',
+        type: 'mcq',
+        question: 'When a monopolistically competitive firm earns short-run economic profit, which of the following best describes the long-run adjustment?',
+        options: [
+          'Existing firms expand output along their current demand curves until profit falls to zero',
+          'New entrants offer substitute products, shifting each existing firm\'s demand curve leftward until it is tangent to ATC',
+          'The market price falls due to government regulation, eliminating economic profit',
+          'Firms merge to exploit economies of scale, restoring zero economic profit through cost reductions',
+        ],
+        correctAnswer: 1,
+        explanation: 'New entrants sell differentiated substitutes, stealing customers from incumbents and shifting each firm\'s demand curve leftward (and making it more elastic). Entry continues until demand is just tangent to ATC — zero economic profit. Output per firm falls and excess capacity increases.',
+        marks: 1,
+        difficulty: 'higher',
+      },
+    ],
+    content: {
+      isStub: true,
+      conceptualExplanation: `Monopolistic competition blends the free entry of perfect competition with the product differentiation of monopoly. Each firm sells a slightly different product — a restaurant, a clothing brand, a smartphone app — and therefore faces a downward-sloping demand curve for its own variety. In the short run, firms maximise profit at MR = MC. If this yields positive economic profit, new differentiated entrants steal customers, shifting each incumbent's demand curve leftward. Entry continues until demand is just tangent to the ATC curve from above, meaning price equals average total cost and economic profit equals zero.
+
+The long-run tangency equilibrium is inefficient in two ways. First, P > MC at the tangency point (since demand slopes down), so the firm charges more than marginal cost — allocative inefficiency. Second, the tangency occurs on the downward-sloping portion of ATC, to the left of minimum ATC — the firm operates with excess capacity. Society pays the "cost of variety": consumers benefit from having many differentiated options, but each option is produced at higher per-unit cost than a standardised product would be under perfect competition. AP examiners frequently ask students to compare the long-run diagrams of perfect competition and monopolistic competition, identifying the similarities (zero economic profit, same MR = MC rule) and the differences (efficiency outcomes and diagram shape).`,
+      prerequisiteRecap: `Lesson 3 examined oligopoly through game theory, showing that the Nash equilibrium can trap firms in collectively inferior outcomes (like the Prisoners' Dilemma). Monopolistic competition shares the downward-sloping demand of oligopoly but adds free entry — which restores zero economic profit in the long run while preserving product differentiation.`,
+      recallQuestions: [
+        {
+          id: 'ap2-l4-recall-1',
+          type: 'mcq' as const,
+          question: 'In a Prisoners\' Dilemma payoff matrix, both firms choose to advertise heavily even though mutual restraint would make both better off. This occurs because:',
+          options: [
+            'Advertising is a dominant strategy — it yields a higher payoff regardless of the rival\'s choice',
+            'Both firms collude to maximise joint profits by advertising simultaneously',
+            'The Nash equilibrium is always the outcome that maximises total payoffs',
+            'Advertising raises each firm\'s ATC, which forces prices higher and increases industry profits',
+          ],
+          correctAnswer: 0,
+          explanation: 'A dominant strategy is optimal regardless of what the rival does. If the rival restrains, advertising steals market share; if the rival also advertises, restraining unilaterally is even worse. Because advertising dominates restraint for both firms, the Nash equilibrium has both advertising — a collectively inferior outcome compared to mutual restraint, illustrating the Prisoners\' Dilemma logic.',
+          marks: 1,
+          difficulty: 'standard' as const,
+        },
+      ],
+    },
+  },
+  {
+    id: 'ap2-l5',
+    moduleId: 'ap2-markets',
+    title: 'Factor Markets — MRP and Wage Determination',
+    description: 'Calculate MRP from a table, find the profit-maximising quantity of labour, analyse monopsony.',
+    order: 5,
+    estimatedMinutes: 35,
+    tags: ['MRP', 'labour-markets', 'monopsony'],
+    flashcards: [
+      {
+        id: 'fc-ap2-l5-1',
+        front: 'What is Marginal Revenue Product (MRP) and what does it represent?',
+        back: 'MRP = Marginal Product (MP) × Marginal Revenue (MR). For a competitive firm MRP = MP × P. MRP is the firm\'s demand curve for the factor — it shows the maximum wage the firm will pay for each additional unit of labour.',
+        tags: ['MRP', 'labour-markets'],
+      },
+      {
+        id: 'fc-ap2-l5-2',
+        front: 'What is the profit-maximising hiring rule?',
+        back: 'Hire labour until MRP = Wage (the factor price). If MRP > W, hiring the next worker adds more to revenue than to cost — hire more. If MRP < W, the last worker costs more than they produce — hire fewer.',
+        tags: ['MRP', 'labour-markets'],
+      },
+      {
+        id: 'fc-ap2-l5-3',
+        front: 'How does a monopsonist distort the labour market?',
+        back: 'A monopsonist (sole buyer of labour) faces an upward-sloping labour supply curve, making its marginal factor cost (MFC) exceed the wage. It hires fewer workers at a lower wage than a competitive labour market would — a double distortion of quantity and price.',
+        tags: ['labour-markets', 'monopsony'],
+      },
+    ],
+    quiz: [
+      {
+        id: 'q-ap2-l5-1',
+        type: 'mcq',
+        question: "A worker's marginal product is 6 units and the competitive product price is $8. If the competitive wage is $40, should the firm hire this worker?",
+        options: [
+          'No — the wage exceeds the product price, so hiring is unprofitable',
+          'No — MRP = $48 < wage = $40 is false; actually MRP > W so hire the worker',
+          'Yes — MRP = MP × P = 6 × $8 = $48 > wage = $40, so hiring adds more to revenue than to cost',
+          'Yes — but only if the firm is in a competitive product market and a monopsonistic labour market',
+        ],
+        correctAnswer: 2,
+        explanation: 'MRP = MP × P = 6 × $8 = $48. Since MRP = $48 > W = $40, the worker adds $48 to revenue but only $40 to cost — hiring increases profit by $8. The firm should hire until MRP falls to equal the wage.',
+        marks: 1,
+        difficulty: 'higher',
+      },
+      {
+        id: 'q-ap2-l5-2',
+        type: 'mcq',
+        question: 'Compared to a competitive labour market, a monopsony results in:',
+        options: [
+          'Higher wages and higher employment because the single employer has more bargaining power',
+          'Lower wages and lower employment because MFC > W causes the monopsonist to under-hire',
+          'The same wages but lower employment due to the monopsonist\'s output restriction',
+          'Higher wages but lower employment as the monopsonist bids up wages to attract workers',
+        ],
+        correctAnswer: 1,
+        explanation: 'The monopsonist faces an upward-sloping supply of labour, so MFC > wage at every employment level. Hiring until MRP = MFC yields a lower employment level than the competitive outcome (where MRP = W). The wage is then read off the supply curve at that employment level — lower than the competitive wage. Both quantity and price of labour are depressed.',
+        marks: 1,
+        difficulty: 'higher',
+      },
+    ],
+    content: {
+      isStub: true,
+      conceptualExplanation: `Factor markets — markets for labour, capital, and land — are governed by the same profit-maximising logic as product markets. The value of a factor depends on both its physical productivity and the price at which its output sells. The marginal revenue product (MRP) of labour equals the marginal product of labour (MPL) multiplied by marginal revenue (MR). For a firm in a competitive product market, MR = P, so MRP = MPL × P. The MRP schedule is the firm's demand curve for labour — it shows the maximum wage the firm would pay for each additional worker. Because of diminishing marginal product, MRP declines as more labour is hired, giving a downward-sloping labour demand curve.
+
+Firms maximise profit in factor markets by hiring until MRP equals the factor price. Shifts in labour demand arise from changes in labour productivity (technology improvements raise MRP) and changes in product prices (a rise in the good's price raises MRP). A monopsonist — the sole buyer of labour — distorts this outcome. Facing an upward-sloping labour supply, its marginal factor cost (MFC) exceeds the wage at every employment level, so it under-hires and underpays relative to a competitive labour market. Crucially, a minimum wage in a monopsony can actually increase both wages and employment simultaneously — a counterintuitive result the AP exam occasionally tests and one that illustrates why market structure matters for policy analysis.`,
+      prerequisiteRecap: `Lesson 4 showed that monopolistic competition leads to a long-run tangency equilibrium where P = ATC but P > MC and output falls short of minimum ATC (excess capacity). Factor markets use the same profit-maximising logic applied to input decisions: instead of choosing output where MR = MC, the firm chooses labour where MRP = Wage.`,
+      recallQuestions: [
+        {
+          id: 'ap2-l5-recall-1',
+          type: 'mcq' as const,
+          question: 'In long-run equilibrium, a monopolistically competitive firm has demand tangent to its ATC curve. Which TWO inefficiencies are present at this equilibrium?',
+          options: [
+            'Allocative inefficiency (P > MC) and productive inefficiency (output left of minimum ATC)',
+            'Allocative efficiency (P = MC) and productive inefficiency (output left of minimum ATC)',
+            'Allocative inefficiency (P > MC) and productive efficiency (output at minimum ATC)',
+            'Neither allocative nor productive inefficiency, since economic profit equals zero',
+          ],
+          correctAnswer: 0,
+          explanation: 'At the tangency point, P = ATC (zero economic profit) but since demand slopes down, P > MR = MC — allocative inefficiency remains. Additionally, the tangency occurs to the left of minimum ATC, so the firm has excess capacity — productive inefficiency. Zero economic profit does not imply efficiency; it only means the firm earns a normal return on capital.',
+          marks: 1,
+          difficulty: 'standard' as const,
+        },
+      ],
+    },
+  },
+]

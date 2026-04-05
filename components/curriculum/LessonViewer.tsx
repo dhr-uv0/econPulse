@@ -1,23 +1,24 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import type { Lesson, CurriculumModule, LessonStatus } from '@/lib/types'
 import { createClient } from '@/lib/supabase/client'
 import { toast } from '@/lib/hooks/useToast'
 import { cn } from '@/lib/utils'
+import { useUserPreferences } from '@/lib/hooks/useUserPreferences'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { LessonQuiz } from '@/components/curriculum/LessonQuiz'
-import { InteractiveDiagram } from '@/components/curriculum/InteractiveDiagram'
 import { VocabFlashcards } from '@/components/curriculum/VocabFlashcards'
 import {
   ChevronLeft, ChevronRight, Check, ChevronDown, ChevronUp,
-  Lightbulb, AlertTriangle, GraduationCap, Sparkles, Clock,
-  BookOpen,
+  Lightbulb, AlertTriangle, GraduationCap, Sparkles,
+  BookOpen, Brain, RefreshCw,
 } from 'lucide-react'
+import { RecallWarmup } from '@/components/curriculum/RecallWarmup'
 
 interface Props {
   lesson: Lesson
@@ -26,16 +27,30 @@ interface Props {
   initialStatus: LessonStatus
 }
 
-type Tab = 'lesson' | 'diagram' | 'vocab' | 'quiz'
+type Tab = 'lesson' | 'vocab' | 'quiz'
 
 export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Props) {
   const router = useRouter()
   const supabase = createClient()
+  const { prefs } = useUserPreferences()
   const [activeTab, setActiveTab] = useState<Tab>('lesson')
   const [quizPassed, setQuizPassed] = useState(initialStatus === 'completed')
   const [deeperOpen, setDeeperOpen] = useState(false)
   const [status, setStatus] = useState<LessonStatus>(initialStatus)
   const [startTime] = useState(() => Date.now())
+  const adaptiveApplied = useRef(false)
+
+  // Apply adaptive tab selection and difficulty once preferences load
+  useEffect(() => {
+    if (!prefs || adaptiveApplied.current) return
+    adaptiveApplied.current = true
+    const style = prefs.learning_style
+    if (style === 'practice') setActiveTab('quiz')
+    // Auto-expand Deeper Dive for exam/challenging modes
+    if ((prefs.difficulty === 'exam' || prefs.difficulty === 'challenging') && lesson.content.deeperDive) {
+      setDeeperOpen(true)
+    }
+  }, [prefs, lesson.content.interactiveElement, lesson.content.deeperDive])
 
   // Track time spent
   useEffect(() => {
@@ -71,10 +86,9 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
   }
 
   const tabs: { id: Tab; label: string; icon: React.ReactNode }[] = [
-    { id: 'lesson',  label: 'Lesson',    icon: <BookOpen className="h-3.5 w-3.5" /> },
-    { id: 'diagram', label: 'Diagram',   icon: <Sparkles className="h-3.5 w-3.5" /> },
-    { id: 'vocab',   label: 'Vocabulary', icon: <GraduationCap className="h-3.5 w-3.5" /> },
-    { id: 'quiz',    label: 'Quiz',       icon: <Check className="h-3.5 w-3.5" /> },
+    { id: 'lesson', label: 'Lesson',     icon: <BookOpen className="h-3.5 w-3.5" /> },
+    { id: 'vocab',  label: 'Vocabulary', icon: <GraduationCap className="h-3.5 w-3.5" /> },
+    { id: 'quiz',   label: 'Quiz',       icon: <Check className="h-3.5 w-3.5" /> },
   ]
 
   return (
@@ -114,6 +128,28 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
         </div>
       </div>
 
+      {/* Adaptive learning hint */}
+      {prefs && prefs.learning_style !== 'mixed' && (
+        <div className="flex items-center gap-2 rounded-lg border border-[var(--accent)]/20 bg-[var(--accent)]/5 px-3 py-2 text-xs text-[var(--muted-fg)]">
+          <Brain className="h-3.5 w-3.5 text-[var(--accent)] shrink-0" />
+          <span>
+            Adapted for your{' '}
+            <span className="font-semibold text-[var(--accent)]">
+              {prefs.learning_style === 'visual' ? 'visual' :
+               prefs.learning_style === 'reading' ? 'reading' :
+               'practice'}-focused
+            </span>{' '}
+            learning style ·{' '}
+            <span className="font-semibold">
+              {prefs.difficulty === 'relaxed' ? 'Relaxed' :
+               prefs.difficulty === 'challenging' ? 'Challenging' :
+               prefs.difficulty === 'exam' ? 'Exam mode' : 'Standard'}
+            </span>{' '}
+            difficulty
+          </span>
+        </div>
+      )}
+
       {/* Tab navigation */}
       <div className="flex gap-1 rounded-xl border border-[var(--border)] bg-[var(--muted)] p-1" role="tablist">
         {tabs.map(({ id, label, icon }) => (
@@ -138,24 +174,52 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
       {/* Tab content */}
       {activeTab === 'lesson' && (
         <div className="space-y-6">
-          {/* Real-world hook */}
-          <Card className="border-l-4 border-l-[var(--accent)] bg-[var(--accent)]/5">
-            <CardContent className="pt-4 pb-4">
-              <div className="flex items-start gap-3">
-                <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-[var(--accent)] text-[var(--accent-fg)]">
-                  <Lightbulb className="h-3.5 w-3.5" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-[var(--accent)] mb-1">
-                    Real-World Connection
+          {/* Prerequisite recall */}
+          {lesson.content.prerequisiteRecap && (
+            <Card className="border-l-4 border-l-indigo-400 bg-indigo-500/5">
+              <CardContent className="pt-4 pb-4">
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-indigo-500/15 text-indigo-500">
+                    <RefreshCw className="h-3.5 w-3.5" />
                   </div>
-                  <p className="text-sm text-[var(--fg)] leading-relaxed">
-                    {lesson.content.realWorldHook}
-                  </p>
+                  <div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-indigo-500 mb-1">
+                      Building on what you know
+                    </div>
+                    <p className="text-sm text-[var(--fg)] leading-relaxed">
+                      {lesson.content.prerequisiteRecap}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Recall warm-up questions */}
+          {lesson.content.recallQuestions && lesson.content.recallQuestions.length > 0 && (
+            <RecallWarmup questions={lesson.content.recallQuestions} />
+          )}
+
+          {/* Real-world hook */}
+          {lesson.content.realWorldHook && (
+            <Card className="border-l-4 border-l-[var(--accent)] bg-[var(--accent)]/5">
+              <CardContent className="pt-4 pb-4">
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-[var(--accent)] text-[var(--accent-fg)]">
+                    <Lightbulb className="h-3.5 w-3.5" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-[var(--accent)] mb-1">
+                      Real-World Connection
+                    </div>
+                    <p className="text-sm text-[var(--fg)] leading-relaxed">
+                      {lesson.content.realWorldHook}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
 
           {/* Main conceptual explanation */}
           <Card>
@@ -168,91 +232,99 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
           </Card>
 
           {/* Common Misconceptions */}
-          <Card className="border-l-4 border-l-red-400">
-            <CardContent className="pt-4 pb-4">
-              <div className="flex items-start gap-3">
-                <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-red-500/15 text-red-500">
-                  <AlertTriangle className="h-3.5 w-3.5" />
-                </div>
-                <div className="flex-1">
-                  <div className="text-xs font-bold uppercase tracking-wider text-red-500 mb-2">
-                    Common Misconceptions
+          {lesson.content.commonMisconceptions && lesson.content.commonMisconceptions.length > 0 && (
+            <Card className="border-l-4 border-l-red-400">
+              <CardContent className="pt-4 pb-4">
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-red-500/15 text-red-500">
+                    <AlertTriangle className="h-3.5 w-3.5" />
                   </div>
-                  <ul className="space-y-1.5">
-                    {lesson.content.commonMisconceptions.map((m, i) => (
-                      <li key={i} className="text-sm text-[var(--fg)] leading-relaxed">
-                        <span className="font-medium text-red-500">✗</span>{' '}
-                        {m}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Examiner Tip */}
-          <Card className="border-l-4 border-l-blue-500">
-            <CardContent className="pt-4 pb-4">
-              <div className="flex items-start gap-3">
-                <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-blue-500/15 text-blue-500">
-                  <GraduationCap className="h-3.5 w-3.5" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-blue-500 mb-1">
-                    IB / Olympiad Examiner Tip
+                  <div className="flex-1">
+                    <div className="text-xs font-bold uppercase tracking-wider text-red-500 mb-2">
+                      Common Misconceptions
+                    </div>
+                    <ul className="space-y-1.5">
+                      {lesson.content.commonMisconceptions.map((m, i) => (
+                        <li key={i} className="text-sm text-[var(--fg)] leading-relaxed">
+                          <span className="font-medium text-red-500">✗</span>{' '}
+                          {m}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <p className="text-sm text-[var(--fg)] leading-relaxed">
-                    {lesson.content.examinerTip}
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Did You Know */}
-          <Card className="border-l-4 border-l-purple-500 bg-purple-500/5">
-            <CardContent className="pt-4 pb-4">
-              <div className="flex items-start gap-3">
-                <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-purple-500/15 text-purple-500">
-                  <Sparkles className="h-3.5 w-3.5" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-purple-500 mb-1">
-                    Did You Know?
-                  </div>
-                  <p className="text-sm text-[var(--fg)] leading-relaxed">
-                    {lesson.content.didYouKnow}
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Deeper Dive (expandable) */}
-          <Card>
-            <button
-              onClick={() => setDeeperOpen(!deeperOpen)}
-              className="flex w-full items-center justify-between px-6 py-4 text-left"
-              aria-expanded={deeperOpen}
-            >
-              <div className="flex items-center gap-2">
-                <span className="font-semibold text-[var(--fg)]">Deeper Dive</span>
-                <Badge variant="gold" className="text-[10px]">HL / Olympiad</Badge>
-              </div>
-              {deeperOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-            </button>
-            {deeperOpen && (
-              <CardContent className="pt-0">
-                <div className="border-t border-[var(--border)] pt-4">
-                  <div
-                    className="prose-econ text-sm"
-                    dangerouslySetInnerHTML={{ __html: markdownToHtml(lesson.content.deeperDive) }}
-                  />
                 </div>
               </CardContent>
-            )}
-          </Card>
+            </Card>
+          )}
+
+          {/* Examiner Tip */}
+          {lesson.content.examinerTip && (
+            <Card className="border-l-4 border-l-blue-500">
+              <CardContent className="pt-4 pb-4">
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-blue-500/15 text-blue-500">
+                    <GraduationCap className="h-3.5 w-3.5" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-blue-500 mb-1">
+                      Examiner Tip
+                    </div>
+                    <p className="text-sm text-[var(--fg)] leading-relaxed">
+                      {lesson.content.examinerTip}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Did You Know */}
+          {lesson.content.didYouKnow && (
+            <Card className="border-l-4 border-l-purple-500 bg-purple-500/5">
+              <CardContent className="pt-4 pb-4">
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-purple-500/15 text-purple-500">
+                    <Sparkles className="h-3.5 w-3.5" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-purple-500 mb-1">
+                      Did You Know?
+                    </div>
+                    <p className="text-sm text-[var(--fg)] leading-relaxed">
+                      {lesson.content.didYouKnow}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Deeper Dive (expandable) */}
+          {lesson.content.deeperDive && (
+            <Card>
+              <button
+                onClick={() => setDeeperOpen(!deeperOpen)}
+                className="flex w-full items-center justify-between px-6 py-4 text-left"
+                aria-expanded={deeperOpen}
+              >
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold text-[var(--fg)]">Deeper Dive</span>
+                  <Badge variant="gold" className="text-[10px]">HL / Olympiad</Badge>
+                </div>
+                {deeperOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+              </button>
+              {deeperOpen && (
+                <CardContent className="pt-0">
+                  <div className="border-t border-[var(--border)] pt-4">
+                    <div
+                      className="prose-econ text-sm"
+                      dangerouslySetInnerHTML={{ __html: markdownToHtml(lesson.content.deeperDive) }}
+                    />
+                  </div>
+                </CardContent>
+              )}
+            </Card>
+          )}
 
           {/* Navigation */}
           <div className="flex items-center justify-between pt-2">
@@ -275,12 +347,8 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
         </div>
       )}
 
-      {activeTab === 'diagram' && (
-        <InteractiveDiagram lessonId={lesson.id} diagramType={lesson.content.interactiveElement} />
-      )}
-
       {activeTab === 'vocab' && (
-        <VocabFlashcards vocab={lesson.content.vocabulary} lessonId={lesson.id} userId={userId} />
+        <VocabFlashcards vocab={lesson.content.vocabulary ?? []} lessonId={lesson.id} userId={userId} />
       )}
 
       {activeTab === 'quiz' && (
@@ -294,6 +362,13 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
             setQuizPassed(true)
             markComplete()
           }}
+          onNextLesson={(() => {
+            const lessons = mod.lessons
+            const idx = lessons.findIndex((l) => l.id === lesson.id)
+            const next = lessons[idx + 1]
+            if (next) return () => router.push(`/curriculum/${mod.id}/${next.id}`)
+            return () => router.push('/curriculum')
+          })()}
         />
       )}
     </div>

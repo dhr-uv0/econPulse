@@ -50,8 +50,8 @@ export async function GET(request: Request) {
           last_study_date: null,
         })
 
-        // Redirect new users to onboarding
-        return NextResponse.redirect(`${origin}/dashboard?onboarding=true`)
+        // Redirect new users to learning style quiz
+        return NextResponse.redirect(`${origin}/onboarding`)
       }
 
       return NextResponse.redirect(`${origin}${next}`)

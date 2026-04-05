@@ -1,0 +1,336 @@
+import type { CurriculumModule, Lesson } from '@/lib/types'
+
+export const moduleInfo: Omit<CurriculumModule, 'lessons'> = {
+  id: 'ap1-costs',
+  title: 'AP Micro — Production and Cost',
+  description: 'Master the quantitative cost analysis tested heavily on the AP Micro FRQ section.',
+  tier: 'AP' as const,
+  track: 'AP' as const,
+  unit: 1,
+  estimatedHours: 3,
+  color: '#f59e0b',
+  icon: 'Target',
+}
+
+export const lessons: Lesson[] = [
+  {
+    id: 'ap1-l1',
+    moduleId: 'ap1-costs',
+    title: 'Calculating All Cost Curves from a Table',
+    description: 'Given a production table, derive TC, TFC, TVC, ATC, AVC, AFC, and MC.',
+    order: 1,
+    estimatedMinutes: 40,
+    tags: ['cost-curves', 'AP-micro', 'FRQ'],
+    flashcards: [
+      {
+        id: 'fc-ap1-l1-1',
+        front: 'How do you calculate Marginal Cost from a production table?',
+        back: 'MC = ΔTC / ΔQ. Because fixed costs never change, ΔTC = ΔTVC, so MC can also be computed as ΔTVC / ΔQ.',
+        tags: ['cost-curves', 'AP-micro'],
+      },
+      {
+        id: 'fc-ap1-l1-2',
+        front: 'What is the relationship between ATC, AVC, and AFC?',
+        back: 'ATC = AVC + AFC. As output rises, AFC falls continuously, so ATC and AVC converge but never intersect because AFC is always positive.',
+        tags: ['cost-curves', 'AP-micro'],
+      },
+      {
+        id: 'fc-ap1-l1-3',
+        front: 'When does ATC reach its minimum point?',
+        back: 'ATC is at its minimum when MC = ATC. If MC < ATC the average is still falling; if MC > ATC the average is rising — the MC curve must pass through the ATC trough from below.',
+        tags: ['cost-curves', 'AP-micro'],
+      },
+    ],
+    quiz: [
+      {
+        id: 'q-ap1-l1-1',
+        type: 'mcq',
+        question: 'A firm produces 5 units with TC = $200 and 6 units with TC = $234. What is the marginal cost of the 6th unit?',
+        options: ['$23', '$34', '$39', '$47'],
+        correctAnswer: 1,
+        explanation: 'MC = ΔTC / ΔQ = ($234 − $200) / (6 − 5) = $34. Because only the cost change between the two output levels matters, fixed costs are irrelevant to this calculation.',
+        marks: 1,
+        difficulty: 'higher',
+      },
+      {
+        id: 'q-ap1-l1-2',
+        type: 'mcq',
+        question: 'A firm has TFC = $120 and AVC at 8 units = $9. Which of the following correctly states ATC at 8 units?',
+        options: ['$9.00', '$10.50', '$24.00', '$24.75'],
+        correctAnswer: 2,
+        explanation: 'AFC = TFC / Q = $120 / 8 = $15. ATC = AVC + AFC = $9 + $15 = $24. The most common error is forgetting to include AFC entirely (giving $9.00) or using the wrong quantity in the AFC calculation.',
+        marks: 1,
+        difficulty: 'higher',
+      },
+    ],
+    content: {
+      isStub: true,
+      conceptualExplanation: `Cost curves are built entirely from a production table. Starting from total fixed cost (TFC) — which never changes with output — and total variable cost (TVC) — which rises as more labour and materials are used — you derive total cost (TC = TFC + TVC). From these three columns every other cost measure follows mechanically. Marginal cost (MC) is the extra cost of one more unit: MC = ΔTC / ΔQ. Because fixed costs do not change, ΔTC equals ΔTVC, so MC can also be calculated from the variable cost column alone. Average costs are simply the per-unit versions: ATC = TC / Q, AVC = TVC / Q, AFC = TFC / Q.
+
+The key insight is that MC intersects both AVC and ATC at their minimum points. This is a mathematical necessity, not a coincidence: when the cost of producing one more unit is below the current average, the average must be falling; when MC exceeds the average, the average must be rising. Students who master this relationship can reconstruct any cost diagram from first principles and avoid the common error of drawing U-shaped curves that do not satisfy this intersection rule. On AP free-response questions, always show your arithmetic clearly — partial credit is awarded for correct intermediate steps even if the final answer contains an arithmetic slip.`,
+      prerequisiteRecap: `This module builds directly on the Intermediate-level treatment of production and costs. You should be comfortable with the law of diminishing marginal returns — the idea that adding variable inputs to a fixed input eventually yields smaller and smaller additions to output — because that physical relationship is exactly what drives the U-shape of the MC, AVC, and ATC curves you will now calculate numerically.`,
+    },
+  },
+  {
+    id: 'ap1-l2',
+    moduleId: 'ap1-costs',
+    title: 'Graphing Cost Curves Precisely',
+    description: 'Draw all seven cost curves correctly, mark key intersections.',
+    order: 2,
+    estimatedMinutes: 30,
+    tags: ['cost-curves', 'graphs'],
+    flashcards: [
+      {
+        id: 'fc-ap1-l2-1',
+        front: 'What shape does the Marginal Cost curve take, and why?',
+        back: 'MC is U-shaped. It falls initially because of increasing marginal returns (specialisation), then rises as diminishing marginal returns set in — each additional unit of the variable input adds less to output.',
+        tags: ['cost-curves', 'graphs'],
+      },
+      {
+        id: 'fc-ap1-l2-2',
+        front: 'Where does MC intersect AVC and ATC on a cost diagram?',
+        back: 'MC passes through the minimum of both AVC and ATC. It crosses AVC at a lower output level than ATC because AFC still pulls ATC down even after AVC has begun rising.',
+        tags: ['cost-curves', 'graphs'],
+      },
+      {
+        id: 'fc-ap1-l2-3',
+        front: 'What is the shape of the AFC curve, and does it ever reach zero?',
+        back: 'AFC is a downward-sloping rectangular hyperbola. Because total fixed cost is always positive, AFC approaches but never reaches zero — no matter how large output becomes.',
+        tags: ['cost-curves', 'graphs'],
+      },
+    ],
+    quiz: [
+      {
+        id: 'q-ap1-l2-1',
+        type: 'mcq',
+        question: 'On a correctly drawn cost diagram, the AVC curve reaches its minimum at a lower output level than ATC because:',
+        options: [
+          'AVC declines faster than ATC at low output levels',
+          'AFC is still falling and pulling ATC down even after AVC begins to rise',
+          'MC intersects ATC before it intersects AVC',
+          'Fixed costs increase the slope of the ATC curve at every output level',
+        ],
+        correctAnswer: 1,
+        explanation: 'After AVC reaches its minimum and starts rising, ATC continues to fall as long as the decline in AFC outweighs the rise in AVC. Once the rising AVC dominates, ATC also starts rising — at a higher output than AVC\'s trough. MC intersects each curve at its own minimum.',
+        marks: 1,
+        difficulty: 'higher',
+      },
+      {
+        id: 'q-ap1-l2-2',
+        type: 'mcq',
+        question: 'A student draws a cost diagram in which the MC curve intersects ATC to the left of ATC\'s minimum point. This diagram is:',
+        options: [
+          'Correct — MC can intersect ATC at any point on the downward-sloping section',
+          'Incorrect — MC must intersect ATC exactly at ATC\'s minimum point from below',
+          'Correct only if the firm has very high fixed costs',
+          'Incorrect — MC must lie entirely above ATC',
+        ],
+        correctAnswer: 1,
+        explanation: 'By the marginal-average rule, MC = ATC at ATC\'s minimum. If MC intersects ATC before the minimum, ATC would be rising at that point, which contradicts MC < ATC implying falling ATC. The intersection must occur at the trough, not to its left.',
+        marks: 1,
+        difficulty: 'higher',
+      },
+    ],
+    content: {
+      isStub: true,
+      conceptualExplanation: `Translating cost data into accurate diagrams requires understanding the geometry of the curves before putting pencil to paper. The MC curve is drawn U-shaped because marginal returns first increase (each additional worker adds more to output than the last, reducing per-unit cost) and then diminish, causing MC to rise. Because AFC declines continuously but AVC is U-shaped, ATC — which equals their sum — is also U-shaped but reaches its minimum at a higher output level than AVC. This gap between the minima is precisely AFC at that output, which is always positive.
+
+For the AP exam, diagram precision earns full marks. Label every curve, mark the minimum points of AVC and ATC, and ensure MC passes through both minima from below. A common error is drawing MC that cuts ATC at a point to the left of ATC's trough — this is geometrically impossible. Another trap is allowing AVC and ATC to converge and cross; they never do because AFC > 0 for all positive output. Practice reproducing the full seven-curve diagram from memory, then verify each intersection satisfies the marginal-average rule.`,
+      prerequisiteRecap: `Lesson 1 established how to calculate all seven cost measures from a data table and proved that MC must pass through the minimum of both AVC and ATC. Lesson 2 now translates those numerical relationships into precise geometry — every curve shape and intersection you draw must be consistent with the arithmetic you already know.`,
+      recallQuestions: [
+        {
+          id: 'ap1-l2-recall-1',
+          type: 'mcq',
+          question: 'A firm has TFC = $60 and produces 6 units with TVC = $90. Which of the following correctly states ATC at 6 units?',
+          options: ['$15.00', '$25.00', '$10.00', '$9.00'],
+          correctAnswer: 1,
+          explanation: 'ATC = TC / Q = (TFC + TVC) / Q = ($60 + $90) / 6 = $150 / 6 = $25.00. You can verify via components: AFC = $60/6 = $10; AVC = $90/6 = $15; ATC = AFC + AVC = $10 + $15 = $25. Option A ($15) is just AVC; option C ($10) is just AFC.',
+          marks: 1,
+          difficulty: 'standard',
+        },
+        {
+          id: 'ap1-l2-recall-2',
+          type: 'mcq',
+          question: 'At an output level where MC < ATC, which of the following must be true about ATC?',
+          options: [
+            'ATC is falling, because each additional unit costs less than the current average.',
+            'ATC is rising, because marginal cost is below average cost.',
+            'ATC has reached its minimum value.',
+            'ATC equals AVC at this output level.',
+          ],
+          correctAnswer: 0,
+          explanation: 'When MC < ATC, the cost of the last unit produced is below the running average. By the marginal-average rule, this pulls the average down — ATC must be falling. ATC reaches its minimum only when MC = ATC, and ATC is rising only when MC > ATC.',
+          marks: 1,
+          difficulty: 'standard',
+        },
+      ],
+    },
+  },
+  {
+    id: 'ap1-l3',
+    moduleId: 'ap1-costs',
+    title: 'Short-Run Shutdown vs. Long-Run Exit',
+    description: 'Explain the logic: shut down if P < AVC; exit if P < ATC.',
+    order: 3,
+    estimatedMinutes: 25,
+    tags: ['shutdown', 'exit', 'supply-curve'],
+    flashcards: [
+      {
+        id: 'fc-ap1-l3-1',
+        front: 'What is the short-run shutdown rule for a competitive firm?',
+        back: 'Shut down if P < AVC. At that point, revenue does not cover variable costs, so producing increases losses relative to simply paying fixed costs and producing nothing.',
+        tags: ['shutdown', 'supply-curve'],
+      },
+      {
+        id: 'fc-ap1-l3-2',
+        front: 'What is the long-run exit rule for a competitive firm?',
+        back: 'Exit the industry if P < ATC. In the long run all costs are variable, so if revenue does not cover total cost the firm earns a sustained negative economic profit and should redeploy its capital.',
+        tags: ['exit', 'supply-curve'],
+      },
+      {
+        id: 'fc-ap1-l3-3',
+        front: 'Why might a firm continue to operate in the short run even while making a loss?',
+        back: 'If P ≥ AVC, operating covers all variable costs and contributes toward unavoidable fixed costs. The loss from producing is smaller than the loss from shutting down (all fixed costs). Fixed costs are sunk in the short run.',
+        tags: ['shutdown', 'supply-curve'],
+      },
+    ],
+    quiz: [
+      {
+        id: 'q-ap1-l3-1',
+        type: 'mcq',
+        question: 'A firm has AVC = $10, ATC = $16, and faces a market price of $13. What is the firm\'s rational short-run and long-run strategy?',
+        options: [
+          'Shut down immediately in both the short run and long run',
+          'Produce in the short run to minimise losses; plan to exit in the long run',
+          'Produce in both the short run and long run and earn a profit',
+          'Shut down in the short run; re-enter when price rises above AVC',
+        ],
+        correctAnswer: 1,
+        explanation: 'P = $13 > AVC = $10, so each unit sold covers variable costs and contributes $3 toward fixed costs — producing reduces losses compared to shutting down. However, P = $13 < ATC = $16, meaning the firm incurs an economic loss on every unit. In the long run, when all costs become variable, the firm should exit unless price rises to at least $16.',
+        marks: 1,
+        difficulty: 'higher',
+      },
+      {
+        id: 'q-ap1-l3-2',
+        type: 'mcq',
+        question: 'Fixed costs are irrelevant to the short-run shutdown decision primarily because:',
+        options: [
+          'Fixed costs are zero when the firm shuts down temporarily',
+          'Fixed costs must be paid whether or not the firm produces, so they cannot be avoided by shutting down',
+          'Fixed costs equal variable costs at the shutdown point, cancelling each other out',
+          'The government reimburses fixed costs when a firm temporarily ceases production',
+        ],
+        correctAnswer: 1,
+        explanation: 'Fixed costs are sunk in the short run — rent, loan payments, and lease obligations cannot be escaped by ceasing output. The only costs a firm avoids by shutting down are variable costs. Therefore, the shutdown comparison is between revenue and variable cost (AVC), not total cost.',
+        marks: 1,
+        difficulty: 'higher',
+      },
+    ],
+    content: {
+      isStub: true,
+      conceptualExplanation: `The distinction between shutting down and exiting hinges entirely on the time horizon. In the short run, some costs — rent, loan payments, equipment leases — are fixed and cannot be avoided whether the firm produces or not. These are sunk costs from a short-run perspective. The only costs a firm avoids by ceasing production are variable costs (labour, materials). Therefore, a rational firm compares price to average variable cost: if P ≥ AVC, producing is better than not producing because revenue at least covers avoidable costs and contributes something toward unavoidable fixed costs. The firm minimises its loss by staying open. Only if P < AVC does shutting down reduce losses further.
+
+In the long run, no costs are fixed — contracts expire, leases end, capital can be sold. A firm compares price to full average total cost. If P < ATC, the firm earns negative economic profit indefinitely and rational owners exit the industry, redeploying capital elsewhere. This two-horizon framework explains why industries sustain loss-making firms for extended periods: as long as price clears the AVC hurdle, short-run operation is rational. AP free-response questions frequently present numerical scenarios requiring students to apply both rules — always state which time horizon applies, which cost benchmark is relevant, and what the firm should do.`,
+      prerequisiteRecap: `Lessons 1 and 2 built and graphed all seven cost curves and established that MC passes through the minimum of both AVC and ATC. Lesson 3 puts those curves to work: the minimum points of AVC and ATC are not just geometric features — they are the critical price thresholds that determine whether a firm produces or shuts down in the short run, and whether it stays in or exits an industry in the long run.`,
+      recallQuestions: [
+        {
+          id: 'ap1-l3-recall-1',
+          type: 'mcq',
+          question: 'On a correctly drawn cost diagram, the MC curve intersects the AVC curve at AVC\'s minimum point. What does this minimum of AVC represent for a competitive firm\'s short-run decision?',
+          options: [
+            'The shutdown point — if price falls below minimum AVC, the firm minimises losses by ceasing production.',
+            'The break-even point — if price equals minimum AVC, the firm earns zero economic profit.',
+            'The profit-maximising point — the firm should always produce at minimum AVC.',
+            'The exit point — if price falls below minimum AVC, the firm must leave the industry permanently.',
+          ],
+          correctAnswer: 0,
+          explanation: 'Minimum AVC is the shutdown price. If P < min AVC, revenue per unit is insufficient to cover even variable costs, so each unit produced deepens the loss beyond the fixed-cost loss of zero output. The firm minimises loss by shutting down. Exit (leaving the industry permanently) is the long-run decision triggered when P < min ATC.',
+          marks: 1,
+          difficulty: 'standard',
+        },
+        {
+          id: 'ap1-l3-recall-2',
+          type: 'mcq',
+          question: 'A firm\'s AFC at 10 units is $8. If AVC at 10 units is $14, what is ATC, and what is TFC?',
+          options: [
+            'ATC = $22; TFC = $80',
+            'ATC = $6; TFC = $80',
+            'ATC = $22; TFC = $140',
+            'ATC = $14; TFC = $80',
+          ],
+          correctAnswer: 0,
+          explanation: 'ATC = AVC + AFC = $14 + $8 = $22. TFC = AFC × Q = $8 × 10 = $80. TFC is constant at all output levels — a key fact that connects the AFC curve (TFC/Q, always falling) to the fixed-cost concept from Lesson 1.',
+          marks: 1,
+          difficulty: 'standard',
+        },
+      ],
+    },
+  },
+  {
+    id: 'ap1-l4',
+    moduleId: 'ap1-costs',
+    title: 'Long-Run Cost and Industry Adjustment',
+    description: "Trace a perfectly competitive industry's long-run adjustment after a demand shock.",
+    order: 4,
+    estimatedMinutes: 35,
+    tags: ['long-run', 'industry-adjustment', 'entry-exit'],
+    flashcards: [
+      {
+        id: 'fc-ap1-l4-1',
+        front: 'What is the Long-Run Average Cost (LRAC) curve?',
+        back: 'The envelope of all short-run ATC curves. It shows the lowest achievable average cost for each output level when the firm can choose any scale of operation (all inputs are variable).',
+        tags: ['long-run', 'industry-adjustment'],
+      },
+      {
+        id: 'fc-ap1-l4-2',
+        front: 'What causes economies of scale?',
+        back: 'LRAC falls as output rises due to greater specialisation of labour, spreading of indivisible capital costs, bulk purchasing discounts, and learning-by-doing effects. Diseconomies of scale arise from managerial complexity at very large scales.',
+        tags: ['long-run', 'entry-exit'],
+      },
+      {
+        id: 'fc-ap1-l4-3',
+        front: 'How does a constant-cost perfectly competitive industry adjust to a positive demand shock in the long run?',
+        back: 'The demand shock raises price and creates short-run economic profit. New firms enter, shifting market supply rightward, until price falls back to minimum ATC and economic profit returns to zero. Long-run supply is horizontal.',
+        tags: ['long-run', 'industry-adjustment', 'entry-exit'],
+      },
+    ],
+    quiz: [
+      {
+        id: 'q-ap1-l4-1',
+        type: 'mcq',
+        question: 'If a firm doubles all inputs and output rises by 150%, the firm is experiencing:',
+        options: [
+          'Diseconomies of scale — costs are rising faster than output',
+          'Constant returns to scale — output doubles with inputs',
+          'Economies of scale — LRAC is falling as output expands',
+          'Diminishing marginal returns — a short-run phenomenon',
+        ],
+        correctAnswer: 2,
+        explanation: 'When output rises proportionally more than inputs (150% > 100%), the firm\'s long-run average cost falls — this is economies of scale. Diminishing marginal returns is a short-run concept about adding a variable input to a fixed input, not about scaling all inputs simultaneously.',
+        marks: 1,
+        difficulty: 'higher',
+      },
+      {
+        id: 'q-ap1-l4-2',
+        type: 'mcq',
+        question: 'In a constant-cost perfectly competitive industry, a permanent increase in market demand leads to a new long-run equilibrium with:',
+        options: [
+          'A higher equilibrium price and the same number of firms',
+          'The same equilibrium price and greater total industry output',
+          'A lower equilibrium price due to economies of scale in new entrant firms',
+          'A higher equilibrium price and each firm producing a larger quantity',
+        ],
+        correctAnswer: 1,
+        explanation: 'In a constant-cost industry, input prices do not rise as the industry expands, so new firms enter until price returns to the original minimum ATC. The long-run supply curve is perfectly elastic (horizontal). Total industry output is higher because more firms are now in the market, but the equilibrium price and each individual firm\'s output are unchanged.',
+        marks: 1,
+        difficulty: 'higher',
+      },
+    ],
+    content: {
+      isStub: true,
+      conceptualExplanation: `In the long run, firms choose their scale of operation — the size of their plant and capital stock. For each possible plant size there is a corresponding short-run ATC curve. The long-run average cost (LRAC) curve is the lower envelope of all these short-run curves, tracing the minimum cost achievable at each output level when the firm can select any scale. Where LRAC declines with output, the firm enjoys economies of scale — typically driven by specialisation of labour, indivisible capital, and spreading fixed development costs. Where LRAC rises, diseconomies of scale set in, often from managerial complexity and communication failures in very large organisations.
+
+Industry adjustment in the long run depends on cost conditions. In a constant-cost industry (input prices unaffected by industry size), an economic profit attracts entry, supply shifts right, price falls back to minimum ATC, and profits return to zero — the long-run supply curve is horizontal. In increasing-cost industries (entry bids up input prices), the new long-run equilibrium price is higher; in decreasing-cost industries (expansion lowers input costs through learning or supplier scale), it is lower. The AP exam tests whether students can trace this full adjustment — draw the short-run shift, identify where excess profit or loss exists, show the entry or exit, and arrive at the long-run equilibrium price and quantity.`,
+    },
+  },
+]

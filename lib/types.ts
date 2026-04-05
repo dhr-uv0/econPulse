@@ -3,6 +3,39 @@ export type LessonStatus = 'not_started' | 'in_progress' | 'completed'
 export type AssignmentType = 'econ_in_wild' | 'policy_debate' | 'tycoon_mode' | 'peer_prediction' | 'build_a_model' | 'research_brief' | 'debate_flashcard' | 'current_affairs'
 export type ExamTarget = 'IB_SL' | 'IB_HL' | 'AEO' | 'IEO' | 'DECA' | 'PRINCIPLES'
 
+// ── Adaptive learning ─────────────────────────────────────────────────────────
+export type LearningStyle = 'visual' | 'reading' | 'practice' | 'mixed'
+export type DifficultyMode = 'relaxed' | 'standard' | 'challenging' | 'exam'
+
+export interface UserPreferences {
+  user_id: string
+  learning_style: LearningStyle
+  difficulty: DifficultyMode
+  onboarding_completed: boolean
+  manual_override: boolean
+  behavior_signals: BehaviorSignals
+  updated_at: string
+}
+
+export interface BehaviorSignals {
+  skippedExplanationsCount: number
+  hintRequestRate: number
+  averageQuizScore: number
+  averageTimeOnTextBlocks: number
+  averageTimeOnVisuals: number
+  extensionProblemAttemptRate: number
+  sessionCount: number
+}
+
+// ── Curriculum tier ───────────────────────────────────────────────────────────
+export type CurriculumTier =
+  | 'FOUNDATIONS'   // Beginner — intro to economics, no prior knowledge needed
+  | 'INTERMEDIATE'  // Pre-AP — essential micro/macro concepts
+  | 'AP'            // AP Microeconomics + AP Macroeconomics
+  | 'IB'            // IB Economics SL + HL
+  | 'OLYMPIAD'      // AEO / IEO competitive economics
+  | 'DECA'          // DECA business + economics events (bonus)
+
 export interface Profile {
   id: string
   full_name: string | null
@@ -94,12 +127,13 @@ export interface LeaderboardEntry {
   rank: number
 }
 
-// Curriculum types
+// ── Curriculum types ──────────────────────────────────────────────────────────
 export interface CurriculumModule {
   id: string
   title: string
   description: string
-  track: 'IB_SL' | 'IB_HL' | 'DECA' | 'AEO_IEO' | 'PRINCIPLES' | 'ADVANCED'
+  tier?: CurriculumTier
+  track: 'IB_SL' | 'IB_HL' | 'DECA' | 'AEO_IEO' | 'PRINCIPLES' | 'ADVANCED' | 'FOUNDATIONS' | 'AP' | 'INTERMEDIATE' | 'OLYMPIAD'
   unit: number
   lessons: Lesson[]
   estimatedHours: number
@@ -122,13 +156,16 @@ export interface Lesson {
 
 export interface LessonContent {
   conceptualExplanation: string
-  realWorldHook: string
-  interactiveElement: string
-  vocabulary: VocabTerm[]
-  deeperDive: string
-  commonMisconceptions: string[]
-  examinerTip: string
-  didYouKnow: string
+  realWorldHook?: string
+  prerequisiteRecap?: string   // 1-2 sentence callback to prior lesson concepts
+  recallQuestions?: QuizQuestion[] // 1-2 warm-up questions from prior lessons
+  interactiveElement?: string
+  vocabulary?: VocabTerm[]
+  deeperDive?: string
+  commonMisconceptions?: string[]
+  examinerTip?: string
+  didYouKnow?: string
+  isStub?: boolean          // true = content not yet written
 }
 
 export interface VocabTerm {

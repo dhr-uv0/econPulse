@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
-import { TrendingUp, BookOpen, Zap, Award, ArrowLeft, ChevronRight, AlertCircle } from 'lucide-react'
+import { TrendingUp, BookOpen, Zap, Award, ArrowLeft, ChevronRight, AlertCircle, Mail, Lock, Eye, EyeOff, User } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 
 const BENEFITS = [
-  { icon: BookOpen, text: '600+ lessons across all exam tracks' },
+  { icon: BookOpen, text: 'Structured path from beginner to olympiad' },
   { icon: Zap,      text: 'AI-powered spaced repetition' },
   { icon: Award,    text: 'Progress synced across all devices' },
 ]
@@ -27,27 +28,38 @@ const ERROR_MESSAGES: Record<string, string> = {
   access_denied: 'Access was denied. Please try again.',
 }
 
+type AuthTab = 'signup' | 'signin'
+type AuthMethod = 'google' | 'email'
+
 export function LoginPage() {
-  const [loading, setLoading] = useState<'signin' | 'signup' | null>(null)
+  const [tab, setTab] = useState<AuthTab>('signup')
+  const [method, setMethod] = useState<AuthMethod>('google')
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [success, setSuccess] = useState<string | null>(null)
+  const [showPassword, setShowPassword] = useState(false)
+
+  const [name, setName]         = useState('')
+  const [email, setEmail]       = useState('')
+  const [password, setPassword] = useState('')
+
   const searchParams = useSearchParams()
+  const router = useRouter()
   const supabase = createClient()
 
-  // Show errors passed back from the callback route or Supabase
   useEffect(() => {
     const errParam = searchParams.get('error')
-    const errDesc = searchParams.get('error_description')
+    const errDesc  = searchParams.get('error_description')
     if (errParam) {
       setError(ERROR_MESSAGES[errParam] ?? errDesc ?? 'An error occurred. Please try again.')
     }
   }, [searchParams])
 
-  async function handleAuth(mode: 'signin' | 'signup') {
+  // ── Google OAuth ────────────────────────────────────────────────────────────
+  async function handleGoogle() {
     setError(null)
-    setLoading(mode)
-
+    setLoading(true)
     try {
-      // Use skipBrowserRedirect so we can inspect the URL before following it
       const { data, error: oauthError } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
@@ -56,32 +68,85 @@ export function LoginPage() {
           skipBrowserRedirect: true,
         },
       })
-
       if (oauthError || !data?.url) {
-        setError(oauthError?.message ?? 'Could not start sign-in. Google may not be enabled — contact the site owner.')
-        setLoading(null)
+        setError(oauthError?.message ?? 'Could not start Google sign-in. Try email/password instead.')
+        setLoading(false)
         return
       }
-
-      // Validate the redirect URL goes to Google accounts (not somewhere unexpected)
-      const destination = new URL(data.url)
-      const isGoogleOrSupabase =
-        destination.hostname.endsWith('.google.com') ||
-        destination.hostname.endsWith('.supabase.co')
-
-      if (!isGoogleOrSupabase) {
-        setError('OAuth misconfiguration detected — unexpected redirect URL. Please contact the site owner.')
-        setLoading(null)
+      const dest = new URL(data.url)
+      if (!dest.hostname.endsWith('.google.com') && !dest.hostname.endsWith('.supabase.co')) {
+        setError('OAuth misconfiguration — unexpected redirect URL.')
+        setLoading(false)
         return
       }
-
-      // All good — follow the redirect
       window.location.href = data.url
     } catch {
-      setError('An unexpected error occurred. Please try again.')
-      setLoading(null)
+      setError('An unexpected error occurred.')
+      setLoading(false)
     }
   }
+
+  // ── Email sign-up ───────────────────────────────────────────────────────────
+  async function handleEmailSignUp(e: React.FormEvent) {
+    e.preventDefault()
+    if (password.length < 8) {
+      setError('Password must be at least 8 characters.')
+      return
+    }
+    setError(null)
+    setLoading(true)
+    try {
+      const { data, error: signUpError } = await supabase.auth.signUp({ email, password })
+      if (signUpError) { setError(signUpError.message); setLoading(false); return }
+
+      const user = data.user
+      if (user) {
+        // Create profile + streak (auto-confirm is on, so user is immediately active)
+        await supabase.from('profiles').upsert({
+          id: user.id,
+          full_name: name || email.split('@')[0],
+          role: 'student',
+          xp_points: 0,
+          badges: [],
+          weekly_study_goal_hours: 5,
+        }, { onConflict: 'id' })
+
+        await supabase.from('streaks').upsert({
+          user_id: user.id,
+          current_streak: 0,
+          longest_streak: 0,
+        }, { onConflict: 'user_id' })
+
+        router.push('/onboarding')
+      }
+    } catch {
+      setError('An unexpected error occurred.')
+      setLoading(false)
+    }
+  }
+
+  // ── Email sign-in ───────────────────────────────────────────────────────────
+  async function handleEmailSignIn(e: React.FormEvent) {
+    e.preventDefault()
+    setError(null)
+    setLoading(true)
+    try {
+      const { error: signInError } = await supabase.auth.signInWithPassword({ email, password })
+      if (signInError) {
+        setError(signInError.message === 'Invalid login credentials'
+          ? 'Incorrect email or password.'
+          : signInError.message)
+        setLoading(false)
+        return
+      }
+      router.push('/dashboard')
+    } catch {
+      setError('An unexpected error occurred.')
+      setLoading(false)
+    }
+  }
+
+  const isEmailMode = method === 'email'
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
@@ -143,7 +208,7 @@ export function LoginPage() {
           <span className="text-lg font-bold text-[var(--fg)]">EconPulse</span>
         </div>
 
-        <div className="w-full max-w-md space-y-6">
+        <div className="w-full max-w-md space-y-5">
           <Link
             href="/"
             className="inline-flex items-center gap-1.5 text-sm text-[var(--muted-fg)] hover:text-[var(--fg)] transition-colors"
@@ -151,77 +216,142 @@ export function LoginPage() {
             <ArrowLeft className="h-3.5 w-3.5" /> Back to home
           </Link>
 
-          <div>
-            <h1 className="text-3xl font-extrabold text-[var(--fg)] tracking-tight">Get started</h1>
-            <p className="mt-1.5 text-[var(--muted-fg)]">Sign up or sign in — both use Google.</p>
+          {/* Sign up / Sign in tabs */}
+          <div className="flex rounded-xl bg-[var(--muted)] p-1 gap-1">
+            {(['signup', 'signin'] as AuthTab[]).map((t) => (
+              <button
+                key={t}
+                onClick={() => { setTab(t); setError(null); setSuccess(null) }}
+                className={`flex-1 rounded-lg py-2 text-sm font-semibold transition-all ${
+                  tab === t
+                    ? 'bg-[var(--card-bg)] text-[var(--fg)] shadow-sm'
+                    : 'text-[var(--muted-fg)] hover:text-[var(--fg)]'
+                }`}
+              >
+                {t === 'signup' ? 'Create account' : 'Sign in'}
+              </button>
+            ))}
           </div>
 
-          {/* Error banner */}
+          {/* Error / success banners */}
           {error && (
             <div className="flex items-start gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-600 dark:text-red-400">
               <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
               <span>{error}</span>
             </div>
           )}
-
-          {/* Sign Up card */}
-          <div className="rounded-2xl border-2 border-[var(--accent)]/40 bg-[var(--card-bg)] p-6 space-y-4">
-            <div className="flex items-start justify-between">
-              <div>
-                <div className="text-[10px] font-bold uppercase tracking-widest text-[var(--accent)] mb-1">New here?</div>
-                <h2 className="text-lg font-bold text-[var(--fg)]">Create an account</h2>
-                <p className="text-sm text-[var(--muted-fg)] mt-0.5">Free · No credit card needed.</p>
-              </div>
-              <div className="h-9 w-9 shrink-0 rounded-xl bg-[var(--accent)]/10 flex items-center justify-center">
-                <Award className="h-5 w-5 text-[var(--accent)]" />
-              </div>
+          {success && (
+            <div className="flex items-start gap-3 rounded-xl border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm text-green-700 dark:text-green-400">
+              <span>{success}</span>
             </div>
-            <ul className="space-y-1.5 text-sm text-[var(--muted-fg)]">
-              {['IB, DECA, AEO/IEO curriculum', 'AI tutor + essay grading', 'Flashcards, quizzes & progress tracking'].map((item) => (
-                <li key={item} className="flex items-center gap-2">
-                  <div className="h-1.5 w-1.5 rounded-full bg-[var(--accent)] shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <button
-              onClick={() => handleAuth('signup')}
-              disabled={loading !== null}
-              className="w-full flex items-center justify-center gap-2.5 rounded-xl bg-[var(--accent)] px-4 py-3 text-sm font-bold text-[var(--accent-fg)] hover:opacity-90 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading === 'signup' ? (
-                <span className="flex items-center gap-2">
-                  <span className="h-4 w-4 rounded-full border-2 border-current border-t-transparent animate-spin" />
-                  Redirecting to Google…
-                </span>
-              ) : (
-                <><GoogleIcon /> Sign up with Google <ChevronRight className="h-4 w-4 ml-auto" /></>
-              )}
-            </button>
-          </div>
+          )}
 
-          {/* Divider */}
-          <div className="relative flex items-center gap-3">
-            <div className="flex-1 h-px bg-[var(--border)]" />
-            <span className="text-xs text-[var(--muted-fg)]">Already have an account?</span>
-            <div className="flex-1 h-px bg-[var(--border)]" />
-          </div>
+          {/* Auth card */}
+          <div className="rounded-2xl border border-[var(--border)] bg-[var(--card-bg)] p-6 space-y-4">
 
-          {/* Sign In button */}
-          <button
-            onClick={() => handleAuth('signin')}
-            disabled={loading !== null}
-            className="w-full flex items-center justify-center gap-2.5 rounded-xl border border-[var(--border)] bg-[var(--card-bg)] px-4 py-3 text-sm font-semibold text-[var(--fg)] hover:border-[var(--accent)]/50 hover:bg-[var(--muted)] active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {loading === 'signin' ? (
-              <span className="flex items-center gap-2">
-                <span className="h-4 w-4 rounded-full border-2 border-current border-t-transparent animate-spin" />
-                Redirecting to Google…
-              </span>
-            ) : (
-              <><GoogleIcon /> Sign in with Google</>
+            {/* Method switcher */}
+            <div className="flex gap-2">
+              <button
+                onClick={() => { setMethod('google'); setError(null) }}
+                className={`flex-1 flex items-center justify-center gap-2 rounded-lg border py-2 text-xs font-semibold transition-all ${
+                  method === 'google'
+                    ? 'border-[var(--accent)]/60 bg-[var(--accent)]/8 text-[var(--fg)]'
+                    : 'border-[var(--border)] text-[var(--muted-fg)] hover:border-[var(--accent)]/30'
+                }`}
+              >
+                <GoogleIcon /> Google
+              </button>
+              <button
+                onClick={() => { setMethod('email'); setError(null) }}
+                className={`flex-1 flex items-center justify-center gap-2 rounded-lg border py-2 text-xs font-semibold transition-all ${
+                  method === 'email'
+                    ? 'border-[var(--accent)]/60 bg-[var(--accent)]/8 text-[var(--fg)]'
+                    : 'border-[var(--border)] text-[var(--muted-fg)] hover:border-[var(--accent)]/30'
+                }`}
+              >
+                <Mail className="h-4 w-4" /> Email
+              </button>
+            </div>
+
+            {/* Google flow */}
+            {!isEmailMode && (
+              <button
+                onClick={handleGoogle}
+                disabled={loading}
+                className="w-full flex items-center justify-center gap-2.5 rounded-xl bg-[var(--accent)] px-4 py-3 text-sm font-bold text-[var(--accent-fg)] hover:opacity-90 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? (
+                  <span className="flex items-center gap-2">
+                    <span className="h-4 w-4 rounded-full border-2 border-current border-t-transparent animate-spin" />
+                    Redirecting to Google…
+                  </span>
+                ) : (
+                  <><GoogleIcon /> {tab === 'signup' ? 'Sign up' : 'Sign in'} with Google <ChevronRight className="h-4 w-4 ml-auto" /></>
+                )}
+              </button>
             )}
-          </button>
+
+            {/* Email flow */}
+            {isEmailMode && (
+              <form onSubmit={tab === 'signup' ? handleEmailSignUp : handleEmailSignIn} className="space-y-3">
+                {tab === 'signup' && (
+                  <div className="relative">
+                    <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--muted-fg)]" />
+                    <input
+                      type="text"
+                      placeholder="Your name (optional)"
+                      value={name}
+                      onChange={e => setName(e.target.value)}
+                      className="w-full rounded-xl border border-[var(--border)] bg-[var(--bg)] pl-9 pr-4 py-2.5 text-sm text-[var(--fg)] placeholder:text-[var(--muted-fg)] focus:outline-none focus:border-[var(--accent)] transition-colors"
+                    />
+                  </div>
+                )}
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--muted-fg)]" />
+                  <input
+                    type="email"
+                    placeholder="Email address"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    required
+                    className="w-full rounded-xl border border-[var(--border)] bg-[var(--bg)] pl-9 pr-4 py-2.5 text-sm text-[var(--fg)] placeholder:text-[var(--muted-fg)] focus:outline-none focus:border-[var(--accent)] transition-colors"
+                  />
+                </div>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[var(--muted-fg)]" />
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder={tab === 'signup' ? 'Password (min 8 characters)' : 'Password'}
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    required
+                    className="w-full rounded-xl border border-[var(--border)] bg-[var(--bg)] pl-9 pr-10 py-2.5 text-sm text-[var(--fg)] placeholder:text-[var(--muted-fg)] focus:outline-none focus:border-[var(--accent)] transition-colors"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(v => !v)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--muted-fg)] hover:text-[var(--fg)]"
+                  >
+                    {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  </button>
+                </div>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-[var(--accent)] px-4 py-3 text-sm font-bold text-[var(--accent-fg)] hover:opacity-90 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {loading ? (
+                    <span className="flex items-center gap-2">
+                      <span className="h-4 w-4 rounded-full border-2 border-current border-t-transparent animate-spin" />
+                      {tab === 'signup' ? 'Creating account…' : 'Signing in…'}
+                    </span>
+                  ) : (
+                    tab === 'signup' ? 'Create account' : 'Sign in'
+                  )}
+                </button>
+              </form>
+            )}
+          </div>
 
           <p className="text-center text-xs text-[var(--muted-fg)]">
             By continuing, you agree to our{' '}
