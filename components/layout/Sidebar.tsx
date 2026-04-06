@@ -9,14 +9,13 @@ import { cn } from '@/lib/utils'
 import {
   LayoutDashboard, BookOpen, Zap, ClipboardList, BarChart3,
   TrendingUp, User as UserIcon, Users, ChevronLeft, ChevronRight,
-  GraduationCap, Trophy,
+  Trophy,
 } from 'lucide-react'
 
 const NAV_ITEMS = [
   { href: '/dashboard',    icon: LayoutDashboard, label: 'Dashboard' },
   { href: '/curriculum',   icon: BookOpen,         label: 'Curriculum' },
   { href: '/flashcards',   icon: Zap,              label: 'Flashcards' },
-  { href: '/quiz',         icon: GraduationCap,    label: 'Practice' },
   { href: '/assignments',  icon: ClipboardList,    label: 'Assignments' },
   { href: '/progress',     icon: BarChart3,        label: 'Progress' },
   { href: '/leaderboard',  icon: Trophy,           label: 'Leaderboard' },

@@ -38,8 +38,8 @@ interface PreparedQuestion extends Omit<QuizQuestion, 'options' | 'correctAnswer
 }
 
 function prepareQuestions(questions: QuizQuestion[]): PreparedQuestion[] {
-  // Pick up to 4 randomly
-  const pool = shuffle(questions).slice(0, 4)
+  // Pick up to 10 randomly
+  const pool = shuffle(questions).slice(0, 10)
   return pool.map((q) => {
     if (!q.options || typeof q.correctAnswer !== 'number') {
       return { ...q, options: q.options ?? [], shuffledOptions: q.options ?? [], shuffledCorrect: q.correctAnswer as number }
@@ -76,7 +76,7 @@ export function LessonQuiz({ questions, lessonId, moduleId, userId, alreadyPasse
 
   const q = prepared[current]
   const score = answers.filter((a, i) => a === prepared[i].shuffledCorrect).length
-  const passed = quizDone && score / prepared.length >= 0.6
+  const passed = quizDone && score / prepared.length >= 0.8
 
   async function handleSubmit() {
     if (selected === null) return
@@ -98,7 +98,7 @@ export function LessonQuiz({ questions, lessonId, moduleId, userId, alreadyPasse
 
   async function finishQuiz() {
     const finalScore = answers.filter((a, i) => a === prepared[i].shuffledCorrect).length
-    const pass = finalScore / prepared.length >= 0.6
+    const pass = finalScore / prepared.length >= 0.8
     setQuizDone(true)
 
     await supabase.from('quiz_results').insert({
@@ -146,6 +146,11 @@ export function LessonQuiz({ questions, lessonId, moduleId, userId, alreadyPasse
             <p className="text-[var(--muted-fg)]">
               You scored {score} out of {prepared.length} ({Math.round(score / prepared.length * 100)}%)
             </p>
+            {!passed && (
+              <p className="text-xs text-[var(--muted-fg)] mt-1">
+                Need 8/10 to pass · {8 - score > 0 ? `${8 - score} more correct to pass` : 'Almost there!'}
+              </p>
+            )}
             {passed && (
               <div className="mt-2">
                 <Badge variant="gold" className="gap-1 text-sm px-3 py-1">

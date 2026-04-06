@@ -16,9 +16,10 @@ import { VocabFlashcards } from '@/components/curriculum/VocabFlashcards'
 import {
   ChevronLeft, ChevronRight, Check, ChevronDown, ChevronUp,
   Lightbulb, AlertTriangle, GraduationCap, Sparkles,
-  BookOpen, Brain, RefreshCw,
+  BookOpen, Brain, RefreshCw, PenLine,
 } from 'lucide-react'
 import { RecallWarmup } from '@/components/curriculum/RecallWarmup'
+import { LessonAssignmentPanel } from '@/components/curriculum/LessonAssignmentPanel'
 
 interface Props {
   lesson: Lesson
@@ -27,7 +28,7 @@ interface Props {
   initialStatus: LessonStatus
 }
 
-type Tab = 'lesson' | 'vocab' | 'quiz'
+type Tab = 'lesson' | 'vocab' | 'assignment' | 'quiz'
 
 export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Props) {
   const router = useRouter()
@@ -86,9 +87,10 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
   }
 
   const tabs: { id: Tab; label: string; icon: React.ReactNode }[] = [
-    { id: 'lesson', label: 'Lesson',     icon: <BookOpen className="h-3.5 w-3.5" /> },
-    { id: 'vocab',  label: 'Vocabulary', icon: <GraduationCap className="h-3.5 w-3.5" /> },
-    { id: 'quiz',   label: 'Quiz',       icon: <Check className="h-3.5 w-3.5" /> },
+    { id: 'lesson',     label: 'Lesson',     icon: <BookOpen className="h-3.5 w-3.5" /> },
+    { id: 'vocab',      label: 'Vocabulary', icon: <GraduationCap className="h-3.5 w-3.5" /> },
+    ...(lesson.lessonAssignment ? [{ id: 'assignment' as Tab, label: 'Assignment', icon: <PenLine className="h-3.5 w-3.5" /> }] : []),
+    { id: 'quiz',       label: 'Quiz',       icon: <Check className="h-3.5 w-3.5" /> },
   ]
 
   return (
@@ -108,9 +110,6 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <div className="flex items-center gap-2 flex-wrap mb-2">
-            <Badge variant="muted" className="text-[10px]">
-              {lesson.estimatedMinutes} min
-            </Badge>
             {lesson.tags.map((t) => (
               <Badge key={t} variant="outline" className="text-[10px]">{t}</Badge>
             ))}
@@ -338,9 +337,9 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
               variant="gold"
               size="sm"
               className="gap-1.5"
-              onClick={() => setActiveTab('quiz')}
+              onClick={() => setActiveTab(lesson.lessonAssignment ? 'assignment' : 'quiz')}
             >
-              Take quiz to complete
+              {lesson.lessonAssignment ? 'Assignment & Quiz' : 'Take quiz to complete'}
               <ChevronRight className="h-3.5 w-3.5" />
             </Button>
           </div>
@@ -349,6 +348,24 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
 
       {activeTab === 'vocab' && (
         <VocabFlashcards vocab={lesson.content.vocabulary ?? []} lessonId={lesson.id} userId={userId} />
+      )}
+
+      {activeTab === 'assignment' && lesson.lessonAssignment && (
+        <div className="space-y-4">
+          <LessonAssignmentPanel
+            assignment={lesson.lessonAssignment}
+            lessonId={lesson.id}
+            moduleId={mod.id}
+            userId={userId}
+            lessonTitle={lesson.title}
+          />
+          <div className="flex justify-end pt-2">
+            <Button variant="gold" size="sm" className="gap-1.5" onClick={() => setActiveTab('quiz')}>
+              Take the quiz
+              <ChevronRight className="h-3.5 w-3.5" />
+            </Button>
+          </div>
+        </div>
       )}
 
       {activeTab === 'quiz' && (

@@ -69,17 +69,24 @@ create table if not exists public.assignments (
                      check (assignment_type in (
                        'econ_in_wild','policy_debate','tycoon_mode',
                        'peer_prediction','build_a_model','research_brief',
-                       'debate_flashcard','current_affairs'
+                       'debate_flashcard','current_affairs','lesson_practice'
                      )),
   unit_id          text not null,
+  lesson_id        text,          -- set for lesson_practice type
   title            text,
   prompt           text,
+  rubric           text,          -- grading criteria for AI
   submission_text  text,
   ai_feedback      text,
   ai_score         numeric(5,2),
   submitted_at     timestamptz,
   created_at       timestamptz not null default now()
 );
+
+-- Unique constraint: one lesson_practice submission per user per lesson
+create unique index if not exists idx_assignments_lesson_practice
+  on public.assignments (user_id, lesson_id)
+  where assignment_type = 'lesson_practice';
 
 -- ── Bookmarks ────────────────────────────────────────────────────────────────
 create table if not exists public.bookmarks (

@@ -9,9 +9,32 @@ export async function POST(request: Request) {
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
-  const { assignmentType, prompt, submission } = await request.json()
+  const { assignmentType, prompt, rubric, submission, lessonTitle, moduleId } = await request.json()
 
-  const systemPrompt = `You are an expert economics examiner with 20 years of experience grading IB Economics, DECA, and Economics Olympiad responses. You provide detailed, constructive, and honest feedback.
+  const isLessonPractice = assignmentType === 'lesson_practice'
+
+  const systemPrompt = isLessonPractice
+    ? `You are an economics tutor grading a short lesson practice assignment. The student just completed a lesson and is demonstrating their understanding of the core concepts.
+
+Grade the student's response out of 10 using this rubric:
+${rubric ?? 'Assess conceptual accuracy, use of economic vocabulary, and quality of examples.'}
+
+Scoring guide:
+- 9-10: Accurate concepts, correct vocabulary, strong example, clear reasoning
+- 7-8: Mostly accurate, uses some vocabulary, adequate example
+- 5-6: Partial understanding, vague or missing example, minor errors
+- 3-4: Significant misconceptions or very thin response
+- 0-2: Off-topic or nearly blank
+
+Your feedback must:
+1. Affirm what they got right (1 sentence)
+2. Point out the single most important gap or error
+3. Give one concrete suggestion for improvement
+4. Be encouraging — this is formative practice, not high-stakes
+
+Return ONLY this JSON (no markdown fences):
+{"score": 7.5, "feedback": "Your feedback here"}`
+    : `You are an expert economics examiner with 20 years of experience grading IB Economics, DECA, and Economics Olympiad responses. You provide detailed, constructive, and honest feedback.
 
 Grade the following student response on a scale of 0-10 and provide specific, actionable feedback. Your feedback must:
 1. Start with what the student did well (1-2 sentences)
@@ -22,27 +45,25 @@ Grade the following student response on a scale of 0-10 and provide specific, ac
 
 Be direct and specific. Avoid vague praise. A good response scores 7-8; an outstanding one scores 9-10; a weak one scores 3-5.
 
-Return your response in this exact JSON format:
-{
-  "score": 7.5,
-  "feedback": "Your detailed feedback here..."
-}`
+Return ONLY this JSON (no markdown fences):
+{"score": 7.5, "feedback": "Your detailed feedback here"}`
 
   try {
+    const userContent = isLessonPractice
+      ? `Lesson: ${lessonTitle ?? 'Unknown'} (Module: ${moduleId ?? ''})\n\nAssignment prompt: ${prompt}\n\nStudent's answer:\n${submission}`
+      : `Assignment Type: ${assignmentType}\n\nPrompt: ${prompt}\n\nStudent Response:\n${submission}`
+
     const response = await anthropic.messages.create({
       model: 'claude-sonnet-4-6',
-      max_tokens: 800,
+      max_tokens: 600,
       system: systemPrompt,
-      messages: [
-        {
-          role: 'user',
-          content: `Assignment Type: ${assignmentType}\n\nPrompt: ${prompt}\n\nStudent Response:\n${submission}`,
-        },
-      ],
+      messages: [{ role: 'user', content: userContent }],
     })
 
     const text = response.content[0].type === 'text' ? response.content[0].text : '{}'
-    const parsed = JSON.parse(text)
+    // Strip accidental markdown fences
+    const clean = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
+    const parsed = JSON.parse(clean)
 
     return NextResponse.json({
       score: parsed.score ?? 5,

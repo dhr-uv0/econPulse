@@ -1,6 +1,6 @@
 export type UserRole = 'student' | 'teacher' | 'admin'
 export type LessonStatus = 'not_started' | 'in_progress' | 'completed'
-export type AssignmentType = 'econ_in_wild' | 'policy_debate' | 'tycoon_mode' | 'peer_prediction' | 'build_a_model' | 'research_brief' | 'debate_flashcard' | 'current_affairs'
+export type AssignmentType = 'econ_in_wild' | 'policy_debate' | 'tycoon_mode' | 'peer_prediction' | 'build_a_model' | 'research_brief' | 'debate_flashcard' | 'current_affairs' | 'lesson_practice'
 export type ExamTarget = 'IB_SL' | 'IB_HL' | 'AEO' | 'IEO' | 'DECA' | 'PRINCIPLES'
 
 // ── Adaptive learning ─────────────────────────────────────────────────────────
@@ -94,8 +94,10 @@ export interface Assignment {
   user_id: string
   assignment_type: AssignmentType
   unit_id: string
+  lesson_id?: string | null
   title: string | null
   prompt: string | null
+  rubric?: string | null
   submission_text: string | null
   ai_feedback: string | null
   ai_score: number | null
@@ -141,6 +143,12 @@ export interface CurriculumModule {
   icon: string
 }
 
+export interface LessonAssignment {
+  prompt: string        // The assignment question/task
+  rubric: string        // What AI grader looks for (passed to grade API)
+  exampleTopics: string[] // Bullet points shown to student as guidance
+}
+
 export interface Lesson {
   id: string
   moduleId: string
@@ -149,6 +157,7 @@ export interface Lesson {
   content: LessonContent
   flashcards: Flashcard[]
   quiz: QuizQuestion[]
+  lessonAssignment?: LessonAssignment
   order: number
   estimatedMinutes: number
   tags: string[]
