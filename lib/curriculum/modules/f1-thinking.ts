@@ -25,7 +25,7 @@ export const lessons: Lesson[] = [
     estimatedMinutes: 30,
     tags: ['foundations', 'scarcity', 'methodology'],
     content: {
-      realWorldHook: `In 2002, Israeli researchers ran a study on a Tel Aviv daycare. The centre had a problem: parents kept picking up their kids late, and teachers hated staying overtime. So the managers did the sensible thing — they introduced a small $3 fine for late pickups. What happened next defied common sense: late pickups *more than doubled*. Why? Before the fine, parents felt a moral obligation not to be late — they were inconveniencing someone they knew. The moment money entered the picture, they reframed the situation: this is now a *service* I'm paying for. The moral code evaporated, replaced by a transaction. When the fine was later removed, late pickups stayed high. Economics had permanently changed the relationship. This experiment sits at the heart of what economics is really about: not just money, but *incentives* — and how the systems we design shape human behaviour in ways we don't always predict.`,
+      realWorldHook: `In 2007, New York City upgraded its 13,000 taxi cabs with touchscreen payment terminals. The screens were pre-programmed with three suggested tip amounts: 20%, 25%, and 30% — all calculated on the total fare including tolls, which made them feel smaller. Before the screens, the average tip was around 10%. After? It jumped to nearly 22% overnight. No one forced cab passengers to tip more. The city didn't pass a law. Drivers didn't ask. The only thing that changed was the *default* presented to people at a moment when they were in a hurry and not thinking carefully. That is an incentive — not a fine, not a reward, just a nudge built into the choice architecture. And it transferred hundreds of millions of dollars from passengers to drivers over the following years. Economics isn't just about big policy decisions or GDP figures. It's about understanding why people do what they do — and realising that tiny, invisible design choices shape enormous outcomes.`,
 
       conceptualExplanation: `## What Is Economics?
 
@@ -142,8 +142,8 @@ The discipline traces its origins to Adam Smith's 1776 *The Wealth of Nations*, 
       },
       {
         id: 'f1-l1-fc7',
-        front: 'What did the Israeli daycare study reveal about incentives?',
-        back: 'That replacing a moral obligation (don\'t be late) with a financial penalty transformed it into a transaction — late pickups doubled. Financial incentives can crowd out social norms.',
+        front: 'What did NYC\'s taxi tip screen redesign reveal about incentives?',
+        back: 'Pre-setting tip options at 20%, 25%, and 30% more than doubled average tips — with no law, no pressure, no extra pay. Changing the default choice is itself a powerful incentive that shapes behaviour invisibly.',
         tags: ['incentives', 'foundations'],
       },
     ],
@@ -229,15 +229,15 @@ Deduct for: confusing positive with normative, using the lesson's exact examples
       {
         id: 'f1-l1-q5',
         type: 'mcq',
-        question: 'The Israeli daycare study (fining parents for late pickups) demonstrates which economic principle?',
+        question: 'NYC taxi payment screens pre-set tip options at 20%, 25%, and 30%, more than doubling average tips. This best illustrates which economic principle?',
         options: [
           'Higher prices always reduce demand for a service.',
-          'Incentives can crowd out social norms, changing behaviour in unexpected ways.',
+          'Incentives shape behaviour — even without force, changing the default option changes what people choose.',
           'Government regulation always improves market outcomes.',
-          'Financial penalties are the most effective way to change behaviour.',
+          'People always tip the mathematically correct amount when given clear options.',
         ],
         correctAnswer: 1,
-        explanation: 'The fine replaced the moral obligation of being on time with a financial transaction — parents now felt they were simply "paying for extra time." Late pickups more than doubled, showing that financial incentives can destroy social norms rather than reinforce them.',
+        explanation: 'The screens didn\'t force anyone to tip more — they just changed which option required the least effort. This is a choice-architecture incentive: by making 20%+ the path of least resistance, the design shifted behaviour at scale. Incentives don\'t have to be fines or rewards; they can be defaults.',
         marks: 1,
         difficulty: 'foundation',
       },
@@ -349,7 +349,7 @@ Deduct for: confusing positive with normative, using the lesson's exact examples
         },
       ],
 
-      realWorldHook: `In Freakonomics, economist Steven Levitt studied why drug dealers — despite the glamour of street-corner culture — often lived with their mothers. The answer is opportunity cost. Most street-level dealers earned less than minimum wage. The "salary" they gave up by dealing instead of working a legitimate job (however low) was their opportunity cost — and it was often negative. Why would anyone take such a deal? Because the *expected* opportunity cost included the small probability of rising through the ranks to become a gang's top earner. Most never did. The opportunity cost analysis cuts through the mythology: dealing wasn't a rational economic choice for most of them — it just looked like one from the outside.`,
+      realWorldHook: `Every year, thousands of American students are accepted to Ivy League universities and turn them down. Not because they can't afford it — many receive full scholarships. They turn them down because they've been accepted somewhere else, or have a job offer, or want to start a company. From the outside, this looks crazy. You're turning down *Harvard*. But the acceptance letter isn't free. Four years at Harvard costs you four years of *something else* — a salary, a business, an apprenticeship, a life somewhere else. The scholarship covers tuition. It doesn't cover time. This is why the children of billionaires still face a real economic decision when they choose a university — because even when money isn't scarce, time always is. Opportunity cost doesn't care how wealthy you are. Every choice you make eliminates every other choice you could have made in that same moment. The question economics forces you to ask isn't "Can I afford this?" — it's "What am I giving up to have it?"`,
 
       conceptualExplanation: `## Scarcity, Choice, and Opportunity Cost
 
@@ -457,8 +457,8 @@ For public policy, opportunity cost is equally critical. When governments spend 
       },
       {
         id: 'f1-l2-fc7',
-        front: 'What did the Freakonomics drug dealer example reveal about opportunity cost?',
-        back: 'Most street-level dealers earned below minimum wage once risk was factored in. The "glamour" made the true opportunity cost — a legitimate job — look smaller than it was. Opportunity cost analysis exposes the real economics behind apparently irrational choices.',
+        front: 'Why do even full-scholarship students at elite universities still face an opportunity cost?',
+        back: 'A scholarship covers tuition but not time. Four years spent studying is four years not spent earning, building a business, or pursuing other paths. Time is always scarce — so even a "free" education has an opportunity cost.',
         tags: ['opportunity-cost', 'foundations'],
       },
     ],
@@ -681,7 +681,7 @@ Deduct for: listing multiple opportunity costs without identifying the single be
         },
       ],
 
-      realWorldHook: `When COVID-19 hit in early 2020, General Motors and Ford faced a stark PPF problem. Their factories were built for cars — but hospitals desperately needed ventilators. Within weeks, GM retooled a factory and produced 30,000 ventilators for the US government. Every ventilator produced meant fewer cars. This was a literal movement *along* the economy's PPF: more of one good (ventilators), less of another (cars). And the speed of the pivot showed something else: the US economy had been operating *inside* its PPF — the productive capacity existed, it just hadn't been deployed. Sometimes the biggest economic gains come not from growth, but from simply using what you already have.`,
+      realWorldHook: `During World War II, the United States had to answer a question no peacetime economy ever faces quite so brutally: how many consumer goods are you willing to give up to win a war? Between 1941 and 1945, civilian car production essentially stopped. Factories that had been making Chevrolets were making tanks. Nylon that had gone into women's stockings now went into parachutes. Butter was rationed so that military rations could be shipped overseas. This wasn't a failure of the economy — it was the economy doing exactly what a PPF describes. The country moved along its production possibilities curve, sacrificing consumer goods to maximise military output. And then something interesting happened: all that wartime investment in factories, logistics, and technology shifted the PPF *outward*. By 1946, the US could produce *more* consumer goods than before the war, because the war had forced an explosion in productive capacity. The curve didn't just move — it grew.`,
 
       conceptualExplanation: `## The Production Possibilities Frontier
 
@@ -999,7 +999,7 @@ Deduct for: confusing movement along PPF with outward shift, describing growth a
         },
       ],
 
-      realWorldHook: `In 2010, Venezuela had the world's largest proven oil reserves. By 2019, children were going hungry, hospitals had no medicine, and a third of the population had emigrated. What happened? The government took control of food production, set prices below market rates, and ordered private companies to sell at a loss. The predictable result: companies stopped producing, shelves emptied, and the black market exploded. Meanwhile, Singapore — a tiny island with no natural resources — built one of the world's highest standards of living by combining free markets with selective, strategic government intervention. The contrast isn't between "good" and "bad" governments — it's about *which mixture* of market and government works for which context. As economist Dani Rodrik puts it: "The question is never market or government — it's which government, doing what, for whom."`,
+      realWorldHook: `In 1991, the Soviet Union collapsed after seven decades of central planning. Among the stranger relics it left behind: a country that had too many left shoes and not enough right shoes. This sounds like a joke, but it's documented. Factories had been assigned production quotas for shoes — measured in pairs, but the quotas were easier to hit by producing more of the simpler left shoe. No market signal existed to correct this, because there was no market. Consumers couldn't vote with their wallets. Planners in Moscow couldn't know what was actually on shelves in Siberia. Compare this to what happens in a supermarket when a product runs low: the price nudges up, the supplier notices, production increases, and the shelf refills — all without a single phone call to a central authority. The price mechanism isn't glamorous. It's just millions of quiet signals, all firing at once, doing the coordination job that the Soviet Union needed a hundred thousand bureaucrats to attempt — and still got wrong.`,
 
       conceptualExplanation: `## Economic Systems: Markets, Command, and Mixed
 
@@ -1315,7 +1315,7 @@ Yet the market system is not without critics. The 2008 financial crisis demonstr
         },
       ],
 
-      realWorldHook: `Airlines use marginal thinking more ruthlessly than almost any industry. Once a flight is scheduled and the fixed costs — aircraft, crew salaries, fuel for the loaded plane, gate fees — are paid, the marginal cost of one additional passenger is almost nothing: a few peanuts, a small amount of extra fuel, and a fraction of the cleaning bill. So rather than fly with empty seats (generating zero revenue), airlines will sell last-minute fares at steep discounts. Any price above that tiny marginal cost adds to profit. This is why you can sometimes fly transatlantic for £80 if you book the day before departure. The airline isn't being generous — it's doing marginal analysis. And if you ever wondered why airlines overbook flights: the marginal cost of bumping an occasional passenger (a voucher) is lower than the revenue lost from flying with consistent empty seats.`,
+      realWorldHook: `A hospital in the UK once calculated the cost of keeping a patient in a bed for one extra day: roughly £400. Then it calculated what that same £400 could buy if spent on preventive community care — GP visits, medication reminders, home check-ins for elderly patients. The answer: it could prevent around three future hospital admissions, each lasting several days. Nobody had done this comparison before. The hospital had always optimised for treating patients in front of them — a perfectly rational goal. But nobody had asked the marginal question: does the next pound spent *here* do more good than the next pound spent *there*? When they finally did, they redesigned their entire discharge process around that single insight. This is what marginal thinking looks like in practice. It's not about being cold or calculating — it's about being honest that every decision has a "next unit" hiding inside it, and that the right question is almost always: *is this specific next step worth its specific next cost?*`,
 
       conceptualExplanation: `## Thinking at the Margin
 
