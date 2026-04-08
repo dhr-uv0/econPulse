@@ -101,6 +101,11 @@ The discipline traces its origins to Adam Smith's 1776 *The Wealth of Nations*, 
       examinerTip: `When asked to "distinguish between positive and normative statements," always look for value-laden language — words like *should*, *ought*, *better*, or *fairer* signal a normative claim. If a statement can be investigated with data alone, it is positive. Give one clear example of each to show you understand the distinction, not just the definition.`,
 
       didYouKnow: `The word "economics" comes from the ancient Greek *oikonomia*, meaning "household management." The Greek philosopher Xenophon used it to describe the efficient running of an estate — proof that the core idea of managing scarce resources wisely is as old as civilisation itself.`,
+
+      thinkAboutIt: {
+        question: `A friend says: "I'm going to the free concert in the park tonight — it doesn't cost anything." What would an economist say in response?`,
+        answer: `The concert isn't truly free. Your friend is spending a scarce resource — their time — that has an opportunity cost. They could have spent those hours working, studying, sleeping, or doing anything else of value. Even with no price tag, attending has a real economic cost. This is TANSTAAFL in action: "There Ain't No Such Thing As A Free Lunch." Every choice uses up something scarce, even when money isn't involved.`,
+      },
     },
 
     flashcards: [
@@ -416,6 +421,11 @@ For public policy, opportunity cost is equally critical. When governments spend 
       examinerTip: `When describing opportunity cost, always name the *specific* next-best alternative — not just "what you gave up." Examiners award marks for precision: state what was chosen, what was sacrificed, and why that sacrifice is the opportunity cost. Never list multiple alternatives — pick the single best one forgone.`,
 
       didYouKnow: `The phrase "There Ain't No Such Thing As A Free Lunch" was popularised by Nobel Prize-winning economist Milton Friedman, but it appeared in American saloons in the 1800s — where "free" bar snacks were offered to attract paying drinkers. TANSTAAFL was understood by barkeepers long before economists named it.`,
+
+      thinkAboutIt: {
+        question: `You've paid £15 for a cinema ticket and sat down. Ten minutes in, it's clearly terrible. Should you stay or leave?`,
+        answer: `Leave — if you'd rather be somewhere else. The £15 is a sunk cost: it's gone whether you watch the film or not. The only relevant question is what's worth more for the next two hours: sitting through a bad film, or doing something you'd actually enjoy? People who stay "to get their money's worth" are letting a sunk cost distort a forward-looking decision. The rational choice ignores what's already spent and focuses only on future costs and benefits.`,
+      },
     },
 
     flashcards: [
@@ -749,6 +759,13 @@ It is equally important to recognise what the PPF deliberately leaves out. Real 
       examinerTip: `In diagram questions, always label both axes clearly, mark the curve as "PPF," and show three key points: one on the curve (efficient), one inside (inefficient/attainable), and one outside (unattainable). If asked about economic growth, draw a second PPF shifted outward and explain *why* it shifted. Never confuse movement along the curve (a trade-off) with a shift of the curve (growth).`,
 
       didYouKnow: `The PPF concept was first formalised by economist Gottfried Haberler in 1936 to analyse international trade theory, but it has since become the universal first diagram of almost every introductory economics course worldwide — a testament to how much explanatory power a simple two-axis graph can carry.`,
+
+      diagram: 'ppf' as const,
+
+      thinkAboutIt: {
+        question: `A country reduces its unemployment rate from 8% to 4%. Has it experienced economic growth? How would you show this on a PPF diagram?`,
+        answer: `No — this is not economic growth. Reducing unemployment moves the economy from a point *inside* the PPF (where resources were sitting idle) to a point *on* the PPF (where resources are now fully used). Economic growth would be an *outward shift* of the entire curve — meaning the country can now produce more of everything, because its productive capacity has increased. Getting people back to work is valuable, but it's efficiency improvement, not growth. Growth requires more resources, better technology, or improved skills.`,
+      },
     },
 
     flashcards: [
@@ -1066,6 +1083,11 @@ Yet the market system is not without critics. The 2008 financial crisis demonstr
       examinerTip: `When comparing economic systems, always evaluate *both* advantages and disadvantages of each, and link your argument to the three fundamental questions (what, how, for whom). Examiners reward balanced analysis. Avoid dismissing command economies entirely — acknowledge what they *can* achieve before explaining their limitations.`,
 
       didYouKnow: `North Korea and Cuba are among the last countries operating close to the command model — yet even they have allowed informal market activity to emerge over time, illustrating how difficult it is to suppress market forces when people have unmet wants and something to trade.`,
+
+      thinkAboutIt: {
+        question: `A government sets the price of bread at £1 to make it affordable for everyone. What does an economist predict will happen next?`,
+        answer: `If £1 is below the market equilibrium price, producers lose money on every loaf they sell — so they produce less, or stop entirely. Shelves empty. Queues form. The policy intended to help people buy bread ends up meaning there's no bread to buy. This is the information and incentive problem in action: the price signal that would normally tell producers "make more" has been disabled. The result is a shortage — the opposite of what was intended. This is why even well-meaning price controls tend to backfire, and why the price mechanism, despite its flaws, is extraordinarily difficult to replace.`,
+      },
     },
 
     flashcards: [
@@ -1380,6 +1402,13 @@ There's also an important mathematical relationship between marginal and average
       examinerTip: `When answering questions about marginal analysis, always state the decision rule explicitly: "A rational agent will continue as long as marginal benefit exceeds marginal cost, and stop where MB = MC." If given a table of data, calculate the marginal values column by column before drawing conclusions — never use totals or averages to make a marginal decision.`,
 
       didYouKnow: `The concept of "marginal utility" — the additional satisfaction from one more unit — was independently developed in the early 1870s by three economists in three countries: William Stanley Jevons (UK), Carl Menger (Austria), and Léon Walras (France). This simultaneous discovery is the "Marginal Revolution" and fundamentally transformed economics from a focus on total value to incremental, margin-based reasoning.`,
+
+      diagram: 'mb-mc' as const,
+
+      thinkAboutIt: {
+        question: `A firm is making a healthy £100,000 annual profit. Should it expand production? What is the right question to ask?`,
+        answer: `"Are we profitable?" is the wrong question for this decision. The right question is: does the *next unit* of production earn more than it costs? (MB ≥ MC?). The firm should expand only if the additional revenue from the next unit exceeds its additional cost. If MC > MB on the next unit, expanding actually *destroys* value — even if overall profit is positive. Many businesses make the mistake of expanding because they're profitable in total, without checking whether the marginal unit is worth it. The MB = MC rule prevents this.`,
+      },
     },
 
     flashcards: [

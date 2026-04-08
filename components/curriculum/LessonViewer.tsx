@@ -16,10 +16,12 @@ import { VocabFlashcards } from '@/components/curriculum/VocabFlashcards'
 import {
   ChevronLeft, ChevronRight, Check, ChevronDown, ChevronUp,
   Lightbulb, AlertTriangle, GraduationCap, Sparkles,
-  BookOpen, Brain, RefreshCw, PenLine,
+  BookOpen, Brain, RefreshCw, PenLine, HelpCircle,
 } from 'lucide-react'
 import { RecallWarmup } from '@/components/curriculum/RecallWarmup'
 import { LessonAssignmentPanel } from '@/components/curriculum/LessonAssignmentPanel'
+import { PPFDiagram } from '@/components/curriculum/diagrams/PPFDiagram'
+import { MBMCDiagram } from '@/components/curriculum/diagrams/MBMCDiagram'
 
 interface Props {
   lesson: Lesson
@@ -37,6 +39,7 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
   const [activeTab, setActiveTab] = useState<Tab>('lesson')
   const [quizPassed, setQuizPassed] = useState(initialStatus === 'completed')
   const [deeperOpen, setDeeperOpen] = useState(false)
+  const [thinkRevealed, setThinkRevealed] = useState(false)
   const [status, setStatus] = useState<LessonStatus>(initialStatus)
   const [startTime] = useState(() => Date.now())
   const adaptiveApplied = useRef(false)
@@ -47,6 +50,7 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
     adaptiveApplied.current = true
     const style = prefs.learning_style
     if (style === 'practice') setActiveTab('quiz')
+    setThinkRevealed(false)
     // Auto-expand Deeper Dive for exam/challenging modes
     if ((prefs.difficulty === 'exam' || prefs.difficulty === 'challenging') && lesson.content.deeperDive) {
       setDeeperOpen(true)
@@ -229,6 +233,52 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
               />
             </CardContent>
           </Card>
+
+          {/* Diagram */}
+          {lesson.content.diagram && (
+            <Card>
+              <CardContent className="pt-5 pb-4">
+                <div className="text-xs font-bold uppercase tracking-wider text-[var(--muted-fg)] mb-3">Diagram</div>
+                {lesson.content.diagram === 'ppf' && <PPFDiagram />}
+                {lesson.content.diagram === 'mb-mc' && <MBMCDiagram />}
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Pause & Think */}
+          {lesson.content.thinkAboutIt && (
+            <Card className="border-2 border-dashed border-[var(--border)] hover:border-[var(--accent)]/40 transition-colors">
+              <CardContent className="pt-4 pb-4">
+                <div className="flex items-start gap-3">
+                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-violet-500/15 text-violet-500">
+                    <HelpCircle className="h-3.5 w-3.5" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-xs font-bold uppercase tracking-wider text-violet-500 mb-2">
+                      Pause &amp; Think
+                    </div>
+                    <p className="text-sm text-[var(--fg)] leading-relaxed font-medium mb-3">
+                      {lesson.content.thinkAboutIt.question}
+                    </p>
+                    {thinkRevealed ? (
+                      <div className="rounded-lg bg-violet-500/8 border border-violet-500/20 px-3 py-2.5">
+                        <p className="text-sm text-[var(--fg)] leading-relaxed">
+                          {lesson.content.thinkAboutIt.answer}
+                        </p>
+                      </div>
+                    ) : (
+                      <button
+                        onClick={() => setThinkRevealed(true)}
+                        className="text-xs font-semibold text-violet-500 hover:text-violet-400 transition-colors underline underline-offset-2"
+                      >
+                        Reveal answer
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
 
           {/* Common Misconceptions */}
           {lesson.content.commonMisconceptions && lesson.content.commonMisconceptions.length > 0 && (

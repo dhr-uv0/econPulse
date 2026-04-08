@@ -174,6 +174,8 @@ export interface LessonContent {
   commonMisconceptions?: string[]
   examinerTip?: string
   didYouKnow?: string
+  thinkAboutIt?: { question: string; answer: string }  // pause-and-reflect mid-lesson
+  diagram?: 'ppf' | 'mb-mc'   // inline SVG diagram to render after main explanation
   isStub?: boolean          // true = content not yet written
 }
 
