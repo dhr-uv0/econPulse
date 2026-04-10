@@ -106,6 +106,8 @@ The discipline traces its origins to Adam Smith's 1776 *The Wealth of Nations*, 
         question: `A friend says: "I'm going to the free concert in the park tonight — it doesn't cost anything." What would an economist say in response?`,
         answer: `The concert isn't truly free. Your friend is spending a scarce resource — their time — that has an opportunity cost. They could have spent those hours working, studying, sleeping, or doing anything else of value. Even with no price tag, attending has a real economic cost. This is TANSTAAFL in action: "There Ain't No Such Thing As A Free Lunch." Every choice uses up something scarce, even when money isn't involved.`,
       },
+
+      diagram: 'micro-macro' as const,
     },
 
     flashcards: [
@@ -426,6 +428,8 @@ For public policy, opportunity cost is equally critical. When governments spend 
         question: `You've paid £15 for a cinema ticket and sat down. Ten minutes in, it's clearly terrible. Should you stay or leave?`,
         answer: `Leave — if you'd rather be somewhere else. The £15 is a sunk cost: it's gone whether you watch the film or not. The only relevant question is what's worth more for the next two hours: sitting through a bad film, or doing something you'd actually enjoy? People who stay "to get their money's worth" are letting a sunk cost distort a forward-looking decision. The rational choice ignores what's already spent and focuses only on future costs and benefits.`,
       },
+
+      diagram: 'opportunity-cost' as const,
     },
 
     flashcards: [
@@ -1088,6 +1092,8 @@ Yet the market system is not without critics. The 2008 financial crisis demonstr
         question: `A government sets the price of bread at £1 to make it affordable for everyone. What does an economist predict will happen next?`,
         answer: `If £1 is below the market equilibrium price, producers lose money on every loaf they sell — so they produce less, or stop entirely. Shelves empty. Queues form. The policy intended to help people buy bread ends up meaning there's no bread to buy. This is the information and incentive problem in action: the price signal that would normally tell producers "make more" has been disabled. The result is a shortage — the opposite of what was intended. This is why even well-meaning price controls tend to backfire, and why the price mechanism, despite its flaws, is extraordinarily difficult to replace.`,
       },
+
+      diagram: 'economic-systems' as const,
     },
 
     flashcards: [

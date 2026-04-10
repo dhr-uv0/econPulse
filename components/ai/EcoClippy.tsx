@@ -104,7 +104,7 @@ export function EcoClippy() {
             'card-surface flex flex-col shadow-2xl transition-all duration-200 origin-bottom-right',
             minimized
               ? 'h-12 w-64 overflow-hidden'
-              : 'h-[480px] w-80 sm:w-96'
+              : 'h-[480px] w-[calc(100vw-2rem)] sm:w-96'
           )}
           role="dialog"
           aria-label="Eco-Clippy Economics Assistant"
@@ -212,7 +212,7 @@ export function EcoClippy() {
       <button
         onClick={() => { setOpen(!open); setMinimized(false) }}
         className={cn(
-          'flex h-12 w-12 items-center justify-center rounded-full shadow-lg transition-all duration-200',
+          'flex h-14 w-14 items-center justify-center rounded-full shadow-lg transition-all duration-200',
           'bg-[var(--navy-900,#0f1729)] hover:scale-105 active:scale-95',
           open ? 'rotate-0' : 'animate-pulse-glow'
         )}

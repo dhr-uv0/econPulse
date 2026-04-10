@@ -175,7 +175,7 @@ export interface LessonContent {
   examinerTip?: string
   didYouKnow?: string
   thinkAboutIt?: { question: string; answer: string }  // pause-and-reflect mid-lesson
-  diagram?: 'ppf' | 'mb-mc'   // inline SVG diagram to render after main explanation
+  diagram?: 'ppf' | 'mb-mc' | 'micro-macro' | 'opportunity-cost' | 'economic-systems'   // inline SVG diagram to render after main explanation
   isStub?: boolean          // true = content not yet written
 }
 

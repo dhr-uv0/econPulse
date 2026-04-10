@@ -22,6 +22,9 @@ import { RecallWarmup } from '@/components/curriculum/RecallWarmup'
 import { LessonAssignmentPanel } from '@/components/curriculum/LessonAssignmentPanel'
 import { PPFDiagram } from '@/components/curriculum/diagrams/PPFDiagram'
 import { MBMCDiagram } from '@/components/curriculum/diagrams/MBMCDiagram'
+import { MicroMacroDiagram } from '@/components/curriculum/diagrams/MicroMacroDiagram'
+import { OpportunityCostDiagram } from '@/components/curriculum/diagrams/OpportunityCostDiagram'
+import { EconomicSystemsDiagram } from '@/components/curriculum/diagrams/EconomicSystemsDiagram'
 
 interface Props {
   lesson: Lesson
@@ -90,11 +93,11 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
     router.refresh()
   }
 
-  const tabs: { id: Tab; label: string; icon: React.ReactNode }[] = [
-    { id: 'lesson',     label: 'Lesson',     icon: <BookOpen className="h-3.5 w-3.5" /> },
-    { id: 'vocab',      label: 'Vocabulary', icon: <GraduationCap className="h-3.5 w-3.5" /> },
-    ...(lesson.lessonAssignment ? [{ id: 'assignment' as Tab, label: 'Assignment', icon: <PenLine className="h-3.5 w-3.5" /> }] : []),
-    { id: 'quiz',       label: 'Quiz',       icon: <Check className="h-3.5 w-3.5" /> },
+  const tabs: { id: Tab; label: string; shortLabel: string; icon: React.ReactNode }[] = [
+    { id: 'lesson',     label: 'Lesson',     shortLabel: 'Lesson', icon: <BookOpen className="h-3.5 w-3.5" /> },
+    { id: 'vocab',      label: 'Vocabulary', shortLabel: 'Vocab',  icon: <GraduationCap className="h-3.5 w-3.5" /> },
+    ...(lesson.lessonAssignment ? [{ id: 'assignment' as Tab, label: 'Assignment', shortLabel: 'Task', icon: <PenLine className="h-3.5 w-3.5" /> }] : []),
+    { id: 'quiz',       label: 'Quiz',       shortLabel: 'Quiz',   icon: <Check className="h-3.5 w-3.5" /> },
   ]
 
   return (
@@ -155,20 +158,21 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
 
       {/* Tab navigation */}
       <div className="flex gap-1 rounded-xl border border-[var(--border)] bg-[var(--muted)] p-1" role="tablist">
-        {tabs.map(({ id, label, icon }) => (
+        {tabs.map(({ id, label, shortLabel, icon }) => (
           <button
             key={id}
             role="tab"
             aria-selected={activeTab === id}
             onClick={() => setActiveTab(id)}
             className={cn(
-              'flex flex-1 items-center justify-center gap-1.5 rounded-lg py-2 text-xs font-semibold transition-all',
+              'flex flex-1 items-center justify-center gap-1.5 rounded-lg py-2.5 text-xs font-semibold transition-all',
               activeTab === id
                 ? 'bg-[var(--card-bg)] text-[var(--fg)] shadow-sm'
                 : 'text-[var(--muted-fg)] hover:text-[var(--fg)]'
             )}
           >
             {icon}
+            <span className="sm:hidden">{shortLabel}</span>
             <span className="hidden sm:inline">{label}</span>
           </button>
         ))}
@@ -241,6 +245,9 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
                 <div className="text-xs font-bold uppercase tracking-wider text-[var(--muted-fg)] mb-3">Diagram</div>
                 {lesson.content.diagram === 'ppf' && <PPFDiagram />}
                 {lesson.content.diagram === 'mb-mc' && <MBMCDiagram />}
+                {lesson.content.diagram === 'micro-macro' && <MicroMacroDiagram />}
+                {lesson.content.diagram === 'opportunity-cost' && <OpportunityCostDiagram />}
+                {lesson.content.diagram === 'economic-systems' && <EconomicSystemsDiagram />}
               </CardContent>
             </Card>
           )}

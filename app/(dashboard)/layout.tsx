@@ -8,21 +8,23 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
   if (!user) redirect('/login')
 
-  // Fetch profile
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user.id)
-    .single()
-
-  const { data: streak } = await supabase
-    .from('streaks')
-    .select('*')
-    .eq('user_id', user.id)
-    .single()
+  const [
+    { data: profile },
+    { data: streak },
+    { data: prefs },
+  ] = await Promise.all([
+    supabase.from('profiles').select('*').eq('id', user.id).single(),
+    supabase.from('streaks').select('*').eq('user_id', user.id).single(),
+    supabase.from('user_preferences').select('onboarding_completed').eq('user_id', user.id).maybeSingle(),
+  ])
 
   return (
-    <DashboardShell profile={profile} streak={streak} user={user}>
+    <DashboardShell
+      profile={profile}
+      streak={streak}
+      user={user}
+      onboardingCompleted={prefs?.onboarding_completed ?? false}
+    >
       {children}
     </DashboardShell>
   )

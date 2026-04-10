@@ -15,16 +15,19 @@ interface Props {
   profile: Profile | null
   streak: Streak | null
   user: User
+  onboardingCompleted: boolean
   children: React.ReactNode
 }
 
-export function DashboardShell({ profile, streak, user, children }: Props) {
-  const { setProfile, setStreak, sidebarCollapsed } = useAppStore()
+export function DashboardShell({ profile, streak, user, onboardingCompleted, children }: Props) {
+  const { setProfile, setStreak, setOnboardingComplete, sidebarCollapsed } = useAppStore()
 
   useEffect(() => {
     setProfile(profile)
     setStreak(streak)
-  }, [profile, streak, setProfile, setStreak])
+    // Sync onboarding state from DB so it's consistent across all devices
+    if (onboardingCompleted) setOnboardingComplete(true)
+  }, [profile, streak, onboardingCompleted, setProfile, setStreak, setOnboardingComplete])
 
   return (
     <div className="flex min-h-screen bg-[var(--bg)]">

@@ -116,7 +116,7 @@ export function ProfileSettings({ profile, optIn, user }: Props) {
                 onChange={(e) => setForm({ ...form, grade: Number(e.target.value) })}
                 className="w-full h-10 rounded-lg border border-[var(--border)] bg-[var(--bg)] px-3 text-sm text-[var(--fg)] focus:outline-none focus:border-[var(--accent)]"
               >
-                {[9,10,11,12,13].map((g) => <option key={g} value={g}>Grade {g}</option>)}
+                {[9,10,11,12].map((g) => <option key={g} value={g}>Grade {g}</option>)}
               </select>
             </div>
             <div className="space-y-1.5">

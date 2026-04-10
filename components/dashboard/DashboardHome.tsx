@@ -103,7 +103,7 @@ export function DashboardHome({ profile, streak, progress, recentQuizzes, dueCar
               : 'All caught up on reviews. Keep going!'}
           </p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           {dueCardCount > 0 && (
             <Link href="/flashcards">
               <Button variant="gold" size="sm" className="gap-1.5">
@@ -272,13 +272,13 @@ export function DashboardHome({ profile, streak, progress, recentQuizzes, dueCar
                 <Link
                   key={label}
                   href={href}
-                  className="flex items-center justify-between rounded-lg border border-[var(--border)] p-3 hover:border-[var(--accent)] hover:bg-[var(--muted)] transition-all group"
+                  className="flex items-center justify-between gap-2 rounded-lg border border-[var(--border)] p-3 hover:border-[var(--accent)] hover:bg-[var(--muted)] transition-all group"
                 >
-                  <div>
-                    <div className="text-sm font-semibold text-[var(--fg)]">{label}</div>
-                    <div className="text-xs text-[var(--muted-fg)]">{sub}</div>
+                  <div className="min-w-0">
+                    <div className="text-sm font-semibold text-[var(--fg)] truncate">{label}</div>
+                    <div className="text-xs text-[var(--muted-fg)] truncate">{sub}</div>
                   </div>
-                  <ArrowRight className="h-4 w-4 text-[var(--muted-fg)] group-hover:text-[var(--accent)] transition-colors" />
+                  <ArrowRight className="h-4 w-4 shrink-0 text-[var(--muted-fg)] group-hover:text-[var(--accent)] transition-colors" />
                 </Link>
               ))}
             </CardContent>

@@ -23,7 +23,7 @@ interface Props {
 
 export function TopBar({ profile, streak, user }: Props) {
   const router = useRouter()
-  const { sidebarCollapsed, setSidebarCollapsed } = useAppStore()
+  const { sidebarCollapsed, setSidebarCollapsed, mobileSidebarOpen, setMobileSidebarOpen } = useAppStore()
   const { theme, setTheme } = useTheme()
   const [menuOpen, setMenuOpen] = useState(false)
   const supabase = createClient()
@@ -40,7 +40,7 @@ export function TopBar({ profile, streak, user }: Props) {
       {/* Mobile menu toggle */}
       <button
         className="flex lg:hidden h-8 w-8 items-center justify-center rounded-lg text-[var(--muted-fg)] hover:bg-[var(--muted)] hover:text-[var(--fg)] transition-colors"
-        onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+        onClick={() => setMobileSidebarOpen(!mobileSidebarOpen)}
         aria-label="Toggle navigation"
       >
         <Menu className="h-5 w-5" />
@@ -65,7 +65,7 @@ export function TopBar({ profile, streak, user }: Props) {
 
       {/* XP badge */}
       {profile && (
-        <Badge data-tour="xp" variant="gold" className="hidden sm:inline-flex gap-1">
+        <Badge data-tour="xp" variant="gold" className="gap-1">
           ✦ {profile.xp_points.toLocaleString()} XP
         </Badge>
       )}

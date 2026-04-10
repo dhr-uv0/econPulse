@@ -28,7 +28,7 @@ interface Props {
 
 export function Sidebar({ profile, user }: Props) {
   const pathname = usePathname()
-  const { sidebarCollapsed, setSidebarCollapsed } = useAppStore()
+  const { sidebarCollapsed, setSidebarCollapsed, mobileSidebarOpen, setMobileSidebarOpen } = useAppStore()
 
   const isTeacher = profile?.role === 'teacher' || profile?.role === 'admin'
 
@@ -38,9 +38,9 @@ export function Sidebar({ profile, user }: Props) {
       <div
         className={cn(
           'fixed inset-0 z-30 bg-black/50 lg:hidden transition-opacity',
-          sidebarCollapsed ? 'opacity-0 pointer-events-none' : 'opacity-100'
+          mobileSidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         )}
-        onClick={() => setSidebarCollapsed(true)}
+        onClick={() => setMobileSidebarOpen(false)}
         aria-hidden
       />
 
@@ -49,11 +49,10 @@ export function Sidebar({ profile, user }: Props) {
         data-tour="sidebar"
         className={cn(
           'fixed left-0 top-0 z-40 flex h-full flex-col border-r border-[var(--border)] bg-[var(--card-bg)] transition-all duration-300',
-          // Mobile: slide in/out
-          'lg:translate-x-0',
-          sidebarCollapsed
-            ? '-translate-x-full lg:translate-x-0 lg:w-16'
-            : 'translate-x-0 w-64'
+          // Mobile: slide based on mobileSidebarOpen
+          mobileSidebarOpen ? 'translate-x-0 w-64' : '-translate-x-full',
+          // Desktop: always visible, width based on sidebarCollapsed
+          sidebarCollapsed ? 'lg:translate-x-0 lg:w-16' : 'lg:translate-x-0 lg:w-64'
         )}
       >
         {/* Logo */}
@@ -80,6 +79,7 @@ export function Sidebar({ profile, user }: Props) {
                   <Link
                     href={href}
                     {...tourAttr}
+                    onClick={() => setMobileSidebarOpen(false)}
                     className={cn(
                       'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all',
                       active
@@ -114,6 +114,7 @@ export function Sidebar({ profile, user }: Props) {
                 <li>
                   <Link
                     href="/teacher"
+                    onClick={() => setMobileSidebarOpen(false)}
                     className={cn(
                       'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all',
                       pathname.startsWith('/teacher')
@@ -139,6 +140,7 @@ export function Sidebar({ profile, user }: Props) {
         )}>
           <Link
             href="/profile"
+            onClick={() => setMobileSidebarOpen(false)}
             className={cn(
               'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-[var(--muted-fg)] hover:bg-[var(--muted)] hover:text-[var(--fg)] transition-all',
               sidebarCollapsed && 'lg:justify-center lg:px-2'

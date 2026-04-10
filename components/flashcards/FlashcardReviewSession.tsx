@@ -210,25 +210,24 @@ export function FlashcardReviewSession({ dueCards, userId, allCards }: Props) {
         <div className="grid grid-cols-4 gap-2">
           {[
             { label: 'Again', quality: 0, color: 'border-red-500/40 text-red-600 dark:text-red-400 hover:bg-red-500/10' },
-            { label: 'Hard', quality: 2, color: 'border-amber-500/40 text-amber-600 dark:text-amber-400 hover:bg-amber-500/10' },
-            { label: 'Good', quality: 3, color: 'border-blue-500/40 text-blue-600 dark:text-blue-400 hover:bg-blue-500/10' },
-            { label: 'Easy', quality: 5, color: 'border-green-500/40 text-green-600 dark:text-green-400 hover:bg-green-500/10' },
+            { label: 'Hard',  quality: 2, color: 'border-amber-500/40 text-amber-600 dark:text-amber-400 hover:bg-amber-500/10' },
+            { label: 'Good',  quality: 3, color: 'border-blue-500/40 text-blue-600 dark:text-blue-400 hover:bg-blue-500/10' },
+            { label: 'Easy',  quality: 5, color: 'border-green-500/40 text-green-600 dark:text-green-400 hover:bg-green-500/10' },
           ].map(({ label, quality, color }) => (
-            <Button
+            <button
               key={label}
-              variant="outline"
-              className={`border-2 ${color}`}
               onClick={() => rate(quality)}
+              className={`border-2 rounded-lg py-3 text-sm font-semibold transition-all active:scale-95 ${color}`}
             >
               {label}
-            </Button>
+            </button>
           ))}
         </div>
       )}
 
       {!flipped && (
-        <Button variant="outline" className="w-full" onClick={() => setFlipped(true)}>
-          Show answer
+        <Button variant="outline" className="w-full py-3 h-auto text-base" onClick={() => setFlipped(true)}>
+          Tap to reveal answer
         </Button>
       )}
     </div>
