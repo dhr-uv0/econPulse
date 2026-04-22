@@ -228,7 +228,11 @@ export function AssignmentsHub({ assignments, userId }: Props) {
         }),
       })
 
-      const { feedback, score } = await res.json()
+      const body = await res.json()
+      if (!res.ok) {
+        throw new Error(body.error ?? 'Grading service unavailable.')
+      }
+      const { feedback, score } = body as { feedback: string; score: number }
 
       await supabase
         .from('assignments')
@@ -247,8 +251,9 @@ export function AssignmentsHub({ assignments, userId }: Props) {
       setGrading(false)
       setActiveAssignment(null)
       setSubmissionText('')
-    } catch {
-      toast.error('Grading failed', 'Please try again.')
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Please try again.'
+      toast.error('Grading failed', msg)
       setGrading(false)
     }
   }

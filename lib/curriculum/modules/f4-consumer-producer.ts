@@ -103,6 +103,11 @@ Marginal utility also explains the diamond-water paradox that puzzled thinkers b
 
       didYouKnow:
         'The concept of utility was introduced by the philosopher and economist Jeremy Bentham in the late 18th century as part of his theory of utilitarianism — the idea that good actions are those that maximise overall happiness. Economists borrowed the term but stripped it of its moral dimension, using it purely as a descriptive tool for explaining choice.',
+
+      thinkAboutIt: {
+        question: 'You are stranded in a desert with no water and you encounter a vendor selling both bottled water and diamonds. You would pay almost anything for the first bottle of water, yet globally water sells for pennies while diamonds sell for thousands of pounds. How can something so essential to life be so cheap, while something so frivolous be so expensive? Does this mean markets get the "value" of things wrong?',
+        answer: 'Markets price goods at their marginal utility, not their total utility. Water has immense total utility — it is essential for survival — but because it is abundant, the marginal utility of one more litre is very low, so its price is low. Diamonds have modest total utility but are extremely scarce, meaning each additional diamond yields high marginal utility to buyers who desire them, pushing price up. Markets are not "wrong": they efficiently allocate resources by equating price with marginal, not total, value. The paradox dissolves once you recognise that scarcity determines how much the next unit is worth, not how much all units combined are worth.',
+      },
     },
     flashcards: [
       {
@@ -139,6 +144,20 @@ Marginal utility also explains the diamond-water paradox that puzzled thinkers b
         back: 'Because each additional unit of a good yields less satisfaction, consumers are only willing to pay a lower price for it. Lower willingness to pay at higher quantities produces a downward-sloping demand curve.',
         hint: 'Less MU → less willingness to pay → demand slopes down.',
         tags: ['DMU', 'demand', 'marginal-utility'],
+      },
+      {
+        id: 'f4-l1-fc6',
+        front: 'What is the diamond-water paradox, and how does marginal utility resolve it?',
+        back: 'Water has enormous total utility (essential for life) but is cheap; diamonds have low total utility but are expensive. The paradox is resolved by recognising that price reflects marginal utility, not total utility. Water is abundant so its MU is low; diamonds are scarce so their MU is high.',
+        hint: 'Price = marginal utility, not total utility.',
+        tags: ['DMU', 'marginal-utility', 'paradox'],
+      },
+      {
+        id: 'f4-l1-fc7',
+        front: 'What is the difference between cardinal and ordinal utility?',
+        back: 'Cardinal utility assumes satisfaction can be measured in exact numerical units ("utils"). Ordinal utility only requires that consumers can rank outcomes from most to least preferred — no specific numbers needed. Modern economics generally uses ordinal utility.',
+        hint: 'Cardinal = exact numbers; ordinal = ranking only.',
+        tags: ['utility', 'cardinal', 'ordinal'],
       },
     ],
     quiz: [
@@ -188,7 +207,137 @@ Marginal utility also explains the diamond-water paradox that puzzled thinkers b
         marks: 1,
         difficulty: 'foundation',
       },
+      {
+        id: 'f4-l1-q4',
+        type: 'mcq',
+        question:
+          'A consumer drinks cups of tea. The marginal utility of the 1st cup is 30 utils, the 2nd is 20 utils, the 3rd is 10 utils, and the 4th is 0 utils. What is the total utility after 4 cups, and what happens if they drink a 5th cup with MU = −5 utils?',
+        options: [
+          'TU after 4 cups = 60 utils; TU after 5 cups falls to 55 utils',
+          'TU after 4 cups = 30 utils; TU after 5 cups rises to 35 utils',
+          'TU after 4 cups = 60 utils; TU after 5 cups stays at 60 utils',
+          'TU after 4 cups = 0 utils; TU after 5 cups = −5 utils',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'TU after 4 cups = 30 + 20 + 10 + 0 = 60 utils. Adding the 5th cup with MU = −5 reduces TU to 60 + (−5) = 55 utils. TU falls when MU is negative, confirming that rational consumers stop at MU = 0.',
+        marks: 2,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l1-q5',
+        type: 'mcq',
+        question:
+          'Which of the following correctly describes the relationship between total utility and marginal utility when MU is positive but falling?',
+        options: [
+          'TU is rising at a decreasing rate',
+          'TU is falling at a decreasing rate',
+          'TU is constant',
+          'TU is rising at an increasing rate',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'When MU is positive but declining, each new unit still adds to total utility — so TU rises. But because each increment is smaller than the last, TU rises at a decreasing rate. This is the standard shape of the TU curve under the Law of Diminishing Marginal Utility.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l1-q6',
+        type: 'mcq',
+        question:
+          'The diamond-water paradox is resolved by noting that:',
+        options: [
+          'Price reflects the marginal utility of a good, not its total utility',
+          'Diamonds are more useful than water in everyday life',
+          'Water has lower total utility than diamonds because it is taken for granted',
+          'Markets systematically undervalue essential goods like water',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'Water has enormous total utility (essential for life) but very low marginal utility because it is abundant — the next litre adds little satisfaction. Diamonds have low total utility but high marginal utility due to scarcity. Since prices reflect MU, water is cheap and diamonds are expensive despite the apparent paradox.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l1-q7',
+        type: 'mcq',
+        question:
+          "A consumer's willingness to pay for the 1st unit of a good is £10, for the 2nd unit is £7, and for the 3rd unit is £4. If the market price is £7, how many units will the consumer buy?",
+        options: [
+          '2 units, because WTP ≥ price only for the first two units',
+          '3 units, because WTP is positive for all three',
+          '1 unit, because only the first unit generates surplus',
+          '0 units, because the consumer cannot afford the good',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'A rational consumer buys a unit whenever their WTP (marginal utility in money terms) is at least equal to the price. WTP for the 1st unit (£10) ≥ £7 ✓; WTP for the 2nd unit (£7) = £7 ✓ (indifferent, but buys); WTP for the 3rd unit (£4) < £7 ✗. So the consumer buys 2 units.',
+        marks: 2,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l1-q8',
+        type: 'mcq',
+        question:
+          'Why does the Law of Diminishing Marginal Utility not apply to a consumer buying their very first unit of a completely new good they have never tried before?',
+        options: [
+          'It does not — DMU applies from the very first unit onwards within a given consumption period, comparing unit 1 to unit 2, unit 2 to unit 3, and so on',
+          'Because the consumer has no reference point and cannot feel satisfaction from a new good',
+          'Because DMU only applies to inferior goods, not normal goods',
+          'Because the first unit always has zero marginal utility by definition',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'DMU is about how MU changes as successive units are consumed in the same period. It does not claim that MU of the first unit is low — indeed the first unit typically has the highest MU. The law simply states that MU of the 2nd unit is less than the 1st, the 3rd less than the 2nd, and so on. It applies from the first unit onwards in the sequence.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l1-q9',
+        type: 'mcq',
+        question:
+          'An economics student argues: "If I enjoy listening to music more and more the better I get at it, this violates the Law of Diminishing Marginal Utility." Is the student correct?',
+        options: [
+          'No — DMU applies to consuming successive units of a good within a short time period, not to skill development over months or years',
+          'Yes — any increasing satisfaction over time disproves DMU',
+          'Yes — DMU only applies to physical goods, not experiences',
+          'No — the student is correct that music violates DMU, proving the law is false',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'The Law of DMU applies to consuming successive units of a good within a given time period, holding everything else constant. Skill development over time changes the nature of the good itself — effectively shifting the MU curve rather than moving along it. Within a single listening session, DMU still applies: the 10th song you hear today gives less marginal utility than the 1st. The student conflates long-run learning with the short-run marginal utility concept.',
+        marks: 2,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l1-q10',
+        type: 'mcq',
+        question:
+          'A consumer has £15 to spend. Good A costs £5 per unit and has MU values of 20, 15, 10 for units 1–3. Good B costs £5 per unit and has MU values of 18, 12, 6 for units 1–3. To maximise total utility, how should the consumer spend their £15?',
+        options: [
+          '2 units of A and 1 unit of B (MU sequence: 20, 18, 15 — the three highest marginal utilities)',
+          '3 units of A only (total MU = 45)',
+          '3 units of B only (total MU = 36)',
+          '1 unit of A and 2 units of B (MU sequence: 20, 18, 12)',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'With equal prices, the consumer maximises utility by buying units in descending order of MU: A1 (20), B1 (18), A2 (15). That uses 3 × £5 = £15. Total utility = 20 + 18 + 15 = 53 utils, which exceeds all other combinations (3A = 45, 3B = 36, 1A+2B = 20+18+12 = 50).',
+        marks: 3,
+        difficulty: 'foundation',
+      },
     ],
+    lessonAssignment: {
+      prompt: 'Think of a good or activity you consume regularly — for example, watching episodes of a TV series, eating a favourite snack, or playing a video game. Describe how your marginal utility changes as you consume successive units in a single sitting. Identify the point at which your MU reached zero or became negative, and explain how this shaped your consumption decision. Then connect your experience to the water-diamond paradox: does the good you chose have high total utility but low marginal utility at typical quantities, or the reverse? Write 200–300 words.',
+      rubric: 'Accurate use of TU and MU terminology (2 marks). Clear identification of the point of MU = 0 or negative MU with explanation (2 marks). Correct application of Law of Diminishing Marginal Utility to a real example (2 marks). Meaningful connection to the water-diamond paradox with correct reasoning about marginal vs total utility (2 marks). Clarity and coherence of writing (1 mark). Total: 9 marks.',
+      exampleTopics: [
+        'Episodes of a binge-watched TV series: high MU for episode 1, falling sharply by episode 5 in one sitting',
+        'Cups of coffee during a study session: MU turns negative once caffeine causes anxiety',
+        'Social media scrolling: MU near zero after the first few minutes yet total time spent is high',
+        'Slices of pizza at a party: classic DMU example with a clear satiation point',
+        'Songs played on repeat: high MU the first few times, declining rapidly with repetition',
+      ],
+    },
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
@@ -297,6 +446,10 @@ Price discrimination is a strategy firms use to capture consumer surplus for the
       didYouKnow:
         "The concept of consumer surplus was developed by the French engineer and economist Jules Dupuit in 1844, originally to evaluate the social benefit of public works like bridges and roads. The British economist Alfred Marshall later refined and popularised it in his 1890 masterwork Principles of Economics, which remained the dominant economics textbook for decades.",
 
+      thinkAboutIt: {
+        question: 'You buy a pair of concert tickets for £40 each. You would have been willing to pay up to £120 per ticket. A friend offers to buy one of your tickets from you for £60 — the maximum she is willing to pay. Should you sell? And what is your consumer surplus before and after the sale if you accept?',
+        answer: 'Before the sale you hold two tickets with total consumer surplus of (£120 − £40) × 2 = £160. If you sell one ticket for £60, you receive £60 cash but give up a ticket worth £120 to you — losing £60 of value relative to keeping it. Your net position on that ticket is £60 received minus £40 cost = £20 profit, but you lose £80 of consumer surplus (£120 WTP − £40 cost), so you are actually worse off by £60 by selling. You should not sell: consumer surplus reflects the personal value that exceeds price, and transferring the ticket at £60 destroys £60 of your welfare even though the transaction looks profitable on the surface.',
+      },
     },
     flashcards: [
       {
@@ -333,6 +486,20 @@ Price discrimination is a strategy firms use to capture consumer surplus for the
         back: 'Airlines use dynamic pricing to charge different customers prices closer to their individual reservation prices, capturing consumer surplus as revenue instead of letting buyers keep it.',
         hint: 'Price discrimination reduces the gap between WTP and price paid.',
         tags: ['consumer-surplus', 'price-discrimination'],
+      },
+      {
+        id: 'f4-l2-fc6',
+        front: 'How is the area of a consumer surplus triangle calculated on a linear demand diagram?',
+        back: 'CS = ½ × base × height, where the base is the equilibrium quantity (Q*) and the height is the maximum willingness to pay (the demand curve intercept) minus the equilibrium price (P*). For example, if max WTP = £20, P* = £8, and Q* = 12, CS = ½ × 12 × (20 − 8) = £72.',
+        hint: 'Half base times height: ½ × Q* × (max WTP − P*).',
+        tags: ['consumer-surplus', 'calculation', 'diagram'],
+      },
+      {
+        id: 'f4-l2-fc7',
+        front: 'What is the difference between first-degree and third-degree price discrimination in terms of consumer surplus?',
+        back: 'First-degree (perfect) price discrimination charges every buyer their exact reservation price, extracting all consumer surplus for the producer. Third-degree price discrimination splits buyers into groups (e.g., students vs adults) and charges each group a different price, capturing some but not all consumer surplus from each group.',
+        hint: 'First-degree = zero CS left; third-degree = partial CS extraction by group.',
+        tags: ['consumer-surplus', 'price-discrimination', 'welfare'],
       },
     ],
     quiz: [
@@ -382,7 +549,132 @@ Price discrimination is a strategy firms use to capture consumer surplus for the
         marks: 1,
         difficulty: 'foundation',
       },
+      {
+        id: 'f4-l2-q4',
+        type: 'mcq',
+        question:
+          'A market has a linear demand curve. The maximum willingness to pay is £50, the equilibrium price is £20, and the equilibrium quantity is 60 units. Calculate the consumer surplus.',
+        options: ['£900', '£1,200', '£600', '£1,800'],
+        correctAnswer: 0,
+        explanation:
+          'CS = ½ × base × height = ½ × 60 × (£50 − £20) = ½ × 60 × £30 = £900.',
+        marks: 2,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l2-q5',
+        type: 'mcq',
+        question:
+          'Three buyers — Anna, Ben, and Cara — have willingness to pay of £40, £30, and £20 respectively for a single unit of a good. The market price is £25. How much total consumer surplus is generated?',
+        options: [
+          '£20 (only Anna £15 and Ben £5 buy; Cara does not)',
+          '£45 (all three buyers generate surplus)',
+          '£15 (only Anna buys)',
+          '£0 (no consumer surplus at equilibrium)',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'Only buyers whose WTP ≥ price will buy. Anna (WTP £40 ≥ £25) gains £15 CS; Ben (WTP £30 ≥ £25) gains £5 CS; Cara (WTP £20 < £25) does not buy. Total CS = £15 + £5 = £20.',
+        marks: 2,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l2-q6',
+        type: 'mcq',
+        question:
+          'A firm switches from a uniform price of £30 to perfect (first-degree) price discrimination, charging each buyer their exact reservation price. What happens to consumer surplus and total surplus?',
+        options: [
+          'CS falls to zero; total surplus remains unchanged (it is redistributed to the producer)',
+          'CS rises because more consumers can now afford the good',
+          'CS falls to zero; total surplus also falls due to deadweight loss',
+          'CS is unaffected because total spending in the market is the same',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'Under perfect price discrimination, every buyer pays exactly their WTP, leaving zero consumer surplus — all of it is transferred to the producer. However, all mutually beneficial trades still occur (the producer supplies up to the point where WTP = MC), so total surplus (CS + PS) is unchanged — it is the same efficient quantity, just all the benefit accrues to the producer.',
+        marks: 2,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l2-q7',
+        type: 'mcq',
+        question:
+          'Which of the following would cause total consumer surplus in a market to increase?',
+        options: [
+          'A rightward shift of the demand curve due to rising consumer incomes',
+          'An increase in the equilibrium price caused by a supply reduction',
+          'A government tax that raises the price paid by consumers',
+          'A fall in the number of buyers in the market',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'A rightward demand shift means consumers value the good more at every quantity — the demand curve rises, increasing the area of the CS triangle (higher intercept, and typically more buyers). Options B, C, and D all reduce CS: higher prices and fewer buyers shrink the triangle.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l2-q8',
+        type: 'mcq',
+        question:
+          'A linear demand curve has the equation P = 100 − 2Q. If the market price is £40, what is the equilibrium quantity and the consumer surplus?',
+        options: [
+          'Q = 30; CS = £900',
+          'Q = 30; CS = £1,800',
+          'Q = 20; CS = £400',
+          'Q = 50; CS = £2,500',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'At P = 40: 40 = 100 − 2Q → 2Q = 60 → Q = 30. Maximum WTP (where Q = 0) = 100. CS = ½ × 30 × (100 − 40) = ½ × 30 × 60 = £900.',
+        marks: 3,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l2-q9',
+        type: 'mcq',
+        question:
+          'If a £10 tax is imposed on sellers, raising the market price from £30 to £38 and reducing equilibrium quantity from 100 to 80 units, which statement best describes the change in consumer surplus (assuming a linear demand curve with max WTP = £70)?',
+        options: [
+          'CS falls because the price rose and fewer units are traded, shrinking the CS triangle',
+          'CS rises because producers now receive less revenue per unit',
+          'CS is unchanged because the tax is paid by sellers, not buyers',
+          'CS falls to zero because no buyer gains surplus when a tax exists',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'Consumer surplus depends on the price consumers pay and the quantity traded. The price paid by buyers rose from £30 to £38 and quantity fell from 100 to 80, both of which shrink the CS triangle. The tax is ultimately shared between buyers and sellers depending on elasticities — even a seller tax raises the buyer price and reduces CS.',
+        marks: 2,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l2-q10',
+        type: 'mcq',
+        question:
+          'A supermarket offers loyalty card members a £5 discount off a £20 product. Non-members pay £20. From a price discrimination perspective, what is the supermarket attempting to do?',
+        options: [
+          'Capture some consumer surplus from price-insensitive non-members while offering a lower price to more price-sensitive loyalty card holders',
+          'Increase total consumer surplus in the market by lowering the average price',
+          'Practise first-degree price discrimination by identifying every individual\'s WTP',
+          'Reduce deadweight loss by moving closer to competitive equilibrium',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'This is third-degree price discrimination: the supermarket separates buyers into groups (loyalty card holders, who tend to be more price-sensitive, and non-members) and charges each group a different price. The aim is to capture consumer surplus from non-members who are willing to pay £20 while still selling to price-sensitive shoppers at £15. It does not identify each individual\'s WTP (which would be first-degree), and it does not increase total CS — it transfers some CS to the producer.',
+        marks: 2,
+        difficulty: 'foundation',
+      },
     ],
+    lessonAssignment: {
+      prompt: 'Identify a recent purchase where you experienced significant consumer surplus — that is, a product or service you would have been willing to pay considerably more for than you actually paid. Describe: (1) what the good or service was; (2) your estimated willingness to pay; (3) the actual price you paid; (4) your consumer surplus in pounds or as a percentage of your WTP; and (5) what factors determined your high WTP (urgency, scarcity, personal preferences). Then consider: if the seller had somehow known your exact WTP and charged you that amount, how would you feel, and what does this reveal about the relationship between consumer surplus and fairness? Write 250–350 words.',
+      rubric: 'Clear identification of the good and a plausible, reasoned WTP estimate (2 marks). Correct calculation of consumer surplus (WTP − price paid) with explanation (2 marks). Insightful analysis of factors driving high WTP (urgency, scarcity, preferences — at least two factors) (2 marks). Thoughtful discussion of perfect price discrimination and its implications for fairness vs efficiency (2 marks). Quality of economic reasoning and use of terminology (1 mark). Total: 9 marks.',
+      exampleTopics: [
+        'A last-minute train ticket you needed urgently — you would have paid far more but the seat was unsold',
+        'A textbook you bought second-hand for £5 that was essential for your course (WTP could be £30+)',
+        'A streaming subscription that gives access to dozens of shows you love for a monthly flat fee',
+        'A supermarket meal deal that bundles items you wanted at a price well below your individual WTP for each item',
+        'A flight booked months in advance at a low fare before prices rose as the date approached',
+      ],
+    },
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
@@ -476,6 +768,10 @@ When economists evaluate policies, they track what happens to both consumer and 
       didYouKnow:
         'Producer surplus has a direct policy application in agricultural economics. Many countries operate minimum price schemes (price floors) for farmers to guarantee them a surplus above market equilibrium. The EU Common Agricultural Policy (CAP) has historically used intervention prices above equilibrium to boost farmer PS — at the cost of consumer CS and often large budget expenditures to buy up excess supply.',
 
+      thinkAboutIt: {
+        question: 'An artisan candle maker has marginal costs of £4 per candle and sells them at a craft fair for £10 each. She sells 50 candles. Her fixed costs (stall rental, equipment) total £150. She tells a friend: "I made £300 producer surplus today — I\'m doing brilliantly!" Her friend, an economics student, says: "Actually, you might still be making a loss." Who is right, and why?',
+        answer: 'Both are partially right, but they are measuring different things. The candle maker is correct that her producer surplus is £300: (£10 − £4) × 50 = £300. This measures revenue above her variable (marginal) costs. However, her friend is correct that producer surplus is not the same as economic profit. To calculate profit, she must also subtract her fixed costs: Economic profit = PS − Fixed costs = £300 − £150 = £150. In this case she is actually profitable, but the friend\'s point stands in principle — a firm can have positive PS and still incur a loss if fixed costs exceed that surplus. The distinction is crucial: PS measures the contribution to covering fixed costs and earning profit, but it is not profit itself.',
+      },
     },
     flashcards: [
       {
@@ -512,6 +808,20 @@ When economists evaluate policies, they track what happens to both consumer and 
         back: 'Producer surplus increases. Existing producers earn more surplus per unit, and new higher-cost producers can now enter the market profitably, expanding total PS.',
         hint: 'Higher price → bigger triangle above supply curve.',
         tags: ['producer-surplus', 'price'],
+      },
+      {
+        id: 'f4-l3-fc6',
+        front: 'How is the area of a producer surplus triangle calculated on a linear supply diagram?',
+        back: 'PS = ½ × base × height, where the base is the equilibrium quantity (Q*) and the height is the equilibrium price (P*) minus the minimum supply price (the supply curve intercept). For example, if P* = £20, minimum supply price = £8, and Q* = 24, PS = ½ × 24 × (20 − 8) = £144.',
+        hint: 'Half base times height: ½ × Q* × (P* − min supply price).',
+        tags: ['producer-surplus', 'calculation', 'diagram'],
+      },
+      {
+        id: 'f4-l3-fc7',
+        front: 'Why do windfall profit taxes on energy firms target producer surplus specifically?',
+        back: 'When oil or gas prices spike, existing producers earn much more revenue without incurring higher extraction costs on already-drilled wells — the entire price increase goes to PS. Because the surplus arises from luck (a price shock) rather than new investment, taxing it does not distort current production decisions, making it an efficient revenue source.',
+        hint: 'Price spike → PS rises without MC rising → tax PS without distorting output.',
+        tags: ['producer-surplus', 'policy', 'tax'],
       },
     ],
     quiz: [
@@ -561,7 +871,132 @@ When economists evaluate policies, they track what happens to both consumer and 
         marks: 1,
         difficulty: 'foundation',
       },
+      {
+        id: 'f4-l3-q4',
+        type: 'mcq',
+        question:
+          'A market has a linear supply curve. The minimum supply price (supply curve intercept) is £5, the equilibrium price is £25, and the equilibrium quantity is 40 units. Calculate the producer surplus.',
+        options: ['£400', '£800', '£200', '£1,000'],
+        correctAnswer: 0,
+        explanation:
+          'PS = ½ × base × height = ½ × 40 × (£25 − £5) = ½ × 40 × £20 = £400.',
+        marks: 2,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l3-q5',
+        type: 'mcq',
+        question:
+          'Three producers — X, Y, and Z — have minimum willingness to accept of £10, £18, and £30 respectively for a single unit. The market price is £22. What is the total producer surplus?',
+        options: [
+          '£16 (X earns £12, Y earns £4; Z does not sell)',
+          '£36 (all three producers generate surplus)',
+          '£12 (only X sells)',
+          '£0 (no PS at equilibrium)',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'Producers sell only if price ≥ WTA. X (WTA £10 ≤ £22) earns £12 PS; Y (WTA £18 ≤ £22) earns £4 PS; Z (WTA £30 > £22) does not sell. Total PS = £12 + £4 = £16.',
+        marks: 2,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l3-q6',
+        type: 'mcq',
+        question:
+          'A supply curve is perfectly elastic (horizontal) at a price of £15. If the market price rises to £15, what is the producer surplus?',
+        options: [
+          'Zero — producers receive exactly their minimum acceptable price on every unit',
+          'Positive — producers earn surplus on every unit sold',
+          'Infinite — all output is supplied at £15 regardless of quantity',
+          'Negative — producers make a loss because price equals marginal cost',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'A perfectly elastic supply curve means every unit costs exactly £15 to produce. The market price is also £15, so price = MC on every unit — there is no gap between price received and minimum WTA. PS = 0. This occurs in perfectly competitive industries with constant costs where free entry drives PS to zero in the long run.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l3-q7',
+        type: 'mcq',
+        question:
+          'The government introduces a minimum price (price floor) for wheat at £50 per tonne, above the equilibrium price of £35. What is the most likely effect on producer surplus for wheat farmers?',
+        options: [
+          'PS increases for farmers who can sell at the higher floor price',
+          'PS falls to zero because price floors always eliminate producer surplus',
+          'PS is unaffected because price floors only affect consumer surplus',
+          'PS decreases because the higher price reduces the quantity farmers want to supply',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'A price floor above equilibrium raises the price that farmers receive. For units that are sold, PS increases (each unit sold earns £50 − MC instead of £35 − MC). However, the higher price may also create a surplus of unsold wheat if supply exceeds demand at £50 — complicating the picture. At the unit level and for units actually sold, PS rises.',
+        marks: 2,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l3-q8',
+        type: 'mcq',
+        question:
+          'A linear supply curve has the equation P = 2 + 0.5Q. If the equilibrium price is £12, what is the equilibrium quantity and the producer surplus?',
+        options: [
+          'Q = 20; PS = £100',
+          'Q = 20; PS = £200',
+          'Q = 10; PS = £50',
+          'Q = 28; PS = £140',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'At P = 12: 12 = 2 + 0.5Q → 0.5Q = 10 → Q = 20. Minimum supply price (where Q = 0) = £2. PS = ½ × 20 × (12 − 2) = ½ × 20 × 10 = £100.',
+        marks: 3,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l3-q9',
+        type: 'mcq',
+        question:
+          'Which of the following best explains why a firm might continue to operate in the short run even if it is making an economic loss?',
+        options: [
+          'As long as producer surplus (revenue above variable costs) is positive, the firm covers its variable costs and makes a contribution to fixed costs',
+          'Because economic losses always disappear in the short run due to market adjustment',
+          'Because fixed costs rise to match any losses, keeping the firm at break-even',
+          'Because producer surplus and economic profit are always equal in the short run',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'In the short run, fixed costs are sunk (unavoidable). A firm should keep operating as long as it can cover its variable costs — i.e., as long as PS ≥ 0. Shutting down saves variable costs but the fixed costs are still owed. Staying open with positive PS reduces the overall loss compared to shutting down.',
+        marks: 2,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l3-q10',
+        type: 'mcq',
+        question:
+          'An oil producer has existing wells with extraction costs of £30 per barrel. The oil price rises from £60 to £90 per barrel due to a geopolitical shock. The producer sells 10,000 barrels. By how much does producer surplus increase, and why might a government consider taxing this gain?',
+        options: [
+          'PS increases by £300,000; the gain is "unearned" windfall from external events, not new investment or effort',
+          'PS increases by £600,000; the government should always tax any increase in PS',
+          'PS increases by £300,000; the government should not tax it as it will discourage future oil production',
+          'PS is unchanged; price changes do not affect PS when extraction costs stay the same',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'Before: PS per barrel = £60 − £30 = £30; total PS = £300,000. After: PS per barrel = £90 − £30 = £60; total PS = £600,000. Increase = £300,000. Governments consider windfall taxes because the gain arose from external factors (geopolitics), not new investment — taxing it does not discourage the production decisions already made, making it an efficient revenue source with limited deadweight loss.',
+        marks: 3,
+        difficulty: 'foundation',
+      },
     ],
+    lessonAssignment: {
+      prompt: 'Choose a real-world producer — this could be a farmer, a small business owner, a freelancer, or a large company. Research or estimate: (1) their approximate marginal cost per unit (or per hour, per service); (2) the market price they typically receive; and (3) their producer surplus per unit. Then discuss what would happen to their producer surplus if the market price fell by 20% — would they continue producing? How does fixed cost affect whether they stay in business? Connect your analysis to the concept of the supply curve as a marginal cost schedule. Write 250–350 words.',
+      rubric: 'Accurate identification and definition of producer surplus applied to a real producer (2 marks). Reasonable estimation of MC and market price with clear PS calculation (2 marks). Correct analysis of the impact of a 20% price fall on PS and production decisions (2 marks). Meaningful discussion of the role of fixed costs in the shutdown decision (2 marks). Use of economic terminology and logical structure (1 mark). Total: 9 marks.',
+      exampleTopics: [
+        'A coffee shop: espresso has low MC (beans + labour) but sells for £3.50 — large PS per cup, but high fixed rent costs',
+        'A freelance graphic designer: their WTA per hour vs their actual hourly rate and how this shapes their decision to accept projects',
+        'A wheat farmer during a period of low grain prices: how the price floor from agricultural policy affects their PS and decision to continue farming',
+        'An oil producer: low extraction costs vs volatile market price and the concept of windfall PS during price spikes',
+        'A market stall trader: marginal cost per item, pricing strategy, and whether they cover their stall hire (fixed cost) through PS',
+      ],
+    },
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
@@ -670,6 +1105,10 @@ Equity and efficiency are distinct concerns. Maximising total surplus (efficienc
       didYouKnow:
         'The concept of deadweight loss was first systematically analysed by the French economist Arsène-Jules-Étienne-Juvénal Dupuit (the same person who developed consumer surplus) in his 1844 paper on the social benefits of infrastructure. He showed that tolls on bridges, if set too high, destroy more value for users than they generate in revenue — an early and crisp demonstration that taxes can impose costs beyond the revenue collected.',
 
+      thinkAboutIt: {
+        question: 'A government wants to reduce sugar consumption and introduces a £0.50 per can sugar tax on fizzy drinks, raising the consumer price from £1.00 to £1.40 and the price received by producers to £0.90. Quantity sold falls from 10 million cans per week to 7 million. The government collects £3.5 million in tax revenue per week. A health economist says the policy is a success. A welfare economist says it creates deadweight loss and reduces total surplus. Can both be right at the same time?',
+        answer: 'Yes, both can be right simultaneously because they are measuring different things. The health economist is correct that the tax reduces consumption and achieves its stated public health goal — fewer cans sold means less sugar consumed, which may reduce obesity and associated health costs that are not captured in the market price (a negative externality argument). The welfare economist is also correct: the tax drives a wedge between what buyers pay (£1.40) and what sellers receive (£0.90), reducing quantity below the private market equilibrium and destroying the surplus that would have been generated by the 3 million cans no longer traded. Whether the policy is desirable overall depends on whether the external health benefits (reduced NHS costs, better health outcomes) exceed the deadweight loss. This is precisely the equity-efficiency trade-off: the market equilibrium maximises total surplus in the narrow private sense, but if sugar consumption generates social costs, the competitive quantity is too high from a social standpoint — and a corrective tax moves output closer to the socially optimal level.',
+      },
     },
     flashcards: [
       {
@@ -706,6 +1145,20 @@ Equity and efficiency are distinct concerns. Maximising total surplus (efficienc
         back: 'Efficiency (maximising total surplus) concerns the overall size of the economic benefit created. Equity concerns how that benefit is distributed. A policy can be efficient yet highly unequal, or equitable but inefficient — the two goals often trade off against each other.',
         hint: 'Efficiency = size of the pie; equity = how it is sliced.',
         tags: ['allocative-efficiency', 'equity', 'welfare'],
+      },
+      {
+        id: 'f4-l4-fc6',
+        front: 'What is the First Fundamental Theorem of Welfare Economics?',
+        back: 'Under conditions of perfect competition, no externalities, no public goods, and no information asymmetries, competitive markets produce a Pareto efficient outcome — one where it is impossible to make anyone better off without making someone else worse off. This is equivalent to maximising total surplus.',
+        hint: 'Competitive markets = Pareto efficient = maximum TS, under strict conditions.',
+        tags: ['allocative-efficiency', 'welfare', 'competitive-market'],
+      },
+      {
+        id: 'f4-l4-fc7',
+        front: 'How does a per-unit tax affect total surplus, consumer surplus, producer surplus, and government revenue?',
+        back: 'A per-unit tax raises the buyer price and lowers the seller price, reducing quantity traded. CS falls (buyers pay more), PS falls (sellers receive less), but government collects tax revenue. Total surplus = CS + PS + government revenue, which is less than the pre-tax TS — the difference is deadweight loss, representing trades that no longer happen.',
+        hint: 'Tax → CS↓, PS↓, govt revenue↑, but DWL means TS falls overall.',
+        tags: ['deadweight-loss', 'tax', 'total-surplus', 'welfare'],
       },
     ],
     quiz: [
@@ -755,6 +1208,136 @@ Equity and efficiency are distinct concerns. Maximising total surplus (efficienc
         marks: 1,
         difficulty: 'foundation',
       },
+      {
+        id: 'f4-l4-q4',
+        type: 'mcq',
+        question:
+          'A linear demand curve has a maximum WTP of £80 and a linear supply curve has a minimum supply price of £20. Equilibrium price is £50 and equilibrium quantity is 60 units. Calculate total surplus.',
+        options: [
+          'TS = £1,800 (CS = £900 + PS = £900)',
+          'TS = £3,600 (CS = £1,800 + PS = £1,800)',
+          'TS = £900 (CS only)',
+          'TS = £2,400 (CS = £1,200 + PS = £1,200)',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'CS = ½ × 60 × (£80 − £50) = ½ × 60 × £30 = £900. PS = ½ × 60 × (£50 − £20) = ½ × 60 × £30 = £900. TS = £900 + £900 = £1,800.',
+        marks: 3,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l4-q5',
+        type: 'mcq',
+        question:
+          'After a £10 per-unit tax, the buyer price rises from £40 to £46, the seller price falls to £36, and quantity falls from 100 to 80 units. CS was £500 before the tax. Which of the following correctly describes what happens to total surplus?',
+        options: [
+          'Total surplus falls because the tax creates deadweight loss on the 20 units no longer traded',
+          'Total surplus rises because the government collects tax revenue that adds to overall welfare',
+          'Total surplus is unchanged because the tax simply redistributes surplus from buyers and sellers to the government',
+          'Total surplus falls to zero because no trades generate surplus when a tax exists',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'A tax redistributes some CS and PS to the government as tax revenue, but also eliminates trades that would have been mutually beneficial (the 20 units no longer traded). The lost surplus on those 20 units is deadweight loss — genuine destruction of value that goes to nobody. Therefore total surplus (CS + PS + government revenue) falls.',
+        marks: 2,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l4-q6',
+        type: 'mcq',
+        question:
+          'A monopolist produces 50 units at a price of £60, while the competitive equilibrium would be 80 units at a price of £40. What does the triangle between quantity 50 and 80, bounded by the demand and supply curves, represent?',
+        options: [
+          'Deadweight loss — the surplus destroyed because the monopolist restricts output below the efficient level',
+          'The monopolist\'s profit from charging above marginal cost',
+          'Consumer surplus transferred from buyers to the monopolist',
+          'The additional producer surplus the monopolist earns from a higher price',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'The triangle between Q = 50 and Q = 80, bounded by the demand curve above and the supply curve below, is the deadweight loss of monopoly. It represents the surplus that would have been generated by the 30 units not produced — trades that would have benefited buyers (who value them above MC) that the monopolist blocks to maintain a higher price.',
+        marks: 2,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l4-q7',
+        type: 'mcq',
+        question:
+          'A government introduces a minimum wage above the competitive market wage in a labour market. Which of the following best describes the welfare effects?',
+        options: [
+          'Workers who keep their jobs gain PS (higher wage), but some workers lose jobs creating DWL, and the overall effect on total surplus is negative',
+          'Total surplus rises because workers earning higher wages spend more, boosting demand',
+          'Total surplus is unchanged because the minimum wage simply transfers surplus from employers to workers',
+          'Allocative efficiency improves because MB = MC is now satisfied at the new wage',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'The minimum wage above equilibrium raises wages for employed workers (increasing their producer surplus), but reduces employment below the efficient level. The workers who lose their jobs and the employers who would have hired them represent the deadweight loss — mutually beneficial trades that no longer occur. Total surplus falls by this DWL triangle, even though some workers are better off.',
+        marks: 2,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l4-q8',
+        type: 'mcq',
+        question:
+          'Competitive market equilibrium maximises total surplus because:',
+        options: [
+          'At Q*, all trades where MB ≥ MC occur, and no trades where MC > MB are forced; any other quantity either leaves surplus uncreated or forces value-destroying trades',
+          'At Q*, all consumers pay the same price and all producers receive the same revenue',
+          'At Q*, consumer surplus always equals producer surplus',
+          'At Q*, the government collects maximum tax revenue without distorting output',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'The efficiency of competitive equilibrium follows from the MB = MC condition at Q*. Below Q*, trades with MB > MC exist but do not happen (lost surplus). Above Q*, trades with MC > MB would occur (destroyed value). Only at Q* is total surplus maximised — every worthwhile trade happens and no wasteful ones do.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l4-q9',
+        type: 'mcq',
+        question:
+          'A policy maker argues: "We should cap rents at 50% of market rent to help low-income tenants." An economist responds that while this improves equity, it reduces allocative efficiency. What economic mechanism explains the efficiency loss?',
+        options: [
+          'The rent cap reduces the quantity of rental housing supplied below the efficient level, creating deadweight loss as mutually beneficial landlord-tenant trades no longer occur',
+          'The rent cap increases allocative efficiency because it moves prices closer to marginal cost for landlords',
+          'The efficiency loss arises because low-income tenants spend their savings on other goods, distorting other markets',
+          'There is no efficiency loss because rent caps redistribute surplus from landlords to tenants without affecting total surplus',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'A rent cap below equilibrium creates a price ceiling. Landlords reduce supply (quantity supplied at the lower rent falls below quantity demanded), so some mutually beneficial trades — tenants who would pay more than the landlord\'s minimum WTA — no longer occur. This gap between quantity supplied and demanded represents deadweight loss: real housing services that could have benefited both parties are not provided. The equity gain (lower rents for those who get housing) comes at a cost of reduced total surplus.',
+        marks: 2,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f4-l4-q10',
+        type: 'mcq',
+        question:
+          'A market has CS = £600 and PS = £400 at competitive equilibrium. A monopolist then restricts output, reducing CS to £250 and PS to £500, with a deadweight loss triangle of £100. What is total surplus under the monopoly, and what has happened to the missing value?',
+        options: [
+          'TS = £750; the £100 DWL is genuinely destroyed — it goes to nobody',
+          'TS = £850; the DWL is transferred to the monopolist as extra profit',
+          'TS = £1,000; total surplus is unchanged under monopoly',
+          'TS = £650; DWL represents the consumer surplus transferred to the producer',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'Under monopoly: TS = CS + PS = £250 + £500 = £750. Compare to competitive TS = £600 + £400 = £1,000. The difference is £250 — but note: PS rose from £400 to £500 (the monopolist captured £100 of what was CS), and DWL = £100 (genuinely destroyed). The £150 transferred from CS to PS is a redistribution, not a loss. The £100 DWL is the actual welfare destruction: surplus that nobody gets because those trades no longer happen.',
+        marks: 3,
+        difficulty: 'foundation',
+      },
     ],
+    lessonAssignment: {
+      prompt: 'Choose a real-world policy that creates deadweight loss — for example, a tax on a specific good (sugar tax, cigarette tax, fuel duty), a price control (rent control, minimum wage, agricultural price support), or a trade restriction (tariff, import quota). Analyse the welfare effects using the total surplus framework: (1) identify the CS, PS, government revenue (if any), and DWL triangles; (2) explain who gains and who loses; (3) discuss whether the policy might still be justified on equity or externality grounds even though it creates DWL. Write 300–400 words and sketch a labelled supply-and-demand diagram if possible.',
+      rubric: 'Accurate identification of the policy and its effect on equilibrium price and quantity (1 mark). Correct description of CS, PS, and DWL areas with reference to the diagram (3 marks). Clear explanation of who gains and who loses surplus, distinguishing transfers from genuine DWL (2 marks). Balanced evaluation of whether the policy is justified on equity or externality grounds, with specific reasoning (2 marks). Quality of economic reasoning and use of terminology (1 mark). Total: 9 marks.',
+      exampleTopics: [
+        'UK sugar levy on soft drinks: CS falls as consumers pay more, PS falls as producers receive less, government gains revenue, DWL from lost trades — but external health benefits may justify the policy',
+        'Rent control in cities like New York or London: landlords reduce supply, tenants lucky enough to have controlled accommodation gain, but overall housing shortage creates DWL',
+        'UK fuel duty: large tax wedge between pump price and producer price; evaluate who bears the burden given inelastic demand',
+        'EU agricultural price supports (CAP intervention prices): farmers gain PS, consumers lose CS, taxpayers fund surplus purchases — is food security worth the efficiency cost?',
+        'Minimum wage above equilibrium: employed workers gain, some workers lose jobs — evaluate using total surplus and equity arguments',
+      ],
+    },
   },
 ]

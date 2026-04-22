@@ -25,7 +25,7 @@ interface Props {
 interface Submission {
   text: string
   feedback: string
-  score: number
+  score: number | null
 }
 
 export function LessonAssignmentPanel({
@@ -81,7 +81,11 @@ export function LessonAssignmentPanel({
         }),
       })
 
-      const { feedback, score } = await res.json()
+      const body = await res.json()
+      if (!res.ok) {
+        throw new Error(body.error ?? 'Grading service unavailable.')
+      }
+      const { feedback, score } = body as { feedback: string; score: number }
 
       // Upsert so retries overwrite
       await supabase.from('assignments').upsert({
@@ -104,8 +108,9 @@ export function LessonAssignmentPanel({
       setSubmission({ text, feedback, score })
       toast.success('Assignment graded!', `Score: ${score}/10 · +30 XP`)
       onSubmit?.()
-    } catch {
-      toast.error('Grading failed', 'Please try again.')
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Please try again.'
+      toast.error('Grading failed', msg)
     } finally {
       setGrading(false)
     }
@@ -113,8 +118,9 @@ export function LessonAssignmentPanel({
 
   // Submitted state
   if (submission) {
-    const pct = Math.round(submission.score * 10)
-    const passed = submission.score >= 7
+    const score = submission.score ?? 0
+    const pct = Math.round(score * 10)
+    const passed = score >= 7
     return (
       <div className="space-y-5">
         {/* Score card */}
@@ -133,7 +139,7 @@ export function LessonAssignmentPanel({
               }
             </div>
             <div>
-              <div className="text-3xl font-black text-[var(--fg)]">{submission.score}<span className="text-lg text-[var(--muted-fg)]">/10</span></div>
+              <div className="text-3xl font-black text-[var(--fg)]">{score}<span className="text-lg text-[var(--muted-fg)]">/10</span></div>
               <div className="text-sm text-[var(--muted-fg)] mt-0.5">{pct}% · {passed ? 'Well done!' : 'Keep practising'}</div>
             </div>
           </CardContent>

@@ -356,7 +356,7 @@ Deduct for: confusing positive with normative, using the lesson's exact examples
         },
       ],
 
-      realWorldHook: `Every year, thousands of American students are accepted to Ivy League universities and turn them down. Not because they can't afford it — many receive full scholarships. They turn them down because they've been accepted somewhere else, or have a job offer, or want to start a company. From the outside, this looks crazy. You're turning down *Harvard*. But the acceptance letter isn't free. Four years at Harvard costs you four years of *something else* — a salary, a business, an apprenticeship, a life somewhere else. The scholarship covers tuition. It doesn't cover time. This is why the children of billionaires still face a real economic decision when they choose a university — because even when money isn't scarce, time always is. Opportunity cost doesn't care how wealthy you are. Every choice you make eliminates every other choice you could have made in that same moment. The question economics forces you to ask isn't "Can I afford this?" — it's "What am I giving up to have it?"`,
+      realWorldHook: `In 1994, Jeff Bezos was 30 years old, earning over $1 million a year as a senior vice-president at a prestigious New York hedge fund, with a clear path to partnership. Then he told his boss he wanted to quit to sell books on the internet. His boss suggested he think it over for 48 hours before deciding. Bezos flew to Texas, thought it through, and quit anyway. He framed his decision using what he called a "regret minimisation framework" — imagining himself at 80 and asking which choice he'd regret more. But behind that personal story is a hard economic reality: the true cost of starting Amazon wasn't the $250,000 his parents put in. It was the $1 million per year salary he walked away from, plus the partner-track career he would never have, plus the psychological security of a stable income. None of that appeared on any balance sheet. It was all opportunity cost — the value of the best alternative he gave up. By 2024, Amazon was worth over $1.8 trillion. But that outcome wasn't certain in 1994. What was certain was the cost. That's what scarcity does: it makes every choice an act of sacrifice, whether you're aware of it or not.`,
 
       conceptualExplanation: `## Scarcity, Choice, and Opportunity Cost
 
@@ -422,11 +422,11 @@ For public policy, opportunity cost is equally critical. When governments spend 
 
       examinerTip: `When describing opportunity cost, always name the *specific* next-best alternative — not just "what you gave up." Examiners award marks for precision: state what was chosen, what was sacrificed, and why that sacrifice is the opportunity cost. Never list multiple alternatives — pick the single best one forgone.`,
 
-      didYouKnow: `The phrase "There Ain't No Such Thing As A Free Lunch" was popularised by Nobel Prize-winning economist Milton Friedman, but it appeared in American saloons in the 1800s — where "free" bar snacks were offered to attract paying drinkers. TANSTAAFL was understood by barkeepers long before economists named it.`,
+      didYouKnow: `The phrase "There Ain't No Such Thing As A Free Lunch" predates economics entirely — it appeared in American saloon culture of the 1800s, where bars advertised a "free lunch" of salty snacks to attract customers who would then buy drinks. Milton Friedman later adopted it as the title of a 1975 collection of essays. The barkeepers understood opportunity cost intuitively: nothing is free if it costs someone something somewhere.`,
 
       thinkAboutIt: {
-        question: `You've paid £15 for a cinema ticket and sat down. Ten minutes in, it's clearly terrible. Should you stay or leave?`,
-        answer: `Leave — if you'd rather be somewhere else. The £15 is a sunk cost: it's gone whether you watch the film or not. The only relevant question is what's worth more for the next two hours: sitting through a bad film, or doing something you'd actually enjoy? People who stay "to get their money's worth" are letting a sunk cost distort a forward-looking decision. The rational choice ignores what's already spent and focuses only on future costs and benefits.`,
+        question: `A friend is considering dropping out of a three-year university degree after completing year one. She argues she "can't drop out now — I've already spent £9,000 in tuition." An economist would disagree with this reasoning. Why?`,
+        answer: `The £9,000 already spent is a sunk cost — it's gone regardless of whether she stays or leaves. The rational question is: does completing the remaining two years (costing roughly £18,000 more in fees, plus the salary she could earn instead) deliver more value than the alternatives? If the degree no longer aligns with her goals, the £9,000 already spent should play zero role in that decision. Staying solely because of past spending is the sunk cost fallacy. The economist's question is always forward-looking: what are the future costs and benefits of each option from here?`,
       },
 
       diagram: 'opportunity-cost' as const,
@@ -471,8 +471,8 @@ For public policy, opportunity cost is equally critical. When governments spend 
       },
       {
         id: 'f1-l2-fc7',
-        front: 'Why do even full-scholarship students at elite universities still face an opportunity cost?',
-        back: 'A scholarship covers tuition but not time. Four years spent studying is four years not spent earning, building a business, or pursuing other paths. Time is always scarce — so even a "free" education has an opportunity cost.',
+        front: 'When Jeff Bezos left a $1m/year hedge fund job to start Amazon, what was the true economic cost of founding Amazon?',
+        back: 'Not just the $250,000 his parents invested — but also the foregone salary (~$1m/year), the career track he abandoned, and the psychological cost of uncertainty. The true cost is the opportunity cost: the value of the best alternative given up, not just the cash outlay.',
         tags: ['opportunity-cost', 'foundations'],
       },
     ],
@@ -605,15 +605,15 @@ Deduct for: listing multiple opportunity costs without identifying the single be
       {
         id: 'f1-l2-q8',
         type: 'mcq',
-        question: 'The Freakonomics analysis of street-level drug dealing showed that most dealers earned below minimum wage. What does this reveal about opportunity cost?',
+        question: 'In 1994, Jeff Bezos left a highly paid hedge fund position (earning roughly $1 million per year) to start Amazon in his garage. His parents invested $250,000 of their savings. Economically, the true cost of founding Amazon was:',
         options: [
-          'That drug dealing has no economic opportunity cost because it is illegal.',
-          'That people sometimes underestimate their opportunity cost, accepting worse alternatives than they realise.',
-          'That opportunity cost only applies when comparing legal activities.',
-          'That the three fundamental economic questions do not apply to informal economies.',
+          'Exactly $250,000 — the cash his parents invested.',
+          'Zero — since the startup cost was covered by someone else.',
+          'The foregone hedge fund salary plus the next-best use of his parents\' savings — the total opportunity cost of the resources committed.',
+          'Incalculable, because entrepreneurial decisions are unpredictable.',
         ],
-        correctAnswer: 1,
-        explanation: 'Most dealers earned less than they could have working a legitimate job. They underestimated their true opportunity cost — the foregone legitimate wage plus foregone safety. Opportunity cost applies to all choices, legal or otherwise.',
+        correctAnswer: 2,
+        explanation: 'The $250,000 is the accounting cost. The true economic cost includes the opportunity cost: Bezos\'s foregone annual salary (~$1m) plus what his parents could have earned investing that $250,000 elsewhere. Opportunity cost covers all resources committed — cash, time, and career — not just cash payments.',
         marks: 1,
         difficulty: 'standard',
       },
@@ -762,7 +762,7 @@ It is equally important to recognise what the PPF deliberately leaves out. Real 
 
       examinerTip: `In diagram questions, always label both axes clearly, mark the curve as "PPF," and show three key points: one on the curve (efficient), one inside (inefficient/attainable), and one outside (unattainable). If asked about economic growth, draw a second PPF shifted outward and explain *why* it shifted. Never confuse movement along the curve (a trade-off) with a shift of the curve (growth).`,
 
-      didYouKnow: `The PPF concept was first formalised by economist Gottfried Haberler in 1936 to analyse international trade theory, but it has since become the universal first diagram of almost every introductory economics course worldwide — a testament to how much explanatory power a simple two-axis graph can carry.`,
+      didYouKnow: `The PPF was first formalised by economist Gottfried Haberler in 1936 to analyse international trade theory. But its most vivid real-world test came during WWII: the US War Production Board used PPF-style thinking to calculate exactly how much consumer output it needed to sacrifice to hit military production targets. In 1942 alone, civilian car production fell from 4 million to just 223 vehicles — every factory, every worker, every ton of steel redirected to the war effort. The PPF had moved as far as it could toward one axis.`,
 
       diagram: 'ppf' as const,
 
@@ -1020,7 +1020,7 @@ Deduct for: confusing movement along PPF with outward shift, describing growth a
         },
       ],
 
-      realWorldHook: `In 1991, the Soviet Union collapsed after seven decades of central planning. Among the stranger relics it left behind: a country that had too many left shoes and not enough right shoes. This sounds like a joke, but it's documented. Factories had been assigned production quotas for shoes — measured in pairs, but the quotas were easier to hit by producing more of the simpler left shoe. No market signal existed to correct this, because there was no market. Consumers couldn't vote with their wallets. Planners in Moscow couldn't know what was actually on shelves in Siberia. Compare this to what happens in a supermarket when a product runs low: the price nudges up, the supplier notices, production increases, and the shelf refills — all without a single phone call to a central authority. The price mechanism isn't glamorous. It's just millions of quiet signals, all firing at once, doing the coordination job that the Soviet Union needed a hundred thousand bureaucrats to attempt — and still got wrong.`,
+      realWorldHook: `In the 1970s, Soviet nail factories faced a quota problem. Their production target was set in *tonnes of nails*. So they made a few enormous, very heavy nails. Quota met. No one could use them — construction sites needed thousands of small nails — but the numbers looked fine in Moscow. When planners caught on and switched the quota to *number of nails*, factories responded by making millions of tiny, useless ones. This wasn't stupidity — it was rational behaviour in a broken system. Workers and managers were responding to the incentives they faced. The problem was that the incentives pointed in completely the wrong direction, because no one in the factory was being paid based on whether anyone actually *needed* what they made. Compare this to a hardware store in a market economy when nails run low: the price rises slightly, a supplier notices the margin, orders more stock, and shelves refill within days. No central committee required. No quota needed. Just millions of quiet price signals, each one transmitting exactly the information the market needs to self-correct. The Soviet Union needed an army of bureaucrats to attempt what prices do automatically — and still got it spectacularly wrong.`,
 
       conceptualExplanation: `## Economic Systems: Markets, Command, and Mixed
 
@@ -1086,11 +1086,11 @@ Yet the market system is not without critics. The 2008 financial crisis demonstr
 
       examinerTip: `When comparing economic systems, always evaluate *both* advantages and disadvantages of each, and link your argument to the three fundamental questions (what, how, for whom). Examiners reward balanced analysis. Avoid dismissing command economies entirely — acknowledge what they *can* achieve before explaining their limitations.`,
 
-      didYouKnow: `North Korea and Cuba are among the last countries operating close to the command model — yet even they have allowed informal market activity to emerge over time, illustrating how difficult it is to suppress market forces when people have unmet wants and something to trade.`,
+      didYouKnow: `The Soviet quota problem wasn't unique to nails. Soviet glass factories, when measured in square metres, made glass as thin as paper. Chandelier factories, measured by weight, made chandeliers so heavy ceilings collapsed. Soviet economists had a name for this: "Goodhart's Law" before Charles Goodhart formalised it — when a measure becomes a target, it ceases to be a good measure. Today it applies everywhere from school league tables to corporate KPIs.`,
 
       thinkAboutIt: {
-        question: `A government sets the price of bread at £1 to make it affordable for everyone. What does an economist predict will happen next?`,
-        answer: `If £1 is below the market equilibrium price, producers lose money on every loaf they sell — so they produce less, or stop entirely. Shelves empty. Queues form. The policy intended to help people buy bread ends up meaning there's no bread to buy. This is the information and incentive problem in action: the price signal that would normally tell producers "make more" has been disabled. The result is a shortage — the opposite of what was intended. This is why even well-meaning price controls tend to backfire, and why the price mechanism, despite its flaws, is extraordinarily difficult to replace.`,
+        question: `A government sets the price of bread at £1 to make it affordable for everyone. What does an economist predict will happen — and why does the policy fail even though its intention is good?`,
+        answer: `If £1 is below the market price, bakers lose money on every loaf — so they produce less, or stop. Shelves empty. Queues form. The policy meant to make bread affordable instead makes it unavailable. This is the price mechanism in reverse: the price signal that would normally tell producers "make more" has been disabled. Shortages are the predictable result of price ceilings set below equilibrium. The deeper lesson: good intentions are not enough in economics. What matters is whether the *incentives* created by a policy produce the desired outcome. A price ceiling removes the incentive to supply — and no amount of good will puts bread back on the shelf.`,
       },
 
       diagram: 'economic-systems' as const,
@@ -1129,8 +1129,8 @@ Yet the market system is not without critics. The 2008 financial crisis demonstr
       },
       {
         id: 'f1-l4-fc6',
-        front: 'What lesson does Venezuela\'s economic crisis offer about command economies?',
-        back: 'Setting prices below market rates destroyed the incentive to produce — companies stopped supplying, shelves emptied, and a black market emerged. Information and incentive problems are not solved by government control alone.',
+        front: 'What did Soviet nail and glass factory quotas reveal about command economies?',
+        back: 'When quotas were set in tonnes, factories made a few enormous nails; when set in units, they made millions of useless tiny ones. Without price signals, incentives pointed in the wrong direction — managers optimised for the metric, not the product. This is the incentive problem in command economies.',
         tags: ['economic-systems'],
       },
       {
@@ -1208,15 +1208,15 @@ Yet the market system is not without critics. The 2008 financial crisis demonstr
       {
         id: 'f1-l4-q4',
         type: 'mcq',
-        question: 'Venezuela\'s economic crisis (2010s) illustrates which key problem with command-style intervention?',
+        question: 'Soviet nail factories, given a quota measured in tonnes, produced a few enormous nails nobody could use. When the quota switched to number of nails, they produced millions of tiny useless ones. This best illustrates:',
         options: [
-          'That government-run companies always produce lower-quality goods.',
-          'That setting prices below market rates destroys the incentive to produce, causing shortages.',
-          'That oil-dependent economies always face political instability.',
-          'That central planning is only ineffective in democracies.',
+          'That Soviet workers were less skilled than their Western counterparts.',
+          'The information and incentive problems in command economies — without price signals, managers optimise for the measure, not the output society needs.',
+          'That quotas always improve productivity when designed correctly.',
+          'That market economies also struggle to coordinate complex production.',
         ],
         correctAnswer: 1,
-        explanation: 'When Venezuela mandated prices below production costs, companies had no incentive to supply food — they would lose money on every unit sold. Supply collapsed, shelves emptied, and the black market flourished. This is a textbook information and incentive failure of price controls.',
+        explanation: 'Workers responded rationally to the incentives they faced — hitting the quota metric. But the metric wasn\'t the real goal (usable nails). This is the incentive problem: without prices connecting production to what consumers actually need, planners cannot design metrics that align behaviour with social value.',
         marks: 1,
         difficulty: 'standard',
       },
@@ -1343,7 +1343,7 @@ Yet the market system is not without critics. The 2008 financial crisis demonstr
         },
       ],
 
-      realWorldHook: `A hospital in the UK once calculated the cost of keeping a patient in a bed for one extra day: roughly £400. Then it calculated what that same £400 could buy if spent on preventive community care — GP visits, medication reminders, home check-ins for elderly patients. The answer: it could prevent around three future hospital admissions, each lasting several days. Nobody had done this comparison before. The hospital had always optimised for treating patients in front of them — a perfectly rational goal. But nobody had asked the marginal question: does the next pound spent *here* do more good than the next pound spent *there*? When they finally did, they redesigned their entire discharge process around that single insight. This is what marginal thinking looks like in practice. It's not about being cold or calculating — it's about being honest that every decision has a "next unit" hiding inside it, and that the right question is almost always: *is this specific next step worth its specific next cost?*`,
+      realWorldHook: `A large NHS trust once calculated that keeping a patient in a hospital bed for one extra day costs roughly £400. Then someone asked a different question: what could that same £400 buy in preventive community care — GP home visits, medication reminders for elderly patients, post-discharge check-ins? The answer was startling: about three future hospital readmissions prevented, each running 4–6 days. Nobody had done this calculation before. The hospital had been optimising total bed usage without ever asking whether the *next* pound was being spent in the highest-value place. When they finally ran the marginal comparison, they redesigned the entire discharge pathway around it. Readmissions fell. Costs fell. Patient outcomes improved. The only thing that changed was the question they were asking. Before: "Are we treating patients well?" After: "Is the next £400 we spend worth more here or there?" That shift — from total to marginal — is one of the most powerful moves in all of economic reasoning.`,
 
       conceptualExplanation: `## Thinking at the Margin
 
@@ -1395,9 +1395,9 @@ Firms deciding how many workers to hire ask: does this worker's additional outpu
         },
       ],
 
-      deeperDive: `Marginal analysis underlies much of modern economics. Environmental economics uses it to design efficient pollution policy: the optimal level of abatement is where the marginal cost of reducing one more unit of pollution equals the marginal benefit (damage avoided). Healthcare economics uses it to evaluate whether an additional diagnostic test is worth its cost. Taxation theory uses it to set rates where the marginal deadweight loss equals the marginal social benefit of public spending.
+      deeperDive: `Marginal analysis is the engine behind much of modern economic policy. Environmental economists use it to find the efficient level of pollution control: keep reducing emissions as long as the marginal benefit (damage prevented) exceeds the marginal cost (abatement cost). Healthcare economists ask whether one more MRI scan is worth the radiologist's time. Development economists assess whether one more dollar of foreign aid reaches a marginal beneficiary or disappears into administrative overhead. In every case, the question is never "is this good?" — it's "is this *next unit* good enough to justify its cost?"
 
-There's also an important mathematical relationship between marginal and average values: when the marginal value is above the average, the average rises; when below, the average falls. This is why a student's average grade rises when they score above their current average, and falls when they score below. In cost analysis, it explains why marginal cost curves intersect average cost curves at their minimum points — a result crucial to understanding competitive firm behaviour.`,
+There's also a sharp mathematical relationship between marginal and average: when the marginal value exceeds the average, the average rises; when it falls below, the average falls; they're equal exactly at the average's minimum (or maximum). You already know this from school — scoring above your average on a test raises it; below drags it down. In cost economics, this rule explains why the marginal cost curve always passes through the lowest point of the average cost curve — a result that becomes central to understanding how competitive firms behave.`,
 
       commonMisconceptions: [
         'Rational people always maximise total benefit, so they should do as much as possible of anything they enjoy. Rational decision-making maximises *net* benefit (total benefit minus total cost), which means stopping when MC > MB — not maximising quantity.',
@@ -1412,8 +1412,8 @@ There's also an important mathematical relationship between marginal and average
       diagram: 'mb-mc' as const,
 
       thinkAboutIt: {
-        question: `A firm is making a healthy £100,000 annual profit. Should it expand production? What is the right question to ask?`,
-        answer: `"Are we profitable?" is the wrong question for this decision. The right question is: does the *next unit* of production earn more than it costs? (MB ≥ MC?). The firm should expand only if the additional revenue from the next unit exceeds its additional cost. If MC > MB on the next unit, expanding actually *destroys* value — even if overall profit is positive. Many businesses make the mistake of expanding because they're profitable in total, without checking whether the marginal unit is worth it. The MB = MC rule prevents this.`,
+        question: `A coffee shop earns £120,000 profit per year. Its owner is considering opening a second location. A friend says: "You're already profitable — obviously expand." What does an economist say?`,
+        answer: `Total profit tells you nothing about whether expansion is a good decision. The right question is marginal: will the *second location* earn more than it costs — including the owner's time, the new lease, staff, and the opportunity cost of that capital? If the second shop would earn £20,000 but the owner could earn £30,000 investing the same money elsewhere, expansion destroys value even though it generates accounting profit. The MB = MC rule applies: expand only if the marginal benefit of the new location exceeds its marginal cost. Many businesses over-expand because they confuse "we're profitable in total" with "the next unit is worth it." Those are very different questions.`,
       },
     },
 

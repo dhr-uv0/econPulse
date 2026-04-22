@@ -123,6 +123,11 @@ Not all demand curves are equally steep. A very steep demand curve signals **ine
 
       didYouKnow:
         'The demand curve concept was formally introduced by Alfred Marshall in his 1890 masterwork *Principles of Economics*, but merchants had understood the inverse price-quantity relationship intuitively for thousands of years — ancient Babylonian clay tablets record price adjustments based on buyer response.',
+
+      thinkAboutIt: {
+        question: 'During the COVID-19 pandemic, sales of home exercise equipment like treadmills and dumbbells skyrocketed even as their prices rose sharply. Does this violate the law of demand? Use the IPTED framework to explain what actually happened.',
+        answer: 'This does not violate the law of demand — it is a textbook example of a demand shifter at work. The law of demand holds ceteris paribus, but in this case all else was not equal: consumer tastes shifted dramatically toward home fitness as gyms closed, and expectations of prolonged lockdowns reinforced this preference change. Both factors are non-price determinants (T and E from IPTED) that shifted the entire demand curve rightward. The higher prices observed are the result of a new, higher demand curve intersecting the (relatively inelastic) supply curve — a movement to a new equilibrium, not a violation of the law.',
+      },
     },
     flashcards: [
       {
@@ -154,6 +159,18 @@ Not all demand curves are equally steep. A very steep demand curve signals **ine
         front: 'If the price of coffee rises sharply, what happens to the demand for tea (a substitute)?',
         back: 'Demand for tea increases (curve shifts right). Consumers substitute away from the now-more-expensive coffee toward tea, raising quantity demanded of tea at every price.',
         tags: ['demand', 'substitutes', 'shifters'],
+      },
+      {
+        id: 'f2-l1-fc6',
+        front: 'What are the two effects that explain why the demand curve slopes downward?',
+        back: 'The **substitution effect**: a higher price makes the good expensive relative to alternatives, so consumers switch to substitutes. The **income effect**: a higher price reduces real purchasing power, so consumers can afford less of the good even with the same money income.',
+        tags: ['demand', 'substitution-effect', 'income-effect'],
+      },
+      {
+        id: 'f2-l1-fc7',
+        front: 'What is an inferior good, and how does a rise in income affect its demand?',
+        back: 'An inferior good is one for which demand falls as consumer income rises — consumers switch to higher-quality substitutes when they can afford them. Example: demand for instant noodles typically falls as incomes rise, because people switch to restaurant meals.',
+        tags: ['demand', 'inferior-good', 'income'],
       },
     ],
     quiz: [
@@ -208,7 +225,137 @@ Not all demand curves are equally steep. A very steep demand curve signals **ine
         marks: 1,
         difficulty: 'foundation',
       },
+      {
+        id: 'f2-l1-q4',
+        type: 'mcq',
+        question:
+          'A consumer\'s income falls and they begin buying more canned soup instead of restaurant meals. Which statement best describes canned soup in this context?',
+        options: [
+          'Canned soup is a normal good because its demand increased.',
+          'Canned soup is an inferior good because its demand rose when income fell.',
+          'Canned soup is a substitute good because it replaces restaurant meals.',
+          'Canned soup is a complement good because it is consumed alongside other foods.',
+        ],
+        correctAnswer: 1,
+        explanation:
+          'An inferior good is defined by a negative relationship between income and demand — as income falls, demand rises. The consumer buying more canned soup after an income fall is the classic pattern of an inferior good. Option A is wrong because "normal good" requires demand to rise with income, not fall. Option C confuses the concept of substitutes (related to price, not income classification) with the inferior-good classification.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l1-q5',
+        type: 'mcq',
+        question:
+          'The price of petrol rises sharply. Which of the following best describes the effect on the market for large SUVs (which are intensive petrol users)?',
+        options: [
+          'The supply of SUVs decreases because manufacturers use petrol in production.',
+          'The quantity demanded of SUVs decreases due to a movement along the SUV demand curve.',
+          'The demand for SUVs decreases because petrol, a complement, has become more expensive.',
+          'The demand for SUVs increases because consumers substitute away from public transport.',
+        ],
+        correctAnswer: 2,
+        explanation:
+          'Petrol and large SUVs are complementary goods — they are consumed together. A rise in the price of petrol (a complement) makes owning and running an SUV more expensive overall, reducing consumers\' willingness to buy SUVs at every price. This is a non-price demand shifter (prices of related goods), so the SUV demand curve shifts left. Option B is wrong because the price of SUVs has not changed — there is no movement along the SUV demand curve yet.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l1-q6',
+        type: 'mcq',
+        question:
+          'Which of the following best explains why the demand curve slopes downward from left to right?',
+        options: [
+          'Producers supply less at lower prices, so consumers are forced to buy less.',
+          'As price rises, both the substitution effect and the income effect reduce quantity demanded.',
+          'Government taxes make goods more expensive, reducing consumption at higher prices.',
+          'Consumers always prefer cheaper goods regardless of quality differences.',
+        ],
+        correctAnswer: 1,
+        explanation:
+          'The downward slope of the demand curve is explained by two effects working together. The substitution effect: a higher price makes the good relatively more expensive than alternatives, causing consumers to switch. The income effect: a higher price erodes real purchasing power, reducing how much consumers can afford. Option A confuses supply-side with demand-side reasoning. Option D is a simplification that does not capture the economic mechanism.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l1-q7',
+        type: 'mcq',
+        question:
+          'A government health campaign convinces consumers that sugary drinks cause obesity. At the same time, the price of sugary drinks falls by 30%. What is the most likely combined effect on the quantity of sugary drinks purchased?',
+        options: [
+          'Quantity purchased definitely increases because the price fell.',
+          'Quantity purchased definitely decreases because the health campaign reduces demand.',
+          'The effect on quantity purchased is indeterminate — it depends on the relative strength of each change.',
+          'The demand curve shifts right while quantity demanded falls — these exactly cancel out.',
+        ],
+        correctAnswer: 2,
+        explanation:
+          'Two opposing forces are at work: the health campaign shifts the demand curve leftward (reducing demand at every price), while the price fall causes a movement down-right along the new demand curve (increasing quantity demanded). Whether total quantity purchased rises or falls depends on which effect dominates. If the price fall is large relative to the demand shift, quantity rises; if the demand shift dominates, quantity falls. The outcome is indeterminate without knowing magnitudes.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l1-q8',
+        type: 'mcq',
+        question:
+          'The market demand curve for a product is obtained by:',
+        options: [
+          'Averaging the prices that individual consumers are willing to pay.',
+          'Vertically summing all individual demand curves at each quantity level.',
+          'Horizontally summing all individual demand curves at each price level.',
+          'Multiplying the individual consumer\'s quantity demanded by the number of consumers.',
+        ],
+        correctAnswer: 2,
+        explanation:
+          'Market demand is derived by horizontal summation — at each price level, you add up the quantities demanded by every individual consumer. This gives the total market quantity demanded at each price. Option B (vertical summation) is used for public goods analysis, not market demand. Option D is incorrect because it only works if all consumers have identical demand, which is rarely true.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l1-q9',
+        type: 'mcq',
+        question:
+          'A large wave of immigration increases a city\'s population by 15%. All else equal, what happens in the market for rental housing in that city?',
+        options: [
+          'Supply of rental housing increases as landlords build more properties.',
+          'Demand for rental housing decreases as newcomers have lower incomes.',
+          'Demand for rental housing increases, shifting the demand curve rightward.',
+          'Quantity demanded of rental housing increases due to a movement along the demand curve.',
+        ],
+        correctAnswer: 2,
+        explanation:
+          'An increase in the number of buyers is a non-price determinant of demand (the "N" in IPTED — number of buyers). More potential renters means the entire demand curve shifts rightward — more housing is demanded at every price. Option D is wrong because no price change has occurred; a change in the number of buyers is a shifter, not a price change, so this is a shift, not a movement.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l1-q10',
+        type: 'mcq',
+        question:
+          'Which of the following scenarios correctly identifies BOTH the type of change AND the direction of the effect on demand for train tickets?',
+        options: [
+          'Train ticket prices fall → demand for train tickets increases (shift right).',
+          'Petrol prices double → demand for train tickets increases (shift right).',
+          'Train ticket prices rise → demand for train tickets decreases (shift left).',
+          'Consumer incomes fall → quantity demanded of train tickets decreases (movement along curve).',
+        ],
+        correctAnswer: 1,
+        explanation:
+          'Petrol prices rising makes driving more expensive — since cars and trains are substitutes, consumers switch to trains, shifting the train demand curve rightward. This is correctly identified as a shift (non-price determinant: price of a substitute). Options A and C describe price changes to the good itself, which cause movements along the curve, not shifts — these are mislabelled as shifts. Option D involves income (a non-price determinant), which causes a shift of the demand curve, not a movement along it.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
     ],
+    lessonAssignment: {
+      prompt: 'Choose a product whose demand has clearly changed in recent years (for example: streaming services, electric vehicles, fast fashion, plant-based food, or any product you find interesting). Identify at least two non-price determinants from the IPTED framework that explain the change in demand for your chosen product. For each determinant, explain the mechanism — why did that factor change, and how did it shift the demand curve? Conclude by predicting whether demand is likely to continue shifting in the same direction over the next five years and why. Your answer should use precise economic vocabulary and reference the demand curve explicitly.',
+      rubric: 'Scores 9-10: correctly identifies two or more IPTED shifters with precise mechanisms, uses vocabulary (demand shift, ceteris paribus, normal/inferior good, complement/substitute) accurately, and provides a well-reasoned prediction. Scores 7-8: identifies correct shifters with reasonable explanation but prediction lacks depth or one vocabulary term is imprecise. Scores 5-6: identifies one shifter correctly but conflates shift with movement, or explanation is superficial. Scores 3-4: vague reference to demand changing without identifying a specific IPTED factor or explaining the mechanism.',
+      exampleTopics: [
+        'Which IPTED factor(s) drove the change — income, related goods prices, tastes, expectations, or number of buyers?',
+        'Did the demand curve shift left or right, and at what point in time did the shift occur?',
+        'Is your chosen product a normal good, inferior good, or neither — and does that matter here?',
+        'Are there any related goods (substitutes or complements) whose price changes contributed to the shift?',
+        'What might cause demand to reverse direction in future — which IPTED factor could flip?',
+      ],
+    },
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
@@ -337,6 +484,11 @@ Supply responsiveness to price changes depends heavily on time. In the **short r
 
       didYouKnow:
         'The law of supply has one famous exception: the **backward-bending labour supply curve**. At very high wages, workers may actually supply *fewer* hours of labour because they are rich enough to value leisure more than additional income — a real-world quirk observed among high-earning professionals.',
+
+      thinkAboutIt: {
+        question: 'In 2022, soaring natural gas prices caused many European fertiliser factories to shut down temporarily, even though the demand for fertilisers from farmers remained strong. Using the TINGPE framework, explain the supply-side chain reaction this triggered in the market for wheat and other grain crops.',
+        answer: 'Natural gas is a primary input in fertiliser production, so soaring gas prices raised input costs for fertiliser manufacturers — a TINGPE factor (I: input costs) — shifting fertiliser supply left and raising fertiliser prices. Fertiliser is itself an input cost for grain farmers, so higher fertiliser prices then shifted wheat and grain supply left as well. With grain supply reduced and demand from food consumers unchanged, equilibrium grain prices rose. This illustrates how a supply shock can cascade through multiple markets via the input-cost channel, amplifying the original disruption well beyond the industry where it started.',
+      },
     },
     flashcards: [
       {
@@ -368,6 +520,18 @@ Supply responsiveness to price changes depends heavily on time. In the **short r
         front: 'What is the effect of a government subsidy on the supply curve?',
         back: 'A subsidy shifts the supply curve rightward (increases supply). By reducing producers\' cost of production, the subsidy makes it profitable to offer more units at every price.',
         tags: ['supply', 'government-policy', 'subsidy'],
+      },
+      {
+        id: 'f2-l2-fc6',
+        front: 'What is producer surplus, and how is it shown on a supply diagram?',
+        back: 'Producer surplus is the difference between the price a producer actually receives and the minimum price they would have accepted (their marginal cost). On a supply diagram, it is the area above the supply curve and below the market price — a triangle when the supply curve is a straight line.',
+        tags: ['supply', 'producer-surplus'],
+      },
+      {
+        id: 'f2-l2-fc7',
+        front: 'Why are long-run supply curves generally flatter (more elastic) than short-run supply curves?',
+        back: 'In the short run, at least one input (typically capital) is fixed, limiting how much firms can expand output in response to a price rise. In the long run, all inputs are variable — firms can build new capacity, hire more workers, or new firms can enter — making supply more responsive to price changes.',
+        tags: ['supply', 'short-run', 'long-run', 'elasticity'],
       },
     ],
     quiz: [
@@ -422,7 +586,137 @@ Supply responsiveness to price changes depends heavily on time. In the **short r
         marks: 1,
         difficulty: 'foundation',
       },
+      {
+        id: 'f2-l2-q4',
+        type: 'mcq',
+        question:
+          'A new automated bottling machine halves the labour required to produce each bottle of water. What is the effect on the supply curve for bottled water?',
+        options: [
+          'The supply curve shifts left because fewer workers are employed.',
+          'The supply curve shifts right because per-unit production costs have fallen.',
+          'There is a movement up the supply curve because the price of bottled water rises.',
+          'The supply curve is unchanged because the price of bottled water has not changed.',
+        ],
+        correctAnswer: 1,
+        explanation:
+          'Improved technology that reduces labour requirements lowers per-unit production costs — this is the Technology factor in TINGPE. Lower costs mean producers are willing and able to supply more at every price, shifting the supply curve rightward. Option A is wrong: fewer workers employed is a consequence of the technology, not a supply-reducing effect. Option D is wrong: technology is a non-price shifter; the good\'s own price does not need to change for the curve to shift.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l2-q5',
+        type: 'mcq',
+        question:
+          'Oil producers expect the price of oil to rise significantly in six months\' time. How does this expectation affect the current supply of oil?',
+        options: [
+          'Current supply of oil increases as producers rush to extract and sell more now.',
+          'Current supply of oil is unaffected because the price has not risen yet.',
+          'Current supply of oil decreases as producers withhold oil to sell later at a higher price.',
+          'Demand for oil increases as consumers also expect higher future prices.',
+        ],
+        correctAnswer: 2,
+        explanation:
+          'Expectations of future price rises are a TINGPE factor (E: expectations) that shifts the current supply curve leftward. Profit-maximising producers have an incentive to store or withhold their product now and sell it later when prices are higher. This reduces current supply. Option A has the direction backwards — producers withhold, they do not rush to sell. Option D describes a demand-side effect, which is a separate market force.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l2-q6',
+        type: 'mcq',
+        question:
+          'Twenty new bakeries open in a city. All else equal, what happens in the market for bread in that city?',
+        options: [
+          'Demand for bread rises because more consumers are attracted to buy from the new bakeries.',
+          'The supply of bread increases as the number of sellers has risen.',
+          'The quantity supplied of bread increases as bread prices rise due to greater competition.',
+          'Supply of bread decreases because each existing bakery now sells fewer loaves.',
+        ],
+        correctAnswer: 1,
+        explanation:
+          'An increase in the number of sellers is a non-price determinant of supply (N in TINGPE). More bakeries means more bread is offered at every price level — the supply curve shifts rightward. Option C confuses a curve shift with a movement: the new bakeries change supply regardless of any price change. Option D describes the effect on individual firms, not market supply — total market supply rises even if individual firms sell less.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l2-q7',
+        type: 'mcq',
+        question:
+          'A government removes a subsidy it previously paid to domestic steel producers. What is the most likely effect on steel supply?',
+        options: [
+          'Steel supply increases because producers must now compete harder for customers.',
+          'Steel supply decreases because the removal of the subsidy raises effective production costs.',
+          'Steel supply is unaffected because the price of steel in the market has not changed.',
+          'Steel demand decreases because buyers anticipate higher steel prices.',
+        ],
+        correctAnswer: 1,
+        explanation:
+          'A subsidy lowers producers\' effective cost of production. Removing it raises those costs back up — a leftward shift in supply (G: government policy in TINGPE). Producers are now willing to supply less at every market price because each unit is less profitable. Option C is wrong: government policy is a non-price shifter, so the supply curve shifts even without a change in the market price of steel. Option D describes a separate demand-side expectation effect.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l2-q8',
+        type: 'mcq',
+        question:
+          'Which of the following would cause a rightward shift of the supply curve for electric vehicles?',
+        options: [
+          'A rise in the market price of electric vehicles due to increased consumer demand.',
+          'A government tax imposed on every electric vehicle sold.',
+          'A fall in the price of lithium (a key battery input) due to new mining discoveries.',
+          'An increase in the number of consumers who prefer electric vehicles.',
+        ],
+        correctAnswer: 2,
+        explanation:
+          'A fall in the price of lithium reduces input costs for EV manufacturers (I: input costs in TINGPE), making production cheaper and more profitable at every price. This shifts the supply curve rightward. Option A causes a movement up the existing supply curve, not a shift. Option B (a tax) raises costs and shifts supply left. Option D is a demand-side change — it shifts the demand curve, not the supply curve.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l2-q9',
+        type: 'mcq',
+        question:
+          'The backward-bending labour supply curve shows that, above a certain wage level, workers supply fewer hours as wages rise further. Which concept best explains this behaviour?',
+        options: [
+          'The substitution effect always dominates, causing workers to supply more hours at higher wages.',
+          'The income effect eventually dominates: workers are wealthy enough to value leisure more than extra income.',
+          'The law of supply breaks down at high wages because firms refuse to pay more.',
+          'Workers face diminishing marginal utility of goods, so they work less at any wage above subsistence.',
+        ],
+        correctAnswer: 1,
+        explanation:
+          'At low wages, the substitution effect dominates: higher pay makes leisure relatively expensive, so workers substitute work for leisure (supply more hours). At high wages, the income effect dominates: workers are already earning well and value an extra hour of leisure more than the extra income from working it. This causes the labour supply curve to bend backward. Option A is only true in the lower portion of the curve. Option C confuses firm behaviour with worker behaviour.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l2-q10',
+        type: 'mcq',
+        question:
+          'A rise in the market price of cocoa causes chocolate manufacturers to supply more chocolate. Which TINGPE factor explains this, and what type of change is it?',
+        options: [
+          'Prices of related goods in production — a shift of the supply curve.',
+          'Input costs — a leftward shift of the supply curve for chocolate.',
+          'No TINGPE factor explains it — a change in cocoa\'s own price is a movement along the supply curve.',
+          'Expectations — a rightward shift because firms anticipate higher revenues.',
+        ],
+        correctAnswer: 2,
+        explanation:
+          'Cocoa is the good being supplied — a rise in cocoa\'s own market price causes a movement up along the existing supply curve (more quantity supplied), not a shift. TINGPE factors only explain shifts of the supply curve. None of the six TINGPE factors apply here because the change is in the good\'s own price. Option A would apply if a related good (e.g., vanilla) changed in price. Option B (input costs) would apply if the price of an ingredient used to make cocoa changed.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
     ],
+    lessonAssignment: {
+      prompt: 'Select a real industry or product where supply has changed significantly in recent years (suggested examples: solar panels, semiconductors, avocados, electric vehicle batteries, or any industry you follow). Identify at least two TINGPE factors that explain the supply change. For each factor, explain the mechanism precisely: what changed, how it affected producers\' costs or willingness to supply, and in which direction the supply curve shifted. Then analyse the effect on the equilibrium price and quantity of that product. Your response should use the vocabulary of this lesson and reference the supply curve diagram explicitly.',
+      rubric: 'Scores 9-10: two or more TINGPE factors correctly identified with precise mechanisms, supply curve direction explicitly stated, equilibrium effects correctly traced, vocabulary (quantity supplied, supply shift, input costs, ceteris paribus) used accurately. Scores 7-8: correct TINGPE factors with reasonable explanation but equilibrium analysis is incomplete or one term is imprecise. Scores 5-6: one TINGPE factor identified correctly but mechanism is vague, or movement along curve confused with shift. Scores 3-4: general claim that supply changed without identifying a specific TINGPE determinant or explaining the mechanism.',
+      exampleTopics: [
+        'Which TINGPE factor(s) caused the supply change — technology, input costs, number of sellers, government policy, related goods in production, or expectations?',
+        'Did the supply curve shift left (decrease in supply) or right (increase in supply)?',
+        'How did the supply change affect the equilibrium price and quantity — use comparative statics reasoning.',
+        'Are there any related goods in production competing for the same resources in your chosen industry?',
+        'Did government policy (subsidies or taxes) play a role in the supply change you are describing?',
+      ],
+    },
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
@@ -542,6 +836,11 @@ When *both* curves shift simultaneously, one of the equilibrium variables become
 
       didYouKnow:
         'The first fully mathematical treatment of market equilibrium was developed by Léon Walras in 1874, who imagined an auctioneer calling out trial prices until markets cleared — a process he called "tâtonnement" (French for "groping towards" equilibrium). No real auctioneer is needed; prices adjust automatically through decentralised trading.',
+
+      thinkAboutIt: {
+        question: 'A city council, trying to help low-income residents, sets a maximum price (price ceiling) for bread at half the current equilibrium price. A local economist warns this will make the bread shortage worse, not better. Using the concepts of surplus, shortage, and the price mechanism, explain why the economist is right.',
+        answer: 'At the artificially low ceiling price, the quantity demanded of bread rises (consumers want more cheap bread) while the quantity supplied falls (producers find it unprofitable to bake as much at the lower price). This creates a shortage: quantity demanded exceeds quantity supplied. Normally, the price mechanism would eliminate a shortage by allowing price to rise — higher prices would attract more suppliers and discourage some buyers until the market cleared. But the price ceiling prevents this adjustment, so the shortage persists indefinitely. The well-intentioned policy has trapped the market below equilibrium, making bread harder to find despite being cheaper on paper.',
+      },
     },
     flashcards: [
       {
@@ -573,6 +872,18 @@ When *both* curves shift simultaneously, one of the equilibrium variables become
         front: 'If supply increases and demand is unchanged, what happens to equilibrium price and quantity?',
         back: 'Equilibrium price (P*) falls and equilibrium quantity (Q*) rises. The supply curve shifts right, intersecting the demand curve at a lower price but larger quantity.',
         tags: ['equilibrium', 'comparative-statics'],
+      },
+      {
+        id: 'f2-l3-fc6',
+        front: 'What is the four-step method for comparative statics analysis?',
+        back: '1. Start at the original equilibrium (P*, Q*). 2. Identify which curve shifts and in which direction. 3. Find the new intersection point. 4. Compare new P* and Q* to the original — state whether each rose, fell, or is indeterminate.',
+        tags: ['equilibrium', 'comparative-statics'],
+      },
+      {
+        id: 'f2-l3-fc7',
+        front: 'When both demand and supply increase simultaneously, which equilibrium variable is definitely indeterminate?',
+        back: 'The equilibrium price is indeterminate — it could rise, fall, or stay the same depending on which shift is larger. Equilibrium quantity definitely rises because both shifts push quantity in the same direction.',
+        tags: ['equilibrium', 'double-shift', 'comparative-statics'],
       },
     ],
     quiz: [
@@ -627,7 +938,137 @@ When *both* curves shift simultaneously, one of the equilibrium variables become
         marks: 1,
         difficulty: 'foundation',
       },
+      {
+        id: 'f2-l3-q4',
+        type: 'mcq',
+        question:
+          'Both the demand for bicycles and the supply of bicycles increase simultaneously. What can be said with certainty about the new equilibrium?',
+        options: [
+          'Equilibrium price rises and equilibrium quantity is indeterminate.',
+          'Equilibrium quantity rises and equilibrium price is indeterminate.',
+          'Both equilibrium price and quantity rise with certainty.',
+          'Both equilibrium price and quantity are indeterminate.',
+        ],
+        correctAnswer: 1,
+        explanation:
+          'When both demand and supply increase: both shifts push equilibrium quantity upward, so Q* definitely rises. However, demand increasing pushes price up while supply increasing pushes price down — the net price effect is indeterminate without knowing which shift is larger. Option C is wrong because price is ambiguous. Option D overstates the ambiguity — quantity is not indeterminate here.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l3-q5',
+        type: 'mcq',
+        question:
+          'At the equilibrium price of $20, quantity demanded equals quantity supplied at 1,000 units. If the price rises to $25, producers now want to sell 1,300 units but buyers only want 700. What size surplus has emerged, and what will happen next?',
+        options: [
+          'A surplus of 600 units; price will rise further to clear the market.',
+          'A surplus of 300 units; price will fall back toward $20.',
+          'A surplus of 600 units; price will fall back toward $20.',
+          'A shortage of 600 units; price will rise further.',
+        ],
+        correctAnswer: 2,
+        explanation:
+          'The surplus equals quantity supplied minus quantity demanded: 1,300 - 700 = 600 units. Since price ($25) is above equilibrium ($20), sellers face unsold goods and have incentive to lower prices. Price will fall back toward the equilibrium of $20. Option B has the correct direction but calculates the surplus as 300 (incorrect arithmetic). Option D misidentifies the situation as a shortage.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l3-q6',
+        type: 'mcq',
+        question:
+          'The water-diamond paradox asks: why is water cheap when it is essential, and diamonds expensive when they are not? Supply-and-demand analysis resolves this by noting:',
+        options: [
+          'Consumers are irrational and value diamonds more than water despite water being more useful.',
+          'Price reflects both the marginal utility to consumers AND the relative scarcity of supply — water is abundant, so its equilibrium price is low despite high total utility.',
+          'Governments artificially suppress water prices and inflate diamond prices through policy.',
+          'The demand for water is more elastic than the demand for diamonds, so water prices are naturally lower.',
+        ],
+        correctAnswer: 1,
+        explanation:
+          'The paradox is resolved by distinguishing total utility from marginal utility and by considering supply. Water has enormous total utility but very low marginal utility (because it is abundant, the last litre consumed adds little value). Its abundant supply means the equilibrium price is low. Diamonds have low total utility but very high marginal utility because they are scarce — limited supply intersects demand at a high equilibrium price. Option D has the elasticity relationship backwards (water demand is highly inelastic).',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l3-q7',
+        type: 'mcq',
+        question:
+          'A new technology simultaneously makes it cheaper to produce electric cars and raises consumer awareness of environmental benefits. What is the certain outcome for the electric car market?',
+        options: [
+          'Equilibrium price rises; equilibrium quantity is indeterminate.',
+          'Equilibrium price is indeterminate; equilibrium quantity rises.',
+          'Both equilibrium price and quantity fall.',
+          'Equilibrium price falls; equilibrium quantity is indeterminate.',
+        ],
+        correctAnswer: 1,
+        explanation:
+          'The technology lowers production costs, shifting supply rightward (downward pressure on price, upward pressure on quantity). Consumer awareness shifts demand rightward (upward pressure on price, upward pressure on quantity). Both shifts push quantity up — Q* definitely rises. But supply pushes price down while demand pushes price up — the net effect on P* is indeterminate. Option D is wrong because price could either rise or fall depending on relative magnitudes.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l3-q8',
+        type: 'mcq',
+        question:
+          'Which of the following is the correct distinction between scarcity and a shortage?',
+        options: [
+          'Scarcity refers to physical unavailability; shortage refers to emotional desire exceeding supply.',
+          'Scarcity is a universal economic condition where wants exceed resources; a shortage is a specific market condition where quantity demanded exceeds quantity supplied at the current price.',
+          'Scarcity and shortage are synonyms — both describe situations where demand exceeds supply.',
+          'A shortage is long-term scarcity; scarcity is a temporary shortage that resolves on its own.',
+        ],
+        correctAnswer: 1,
+        explanation:
+          'Scarcity is the fundamental economic problem — human wants are unlimited while resources are finite. Every good is technically scarce. A shortage, by contrast, is a specific market disequilibrium: at the current price, quantity demanded exceeds quantity supplied. Shortages are caused by prices being held below equilibrium (e.g., by price ceilings) and disappear when price rises to equilibrium. Options C and D incorrectly treat them as equivalent.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l3-q9',
+        type: 'mcq',
+        question:
+          'In the market for vintage wine, supply is fixed (the harvest happened years ago and cannot be increased). If a new study finds that moderate wine consumption improves heart health, what happens to equilibrium price and quantity?',
+        options: [
+          'Equilibrium price rises and equilibrium quantity rises.',
+          'Equilibrium price rises and equilibrium quantity is unchanged.',
+          'Equilibrium price is unchanged and equilibrium quantity rises.',
+          'Both equilibrium price and quantity are indeterminate.',
+        ],
+        correctAnswer: 1,
+        explanation:
+          'The health study shifts demand rightward — more consumers want wine at every price. Supply is perfectly inelastic (a vertical supply curve) — the quantity available is fixed regardless of price. When demand increases against a fixed supply, the entire demand increase is absorbed as a price rise with no change in quantity. Equilibrium price rises; equilibrium quantity cannot change because supply cannot expand.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l3-q10',
+        type: 'mcq',
+        question:
+          'A government sets a minimum price (price floor) for wheat at $10 per bushel. The equilibrium price is $7 per bushel. What is the most likely outcome?',
+        options: [
+          'A shortage of wheat because the high price reduces demand below supply.',
+          'A surplus of wheat because the high price attracts more supply than demand can absorb.',
+          'Market equilibrium is maintained because the government guarantees purchases.',
+          'The demand for wheat increases because farmers produce more.',
+        ],
+        correctAnswer: 1,
+        explanation:
+          'A price floor set above equilibrium ($10 > $7) creates a surplus: the high price incentivises farmers to supply more while discouraging consumers from buying as much. Quantity supplied exceeds quantity demanded — a surplus. This is the opposite of a price ceiling. Option A confuses floor and ceiling effects. Option C is not stated in the question — a price floor alone does not guarantee government purchases.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
     ],
+    lessonAssignment: {
+      prompt: 'Choose a real market where you believe the price is not currently at its natural equilibrium — either because of a surplus (prices too high, goods unsold) or a shortage (prices too low, goods unavailable). This could be a market you read about in the news, experience in daily life, or have studied previously (housing, concert tickets, certain medicines, seasonal goods, etc.). Describe the current market condition, identify whether it is a surplus or shortage, explain the forces that are preventing the market from clearing, and predict what will happen to price and quantity over time if those forces are removed.',
+      rubric: 'Scores 9-10: correctly identifies surplus or shortage with precise reasoning (QS vs QD at current price), explains the price adjustment mechanism or barrier to it, uses vocabulary (price mechanism, equilibrium, excess supply/demand) accurately, and provides a well-reasoned prediction. Scores 7-8: correct identification with good explanation but prediction is shallow or one mechanism (barrier or adjustment) is unclear. Scores 5-6: identifies the correct condition but confuses scarcity with shortage, or explanation of the price mechanism is incomplete. Scores 3-4: vague description of market imbalance without applying the surplus/shortage framework or equilibrium analysis.',
+      exampleTopics: [
+        'Is the market experiencing a surplus (QS > QD) or a shortage (QD > QS) at the current price?',
+        'What is keeping the price away from equilibrium — is it a price ceiling, a price floor, slow adjustment, regulation, or something else?',
+        'What does the price mechanism predict will happen if the barrier is removed?',
+        'Draw or describe where the demand and supply curves intersect versus where the current price sits.',
+        'Are there any non-price factors (shifters) that have contributed to the disequilibrium you are describing?',
+      ],
+    },
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
@@ -766,6 +1207,11 @@ Real markets rarely experience only one change at a time. A tech breakthrough th
 
       didYouKnow:
         'The distinction between movements along curves and shifts of curves was rigorously formalised in Alfred Marshall\'s *Principles of Economics* (1890). Marshall drew his famous supply-and-demand "scissors" diagram and spent considerable effort explaining that only price changes move you along the blade — everything else moves the blade itself.',
+
+      thinkAboutIt: {
+        question: 'A student writes in their exam: "Because the price of avocados fell, demand for avocados increased, which shifted the demand curve to the right." Identify every economic error in this sentence and rewrite it correctly using precise terminology.',
+        answer: 'The sentence contains two linked errors. First, "demand increased" is incorrect — when the good\'s own price falls, there is a change in quantity demanded (a movement down-right along the existing demand curve), not a change in demand (which requires a non-price shifter). Second, "shifted the demand curve to the right" is therefore also wrong — no shift occurs. The correct statement is: "Because the price of avocados fell, the quantity demanded of avocados increased — this is a movement along the existing demand curve, not a shift of the demand curve." The demand curve itself remains in its original position; only the point on the curve has changed.',
+      },
     },
     flashcards: [
       {
@@ -797,6 +1243,18 @@ Real markets rarely experience only one change at a time. A tech breakthrough th
         front: 'A rise in income increases demand for new cars, causing car prices to rise. What happens to the quantity of cars supplied?',
         back: 'Quantity supplied increases — a movement along the supply curve (not a shift). The higher car price incentivises producers to supply more, moving up-right along the existing supply curve.',
         tags: ['shifts', 'movements', 'equilibrium'],
+      },
+      {
+        id: 'f2-l4-fc6',
+        front: 'Two-question test: How do you know whether an event causes a movement or a shift?',
+        back: 'Ask: (1) Which market am I analysing? (2) Did the good\'s OWN price change? If yes → movement along the curve. If no (something else changed: income, related prices, tastes, input costs, technology, etc.) → shift of the curve.',
+        tags: ['shifts', 'movements', 'decision-framework'],
+      },
+      {
+        id: 'f2-l4-fc7',
+        front: 'When a supply shock shifts supply rightward and price falls, what happens on the demand-side diagram?',
+        back: 'There is a movement along the demand curve — quantity demanded increases as price falls. The demand curve itself does NOT shift. The shift was on the supply side; the demand-side response is a movement caused by the new, lower equilibrium price.',
+        tags: ['shifts', 'movements', 'simultaneous-changes'],
       },
     ],
     quiz: [
@@ -851,7 +1309,137 @@ Real markets rarely experience only one change at a time. A tech breakthrough th
         marks: 1,
         difficulty: 'foundation',
       },
+      {
+        id: 'f2-l4-q4',
+        type: 'mcq',
+        question:
+          'New government regulations require all coffee shops to use recyclable cups, raising each shop\'s operating costs. How should this be shown on the supply diagram for coffee shop drinks?',
+        options: [
+          'A movement up the supply curve, as prices of drinks rise.',
+          'A rightward shift of the supply curve, as more cups are now available.',
+          'A leftward shift of the supply curve, as higher costs reduce supply at every price.',
+          'A movement down the supply curve, as consumers switch to home coffee.',
+        ],
+        correctAnswer: 2,
+        explanation:
+          'Government regulation that raises operating costs is a non-price determinant of supply (G in TINGPE). Higher costs reduce producers\' willingness to supply at every price, shifting the entire supply curve leftward. Option A describes a movement, which only occurs when the good\'s own price changes — the regulation changed costs, not market price. Option D incorrectly describes consumer behaviour as a supply-side effect.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l4-q5',
+        type: 'mcq',
+        question:
+          'A student says: "The demand for laptops increased because laptop prices fell." Identify the error and the correct statement.',
+        options: [
+          'No error — falling prices do increase demand; the statement is correct.',
+          'The error is that falling prices cause a decrease in demand, not an increase.',
+          'The error is that falling prices cause an increase in quantity demanded (movement along the curve), not an increase in demand (shift of the curve).',
+          'The error is that laptop prices affect supply, not demand.',
+        ],
+        correctAnswer: 2,
+        explanation:
+          'This is the classic terminology error. Falling prices cause a movement down-right along the existing demand curve — an increase in quantity demanded. "Demand" refers to the entire curve; it only shifts when a non-price determinant changes. The correct statement is: "The quantity demanded of laptops increased because laptop prices fell." The demand curve itself has not shifted.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l4-q6',
+        type: 'mcq',
+        question:
+          'In the market for butter, a rise in the price of margarine (a substitute) is followed by a rise in the price of butter. Which sequence correctly identifies the type of change at each step?',
+        options: [
+          'Rise in margarine price → movement along butter demand curve; rise in butter price → shift of butter demand curve.',
+          'Rise in margarine price → shift of butter demand curve (right); rise in butter price → movement along butter demand curve.',
+          'Rise in margarine price → shift of butter supply curve (left); rise in butter price → shift of butter demand curve.',
+          'Rise in margarine price → movement along butter supply curve; rise in butter price → shift of butter demand curve.',
+        ],
+        correctAnswer: 1,
+        explanation:
+          'Step 1: The rise in margarine\'s price is a non-price determinant of butter demand (prices of substitutes). This shifts butter\'s demand curve rightward. Step 2: The higher demand creates a shortage at the original price, pushing butter\'s own price up. This price rise causes a movement up-right along butter\'s supply curve (change in quantity supplied) and a movement up-left along butter\'s demand curve (change in quantity demanded). The sequence is: non-price shifter causes demand shift, then price change causes movements along curves.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l4-q7',
+        type: 'mcq',
+        question:
+          'Which of the following correctly uses the terms "change in supply" and "change in quantity supplied"?',
+        options: [
+          'When wheat prices rise, there is a change in supply of wheat because farmers grow more.',
+          'When fertiliser prices fall, there is a change in quantity supplied of wheat because costs have fallen.',
+          'When wheat prices rise, there is a change in quantity supplied of wheat because producers supply more at the higher price.',
+          'When fertiliser prices fall, there is a change in supply of wheat downward because fewer inputs are needed.',
+        ],
+        correctAnswer: 2,
+        explanation:
+          'A change in quantity supplied is a movement along the supply curve caused by a change in the good\'s own price. When wheat prices rise, producers move up the existing supply curve — this is correctly called a change in quantity supplied. Option A incorrectly calls this a "change in supply." Option B incorrectly uses "change in quantity supplied" for a cost change — falling fertiliser prices shift the supply curve right (a change in supply). Option D has the direction wrong: lower costs increase supply (shift right, not downward).',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l4-q8',
+        type: 'mcq',
+        question:
+          'An oil price rise causes airlines\' fuel costs to increase, so airlines raise airfare prices. Passengers respond by buying fewer tickets. In the airfare market, the passengers\' response is best described as:',
+        options: [
+          'A leftward shift of the demand curve for airfares (change in demand).',
+          'A movement up the demand curve for airfares (change in quantity demanded).',
+          'A rightward shift of the supply curve for airfares (change in supply).',
+          'A movement along the supply curve for airfares (change in quantity supplied).',
+        ],
+        correctAnswer: 1,
+        explanation:
+          'Passengers buying fewer tickets because airfares rose is a change in quantity demanded — a movement up along the existing airfare demand curve (higher price, lower quantity demanded). The demand curve has not shifted; no non-price demand factor has changed. The oil price rise shifted the supply curve leftward, which raised equilibrium airfare price, which then caused a movement along the demand curve. These are two separate, sequential changes.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l4-q9',
+        type: 'mcq',
+        question:
+          'A pharmaceutical company discovers a new, cheaper manufacturing process for a painkiller. What happens in the painkiller market?',
+        options: [
+          'The supply curve shifts right; the lower equilibrium price then causes a movement along the demand curve.',
+          'The demand curve shifts right because consumers expect lower prices.',
+          'There is a movement along the supply curve as the company produces more at the existing price.',
+          'Both the supply and demand curves shift right simultaneously.',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'The new manufacturing process is a technology improvement (T in TINGPE) — a non-price supply shifter. It shifts the supply curve rightward. At the original price, a surplus emerges, pushing prices down to a new, lower equilibrium. This lower price then causes a movement down-right along the existing demand curve (more quantity demanded). Option B is plausible but wrong — consumer expectations of lower prices are a demand shifter, but the question does not state consumers expect lower prices; it says the company has already improved its process. Option C incorrectly treats a non-price factor as causing a movement.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l4-q10',
+        type: 'mcq',
+        question:
+          'A student\'s exam answer states: "Supply increased because the price of the good rose, so the supply curve shifted to the right." How many errors does this statement contain?',
+        options: [
+          'Zero errors — a price rise does increase supply and shift the curve right.',
+          'One error — the direction is wrong; a price rise shifts supply left.',
+          'Two errors — a price rise causes a movement along the supply curve (not a shift), and the terminology "supply increased" should be "quantity supplied increased".',
+          'One error — "supply increased" is correct but the curve shifts left, not right.',
+        ],
+        correctAnswer: 2,
+        explanation:
+          'The statement contains two distinct errors. Error 1: A rise in the good\'s own price causes a movement along the existing supply curve (change in quantity supplied), not a shift of the supply curve. Shifts are caused by non-price factors only. Error 2: the correct terminology for a movement along the supply curve is "quantity supplied increased," not "supply increased." Using "supply increased" implies the entire curve has shifted, which is the exact confusion this lesson aims to eliminate.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
     ],
+    lessonAssignment: {
+      prompt: 'Find a recent news story (from the last two years) about a price change in any market — it could be food prices, energy, housing, technology products, or anything else. Read the story carefully and identify: (1) whether the price change was caused by a movement along a curve or a shift of a curve (or both), (2) which curve(s) were affected and why, and (3) whether any journalists or commentators described the change using imprecise economic language (e.g., confusing "demand" with "quantity demanded"). Write a brief economic analysis of the event using precise vocabulary, correcting any errors you find.',
+      rubric: 'Scores 9-10: correctly identifies the type of change (movement vs shift) with precise reasoning, names the specific IPTED or TINGPE factor involved, uses vocabulary (change in demand/quantity demanded, shift/movement) accurately, and identifies at least one real-world language imprecision. Scores 7-8: correct identification of movement vs shift with reasonable evidence but the specific shifter is not named precisely, or language correction is absent. Scores 5-6: identifies the right market and describes what happened but conflates shift with movement in at least one place, or does not apply IPTED/TINGPE vocabulary. Scores 3-4: describes the news story in general terms without applying the movement vs shift framework or economic vocabulary.',
+      exampleTopics: [
+        'Did the price change occur because of the good\'s own price changing (movement) or because a non-price factor changed (shift)?',
+        'If it was a shift: which IPTED factor (demand side) or TINGPE factor (supply side) caused it?',
+        'Did both demand and supply shift? If so, which equilibrium variable (price or quantity) is indeterminate?',
+        'What precise vocabulary should replace any imprecise language in the news article?',
+        'What does the diagram look like — draw or describe the before and after positions of the relevant curve(s).',
+      ],
+    },
   },
 
   // ─────────────────────────────────────────────────────────────────────────────
@@ -994,6 +1582,11 @@ Supply and demand is a powerful simplification, but it assumes competitive marke
 
       didYouKnow:
         'In April 2020, the price of West Texas Intermediate crude oil futures briefly fell to -$37 per barrel — producers were paying buyers to take oil off their hands. This extraordinary event occurred because storage facilities were full during COVID lockdowns, and futures contracts required physical delivery. It is arguably the most dramatic real-world illustration of excess supply (a surplus) ever recorded.',
+
+      thinkAboutIt: {
+        question: 'In the housing case study, economists often say that "building more houses will lower prices." But critics argue that in practice, new luxury apartments rarely reduce rents for low-income households. Using supply-and-demand analysis, explain when the economists are right, when the critics might have a point, and what the diagram looks like in each scenario.',
+        answer: 'The economists are right in the long run when new supply is added to the overall housing market: a rightward shift in supply (at any quality level) increases total stock, which competes with existing units and puts downward pressure on the equilibrium price across the market. Studies of "filtering" show that new luxury units free up existing mid-range units as higher-income households move up, eventually easing pressure throughout the market. The critics have a point when the new supply is in a different sub-market (luxury) from where the shortage exists (affordable housing) — the supply curves for luxury and affordable housing are partially separate, so a shift in luxury supply may not move the affordable equilibrium much. The diagram differs: one shows a single market supply shift lowering P*; the other shows two segmented markets where only one curve shifts.',
+      },
     },
     flashcards: [
       {
@@ -1025,6 +1618,18 @@ Supply and demand is a powerful simplification, but it assumes competitive marke
         front: 'When both supply and demand shift simultaneously, which equilibrium outcome is always ambiguous?',
         back: 'Price is ambiguous when supply and demand shift in the same direction (both increase or both decrease); quantity is ambiguous when they shift in opposite directions. The indeterminate variable depends on the relative magnitudes of the two shifts.',
         tags: ['case-studies', 'double-shift', 'equilibrium'],
+      },
+      {
+        id: 'f2-l5-fc6',
+        front: 'What is the six-step framework for analysing any economic news story with supply and demand?',
+        back: '1. Identify the market. 2. Identify the shock (what changed?). 3. Determine which curve shifts. 4. Determine the direction (left or right). 5. Trace the new equilibrium (P* and Q*). 6. Consider second-round effects on related markets.',
+        tags: ['case-studies', 'framework', 'applications'],
+      },
+      {
+        id: 'f2-l5-fc7',
+        front: 'Why did WTI crude oil futures briefly trade at negative prices in April 2020?',
+        back: 'COVID-19 lockdowns caused a massive negative demand shock (demand shifted left sharply). At the same time, physical storage capacity was exhausted. Futures contracts required physical delivery, so holders of contracts — unable to store the oil — had to pay buyers to take it. This extreme surplus pushed futures prices below zero.',
+        tags: ['case-studies', 'oil', 'surplus', 'demand-shock'],
       },
     ],
     quiz: [
@@ -1079,6 +1684,136 @@ Supply and demand is a powerful simplification, but it assumes competitive marke
         marks: 1,
         difficulty: 'foundation',
       },
+      {
+        id: 'f2-l5-q4',
+        type: 'mcq',
+        question:
+          'A government sets a minimum wage of $15/hour in a competitive labour market where the equilibrium wage is $12/hour. Using supply-and-demand analysis, which outcome is predicted?',
+        options: [
+          'All workers earn higher wages and employment rises because firms earn more revenue.',
+          'A shortage of workers develops because firms cannot afford to hire at $15.',
+          'A surplus of labour (unemployment) develops because quantity supplied of labour exceeds quantity demanded at $15.',
+          'The labour market reaches a new equilibrium at $15 with the same level of employment.',
+        ],
+        correctAnswer: 2,
+        explanation:
+          'A minimum wage above equilibrium is a price floor. At $15 (above the equilibrium of $12), more workers are willing to supply labour (quantity supplied rises) while firms want to hire fewer workers (quantity demanded falls). This creates a surplus of labour — unemployment. Option B describes a shortage, which is the opposite. Option D is wrong: price floors prevent the market from clearing at equilibrium.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l5-q5',
+        type: 'mcq',
+        question:
+          'In April 2020, WTI crude oil futures briefly traded at negative prices. Which supply-and-demand explanation best accounts for this extraordinary event?',
+        options: [
+          'A massive leftward shift in demand combined with full storage capacity created an extreme surplus, forcing sellers to pay buyers to take delivery.',
+          'OPEC increased production sharply, shifting supply right and causing prices to collapse.',
+          'A rightward shift in demand outpaced supply, creating a shortage that sent prices negative.',
+          'Government price controls forced oil prices below zero to discourage consumption.',
+        ],
+        correctAnswer: 0,
+        explanation:
+          'COVID-19 lockdowns caused a dramatic negative demand shock (demand shifted sharply left). Simultaneously, storage facilities were at capacity — sellers holding futures contracts faced physical delivery obligations but had nowhere to put the oil. This extreme surplus, combined with the storage constraint, meant sellers had to pay buyers to take oil off their hands, sending futures prices negative. Option B is factually incorrect — OPEC actually cut production in 2020.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l5-q6',
+        type: 'mcq',
+        question:
+          'A rise in global oil prices affects the airline industry. Using second-round effects, trace the impact on the market for holiday hotels in a tourist destination.',
+        options: [
+          'Hotel demand increases because holidaymakers now prefer staycations, boosting local tourism.',
+          'Hotel supply increases because oil-producing countries invest in tourism infrastructure.',
+          'Hotel demand decreases because higher airfares reduce the number of tourists travelling by plane.',
+          'Hotel prices fall because the oil price rise increases competition among hotels.',
+        ],
+        correctAnswer: 2,
+        explanation:
+          'The chain of second-round effects: oil prices rise → airline fuel costs rise (supply of flights shifts left) → airfares rise → fewer passengers fly (movement along flight demand curve) → fewer tourists arrive at destinations → demand for holiday hotels decreases (hotel demand shifts left) → equilibrium hotel prices and occupancy fall. This illustrates how a supply shock in one market cascades through related markets via input costs and complementary goods.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l5-q7',
+        type: 'mcq',
+        question:
+          'Why is a cartel like OPEC inherently unstable in the long run, even if it successfully raises prices in the short run?',
+        options: [
+          'Because consumers will always find alternative energy sources, shifting oil demand to zero.',
+          'Because individual members have an incentive to cheat — producing more than their quota to earn higher revenue at the cartel\'s elevated price.',
+          'Because higher oil prices attract new non-OPEC producers, shifting global oil supply right over time.',
+          'Both B and C correctly identify destabilising forces.',
+        ],
+        correctAnswer: 3,
+        explanation:
+          'Cartels face two destabilising forces. First, individual members can earn more by secretly exceeding their quota (cheating) — at the artificially high cartel price, each extra barrel sold is very profitable. Second, high prices attract non-OPEC producers (shale oil, tar sands, new entrants) who shift global supply rightward, undermining the cartel\'s price floor. Both forces erode cartel discipline over time, which is why OPEC prices have historically been volatile rather than permanently elevated.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l5-q8',
+        type: 'mcq',
+        question:
+          'In the housing market, which combination of factors creates the most persistent and severe upward pressure on house prices?',
+        options: [
+          'Falling population and highly elastic supply of new housing.',
+          'Rising population and highly inelastic supply constrained by regulation.',
+          'Rising population and highly elastic supply of new housing.',
+          'Falling population and highly inelastic supply constrained by regulation.',
+        ],
+        correctAnswer: 1,
+        explanation:
+          'Rising population continuously shifts housing demand rightward. If supply is highly inelastic (steep supply curve, constrained by zoning laws and construction barriers), each demand shift produces a large price rise and only a tiny increase in quantity. The combination of persistent demand growth and supply that cannot expand is the structural reason why cities like London and San Francisco have had decades of rising house prices. Option C would result in rising quantity with little price increase — a more desirable outcome.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l5-q9',
+        type: 'mcq',
+        question:
+          'A government wants to help low-income renters by introducing a rent cap (price ceiling) set well below the current market equilibrium rent. An economist warns of an unintended consequence. What is the most likely unintended consequence?',
+        options: [
+          'Landlords will increase supply, making housing more affordable for everyone.',
+          'A housing surplus will develop as too many people want to own property.',
+          'A housing shortage will worsen as fewer landlords supply rental properties at the low price.',
+          'House prices will rise sharply as buyers rush to purchase before rents fall further.',
+        ],
+        correctAnswer: 2,
+        explanation:
+          'A price ceiling below equilibrium creates a shortage: at the low rent, more people want to rent (quantity demanded rises) but fewer landlords are willing to let at the unprofitable low price (quantity supplied falls). The intended beneficiaries — low-income renters — face an even tighter housing market with fewer available properties. This is a classic example of a well-intentioned policy producing a counterproductive outcome through the price mechanism.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
+      {
+        id: 'f2-l5-q10',
+        type: 'mcq',
+        question:
+          'Which of the following best describes a limitation of the supply-and-demand model when applied to real markets?',
+        options: [
+          'The model can only be applied to goods markets, not service or labour markets.',
+          'The model assumes competitive markets with many buyers and sellers, but many real markets have monopolies, information asymmetries, or externalities that violate these assumptions.',
+          'The model is only valid in developed economies and cannot be applied to emerging markets.',
+          'The model correctly predicts all real-world prices as long as enough data is available.',
+        ],
+        correctAnswer: 1,
+        explanation:
+          'The supply-and-demand model is built on assumptions of competitive markets: many buyers, many sellers, homogeneous products, and perfect information. Real markets often violate these: monopolists set prices rather than taking them; information asymmetries (e.g., in insurance or healthcare) lead to market failure; externalities mean private equilibrium differs from socially optimal equilibrium; network effects can create upward-sloping demand. The model is an essential starting framework, not a complete description of reality.',
+        marks: 1,
+        difficulty: 'foundation',
+      },
     ],
+    lessonAssignment: {
+      prompt: 'Choose ONE of the four case studies from this lesson (coffee, housing, labour/minimum wage, or crude oil) OR select a different real market you find compelling. Apply the six-step news-reading framework from the lesson: identify the market, identify the shock, determine which curve shifts and in which direction, trace the new equilibrium, and describe at least one second-round effect on a related market. Your analysis should be grounded in real events (name a specific year, country, or policy if possible) and should use precise supply-and-demand vocabulary throughout. Conclude with one limitation of the supply-and-demand model as applied to your chosen market.',
+      rubric: 'Scores 9-10: applies all six steps of the framework explicitly, identifies correct curve shifts with precise IPTED/TINGPE reasoning, correctly traces equilibrium outcomes, describes a specific and logical second-round effect, and names a genuine model limitation relevant to the chosen market. Scores 7-8: completes most steps correctly but second-round effect or limitation is vague, or one equilibrium outcome is stated without explanation. Scores 5-6: correctly identifies which curve shifts and in which direction but misses the second-round effect entirely, or confuses shift with movement in the analysis. Scores 3-4: describes the real-world event in general terms but does not systematically apply the six-step framework or use supply-and-demand vocabulary to trace equilibrium outcomes.',
+      exampleTopics: [
+        'Step 1-2: What is the specific market and what was the triggering shock (weather, policy, technology, demographic change)?',
+        'Step 3-4: Which curve shifted — demand (IPTED) or supply (TINGPE) — and did it shift left or right?',
+        'Step 5: What happened to equilibrium price and quantity — did both change, or is one indeterminate?',
+        'Step 6: Name a related market affected by second-round effects (e.g., how a coffee price rise affects the market for tea or café equipment).',
+        'Limitation: Does your market have inelastic supply, monopoly power, information problems, or externalities that the basic model does not capture?',
+      ],
+    },
   },
 ]

@@ -2,12 +2,20 @@ import { NextResponse } from 'next/server'
 import Anthropic from '@anthropic-ai/sdk'
 import { createClient } from '@/lib/supabase/server'
 
-const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
-
 export async function POST(request: Request) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+
+  if (!process.env.ANTHROPIC_API_KEY) {
+    console.error('Grade API: ANTHROPIC_API_KEY is not set')
+    return NextResponse.json(
+      { error: 'Grading service is not configured. Contact support.' },
+      { status: 503 }
+    )
+  }
+
+  const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
   const { assignmentType, prompt, rubric, submission, lessonTitle, moduleId } = await request.json()
 
@@ -66,13 +74,14 @@ Return ONLY this JSON (no markdown fences):
     const parsed = JSON.parse(clean)
 
     return NextResponse.json({
-      score: parsed.score ?? 5,
+      score: typeof parsed.score === 'number' ? parsed.score : 5,
       feedback: parsed.feedback ?? 'Unable to grade at this time.',
     })
   } catch (error) {
-    console.error('Grade API error:', error)
+    const message = error instanceof Error ? error.message : String(error)
+    console.error('Grade API error:', message)
     return NextResponse.json(
-      { score: null, feedback: 'Grading service temporarily unavailable.' },
+      { error: `Grading failed: ${message}` },
       { status: 500 }
     )
   }
