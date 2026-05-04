@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import Anthropic from '@anthropic-ai/sdk'
+import Groq from 'groq-sdk'
 import { createClient } from '@/lib/supabase/server'
 
 export async function POST(request: Request) {
@@ -7,15 +7,12 @@ export async function POST(request: Request) {
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
-  if (!process.env.ANTHROPIC_API_KEY) {
-    console.error('Grade API: ANTHROPIC_API_KEY is not set')
+  if (!process.env.GROQ_API_KEY) {
     return NextResponse.json(
       { error: 'Grading service is not configured. Contact support.' },
       { status: 503 }
     )
   }
-
-  const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
 
   const { assignmentType, prompt, rubric, submission, lessonTitle, moduleId } = await request.json()
 
@@ -40,8 +37,7 @@ Your feedback must:
 3. Give one concrete suggestion for improvement
 4. Be encouraging — this is formative practice, not high-stakes
 
-Return ONLY this JSON (no markdown fences):
-{"score": 7.5, "feedback": "Your feedback here"}`
+Return ONLY valid JSON (no markdown fences): {"score": 7.5, "feedback": "Your feedback here"}`
     : `You are an expert economics examiner with 20 years of experience grading IB Economics, DECA, and Economics Olympiad responses. You provide detailed, constructive, and honest feedback.
 
 Grade the following student response on a scale of 0-10 and provide specific, actionable feedback. Your feedback must:
@@ -53,25 +49,26 @@ Grade the following student response on a scale of 0-10 and provide specific, ac
 
 Be direct and specific. Avoid vague praise. A good response scores 7-8; an outstanding one scores 9-10; a weak one scores 3-5.
 
-Return ONLY this JSON (no markdown fences):
-{"score": 7.5, "feedback": "Your detailed feedback here"}`
+Return ONLY valid JSON (no markdown fences): {"score": 7.5, "feedback": "Your detailed feedback here"}`
 
   try {
     const userContent = isLessonPractice
       ? `Lesson: ${lessonTitle ?? 'Unknown'} (Module: ${moduleId ?? ''})\n\nAssignment prompt: ${prompt}\n\nStudent's answer:\n${submission}`
       : `Assignment Type: ${assignmentType}\n\nPrompt: ${prompt}\n\nStudent Response:\n${submission}`
 
-    const response = await anthropic.messages.create({
-      model: 'claude-sonnet-4-6',
+    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })
+    const result = await groq.chat.completions.create({
+      model: 'llama-3.3-70b-versatile',
+      messages: [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: userContent },
+      ],
       max_tokens: 600,
-      system: systemPrompt,
-      messages: [{ role: 'user', content: userContent }],
+      response_format: { type: 'json_object' },
     })
 
-    const text = response.content[0].type === 'text' ? response.content[0].text : '{}'
-    // Strip accidental markdown fences
-    const clean = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim()
-    const parsed = JSON.parse(clean)
+    const text = result.choices[0]?.message?.content ?? ''
+    const parsed = JSON.parse(text)
 
     return NextResponse.json({
       score: typeof parsed.score === 'number' ? parsed.score : 5,
@@ -81,7 +78,7 @@ Return ONLY this JSON (no markdown fences):
     const message = error instanceof Error ? error.message : String(error)
     console.error('Grade API error:', message)
     return NextResponse.json(
-      { error: `Grading failed: ${message}` },
+      { error: 'Grading is temporarily unavailable. Please try again.' },
       { status: 500 }
     )
   }

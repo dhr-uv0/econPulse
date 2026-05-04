@@ -1,6 +1,4 @@
-import { NextResponse } from 'next/server'
-import Groq from 'groq-sdk'
-import { createClient } from '@/lib/supabase/server'
+import Anthropic from '@anthropic-ai/sdk'
 
 const SYSTEM_PROMPT = `You are Eco-Clippy, the embedded AI economics tutor inside EconPulse — a premier economics mastery platform.
 
@@ -38,51 +36,56 @@ PEDAGOGICAL RULES:
 
 NEVER: give info outside economics; use jargon without defining it; be dismissive of basic questions; hallucinate statistics or citations`
 
-export async function POST(request: Request) {
-  try {
-    if (!process.env.GROQ_API_KEY) {
-      return NextResponse.json(
-        { error: 'Chat service is not configured. Contact support.' },
-        { status: 503 }
-      )
-    }
+export interface ChatMessage {
+  role: 'user' | 'assistant'
+  content: string
+}
 
-    const supabase = await createClient()
-    const { data: { user } } = await supabase.auth.getUser()
-    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+export class EcoClippyAgent {
+  private client: Anthropic
 
-    const { messages, context } = await request.json()
-    if (!messages || !Array.isArray(messages) || messages.length === 0) {
-      return NextResponse.json({ error: 'Invalid request' }, { status: 400 })
-    }
+  constructor() {
+    this.client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
+  }
 
-    // Filter to start from first user turn, inject page context into last user message
-    const firstUserIdx = (messages as { role: string }[]).findIndex((m) => m.role === 'user')
+  async streamResponse(messages: ChatMessage[], context?: string): Promise<ReadableStream<Uint8Array>> {
+    // Filter to start from first user turn (Anthropic requires user-first)
+    const firstUserIdx = messages.findIndex((m) => m.role === 'user')
     const filtered = firstUserIdx >= 0 ? messages.slice(firstUserIdx) : messages
 
-    const groqMessages = filtered.map((m: { role: string; content: string }, i: number) => {
-      const role = m.role === 'assistant' ? 'assistant' : 'user'
-      if (i === filtered.length - 1 && role === 'user' && context) {
-        return { role, content: `[Student is currently on page: ${context}]\n\n${m.content}` }
+    // Inject page context into the last user message
+    const augmented: Anthropic.MessageParam[] = filtered.map((m, i) => {
+      if (i === filtered.length - 1 && m.role === 'user' && context) {
+        return { role: 'user', content: `[Student is currently on page: ${context}]\n\n${m.content}` }
       }
-      return { role, content: m.content }
+      return { role: m.role, content: m.content }
     })
 
-    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })
-    const stream = await groq.chat.completions.create({
-      model: 'llama-3.3-70b-versatile',
-      messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...groqMessages],
-      stream: true,
+    const stream = await this.client.messages.create({
+      model: 'claude-haiku-4-5-20251001',
       max_tokens: 1024,
+      system: [
+        {
+          type: 'text',
+          text: SYSTEM_PROMPT,
+          cache_control: { type: 'ephemeral' },
+        },
+      ],
+      messages: augmented,
+      stream: true,
     })
 
-    const readable = new ReadableStream({
+    const readable = new ReadableStream<Uint8Array>({
       async start(controller) {
         const encoder = new TextEncoder()
         try {
-          for await (const chunk of stream) {
-            const text = chunk.choices[0]?.delta?.content ?? ''
-            if (text) controller.enqueue(encoder.encode(text))
+          for await (const event of stream) {
+            if (
+              event.type === 'content_block_delta' &&
+              event.delta.type === 'text_delta'
+            ) {
+              controller.enqueue(encoder.encode(event.delta.text))
+            }
           }
         } finally {
           controller.close()
@@ -90,18 +93,6 @@ export async function POST(request: Request) {
       },
     })
 
-    return new Response(readable, {
-      headers: {
-        'Content-Type': 'text/plain; charset=utf-8',
-        'X-Content-Type-Options': 'nosniff',
-      },
-    })
-  } catch (error) {
-    const message = error instanceof Error ? error.message : String(error)
-    console.error('Chat API error:', message)
-    return NextResponse.json(
-      { error: 'Chat is temporarily unavailable. Please try again.' },
-      { status: 500 }
-    )
+    return readable
   }
 }
