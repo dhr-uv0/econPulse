@@ -60,13 +60,15 @@ export async function POST(request: Request) {
     const firstUserIdx = (messages as { role: string }[]).findIndex((m) => m.role === 'user')
     const filtered = firstUserIdx >= 0 ? messages.slice(firstUserIdx) : messages
 
-    const groqMessages = filtered.map((m: { role: string; content: string }, i: number) => {
-      const role = m.role === 'assistant' ? 'assistant' : 'user'
-      if (i === filtered.length - 1 && role === 'user' && context) {
-        return { role, content: `[Student is currently on page: ${context}]\n\n${m.content}` }
+    const groqMessages: { role: 'user' | 'assistant'; content: string }[] = filtered.map(
+      (m: { role: string; content: string }, i: number) => {
+        const role: 'user' | 'assistant' = m.role === 'assistant' ? 'assistant' : 'user'
+        if (i === filtered.length - 1 && role === 'user' && context) {
+          return { role, content: `[Student is currently on page: ${context}]\n\n${m.content}` }
+        }
+        return { role, content: m.content }
       }
-      return { role, content: m.content }
-    })
+    )
 
     const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })
     const stream = await groq.chat.completions.create({
