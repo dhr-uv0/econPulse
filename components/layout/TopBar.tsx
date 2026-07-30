@@ -10,7 +10,7 @@ import { getInitials } from '@/lib/utils'
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { toast } from '@/lib/hooks/useToast'
-import { Menu, Flame, Sun, Moon, LogOut, User as UserIcon, Bell } from 'lucide-react'
+import { Menu, Flame, Sun, Moon, LogOut, User as UserIcon, Bell, Zap } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useState } from 'react'
 
@@ -65,7 +65,8 @@ export function TopBar({ profile, streak, user }: Props) {
       {/* XP badge */}
       {profile && (
         <Badge data-tour="xp" variant="gold" className="gap-1">
-          ✦ {profile.xp_points.toLocaleString()} XP
+          <Zap className="h-3 w-3" />
+          {profile.xp_points.toLocaleString()} XP
         </Badge>
       )}
 

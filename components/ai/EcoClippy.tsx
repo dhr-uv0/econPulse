@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { usePathname } from 'next/navigation'
-import { X, Send, TrendingUp, Loader2, ChevronDown, Minus, RefreshCw } from 'lucide-react'
+import { X, Send, TrendingUp, Loader2, ChevronDown, Minus, RefreshCw, BarChart3, Globe2, ClipboardList, Target } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
@@ -26,10 +26,10 @@ const QUICK_PROMPTS = [
 ]
 
 const FOLLOW_UP_ACTIONS = [
-  { label: '📊 Draw a diagram', prompt: 'Can you draw an ASCII diagram for that?' },
-  { label: '🌍 Real-world example', prompt: 'Give me a vivid real-world example of that.' },
-  { label: '📝 Quiz me', prompt: 'Give me a practice exam question on that topic with a mark scheme.' },
-  { label: '🎯 Examiner tips', prompt: 'What are the key examiner tips and common mistakes for this topic?' },
+  { label: 'Draw a diagram', icon: BarChart3, prompt: 'Can you draw an ASCII diagram for that?' },
+  { label: 'Real-world example', icon: Globe2, prompt: 'Give me a vivid real-world example of that.' },
+  { label: 'Quiz me', icon: ClipboardList, prompt: 'Give me a practice exam question on that topic with a mark scheme.' },
+  { label: 'Examiner tips', icon: Target, prompt: 'What are the key examiner tips and common mistakes for this topic?' },
 ]
 
 // Block-level markdown renderer: headers, bullets, numbered lists, code blocks, bold, inline code
@@ -348,8 +348,9 @@ export function EcoClippy() {
                       <button
                         key={action.label}
                         onClick={() => sendMessage(action.prompt)}
-                        className="rounded-full border border-[var(--border)] px-2.5 py-1 text-[10px] text-[var(--muted-fg)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
+                        className="flex items-center gap-1 rounded-full border border-[var(--border)] px-2.5 py-1 text-[10px] text-[var(--muted-fg)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
                       >
+                        <action.icon className="h-2.5 w-2.5" />
                         {action.label}
                       </button>
                     ))}

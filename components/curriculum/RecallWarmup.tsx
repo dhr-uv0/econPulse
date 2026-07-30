@@ -5,7 +5,7 @@ import type { QuizQuestion } from '@/lib/types'
 import { cn } from '@/lib/utils'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Check, ChevronDown, ChevronUp } from 'lucide-react'
+import { Check, X, ChevronDown, ChevronUp } from 'lucide-react'
 
 interface Props {
   questions: QuizQuestion[]
@@ -101,9 +101,11 @@ export function RecallWarmup({ questions }: Props) {
                   ? 'border-green-500/30 bg-green-500/10 text-green-800 dark:text-green-300'
                   : 'border-red-500/30 bg-red-500/10 text-red-800 dark:text-red-300'
               )}>
-                <span className="font-bold">
-                  {selected === q.correctAnswer ? '✓ Correct! ' : '✗ Incorrect — '}
-                </span>
+                <span className="inline-flex items-center gap-1 font-bold">
+                  {selected === q.correctAnswer
+                    ? <><Check className="h-3.5 w-3.5" /> Correct!</>
+                    : <><X className="h-3.5 w-3.5" /> Incorrect —</>}
+                </span>{' '}
                 {q.explanation}
               </div>
             )}

@@ -11,6 +11,7 @@ import {
   Newspaper, Scale, Eye,
   FileText, Globe, Plus, ArrowRight,
   Clock, Check, Lightbulb,
+  Briefcase, PenLine, Layers,
 } from 'lucide-react'
 
 interface Props {
@@ -19,7 +20,7 @@ interface Props {
 }
 
 // Generic assignments only (lesson-specific ones live inside lessons)
-type GenericAssignmentType = Exclude<AssignmentType, 'lesson_practice' | 'tycoon_mode' | 'build_a_model' | 'debate_flashcard'>
+type GenericAssignmentType = Exclude<AssignmentType, 'lesson_practice'>
 
 const GENERIC_ASSIGNMENTS: {
   type: GenericAssignmentType
@@ -171,6 +172,98 @@ Aim for 500-700 words total.`,
 - Economic mechanism explanation — is it correctly grounded in Module 1 concepts? (2 pts × 3 = 6 pts)
 - Acknowledgement of uncertainty/counterarguments — does the student show intellectual honesty? (1 pt)
 Strong responses apply economic theory directly to the prediction rather than relying on "common sense" alone.`,
+  },
+  {
+    type: 'tycoon_mode',
+    label: 'Tycoon Mode',
+    description: 'Run a small business through a sequence of resource-allocation decisions and a market shock — narrate and justify every call using Module 1 economics.',
+    icon: Briefcase,
+    color: 'text-emerald-500',
+    bg: 'bg-emerald-500/10',
+    border: 'border-emerald-500/20',
+    estimatedMins: 55,
+    prompt: `You are the founder of a food truck business with a £10,000 starting budget and three scarce resources: cash, your own working hours (max 60/week), and one truck with fixed capacity. Play through the following decisions, narrating your choice and reasoning at each step:
+
+Decision 1 — Menu: Choose a focused menu (2-3 items) or a broad menu (6+ items). State the opportunity cost of your choice in terms of ingredient variety, prep time, and what you're giving up.
+
+Decision 2 — Location: Choose between a high-footfall city-centre pitch (£150/day fee, high demand) or a free suburban pitch (low footfall, no fee). Use marginal thinking: at what daily customer count does the city-centre pitch pay for itself?
+
+Decision 3 — Pricing: Set a price for your signature item. Explain how you expect customers to respond, and what determines that responsiveness (do not assume you know the term "elasticity" — reason it out from incentives).
+
+Market shock: A new food-truck rival sets up 50 metres from your city-centre pitch, selling a similar item for 20% less. Decide how you respond (price war, differentiate, relocate, or hold) and justify it using opportunity cost and incentive reasoning.
+
+Close with a 1-paragraph reflection: which of your four decisions involved the sharpest trade-off, and why?
+
+Aim for 500-700 words total.`,
+    rubric: `Grade on:
+- Decision 1: opportunity cost of the menu choice correctly identified and specific (not generic) (2 pts)
+- Decision 2: marginal/break-even reasoning applied to the location choice, with an attempt at a concrete number or threshold (2 pts)
+- Decision 3: pricing reasoning grounded in how incentives shape customer behaviour, even without using technical vocabulary (2 pts)
+- Market shock response: a genuine trade-off is weighed (not just "I would lower my price"), referencing scarcity of the responder's own resources (cash, time, capacity) (2 pts)
+- Reflection: correctly identifies which decision had the sharpest trade-off with a reasoned justification (1 pt)
+- Economic vocabulary and specificity throughout (1 pt)
+A strong response treats each decision as a genuine constrained choice with a real cost, not a costless "obviously correct" answer.`,
+  },
+  {
+    type: 'build_a_model',
+    label: 'Build-a-Model',
+    description: 'Construct and fully explain an economic diagram for a scenario — labelling every axis, curve, and shift, then interpreting what it shows.',
+    icon: PenLine,
+    color: 'text-rose-500',
+    bg: 'bg-rose-500/10',
+    border: 'border-rose-500/20',
+    estimatedMins: 40,
+    prompt: `Choose ONE of the following scenarios and build a fully-labelled economic model (described in words/ASCII, since you cannot draw here) that represents it, then interpret what the model shows:
+
+Scenario A: A country decides to reallocate resources from consumer-goods production toward capital-goods production (factories, machinery) to boost future growth. Model this using a Production Possibility Frontier (PPF) — describe both axes, the initial point, the new point, and what economic concept explains why you can't have more of both without a shift in the frontier itself.
+
+Scenario B: A severe frost destroys a large share of a country's coffee harvest. Model this using a supply-and-demand diagram — describe both axes, which curve shifts and in which direction, and the new equilibrium price and quantity compared to the old one.
+
+For your chosen scenario:
+1. Describe the model precisely: axis labels, the curve(s) involved, and their starting position.
+2. Describe exactly what changes (a movement along a curve, or a shift of a curve — these are different and you must say which) and why, in terms of the underlying economic cause.
+3. State the new equilibrium/outcome and interpret it in plain English for someone who has never seen the diagram.
+4. Identify one real-world limitation of your model — a simplifying assumption it makes that might not hold in reality.
+
+Aim for 400-600 words.`,
+    rubric: `Grade on:
+- Model correctly and precisely specified: axes named correctly, curve(s) identified, starting position clear (2 pts)
+- Correct distinction between a MOVEMENT ALONG a curve versus a SHIFT OF a curve, applied accurately to the scenario (3 pts — this is the most commonly confused concept and the core skill being tested)
+- New equilibrium/outcome correctly derived and clearly interpreted in plain English (2 pts)
+- A genuine, specific model limitation identified (not a generic "models are simplified") (2 pts)
+- Precision and correct use of economic vocabulary (1 pt)
+Award full marks only when the student demonstrates they understand WHY the curve moves the way it does, not just that it does.`,
+  },
+  {
+    type: 'debate_flashcard',
+    label: 'Debate Flashcards',
+    description: 'Build a set of claim / counter-claim flashcards on a contested economic question, each backed by real economic reasoning on both sides.',
+    icon: Layers,
+    color: 'text-cyan-500',
+    bg: 'bg-cyan-500/10',
+    border: 'border-cyan-500/20',
+    estimatedMins: 40,
+    prompt: `Choose ONE contested question below and build FIVE flashcard pairs — each pair has a CLAIM (a one-sentence position) and a COUNTER-CLAIM (a one-sentence rebuttal), followed by 2-3 sentences of economic reasoning explaining why the counter-claim has force, not just that it exists.
+
+Question A: "A government should always intervene to fix a market failure."
+Question B: "Free markets always allocate resources more efficiently than government planning."
+Question C: "Economic growth should be prioritised over environmental protection in developing economies."
+
+Format each of your 5 flashcards exactly like this:
+CLAIM: [one sentence]
+COUNTER-CLAIM: [one sentence]
+REASONING: [2-3 sentences explaining, using Module 1 concepts — scarcity, opportunity cost, incentives, PPF, economic systems — why the counter-claim is a serious challenge to the claim, not just a contrary opinion]
+
+Your 5 flashcards should cover 5 DIFFERENT angles on the question (e.g. not five variations of the same point) — think about efficiency, equity, incentives, information, and time horizon as possible distinct angles.
+
+Aim for 400-600 words total across all 5 flashcards.`,
+    rubric: `Grade on:
+- Five genuinely distinct angles covered (not five restatements of one idea) (2 pts)
+- Each claim and counter-claim is a clear, specific, single-sentence position (1 pt)
+- Reasoning sections are grounded in real economic mechanisms (opportunity cost, incentives, information problems, etc.), not just assertion (5 pts — 1 per flashcard)
+- Balance: counter-claims are genuinely strong challenges, not straw men easily dismissed (1 pt)
+- Economic vocabulary and precision (1 pt)
+Strong responses show the student can argue AGAINST a position as rigorously as for it — this is the core skill of applied economic reasoning under uncertainty.`,
   },
 ]
 

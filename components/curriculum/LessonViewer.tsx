@@ -17,7 +17,7 @@ import { InteractiveDiagram } from '@/components/curriculum/InteractiveDiagram'
 import {
   ChevronLeft, ChevronRight, Check, ChevronDown, ChevronUp,
   Lightbulb, AlertTriangle, GraduationCap, Sparkles,
-  BookOpen, Brain, RefreshCw, PenLine, HelpCircle,
+  BookOpen, Brain, RefreshCw, PenLine, HelpCircle, X,
 } from 'lucide-react'
 import { RecallWarmup } from '@/components/curriculum/RecallWarmup'
 import { LessonAssignmentPanel } from '@/components/curriculum/LessonAssignmentPanel'
@@ -308,8 +308,8 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
                     </div>
                     <ul className="space-y-1.5">
                       {lesson.content.commonMisconceptions.map((m, i) => (
-                        <li key={i} className="text-sm text-[var(--fg)] leading-relaxed">
-                          <span className="font-medium text-red-500">✗</span>{' '}
+                        <li key={i} className="flex items-start gap-1.5 text-sm text-[var(--fg)] leading-relaxed">
+                          <X className="h-3.5 w-3.5 shrink-0 mt-0.5 text-red-500" />
                           {m}
                         </li>
                       ))}

@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { ChevronLeft, ChevronRight, RotateCcw, Zap } from 'lucide-react'
+import { ChevronLeft, ChevronRight, RotateCcw, Zap, Check } from 'lucide-react'
 
 interface Props {
   vocab: VocabTerm[]
@@ -131,10 +131,11 @@ export function VocabFlashcards({ vocab, lessonId, userId }: Props) {
           </Button>
           <Button
             variant="outline"
-            className="border-green-500/40 text-green-600 dark:text-green-400 hover:bg-green-500/10"
+            className="gap-1.5 border-green-500/40 text-green-600 dark:text-green-400 hover:bg-green-500/10"
             onClick={() => handleRating('know')}
           >
-            Got it ✓
+            Got it
+            <Check className="h-3.5 w-3.5" />
           </Button>
         </div>
       )}
