@@ -27,7 +27,7 @@ import * as ap2 from './modules/ap2-markets'
 import * as ap3 from './modules/ap3-failures'
 import { ap4NationalIncomeModule } from './modules/ap4-national-income'
 import { ap5MoneyModule } from './modules/ap5-money'
-import { ap6OpenModule } from './modules/ap6-open'
+import * as ap6 from './modules/ap6-open'
 import * as ap7 from './modules/ap7-growth'
 
 // ── IB (mixed formats) ────────────────────────────────────────────────────────
@@ -81,7 +81,7 @@ export const CURRICULUM: CurriculumModule[] = [
   mod(ap3.moduleInfo, ap3.lessons),
   ap4NationalIncomeModule,
   ap5MoneyModule,
-  ap6OpenModule,
+  mod(ap6.moduleInfo, ap6.lessons),
   mod(ap7.moduleInfo, ap7.lessons),
 
   // ── IB Economics ─────────────────────────────────────────────────────────────
@@ -114,8 +114,8 @@ export const CURRICULUM: CurriculumModule[] = [
 ]
 
 export function getLessonById(lessonId: string): Lesson | null {
-  for (const module of CURRICULUM) {
-    const lesson = module.lessons.find((l) => l.id === lessonId)
+  for (const curriculumModule of CURRICULUM) {
+    const lesson = curriculumModule.lessons.find((l) => l.id === lessonId)
     if (lesson) return lesson
   }
   return null

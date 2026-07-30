@@ -57,6 +57,10 @@ Now try: If COGS rises to $560,000 while all else stays the same, what is the ne
       examinerTip: `In DECA Financial Services or Business Finance Series role-plays, you will almost always be given at least one financial figure — a revenue number, a cost percentage, or a ratio. Judges are specifically trained to reward competitors who use those numbers actively in their analysis rather than treating the scenario as a purely qualitative discussion. Before your presentation, calculate at least two derived figures from any numbers given (e.g., if you have revenue and COGS, compute gross margin). Then reference those calculations explicitly: "The gross margin of 38% is below the industry average of 45%, which tells us the core problem is cost of goods — not overhead — and that is where I am recommending we focus." That level of quantitative specificity is the clearest signal to a judge that you genuinely understand financial statements.`,
       didYouKnow: `The term "bottom line" — meaning the final result or conclusion — comes directly from accounting. The last line on an income statement, after all revenues, expenses, and taxes have been accounted for, is net income. Because it appears at the literal bottom of the statement, "the bottom line" entered everyday English as a synonym for the most important final outcome of any analysis or discussion.`,
       isStub: false,
+      thinkAboutIt: {
+        question: `Two companies each report a return on equity (ROE) of 18%. Company A has a net profit margin of 15%, low debt, and modest asset turnover. Company B has a net profit margin of only 3%, turns its assets over rapidly, and carries substantial debt. A DECA judge asks which company is the "better" investment. Using the DuPont framework, how would you break down each company's ROE, and what risk factor might lead you to prefer Company A even though the two ROE figures are identical?`,
+        answer: `ROE = Net Profit Margin × Asset Turnover × Financial Leverage (Assets ÷ Equity). Company A appears to be reaching its 18% ROE primarily through a high margin and low leverage — a pattern typical of a premium or luxury-branded business that earns strong profit per dollar of sales without borrowing heavily. Company B reaches the same 18% through thin margins offset by very high asset turnover and, critically, heavy leverage — a pattern typical of a grocery chain or discount retailer that multiplies a small profit per sale across a large volume of transactions financed partly with debt. Although the two ROE numbers are mathematically identical, they are not equally sustainable or safe. Leverage amplifies ROE in good years but also amplifies losses in bad years, because interest and debt principal must still be paid even if sales fall. A judge should be told that Company A's ROE is lower-risk because it is not dependent on borrowed capital, while Company B's ROE could collapse or turn negative in a downturn if revenue drops and it cannot service its debt. A sound recommendation would prefer Company A for a risk-averse investor, or investigate Company B's debt-to-equity ratio and interest coverage further before recommending it despite the equal ROE.`,
+      },
     },
     flashcards: [
       {
@@ -78,6 +82,32 @@ Now try: If COGS rises to $560,000 while all else stays the same, what is the ne
         tags: ['DECA', 'finance', 'liquidity', 'current-ratio'],
       },
     ],
+    lessonAssignment: {
+      prompt: `Riverbend Outdoor Supply, a mid-sized retailer, reports the following figures for the fiscal year: Revenue = $2,400,000 | COGS = $1,560,000 | Operating Expenses = $480,000 | Interest Expense = $60,000 | Tax Rate = 21% | Current Assets = $540,000 | Current Liabilities = $420,000 | Operating Cash Flow = $310,000 | Capital Expenditures = $180,000.
+
+(a) Calculate gross profit, gross margin, operating income (EBIT), and operating margin. [5 marks]
+
+(b) Calculate the current ratio and evaluate what it signals about Riverbend's short-term liquidity. [4 marks]
+
+(c) Calculate free cash flow (FCF) and explain, using accrual accounting concepts, why FCF can differ from net income even in a profitable year. [5 marks]
+
+(d) Using at least two of your calculations from (a)-(c), evaluate Riverbend's overall financial health and recommend one specific action management should take this year. [6 marks]`,
+      rubric: `(a) Gross Profit = $2,400,000 − $1,560,000 = $840,000; Gross Margin = $840,000 ÷ $2,400,000 = 35% (2 pts). Operating Income (EBIT) = $840,000 − $480,000 = $360,000; Operating Margin = $360,000 ÷ $2,400,000 = 15% (3 pts). Total: 5 pts.
+
+(b) Current Ratio = $540,000 ÷ $420,000 = 1.29 (2 pts). Correct evaluation: a ratio above 1.0 but below the 1.5+ "comfortably healthy" benchmark indicates adequate but not strong short-term liquidity — Riverbend can cover obligations but has limited cushion (2 pts). Total: 4 pts.
+
+(c) FCF = Operating Cash Flow − Capex = $310,000 − $180,000 = $130,000 (2 pts). Correct explanation that net income includes non-cash items (e.g., depreciation) and accrual-based revenue/expense timing that does not match actual cash receipt or payment, so a profitable company can have materially different cash flow than net income (3 pts). Total: 5 pts.
+
+(d) Full marks require: reference to at least two specific calculated figures (e.g., 35% gross margin, 1.29 current ratio, $130,000 FCF) (3 pts); a coherent overall health assessment consistent with those figures — moderate profitability and adequate but not strong liquidity (1 pt); and one specific, actionable recommendation tied to a weak point identified (e.g., build cash reserves or negotiate extended payables terms to strengthen the current ratio) (2 pts). Total: 6 pts.
+
+Grand total: 20 marks.`,
+      exampleTopics: [
+        'Calculate gross margin and operating margin from raw revenue and cost figures, showing each step of the subtraction.',
+        'Apply the current ratio formula to assess short-term liquidity and benchmark the result against the 1.5 "healthy" threshold.',
+        'Distinguish free cash flow from net income using the concept of non-cash and accrual-based accounting items.',
+        'Synthesize multiple ratios into a single, evidence-based recommendation rather than treating each calculation in isolation.',
+      ],
+    },
     quiz: [
       {
         id: 'dc3-l1-q1',
@@ -178,6 +208,10 @@ Rule of 72 check: At 7%, money doubles every 72 ÷ 7 ≈ 10.3 years. Confirm: $1
       examinerTip: `DECA Finance event judges frequently give role-play scenarios that include a proposed investment with financial projections. Even without a calculator (some events allow one, some don't), you can demonstrate TVM literacy by applying the Rule of 72, identifying whether the discount rate is appropriate for the risk level described, and qualitatively assessing whether the stated payback period is reasonable given the cash flows. If you do have a calculator, always show your formula structure explicitly — write "FV = PV × (1+r)ⁿ" before substituting numbers, because judges are trained to award process credit even if there is a minor arithmetic error. Stating your discount rate assumption and briefly justifying it ("I'm using 10% as the hurdle rate because this is a moderately risky retail expansion") will consistently earn examiner marks that vague presenters miss.`,
       didYouKnow: `The concept of present value dates to medieval Italy, where merchants in Florence and Venice used early discounting calculations to price future trade contracts. The Medici banking family, who effectively invented modern banking in the 1400s, used time-value reasoning to price loans and currency exchange agreements across multiple European cities — centuries before the formal mathematics of finance were codified. Modern NPV analysis as taught in business schools traces back to Irving Fisher's 1930 book "The Theory of Interest," which rigorously established that the value of any asset is simply the present value of all future cash flows it generates.`,
       isStub: false,
+      thinkAboutIt: {
+        question: `A friend is deciding between two payout options: Option A pays $50,000 immediately. Option B pays $8,000 per year for 10 years, with the first payment one year from now. Your friend says Option B is clearly better because $8,000 × 10 = $80,000, which is far more than $50,000. Using time value of money reasoning and a 9% discount rate, explain why this comparison is flawed, and determine which option is actually worth more today.`,
+        answer: `Your friend's reasoning simply adds up nominal dollar amounts without accounting for when each dollar arrives, which ignores the core premise of TVM — a dollar received later is worth less than a dollar received today because it forgoes the opportunity to earn a return in the meantime. To compare the two options fairly, Option B's ten payments must each be discounted back to present value and summed, using the annuity formula: PV = Payment × [1 − (1+r)⁻ⁿ] ÷ r = $8,000 × [1 − (1.09)⁻¹⁰] ÷ 0.09 = $8,000 × 6.418 = approximately $51,340. So Option B is indeed worth slightly more than Option A's $50,000 in present-value terms — but the true advantage is only about $1,340, not the naive $30,000 gap your friend calculated by simply adding nominal payments. This example also shows why the decision is sensitive to the discount rate: at a higher rate, say 12%, the annuity factor falls to about 5.650, making Option B worth only around $45,200 — less than Option A — which would flip the recommendation entirely. The lesson is that no comparison of cash flows received at different times is valid until every amount is converted to a common point in time using an appropriate discount rate.`,
+      },
     },
     flashcards: [
       {
@@ -199,6 +233,32 @@ Rule of 72 check: At 7%, money doubles every 72 ÷ 7 ≈ 10.3 years. Confirm: $1
         tags: ['DECA', 'finance', 'compound-interest', 'Rule-of-72'],
       },
     ],
+    lessonAssignment: {
+      prompt: `Fairhaven Bakery is deciding whether to purchase a new commercial oven for $75,000. The oven is expected to generate additional annual cash flow of $22,000 for 5 years. Fairhaven's required rate of return (discount rate) is 11%. As an alternative, the owner could instead invest the $75,000 in a low-risk fund expected to earn 6% annually.
+
+(a) Calculate the future value of $75,000 invested at 6% for 5 years — the value of the "do nothing and invest instead" alternative. [4 marks]
+
+(b) Calculate the Net Present Value (NPV) of the oven purchase at an 11% discount rate. Show the present value of each year's $22,000 cash flow individually before summing. [8 marks]
+
+(c) State whether Fairhaven should buy the oven, justifying your answer with both the NPV result and a Rule of 72 estimate of how long the fund alternative takes to double. [4 marks]
+
+(d) If Fairhaven's discount rate were instead 15% (reflecting higher perceived risk), recalculate the NPV and explain whether the purchase decision would change. [4 marks]`,
+      rubric: `(a) FV = $75,000 × (1.06)⁵ = $75,000 × 1.3382 = $100,367 (correct formula 2 pts, correct answer 2 pts). Total: 4 pts.
+
+(b) Year-by-year PV at 11%: Year 1 = $22,000 ÷ 1.11 = $19,820; Year 2 = $22,000 ÷ 1.2321 = $17,857; Year 3 = $22,000 ÷ 1.3676 = $16,088; Year 4 = $22,000 ÷ 1.5181 = $14,493; Year 5 = $22,000 ÷ 1.6851 = $13,054 (1 pt each, 5 pts total). Sum of PVs = $81,312; NPV = $81,312 − $75,000 = +$6,312 (3 pts for correct summation and NPV). Total: 8 pts.
+
+(c) Correct recommendation: buy the oven, because NPV is positive (+$6,312), meaning the project's return exceeds the 11% hurdle rate (2 pts). Rule of 72 for the 6% alternative: 72 ÷ 6 = 12 years to double — much slower value creation than the oven's positive NPV at only a 5-year horizon (2 pts). Total: 4 pts.
+
+(d) At 15%: Year 1 = $19,130; Year 2 = $16,636; Year 3 = $14,464; Year 4 = $12,579; Year 5 = $10,938; Sum = $73,747; NPV = $73,747 − $75,000 = −$1,253 (3 pts for correct recalculation). Correct conclusion that the decision flips to "do not buy" because NPV is now negative at the higher, riskier discount rate (1 pt). Total: 4 pts.
+
+Grand total: 20 marks.`,
+      exampleTopics: [
+        'Apply the future value formula FV = PV × (1+r)ⁿ to evaluate a foregone investment alternative.',
+        'Calculate NPV by discounting each individual cash flow to present value before summing and subtracting the initial investment.',
+        'Use the Rule of 72 as a quick sanity check alongside a full NPV calculation.',
+        'Show how a higher discount rate can flip an investment decision from accept to reject, illustrating sensitivity analysis.',
+      ],
+    },
     quiz: [
       {
         id: 'dc3-l2-q1',
@@ -297,6 +357,10 @@ Question 2: A portfolio is 60% S&P 500 and 40% bonds. Expected return = (0.60 ×
       examinerTip: `DECA Personal Financial Literacy and Financial Services scenarios frequently involve advising a client on their investment portfolio. The highest-scoring responses always tailor the recommendation to the client's specific circumstances — particularly their time horizon and risk tolerance. A 25-year-old saving for retirement can absorb equity volatility and should be heavily in stocks; a 62-year-old five years from retirement cannot afford a 40% market crash and should hold more bonds and cash. Always begin your DECA role-play by identifying these two factors explicitly before recommending any specific asset allocation, because judges are trained to evaluate whether you matched the recommendation to the client rather than giving generic advice.`,
       didYouKnow: `John Bogle launched the world's first index fund available to individual investors — the Vanguard 500 Index Fund — in 1976. On its opening day, the fund raised only $11.3 million, far short of its $150 million target, and was mockingly called "Bogle's Folly" by Wall Street professionals who believed active management would always dominate. By 2024, Vanguard had grown to manage over $9 trillion in assets, and passive index funds collectively held more U.S. equity assets than active funds for the first time in history. The "folly" turned out to be one of the most consequential financial innovations of the 20th century.`,
       isStub: false,
+      thinkAboutIt: {
+        question: `An investor tells you: "Bonds are risk-free, so I'm putting my entire retirement portfolio into 10-year U.S. Treasury bonds — I can't afford to lose money." She is 30 years old and does not plan to retire for 35 years. Using the distinction between different types of risk covered in this lesson, evaluate whether an all-bond portfolio is actually the safest choice for her situation.`,
+        answer: `The investor is conflating "risk-free" with "risk-free in every sense," which is a mistake. U.S. Treasury bonds do carry essentially zero default risk — the government has never failed to pay dollar-denominated obligations — but they are not free of interest rate risk (bond prices fall when rates rise, as seen when the Bloomberg Aggregate Bond Index fell roughly 13% in 2022) or inflation/purchasing-power risk (a fixed coupon loses real value every year inflation exceeds the bond's yield). More importantly for a 30-year-old with a 35-year horizon, an all-bond portfolio carries a large and often overlooked risk: opportunity risk, the near-certainty of forgoing the equity risk premium that stocks have historically delivered over any multi-decade period. Because her time horizon is long enough to ride out the S&P 500's periodic 20-40% drawdowns and still recover — history shows no 20-year rolling period with negative stock returns — holding only bonds would very likely leave her with a substantially smaller nest egg at retirement than a diversified stock-heavy portfolio, even though the bond portfolio "feels" safer year to year. A sounder recommendation would be a glide-path strategy: predominantly stocks (e.g., 80-90%) now, while she has decades to absorb volatility, gradually shifting toward bonds as she approaches retirement age and her capacity to withstand a downturn shrinks.`,
+      },
     },
     flashcards: [
       {
@@ -318,6 +382,37 @@ Question 2: A portfolio is 60% S&P 500 and 40% bonds. Expected return = (0.60 ×
         tags: ['DECA', 'finance', 'index-funds', 'passive-investing'],
       },
     ],
+    lessonAssignment: {
+      prompt: `A DECA Personal Financial Literacy client has $120,000 to invest for retirement, which is 25 years away. She describes herself as having a moderate risk tolerance. You are given the following historical average annual returns and volatility (standard deviation) for two asset classes:
+
+S&P 500 (stocks): 10.1% average return, 17% standard deviation
+U.S. Bonds: 5.1% average return, 8% standard deviation
+
+She is considering a 70% stocks / 30% bonds portfolio allocation.
+
+(a) Calculate the expected annual return of the 70/30 portfolio. [4 marks]
+
+(b) Assuming no additional contributions, calculate the future value of her $120,000 after 25 years at the 70/30 portfolio's expected return. [5 marks]
+
+(c) Explain, using the concept of correlation and diversification, why the 70/30 portfolio's actual volatility is lower than a simple weighted average of the two asset classes' individual standard deviations (0.70 × 17% + 0.30 × 8% = 14.3%). [5 marks]
+
+(d) Given her 25-year time horizon and moderate risk tolerance, justify whether the 70/30 allocation is appropriate, or recommend an alternative allocation, explicitly referencing the risk-return tradeoff. [6 marks]`,
+      rubric: `(a) Expected Return = (0.70 × 10.1%) + (0.30 × 5.1%) = 7.07% + 1.53% = 8.6% (correct weighting method 2 pts, correct final answer 2 pts). Total: 4 pts.
+
+(b) FV = $120,000 × (1.086)²⁵ ≈ $120,000 × 7.87 ≈ $944,000 (correct formula application 2 pts, answer within reasonable rounding of ~$940,000-$950,000 for 3 pts). Total: 5 pts.
+
+(c) Full marks require explaining that because stock and bond returns are not perfectly (positively) correlated — bonds often hold steady or rise when stocks fall, particularly in growth scares — the portfolio's combined volatility is reduced below the naive weighted average, since the two assets' losses and gains partially offset one another rather than compounding (3 pts for correct correlation reasoning, 2 pts for connecting it explicitly to why the weighted-average figure of 14.3% overstates true portfolio risk). Total: 5 pts.
+
+(d) Full marks require: recognition that a 25-year horizon is long enough to absorb equity volatility and recover from downturns (2 pts); explicit reference to the risk-return tradeoff — accepting more short-term volatility in stocks is compensated by materially higher expected long-run returns (2 pts); and a clear, justified recommendation (accepting 70/30 or proposing a modestly more aggressive/conservative split with reasoning tied to "moderate" risk tolerance) (2 pts). Total: 6 pts.
+
+Grand total: 20 marks.`,
+      exampleTopics: [
+        'Calculate a blended portfolio expected return as a weighted average of component asset returns.',
+        'Apply the future value formula to project long-term retirement portfolio growth.',
+        'Explain how imperfect correlation between asset classes reduces portfolio volatility below the naive weighted-average standard deviation.',
+        'Tailor an asset allocation recommendation to a specific time horizon and risk tolerance rather than giving generic advice.',
+      ],
+    },
     quiz: [
       {
         id: 'dc3-l3-q1',
@@ -425,6 +520,10 @@ Break-even exercise: Fixed costs = $90,000/month. Price = $60/unit. Variable cos
       examinerTip: `DECA Accounting Applications event judges expect competitors to be fluent in the mechanics of double-entry bookkeeping, not just the vocabulary. If a role-play gives you a transaction to evaluate, always write out the journal entry explicitly — accounts debited, accounts credited, amounts — even if the judge has not explicitly asked for it. This demonstrates technical mastery and separates you from competitors who speak in generalities. For break-even scenarios, calculate the answer in both units and in revenue dollars, since the examiner may have intended either interpretation. Stating both shows thoroughness. Always check your journal entries by confirming debits equal credits, and confirm your break-even calculation by substituting it back: (break-even units × price) − (break-even units × variable cost) − fixed costs should equal zero.`,
       didYouKnow: `The double-entry bookkeeping system was first formally described by Luca Pacioli, an Italian friar and mathematician, in his 1494 book "Summa de Arithmetica, Geometria, Proportioni et Proportionalità." Pacioli did not invent the system — Venetian merchants had been using it for decades — but his description codified and standardized it, making it teachable and transferable. The core rules he described in 1494 are essentially the same rules taught in accounting classes today, more than 530 years later, making double-entry bookkeeping one of the most durable intellectual inventions in human history.`,
       isStub: false,
+      thinkAboutIt: {
+        question: `A small business owner says: "My accountant recorded $18,000 of depreciation expense this year, and now my net income looks $18,000 lower — but my bank balance didn't drop by a single dollar. Either my accountant made a mistake, or accounting is disconnected from reality." Is the owner right? Use the distinction between accrual accounting and cash movement to explain what is actually happening, and identify one way in which recording depreciation can actually help the business's cash position.`,
+        answer: `The owner is not right, and the accountant made no error — this is exactly how depreciation is supposed to work under accrual accounting. When the underlying asset was purchased, the cash left the business at that time, in full, as a single transaction. Depreciation does not represent a new cash outflow; it simply allocates that already-spent cost across the asset's useful life on the income statement, in keeping with the matching principle, which requires expenses to be recognized in the periods that benefit from the asset rather than all at once. The journal entry — Debit Depreciation Expense, Credit Accumulated Depreciation — touches no cash account at all, which is precisely why depreciation is added back to net income when calculating operating cash flow on the cash flow statement. Far from being disconnected from reality, this treatment gives a more accurate picture of profitability by spreading the cost of a long-lived asset over the years it actually helps generate revenue. There is also a genuine cash benefit hiding in the depreciation expense: because it reduces taxable income, it lowers the business's tax bill in the current year — a "depreciation tax shield" — without requiring any cash outlay itself, meaning the business keeps more actual cash than it would if depreciation were ignored for tax purposes.`,
+      },
     },
     flashcards: [
       {
@@ -446,6 +545,32 @@ Break-even exercise: Fixed costs = $90,000/month. Price = $60/unit. Variable cos
         tags: ['DECA', 'accounting', 'debits-credits', 'DEAD-CLIC'],
       },
     ],
+    lessonAssignment: {
+      prompt: `Trailhead Outfitters, a retail store, is launching a new product line. Fixed costs to launch (added rent and staffing) are $60,000 per year. Each unit sells for $45 and costs $27 in variable costs to produce and deliver. During the same year, the store also: (i) purchased $15,000 of inventory on credit from a supplier, and (ii) sold inventory that cost $9,000 for $16,000 cash.
+
+(a) Write the journal entries (debits and credits, with account names and amounts) for both the $15,000 inventory purchase on credit and the $16,000 cash sale of the $9,000-cost inventory. [6 marks]
+
+(b) Calculate the contribution margin per unit for the new product line, and the break-even point in both units and revenue dollars. [6 marks]
+
+(c) The store negotiates a lower supplier price, cutting variable cost per unit to $22. Recalculate the break-even point in units and state the percentage change from your answer in part (b). [4 marks]
+
+(d) The store also records $10,000 of depreciation on new store fixtures used for the product line. Explain how this depreciation affects the break-even calculation differently than it affects the cash flow statement. [4 marks]`,
+      rubric: `(a) Inventory purchase: Debit Inventory $15,000 / Credit Accounts Payable $15,000 (correct accounts and amounts, 2 pts; correct debit/credit direction, 1 pt). Sale: Debit Cash $16,000 / Credit Sales Revenue $16,000 AND Debit Cost of Goods Sold $9,000 / Credit Inventory $9,000 — both entries required (2 pts for the revenue entry, 1 pt for the COGS/inventory entry). Total: 6 pts.
+
+(b) Contribution Margin = $45 − $27 = $18/unit (2 pts). Break-even units = $60,000 ÷ $18 = 3,334 units, rounded up (2 pts). Break-even revenue = 3,334 × $45 ≈ $150,000, or equivalently $60,000 ÷ (18/45 = 40% CM ratio) = $150,000 (2 pts). Total: 6 pts.
+
+(c) New Contribution Margin = $45 − $22 = $23/unit. New break-even units = $60,000 ÷ $23 = 2,609 units, rounded up (2 pts). Percentage change = (3,334 − 2,609) ÷ 3,334 ≈ a 21.7% decrease in break-even volume (2 pts). Total: 4 pts.
+
+(d) Full marks require explaining that depreciation is a fixed cost and must be added to total fixed costs used in the break-even formula (raising the break-even point in units), whereas on the cash flow statement depreciation is a non-cash expense that is added back to net income and has zero cash effect — meaning the store's true break-even cash requirement is lower than its accounting break-even point (4 pts; 2 pts for each correct half of the distinction).
+
+Grand total: 20 marks.`,
+      exampleTopics: [
+        'Write correctly balanced journal entries (debits = credits) for an inventory purchase on credit and a cash sale with COGS recognition.',
+        'Calculate contribution margin and break-even point in both units and revenue dollars from price and cost data.',
+        'Quantify how a variable cost reduction changes the break-even point, expressing the change as a percentage.',
+        'Distinguish how a non-cash fixed cost like depreciation affects accounting break-even analysis versus actual cash flow.',
+      ],
+    },
     quiz: [
       {
         id: 'dc3-l4-q1',
@@ -544,6 +669,10 @@ Examiner follow-up to practice: "Why the Roth IRA over a traditional IRA?" (Tax-
       examinerTip: `For all three DECA finance events, the single highest-return preparation practice is recording yourself giving a mock role-play and then watching it back. Most competitors are shocked by how many filler words they use ("um," "like," "basically"), how often they trail off at the end of sentences, and how generic their action plans sound when heard from the outside. Use the official DECA score sheet to grade yourself against each criterion after every practice. Identify your consistently weakest criterion — for most competitors it is either "Identified the Problem" (they address symptoms rather than root causes) or "Recommended Action Plan" (generic rather than specific and quantified) — and drill specifically on that weakness in the two weeks before competition. Fifteen targeted mock role-plays with feedback will outperform forty hours of content review every time.`,
       didYouKnow: `DECA was founded in 1946 as the Distributive Education Clubs of America, initially focused on retail and distribution careers. The organization dropped "Distributive Education" from its name in 1994 and rebranded simply as DECA, reflecting its expansion into finance, marketing, hospitality, entrepreneurship, and management. Today, DECA has over 230,000 members across more than 5,200 chapters in the United States and internationally — making it one of the largest student business organizations in the world. The Personal Financial Literacy event was added to the DECA lineup in the early 2000s in response to growing recognition that financial literacy skills are a universal career and life competency, not just relevant to students pursuing finance careers.`,
       isStub: false,
+      thinkAboutIt: {
+        question: `In a practice round, a competitor spends 8 of her 10 presentation minutes reciting every financial concept from her class notes, then rushes through a generic recommendation in the final 90 seconds and has no time left when the judge asks a follow-up question. She clearly knows the content, yet scores low on "Recommended Action Plan" and "Settled the Problem." Using DECA's five-criterion rubric, diagnose what went wrong and explain how she should restructure her time.`,
+        answer: `Knowing the content is necessary but not sufficient for a high DECA score, because the rubric explicitly rewards how that knowledge is deployed, not merely whether it is possessed. By spending 80% of her time reciting general concepts, she likely scored acceptably on "Demonstrated Knowledge and Skills," but she left almost no time to build a specific, quantified, scenario-tailored recommendation — which is exactly what "Recommended Action Plan" requires, and generic content review does not substitute for it. Worse, because she ran out of time entirely, she had nothing left to respond to the judge's follow-up question, directly costing her "Settled the Problem" credit, since that criterion specifically evaluates the ability to handle probing questions with poise and additional justification. The fix is a fundamental restructuring of her time allocation: spend the first 1-2 minutes precisely identifying the core problem using the scenario's own numbers, spend the middle 5-6 minutes building and justifying a specific action plan (not a lecture on background theory), and deliberately reserve the final 2-3 minutes as a buffer — either to preemptively address likely follow-up questions or to leave room to respond to the judge in real time. Reciting known content is the lowest-value use of limited role-play minutes precisely because every competitor at her skill level already knows it; specificity and responsiveness are what actually separate scores.`,
+      },
     },
     flashcards: [
       {
@@ -565,6 +694,32 @@ Examiner follow-up to practice: "Why the Roth IRA over a traditional IRA?" (Tax-
         tags: ['DECA', 'PFL', 'retirement', 'Roth-vs-traditional'],
       },
     ],
+    lessonAssignment: {
+      prompt: `Prepare a written DECA Personal Financial Literacy role-play response for the following scenario. A 26-year-old graphic designer earns $58,000/year ($3,850 take-home per month). She has $22,000 in student loans at 6% APR, $9,000 in credit card debt at 24% APR, $2,500 in savings, and $400 per month in discretionary income after covering essential expenses. She asks for advice on the order in which to pay off her debts and whether she should start investing now.
+
+(a) Identify the core financial problem(s) in this scenario and rank her three financial priorities (credit card debt, student loans, investing) using APR/expected-return comparison as your justification. [5 marks]
+
+(b) Recommend a specific monthly allocation of her $400 in discretionary income across debt payoff and/or investing, stating exact dollar amounts, and justify the allocation using the concept of guaranteed return versus expected return. [6 marks]
+
+(c) Write two likely judge follow-up questions this scenario would generate in a live role-play, and draft a strong response to each, demonstrating the "Settled the Problem" criterion. [5 marks]
+
+(d) Self-score your response against DECA's five scoring criteria (0-4 each, 20 max), identify your weakest criterion, and explain one specific change that would raise that score. [4 marks]`,
+      rubric: `(a) Core problem correctly identified as competing demands on limited discretionary income with debts at very different cost levels (2 pts). Correct priority ranking: (1) credit card debt at 24% APR — highest cost, address first; (2) student loans at 6% APR — moderate cost; (3) investing — expected market return (~7-10%) is lower than the guaranteed 24% return from eliminating credit card debt, but likely exceeds the 6% student loan rate, so should be weighed against loan paydown once the card is cleared (3 pts). Total: 5 pts.
+
+(b) Full marks require a specific dollar allocation (e.g., full $400/month to the credit card until the $9,000 balance is cleared in roughly 22-23 months factoring interest, then redirecting freed-up cash to student loans and/or a Roth IRA) (3 pts) and correct justification that paying off 24% APR debt is a guaranteed 24% after-tax return unmatched by any reliable investment, so it should be fully prioritized before investing or extra loan payments begin (3 pts). Total: 6 pts.
+
+(c) Two plausible, scenario-relevant follow-up questions posed (1 pt each, 2 pts) with strong, specific responses to each that reference scenario figures rather than generic statements (1.5 pts each, 3 pts). Example strong question/response pair: "Why not split the $400 between the credit card and student loans?" → "Splitting delays clearing the higher-cost debt, which continues accruing interest at four times the rate of the student loan, so concentrating payments minimizes total interest paid across both debts." Total: 5 pts.
+
+(d) Correct, honest self-scoring against all five criteria (2 pts) and a specific, actionable improvement identified for the weakest-scoring criterion rather than a vague statement like "be more confident" (2 pts). Total: 4 pts.
+
+Grand total: 20 marks.`,
+      exampleTopics: [
+        'Rank competing financial priorities by comparing APRs and expected returns rather than by intuition alone.',
+        'Translate a debt-payoff/investing recommendation into specific dollar amounts rather than general advice.',
+        'Anticipate and rehearse responses to likely judge follow-up questions to strengthen the "Settled the Problem" criterion.',
+        'Apply DECA\'s five-criterion rubric for honest self-assessment and targeted improvement.',
+      ],
+    },
     quiz: [
       {
         id: 'dc3-l5-q1',

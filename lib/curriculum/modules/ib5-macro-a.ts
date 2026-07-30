@@ -85,6 +85,11 @@ A crucial global comparison involves Purchasing Power Parity (PPP)-adjusted GDP.
       ],
 
       isStub: false,
+
+      thinkAboutIt: {
+        question: `Suppose a hurricane destroys $40 billion of housing and infrastructure in a coastal region, and the subsequent rebuilding effort adds $40 billion to Investment and Consumption spending over the following year. Does this mean the disaster made the country better off, since GDP rose?`,
+        answer: `No — this is a version of the "broken window fallacy" and it exposes one of GDP's sharpest limitations. GDP is a flow measure of newly produced final goods and services in a period; it is not a measure of a nation's stock of wealth or capital. The $40 billion of destroyed housing and infrastructure simply vanishes from the accounts — GDP does not subtract the loss of existing assets, because that loss was not "production" in the current period. Meanwhile, the rebuilding spending genuinely counts as new investment and consumption, so measured GDP rises. But the country has not gained $40 billion of net new wealth; at best it has replaced what it already had, and resources (labour, materials, construction capacity) that could have built new housing, factories, or infrastructure elsewhere were instead diverted to replacing a loss. This is exactly the kind of case an IB "evaluate" question rewards: a strong answer states clearly that GDP rose, then explains precisely why the rise is not evidence of improved welfare — reinforcing the earlier point that GDP ignores destruction of the capital stock and should never be treated as a direct proxy for a nation's economic wellbeing.`,
+      },
     },
     flashcards: [
       {
@@ -106,6 +111,16 @@ A crucial global comparison involves Purchasing Power Parity (PPP)-adjusted GDP.
         tags: ['GDP limitations', 'welfare', 'HDI'],
       },
     ],
+    lessonAssignment: {
+      prompt: `A small open economy, Verdania, reports the following national accounts data for the current year: Consumption = $480 billion, Investment = $95 billion, Government spending = $110 billion, Exports = $140 billion, Imports = $155 billion. The GDP deflator rose from 100 (base year) to 112 this year. Verdania's population is 8 million.\n\n(a) Calculate Verdania's nominal GDP using the expenditure approach. Show all workings. [2]\n\n(b) Calculate Verdania's real GDP for the current year. Using your answer, explain the difference between nominal and real GDP growth as a measure of economic performance. [4]\n\n(c) Calculate GDP per capita and explain ONE reason why this figure may overstate the average standard of living in Verdania. [3]\n\n(d) Evaluate the claim that real GDP per capita is an adequate measure of economic welfare. In your answer, refer to at least TWO alternative or complementary indicators. [6]`,
+      rubric: `(a) Nominal GDP = C + I + G + (X − M) = 480 + 95 + 110 + (140 − 155) = $670 billion. [2 marks: 1 for correct formula, 1 for correct calculation]\n\n(b) Real GDP = (Nominal GDP / GDP deflator) × 100 = (670 / 112) × 100 ≈ $598.2 billion. Explanation must distinguish nominal (current prices) from real (base-year prices) and note that nominal growth overstates actual output expansion when prices rise. [4 marks: 1 for correct formula, 1 for correct calculation, 2 for clear explanation]\n\n(c) GDP per capita = $670 billion / 8 million ≈ $83,750. One reason (e.g., income inequality/Gini coefficient means most citizens earn far less than the average; or the figure is nominal and does not adjust for cost of living). [3 marks: 1 for calculation, 2 for developed explanation]\n\n(d) Up to 6 marks for evaluation. Award marks for: limitations of GDP per capita (inequality, non-market activity, environmental costs, informal economy); reference to HDI (health, education, income); GPI or Happy Planet Index; well-structured conclusion judging whether GDP per capita is adequate. Requires balance of strengths and weaknesses.`,
+      exampleTopics: [
+        'Use GDP = C + I + G + (X − M) carefully — remember that net exports can be negative if imports exceed exports',
+        'When converting nominal to real GDP, divide by the deflator (expressed as a decimal or use the ×100 formula) — do not subtract',
+        'Income inequality (Gini coefficient) is the strongest single reason GDP per capita overstates welfare in unequal economies',
+        'Structure part (d) with pros of GDP per capita first, then at least two limitations, then a clear judgment — HDI and GPI are the most exam-relevant alternatives',
+      ],
+    },
     quiz: [
       {
         id: 'ib5-l1-q1',
@@ -227,6 +242,11 @@ From a global comparative perspective, business cycles in emerging markets tend 
       ],
 
       isStub: false,
+
+      thinkAboutIt: {
+        question: `Two economists both observe that an economy's actual real GDP is $2.9 trillion this year. One estimates potential output at $2.85 trillion and concludes there is an inflationary gap; the other estimates potential output at $3.05 trillion and concludes there is a recessionary gap. They agree on all the data — so how can they reach opposite conclusions, and does this matter for policy?`,
+        answer: `They disagree because potential output, unlike actual GDP, is not directly observable — it must be estimated using statistical techniques (such as production-function approaches or trend-filtering methods) that rely on assumptions about the economy's sustainable labour force, capital stock, and productivity growth, all of which are uncertain and subject to revision. This is not a trivial disagreement: it produces two entirely opposite diagnoses and, therefore, two opposite policy prescriptions. The first economist would recommend contractionary policy to cool an overheating economy and prevent inflation; the second would recommend expansionary policy to close a recessionary gap and reduce unemployment. Applying the wrong prescription is costly — tightening policy when there is actually a recessionary gap needlessly raises unemployment, while loosening policy when there is actually an inflationary gap fuels inflation. This uncertainty is a genuine limitation of AD/AS analysis that IB examiners reward students for acknowledging: a strong "discuss" or "evaluate" response should note that output-gap-based policy recommendations are only as reliable as the potential-output estimate underpinning them, and that real-world central banks have made significant policy errors historically by misjudging exactly this quantity.`,
+      },
     },
     flashcards: [
       {
@@ -248,6 +268,16 @@ From a global comparative perspective, business cycles in emerging markets tend 
         tags: ['potential output', 'full employment', 'measurement'],
       },
     ],
+    lessonAssignment: {
+      prompt: `The economy of Kalindra experienced rapid growth between 2018 and 2022, with real GDP rising well above its estimated potential output. In 2023, a sharp fall in consumer confidence caused a prolonged contraction, and by 2024 real GDP had fallen $80 billion below estimated potential output of $720 billion.\n\n(a) Using an AD/AS diagram, illustrate the situation in Kalindra's economy in 2024. Clearly label the recessionary gap, the LRAS curve, and the current short-run equilibrium. [4]\n\n(b) Explain how the business cycle's contraction phase is reflected in Kalindra's labour market. [3]\n\n(c) Using the diagram, explain the effect of an expansionary fiscal policy response on Kalindra's price level and real output. [4]\n\n(d) Evaluate whether expansionary fiscal policy is the most appropriate policy to close Kalindra's recessionary gap. Consider at least ONE alternative policy approach. [6]`,
+      rubric: `(a) [4 marks]: Correctly labelled axes (Price Level, Real GDP); downward-sloping AD; upward-sloping SRAS; vertical LRAS at potential output; AD/SRAS intersection to the left of LRAS; recessionary gap clearly identified between current output and potential output.\n\n(b) [3 marks]: Links falling real GDP to rising cyclical unemployment; explains that actual unemployment rises above natural rate; mentions underutilised resources. Full marks require a developed chain of reasoning.\n\n(c) [4 marks]: AD shifts rightward; new equilibrium is at a higher price level and higher real output; SRAS does not shift; if gap is fully closed, new equilibrium is at or near LRAS. Award marks proportionately for partial answers.\n\n(d) [6 marks]: Strengths of fiscal policy (direct demand stimulus, faster than structural reform, automatic stabilisers). Limitations (time lags, crowding out, debt sustainability). Alternative policy: expansionary monetary policy (lower interest rates) — evaluate its effectiveness (liquidity trap risk). Supply-side policies for long-run capacity. Well-reasoned conclusion required for full marks.`,
+      exampleTopics: [
+        'Draw the LRAS as a vertical line at potential output — the recessionary gap is the horizontal distance between the AD/SRAS intersection and the LRAS',
+        'Link the recessionary gap to cyclical unemployment explicitly: when actual GDP < potential, labour is underutilised and unemployment rises above the natural rate',
+        'Show expansionary fiscal policy as a rightward AD shift — note that price level rises alongside output, which is a trade-off worth mentioning in part (d)',
+        'Evaluate fiscal policy against monetary policy and supply-side alternatives, and consider context — is Kalindra facing a liquidity trap? Are interest rates already near zero?',
+      ],
+    },
     quiz: [
       {
         id: 'ib5-l2-q1',
@@ -369,6 +399,11 @@ Cross-country comparisons reveal substantial variation in natural unemployment r
       ],
 
       isStub: false,
+
+      thinkAboutIt: {
+        question: `Northoria's unemployment rate is 8.5% and its natural rate is estimated at 4.5%. Suppose the government runs an expansionary fiscal stimulus large enough to completely eliminate the cyclical component of unemployment. Will Northoria's unemployment rate fall to zero — and is there any risk in pushing the stimulus further once that goal is reached?`,
+        answer: `No, unemployment will not fall to zero. Closing the cyclical component only brings actual unemployment down to the natural rate — in this case 4.5% — because frictional and structural unemployment persist even when aggregate demand is fully sufficient. Frictional unemployment exists because matching workers to vacancies always takes time, and Northoria's structural unemployment (driven by automation displacing workers who lack the new skills required) will not be touched by demand-side stimulus at all; it requires retraining and supply-side policy instead. In fact, there is a real risk in pushing the stimulus beyond the point where unemployment reaches the natural rate: if the government keeps expanding aggregate demand once the recessionary gap has closed, unemployment would fall below the NRU, creating an inflationary gap and triggering the wage-price dynamics behind the short-run Phillips curve trade-off — rising inflation without any further sustainable reduction in unemployment. This distinction is exactly what separates a strong "evaluate the most appropriate policy mix" answer from a weak one: fiscal stimulus is well-matched to the cyclical component of unemployment, but it is the wrong tool — and can become actively harmful — once that component has been eliminated.`,
+      },
     },
     flashcards: [
       {
@@ -390,6 +425,16 @@ Cross-country comparisons reveal substantial variation in natural unemployment r
         tags: ['costs of unemployment', 'social costs', 'economic costs'],
       },
     ],
+    lessonAssignment: {
+      prompt: `Northoria is an advanced economy that has recently undergone a wave of industrial automation. Official unemployment statistics show an overall rate of 8.5%, with long-term unemployment (over 12 months) accounting for 4.2 percentage points. Youth unemployment stands at 19%, and 3% of the labour force reports working part-time involuntarily. The central bank estimates the natural rate of unemployment is 4.5%.\n\n(a) Identify and explain the type of unemployment most likely responsible for the large share of long-term unemployment in Northoria. [3]\n\n(b) Calculate the size of the cyclical unemployment component in Northoria. Explain what this implies for Northoria's position in the business cycle. [3]\n\n(c) Distinguish between the economic costs and social costs of unemployment using specific evidence from Northoria's data. [4]\n\n(d) Evaluate the most appropriate policy mix to reduce unemployment in Northoria, taking into account the different types of unemployment present. [7]`,
+      rubric: `(a) [3 marks]: Identifies structural unemployment; explains automation creates skills mismatch; links to long-term nature of the unemployment (skills take time to retrain). Full marks require explicit connection to IB definition.\n\n(b) [3 marks]: Cyclical unemployment = actual rate − natural rate = 8.5% − 4.5% = 4.0%; implies economy is in a recessionary gap with actual GDP below potential; aggregate demand is insufficient. Award 1 for calculation, 2 for developed explanation.\n\n(c) [4 marks]: Economic costs (2): lost output/GDP, reduced tax revenues and higher benefit spending, human capital depreciation. Social costs (2): psychological harm, scarring/long-run earnings reduction, social exclusion. Evidence references: 19% youth unemployment → severe long-run scarring; 4.2% long-term → human capital depreciation.\n\n(d) [7 marks]: Demand-side (fiscal/monetary) to address cyclical component (4%); supply-side retraining/education to address structural component (automation displacement); active labour market policies (job placement). Evaluate each: effectiveness, time horizons, costs. Recognition that no single policy addresses all types simultaneously earns evaluation marks. Reasoned conclusion required.`,
+      exampleTopics: [
+        'Cyclical unemployment = actual unemployment rate minus the natural rate — use the data given to calculate this precisely before discussing policy',
+        'Distinguish structural from cyclical unemployment clearly: structural requires retraining (supply-side); cyclical requires demand stimulus (fiscal or monetary)',
+        'Social costs require personal/human detail — scarring, psychological harm, and social exclusion go beyond just "lost output" which is an economic cost',
+        'Part (d) is an evaluation question — score highest marks by matching specific policies to specific unemployment types, then judging which is most urgent given the data',
+      ],
+    },
     quiz: [
       {
         id: 'ib5-l3-q1',
@@ -511,6 +556,11 @@ Cross-country comparison reveals dramatically different inflation experiences. H
       ],
 
       isStub: false,
+
+      thinkAboutIt: {
+        question: `Ostrava's inflation is being driven simultaneously by deficit-financed demand-pull pressure and an oil-price cost-push shock. If the central bank raises interest rates until CPI inflation returns exactly to its target, has the economy necessarily been restored to health?`,
+        answer: `Not necessarily — restoring the price level to target tells us nothing on its own about what happened to real output and employment. Contractionary monetary policy works only by shifting AD leftward; it does nothing to reverse the leftward shift of SRAS caused by the oil-price shock. If the central bank tightens enough to bring the price level back down through the demand-pull channel, it is effectively adding a second contractionary force on top of an economy whose output has already been squeezed by the cost-push shock — the AD-driven tightening and the SRAS-driven supply shock both push real output downward, even though only one of them was fighting inflation for the "right" reason. The result could be a price level back at target but real GDP well below its pre-shock, let alone potential, level — a much deeper output loss and higher unemployment than if inflation had been purely demand-pull. This is precisely the policy dilemma the lesson identifies: because interest-rate policy cannot distinguish which portion of inflation it is curing, treating a mixed demand-pull/cost-push episode as if it were purely demand-pull risks over-tightening. A rigorous "evaluate" answer must identify the composition of the inflation, not just its magnitude, before judging whether a given policy response is "restoring health" or simply trading one problem (inflation) for a worse one (recession).`,
+      },
     },
     flashcards: [
       {
@@ -532,6 +582,16 @@ Cross-country comparison reveals dramatically different inflation experiences. H
         tags: ['deflation', 'deflationary spiral', 'Japan', 'debt burden'],
       },
     ],
+    lessonAssignment: {
+      prompt: `Ostrava is a mid-sized open economy that imports approximately 60% of its energy needs. In 2023, a geopolitical conflict disrupted global energy markets, causing oil prices to rise by 45%. At the same time, the government had been running large deficit spending since 2021, pumping additional money into the economy. The CPI rose from 102 in 2022 to 114 in 2023. A representative consumer basket cost $650 in the base year.\n\n(a) Calculate Ostrava's inflation rate between 2022 and 2023. Then calculate the cost of the representative consumer basket in 2023, using the CPI data provided. [3]\n\n(b) Using an AD/AS diagram, distinguish between the two causes of inflation operating in Ostrava. For each cause, show the relevant curve shift and its effect on price level and real output. [5]\n\n(c) Explain why the combination of causes in Ostrava creates a policy dilemma for the central bank. [4]\n\n(d) Evaluate the view that deflation would be preferable to the inflation currently experienced in Ostrava. [5]`,
+      rubric: `(a) [3 marks]: Inflation rate = ((114 − 102) / 102) × 100 ≈ 11.76%. Cost of basket in 2023 = (114 / 100) × $650 = $741. Award 1 mark each for correct CPI calculation method, inflation rate, and basket cost.\n\n(b) [5 marks]: Two separate diagrams or one diagram showing both shifts. Demand-pull: AD shifts right → price level rises, real output rises. Cost-push (energy prices): SRAS shifts left → price level rises, real output falls. Full marks require correct labelling of axes and curves, and correct identification of which shift corresponds to which cause.\n\n(c) [4 marks]: Contractionary monetary policy (higher rates) would reduce demand-pull inflation but worsen the output fall from the supply shock; expansionary policy would offset the output fall but worsen demand-pull inflation. Award marks for identifying the dilemma and explaining the conflicting effects on price and output.\n\n(d) [5 marks]: Deflation appears beneficial (lower prices for consumers) — 1 mark. But: deflationary spiral (delayed spending → falling demand → further price falls); rising real debt burden; Japan example; potential liquidity trap. Balance required. Conclusion: in Ostrava's context, moderate inflation is preferable to deflation's recessionary risks.`,
+      exampleTopics: [
+        'Calculate the inflation rate as the percentage change in CPI: (new CPI − old CPI) / old CPI × 100 — not simply CPI minus 100',
+        'Draw two separate effects in part (b): deficit spending → AD shifts right (demand-pull); oil price shock → SRAS shifts left (cost-push) — each has a different output effect',
+        'The policy dilemma in part (c) is the heart of the question: contractionary policy cures demand-pull but worsens the supply shock; expansionary policy does the opposite',
+        'Evaluate deflation by explaining the deflationary spiral mechanism and the Japan case — do not just say "prices fall so it is good"',
+      ],
+    },
     quiz: [
       {
         id: 'ib5-l4-q1',
@@ -653,6 +713,11 @@ From a global policy perspective, the conflict between growth and BoP equilibriu
       ],
 
       isStub: false,
+
+      thinkAboutIt: {
+        question: `If a central bank credibly and transparently commits to a low inflation target, and workers and firms form fully rational expectations, does the short-run Phillips curve trade-off disappear entirely — meaning disinflation could be achieved with no rise in unemployment at all?`,
+        answer: `In the pure New Classical rational-expectations model, this is exactly the claim: if a policy change is fully anticipated and credible, workers and firms adjust their wage and price expectations immediately, so the economy moves straight to the new lower inflation rate at the natural rate of unemployment, with no output or employment cost. In practice, however, this extreme result rarely holds, because it assumes wages and prices are perfectly flexible and adjust instantly — a condition most real economies do not satisfy. Many wages are set by multi-year contracts, and many prices are "sticky" because renegotiating them is costly, so even a fully credible and correctly anticipated disinflation cannot be implemented without some short-run pain while existing contracts and expectations catch up. The Volcker disinflation of the early 1980s is instructive here: despite the Federal Reserve's clear and eventually credible commitment to reducing inflation, U.S. unemployment still rose sharply above 10% before inflation expectations fully adjusted. This is the kind of nuance that separates a top-band IB "evaluate" response from a mechanical one: the theoretical case for a costless disinflation under credible policy and rational expectations should be presented, but then qualified by the empirical reality of nominal rigidities, which means real-world central banks still typically accept some unemployment cost when disinflating, even when their policy is well-communicated and believed.`,
+      },
     },
     flashcards: [
       {
@@ -674,6 +739,16 @@ From a global policy perspective, the conflict between growth and BoP equilibriu
         tags: ['long-run Phillips curve', 'NRU', 'inflation expectations', 'monetary policy'],
       },
     ],
+    lessonAssignment: {
+      prompt: `Bramoria is an advanced economy with a current unemployment rate of 3.2% and an estimated natural rate of unemployment of 4.8%. CPI inflation has been running at 6.8% for the past year, well above the central bank's 2% target. The government has proposed a large infrastructure spending programme to boost long-run growth, but the central bank is simultaneously raising interest rates to curb inflation. Bramoria also runs a persistent current account deficit of 5.2% of GDP.\n\n(a) Using a short-run Phillips curve diagram, illustrate Bramoria's current macroeconomic position. Identify whether the economy has an inflationary or recessionary gap. [4]\n\n(b) Explain the conflict between the central bank's interest rate policy and the government's growth objective. [4]\n\n(c) Analyse the likely effect of the central bank's interest rate increases on Bramoria's current account deficit. [4]\n\n(d) Evaluate the view that supply-side policies are the most effective way to resolve the macroeconomic objective conflicts facing Bramoria. [6]`,
+      rubric: `(a) [4 marks]: Correctly labelled axes (Inflation rate %, Unemployment %); downward-sloping short-run Phillips curve; long-run vertical Phillips curve at 4.8% (NRU); Bramoria plotted at (3.2%, 6.8%); correctly identified as inflationary gap (actual unemployment below NRU). Full marks require all elements.\n\n(b) [4 marks]: Higher interest rates reduce consumption and investment → AD falls → growth slows; conflicts with infrastructure spending objective (which requires low borrowing costs and high aggregate demand). Award marks for identifying mechanism on each side and the conflict between them.\n\n(c) [4 marks]: Higher interest rates → attract foreign capital → currency appreciates → exports become more expensive and imports cheaper → current account deficit may worsen (or improve if domestic demand falls sufficiently). Award 2 marks for each effect with chain of reasoning; note that the net effect is ambiguous and worth evaluating.\n\n(d) [6 marks]: Strengths — supply-side raises LRAS, grows potential output without inflationary pressure, can reduce structural unemployment, avoids Phillips curve trade-off. Limitations — operate slowly (years/decades), uncertain effects, costly to implement. Context: Bramoria's immediate problem is demand-side (inflation, inflationary gap) — supply-side alone cannot resolve the short-run conflict. Conclusion: supply-side is a long-run complement, not a short-run substitute. Balanced judgment required.`,
+      exampleTopics: [
+        'On the Phillips curve diagram, plot Bramoria at low unemployment (3.2%) and high inflation (6.8%) — this is above and to the left of the long-run vertical curve at the NRU, confirming an inflationary gap',
+        'The central bank–government conflict in part (b) is a classic policy coordination problem: higher rates slow the economy while the spending programme tries to expand it',
+        'For the current account effect in part (c), trace the full chain: interest rates → capital flows → exchange rate → export and import competitiveness — recognise the ambiguity',
+        'Supply-side policies avoid the Phillips curve trade-off by expanding capacity rather than demand — but their slow time horizon means they cannot solve Bramoria\'s immediate inflation problem',
+      ],
+    },
     quiz: [
       {
         id: 'ib5-l5-q1',
