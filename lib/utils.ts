@@ -46,8 +46,8 @@ export function levelFromXP(xp: number): { level: number; title: string; nextLev
     { min: 9000,  title: 'Economics Scholar',     next: 13000 },
     { min: 13000, title: 'Grand Economist',       next: Infinity },
   ]
-  const idx = levels.findLastIndex((l) => xp >= l.min)
-  const level = levels[Math.max(0, idx)]
+  const idx = Math.max(0, levels.findLastIndex((l) => xp >= l.min))
+  const level = levels[idx]
   return { level: idx + 1, title: level.title, nextLevelXP: level.next }
 }
 

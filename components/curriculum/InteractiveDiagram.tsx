@@ -67,7 +67,7 @@ interface Props {
 }
 
 // Map lesson IDs to specific diagram types for Foundation/Intermediate modules
-const LESSON_DIAGRAM_MAP: Record<string, string> = {
+export const LESSON_DIAGRAM_MAP: Record<string, string> = {
   'f1-l1': 'scarcity-slider',
   'f1-l2': 'scarcity-slider',
   'f1-l3': 'ppc-slider',

@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react'
 import type { FlashcardReview } from '@/lib/types'
 import { createClient } from '@/lib/supabase/client'
 import { cn } from '@/lib/utils'
+import { sm2 } from '@/lib/spaced-repetition'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -11,20 +12,6 @@ import { Progress } from '@/components/ui/progress'
 import {
   Zap, Trophy, RefreshCw, BookOpen, Filter, ChevronRight,
 } from 'lucide-react'
-
-// SM-2 algorithm
-function sm2(review: FlashcardReview, quality: number) {
-  const ef = Math.max(1.3, review.ease_factor + 0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02))
-  const interval =
-    quality < 3
-      ? 1
-      : review.interval_days === 1
-      ? 6
-      : Math.round(review.interval_days * ef)
-  const nextReview = new Date()
-  nextReview.setDate(nextReview.getDate() + interval)
-  return { ease_factor: ef, interval_days: interval, next_review_at: nextReview.toISOString() }
-}
 
 export interface FlashcardEntry {
   id: string
