@@ -61,9 +61,10 @@ Feedback must:
 Return ONLY valid JSON (no markdown fences): {"score": 9, "feedback": "Your detailed feedback here"}`
 
   try {
+    const rubricBlock = rubric ? `\n\nRubric — what to look for:\n${rubric}` : ''
     const userContent = isLessonPractice
-      ? `Lesson: ${lessonTitle ?? 'Unknown'} (Module: ${moduleId ?? ''})\n\nAssignment prompt: ${prompt}\n\nStudent's answer:\n${submission}`
-      : `Assignment Type: ${assignmentType}\n\nPrompt: ${prompt}\n\nStudent Response:\n${submission}`
+      ? `Lesson: ${lessonTitle ?? 'Unknown'} (Module: ${moduleId ?? ''})\n\nAssignment prompt: ${prompt}${rubricBlock}\n\nStudent's answer:\n${submission}`
+      : `Assignment Type: ${assignmentType}\n\nPrompt: ${prompt}${rubricBlock}\n\nStudent Response:\n${submission}`
 
     const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })
     const result = await groq.chat.completions.create({

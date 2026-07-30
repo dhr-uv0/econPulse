@@ -5,7 +5,6 @@ import { useMemo } from 'react'
 import type { Profile, Streak, CurriculumProgress, QuizResult, CurriculumModule } from '@/lib/types'
 import { levelFromXP, clampProgress } from '@/lib/utils'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
 import { Button } from '@/components/ui/button'
 import { StreakHeatmap } from '@/components/dashboard/StreakHeatmap'
@@ -69,11 +68,9 @@ export function DashboardHome({ profile, streak, progress, recentQuizzes, dueCar
 
   // Find the actual next lesson to study
   const nextLessonInfo = useMemo(() => {
-    for (const mod of curriculum) {
-      const next = mod.lessons.find((l) => !completedIds.has(l.id))
-      if (next) return { lesson: next, module: mod }
-    }
-    return null
+    const nextModule = curriculum.find((mod) => mod.lessons.some((l) => !completedIds.has(l.id)))
+    const nextLesson = nextModule?.lessons.find((l) => !completedIds.has(l.id))
+    return nextModule && nextLesson ? { lesson: nextLesson, module: nextModule } : null
   }, [curriculum, completedIds])
 
   const avgScore = useMemo(() => {

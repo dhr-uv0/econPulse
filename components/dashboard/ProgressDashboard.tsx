@@ -2,6 +2,7 @@
 
 import type { Profile, CurriculumProgress, QuizResult, Streak } from '@/lib/types'
 import { levelFromXP, clampProgress } from '@/lib/utils'
+import { CURRICULUM } from '@/lib/curriculum/data'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
@@ -43,7 +44,7 @@ export function ProgressDashboard({ profile, progress, quizzes, streak }: Props)
   const { level, title: levelTitle, nextLevelXP } = levelFromXP(xp)
 
   const completedLessons = progress.filter((p) => p.status === 'completed').length
-  const totalLessons = 600
+  const totalLessons = CURRICULUM.reduce((s, m) => s + m.lessons.length, 0)
   const overallPct = clampProgress(Math.round((completedLessons / totalLessons) * 100))
 
   const avgScore = quizzes.length
@@ -67,10 +68,10 @@ export function ProgressDashboard({ profile, progress, quizzes, streak }: Props)
     pct: clampProgress(Math.round((done / total) * 100)),
   }))
 
-  // Weekly study bar chart data (simulated)
+  // Weekly study bar chart data (simulated with a deterministic wave so it's stable across renders)
   const weeklyData = Array.from({ length: 8 }, (_, i) => ({
     week: `W${i + 1}`,
-    hours: Math.max(0, Math.round(totalStudyHours / 8 + (Math.random() - 0.5) * 2)),
+    hours: Math.max(0, Math.round(totalStudyHours / 8 + Math.sin(i * 2.4) * 1.5)),
   }))
 
   // Exam readiness

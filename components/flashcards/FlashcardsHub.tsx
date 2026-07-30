@@ -40,7 +40,7 @@ export interface FlashcardEntry {
   review?: FlashcardReview
 }
 
-type FilterMode = 'module' | 'lesson' | 'tag'
+type FilterMode = 'all' | 'module' | 'lesson' | 'tag'
 
 interface Props {
   cards: FlashcardEntry[]
@@ -52,6 +52,7 @@ export function FlashcardsHub({ cards, userId }: Props) {
 
   // Filter state
   const [filterMode, setFilterMode] = useState<FilterMode>('module')
+  const [selectedModule, setSelectedModule] = useState<string | null>(null)
   const [selectedLesson, setSelectedLesson] = useState<string | null>(null)
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
   const [sessionStarted, setSessionStarted] = useState(false)
@@ -63,17 +64,29 @@ export function FlashcardsHub({ cards, userId }: Props) {
   const [done, setDone] = useState(false)
   const [stats, setStats] = useState({ easy: 0, good: 0, hard: 0, again: 0 })
 
-  // Derive lessons and tags from cards
-  const lessons = useMemo(() => {
-    const map = new Map<string, { id: string; title: string; order: number; count: number }>()
+  // Derive modules, lessons, and tags from cards
+  const modules = useMemo(() => {
+    const map = new Map<string, { id: string; title: string; count: number }>()
     for (const c of cards) {
+      if (!map.has(c.moduleId)) {
+        map.set(c.moduleId, { id: c.moduleId, title: c.moduleTitle, count: 0 })
+      }
+      map.get(c.moduleId)!.count++
+    }
+    return [...map.values()].sort((a, b) => a.title.localeCompare(b.title))
+  }, [cards])
+
+  const lessons = useMemo(() => {
+    const pool = selectedModule ? cards.filter((c) => c.moduleId === selectedModule) : cards
+    const map = new Map<string, { id: string; title: string; order: number; count: number }>()
+    for (const c of pool) {
       if (!map.has(c.lessonId)) {
         map.set(c.lessonId, { id: c.lessonId, title: c.lessonTitle, order: c.lessonOrder, count: 0 })
       }
       map.get(c.lessonId)!.count++
     }
     return [...map.values()].sort((a, b) => a.order - b.order)
-  }, [cards])
+  }, [cards, selectedModule])
 
   const allTags = useMemo(() => {
     const set = new Set<string>()
@@ -83,11 +96,12 @@ export function FlashcardsHub({ cards, userId }: Props) {
 
   // Filter cards for the selected mode
   const filteredCards = useMemo(() => {
-    if (filterMode === 'module') return cards
+    if (filterMode === 'all') return cards
+    if (filterMode === 'module' && selectedModule) return cards.filter((c) => c.moduleId === selectedModule)
     if (filterMode === 'lesson' && selectedLesson) return cards.filter((c) => c.lessonId === selectedLesson)
     if (filterMode === 'tag' && selectedTag) return cards.filter((c) => c.tags.includes(selectedTag))
     return cards
-  }, [cards, filterMode, selectedLesson, selectedTag])
+  }, [cards, filterMode, selectedModule, selectedLesson, selectedTag])
 
   function startSession() {
     // Shuffle for variety
@@ -268,16 +282,16 @@ export function FlashcardsHub({ cards, userId }: Props) {
       <div>
         <h1 className="text-2xl font-extrabold text-[var(--fg)]">Flashcards</h1>
         <p className="text-[var(--muted-fg)] mt-1">
-          Module 1: The Economic Way of Thinking · {cards.length} cards total
+          {modules.length} modules · {cards.length} cards total
         </p>
       </div>
 
       {/* Filter mode tabs */}
-      <div className="flex gap-1 rounded-xl border border-[var(--border)] bg-[var(--muted)] p-1 max-w-sm">
-        {(['module', 'lesson', 'tag'] as FilterMode[]).map((mode) => (
+      <div className="flex gap-1 rounded-xl border border-[var(--border)] bg-[var(--muted)] p-1 max-w-md">
+        {(['all', 'module', 'lesson', 'tag'] as FilterMode[]).map((mode) => (
           <button
             key={mode}
-            onClick={() => { setFilterMode(mode); setSelectedLesson(null); setSelectedTag(null) }}
+            onClick={() => { setFilterMode(mode); setSelectedModule(null); setSelectedLesson(null); setSelectedTag(null) }}
             className={cn(
               'flex flex-1 items-center justify-center gap-1.5 rounded-lg py-2 text-xs font-semibold transition-all capitalize',
               filterMode === mode
@@ -285,13 +299,13 @@ export function FlashcardsHub({ cards, userId }: Props) {
                 : 'text-[var(--muted-fg)] hover:text-[var(--fg)]'
             )}
           >
-            {mode === 'module' ? 'Whole Module' : mode === 'lesson' ? 'By Lesson' : 'By Topic'}
+            {mode === 'all' ? 'All Cards' : mode === 'module' ? 'By Module' : mode === 'lesson' ? 'By Lesson' : 'By Topic'}
           </button>
         ))}
       </div>
 
-      {/* Whole module */}
-      {filterMode === 'module' && (
+      {/* All cards */}
+      {filterMode === 'all' && (
         <Card className="border-[var(--accent)]/30 bg-[var(--accent)]/5">
           <CardContent className="pt-5 pb-5 flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -299,8 +313,8 @@ export function FlashcardsHub({ cards, userId }: Props) {
                 <BookOpen className="h-5 w-5 text-[var(--accent)]" />
               </div>
               <div>
-                <p className="font-bold text-[var(--fg)]">The Economic Way of Thinking</p>
-                <p className="text-xs text-[var(--muted-fg)] mt-0.5">{cards.length} flashcards · All 5 lessons</p>
+                <p className="font-bold text-[var(--fg)]">Every flashcard in the curriculum</p>
+                <p className="text-xs text-[var(--muted-fg)] mt-0.5">{cards.length} flashcards · {modules.length} modules</p>
               </div>
             </div>
             <Button variant="gold" className="gap-1.5" onClick={startSession}>
@@ -309,6 +323,41 @@ export function FlashcardsHub({ cards, userId }: Props) {
             </Button>
           </CardContent>
         </Card>
+      )}
+
+      {/* By module */}
+      {filterMode === 'module' && !selectedModule && (
+        <div className="space-y-3">
+          {modules.map((mod) => (
+            <Card
+              key={mod.id}
+              className="cursor-pointer transition-all hover:shadow-md border-2 border-[var(--border)]"
+              onClick={() => setSelectedModule(mod.id)}
+            >
+              <CardContent className="pt-4 pb-4 flex items-center justify-between">
+                <div>
+                  <p className="font-semibold text-sm text-[var(--fg)]">{mod.title}</p>
+                  <p className="text-xs text-[var(--muted-fg)]">{mod.count} cards</p>
+                </div>
+                <ChevronRight className="h-4 w-4 text-[var(--muted-fg)]" />
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      )}
+      {filterMode === 'module' && selectedModule && (
+        <div className="space-y-3">
+          <button
+            onClick={() => setSelectedModule(null)}
+            className="text-xs font-semibold text-[var(--accent)] hover:underline"
+          >
+            ← All modules
+          </button>
+          <Button variant="gold" className="w-full gap-2" onClick={startSession}>
+            Start session · {filteredCards.length} cards
+            <ChevronRight className="h-3.5 w-3.5" />
+          </Button>
+        </div>
       )}
 
       {/* By lesson */}

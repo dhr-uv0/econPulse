@@ -76,6 +76,10 @@ export function OnboardingTour() {
     setRect(r)
   }, [step, shouldShow])
 
+  // `visible` is intentionally effect-driven (not derived from `shouldShow` directly)
+  // so the overlay never renders during SSR/hydration — it only appears once this
+  // client-only effect confirms the target DOM elements exist to spotlight.
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     if (!shouldShow) return
     setVisible(true)
@@ -83,6 +87,7 @@ export function OnboardingTour() {
     window.addEventListener('resize', updateRect)
     return () => window.removeEventListener('resize', updateRect)
   }, [shouldShow, updateRect])
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   const dismiss = () => {
     setVisible(false)
@@ -106,7 +111,7 @@ export function OnboardingTour() {
 
   // Calculate popover position based on target rect
   const popoverStyle: React.CSSProperties = {}
-  if (rect && popoverRef.current) {
+  if (rect) {
     const pw = 320
     const ph = 160
     switch (currentStep.placement) {

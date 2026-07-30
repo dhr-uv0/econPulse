@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
@@ -47,13 +47,11 @@ export function LoginPage() {
   const router = useRouter()
   const supabase = createClient()
 
-  useEffect(() => {
-    const errParam = searchParams.get('error')
-    const errDesc  = searchParams.get('error_description')
-    if (errParam) {
-      setError(ERROR_MESSAGES[errParam] ?? errDesc ?? 'An error occurred. Please try again.')
-    }
-  }, [searchParams])
+  const urlErrParam = searchParams.get('error')
+  const urlError = urlErrParam
+    ? ERROR_MESSAGES[urlErrParam] ?? searchParams.get('error_description') ?? 'An error occurred. Please try again.'
+    : null
+  const displayError = error ?? urlError
 
   // ── Google OAuth ────────────────────────────────────────────────────────────
   async function handleGoogle() {
@@ -152,58 +150,44 @@ export function LoginPage() {
     <div className="min-h-screen flex flex-col lg:flex-row">
 
       {/* Left panel — branding */}
-      <div className="hidden lg:flex lg:w-1/2 flex-col justify-between p-12 bg-[#111113] relative overflow-hidden">
-        <div aria-hidden className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-32 -right-32 h-[500px] w-[500px] rounded-full bg-[var(--accent)]/5 blur-3xl" />
-          <div className="absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-blue-500/5 blur-3xl" />
-          <svg className="absolute inset-0 h-full w-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="grid-lg" width="48" height="48" patternUnits="userSpaceOnUse">
-                <path d="M 48 0 L 0 0 0 48" fill="none" stroke="white" strokeWidth="1" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid-lg)" />
-          </svg>
-        </div>
-        <div className="relative flex items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--accent)]">
-            <TrendingUp className="h-5 w-5 text-[#111113]" strokeWidth={2.5} />
+      <div className="hidden lg:flex lg:w-1/2 flex-col justify-between p-12 bg-[#0a0a0a]">
+        <div className="flex items-center gap-2.5">
+          <div className="flex h-9 w-9 items-center justify-center rounded-[6px] bg-[var(--accent)]">
+            <TrendingUp className="h-5 w-5 text-white" strokeWidth={2.5} />
           </div>
           <span className="text-xl font-bold text-white">EconPulse</span>
         </div>
-        <div className="relative space-y-6">
-          <h2 className="text-4xl font-extrabold text-white leading-tight">
+        <div className="space-y-6">
+          <h2 className="text-4xl font-bold text-white leading-tight">
             Economics mastery{' '}
             <span className="text-[var(--accent)]">starts here.</span>
           </h2>
           <p className="text-white/60 text-lg leading-relaxed max-w-sm">
             A student-built platform for anyone who wants to genuinely understand economics — not just pass the test.
           </p>
-          <ul className="space-y-3">
+          <ul className="space-y-3.5">
             {BENEFITS.map(({ icon: Icon, text }) => (
               <li key={text} className="flex items-center gap-3 text-white/80 text-sm">
-                <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--accent)]/15">
-                  <Icon className="h-4 w-4 text-[var(--accent)]" />
-                </div>
+                <Icon className="h-4 w-4 text-[var(--accent)] shrink-0" />
                 {text}
               </li>
             ))}
           </ul>
         </div>
-        <div className="relative">
-          <blockquote className="text-white/40 text-sm italic">
+        <blockquote className="space-y-1">
+          <p className="text-white/40 text-sm italic leading-relaxed">
             &ldquo;Economics is the science of thinking in terms of models, joined to the art of choosing models which are relevant to the contemporary world.&rdquo;
-          </blockquote>
-          <cite className="mt-2 block text-white/30 text-xs not-italic">— John Maynard Keynes</cite>
-        </div>
+          </p>
+          <cite className="text-white/30 text-xs not-italic">— John Maynard Keynes</cite>
+        </blockquote>
       </div>
 
       {/* Right panel — auth */}
       <div className="flex flex-1 flex-col items-center justify-center px-5 py-16 sm:px-10">
         {/* Mobile logo */}
         <div className="mb-10 flex items-center gap-2 lg:hidden">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--accent)]">
-            <TrendingUp className="h-4 w-4 text-[var(--accent-fg)]" strokeWidth={2.5} />
+          <div className="flex h-8 w-8 items-center justify-center rounded-[6px] bg-[var(--accent)]">
+            <TrendingUp className="h-4 w-4 text-white" strokeWidth={2.5} />
           </div>
           <span className="text-lg font-bold text-[var(--fg)]">EconPulse</span>
         </div>
@@ -234,10 +218,10 @@ export function LoginPage() {
           </div>
 
           {/* Error / success banners */}
-          {error && (
+          {displayError && (
             <div className="flex items-start gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-600 dark:text-red-400">
               <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
-              <span>{error}</span>
+              <span>{displayError}</span>
             </div>
           )}
           {success && (
