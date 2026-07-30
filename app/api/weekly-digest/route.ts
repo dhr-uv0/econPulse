@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
-import Anthropic from '@anthropic-ai/sdk'
-
-const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
+import Groq from 'groq-sdk'
 
 /**
  * GET /api/weekly-digest
@@ -12,6 +10,13 @@ const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
  */
 export async function GET() {
   try {
+    if (!process.env.GROQ_API_KEY) {
+      return NextResponse.json(
+        { error: 'Weekly digest is not configured. Contact support.' },
+        { status: 503 }
+      )
+    }
+
     const supabase = await createClient()
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -66,10 +71,14 @@ This week's activity:
 - Weekly study goal: ${profile?.weekly_study_goal_hours ?? 5} hours / week (achieved: ~${(totalMinutesStudied / 60).toFixed(1)} hours)
 `
 
-    const response = await anthropic.messages.create({
-      model: 'claude-sonnet-4-6',
+    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })
+    const response = await groq.chat.completions.create({
+      model: 'llama-3.3-70b-versatile',
       max_tokens: 600,
-      system: `You are EconPulse's weekly digest generator. Create a brief, warm, motivating weekly study summary for an economics student. Structure it as:
+      messages: [
+        {
+          role: 'system',
+          content: `You are EconPulse's weekly digest generator. Create a brief, warm, motivating weekly study summary for an economics student. Structure it as:
 1. A one-sentence personalised greeting acknowledging their week
 2. **This Week's Highlights** — 3 bullet points about what they accomplished (be specific with numbers)
 3. **Where You Stand** — honest assessment of their pace toward their exam goal (1-2 sentences)
@@ -77,10 +86,12 @@ This week's activity:
 5. A short motivational sign-off (1 sentence)
 
 Be concise (under 250 words), data-driven, and genuinely encouraging — not generic. Use markdown formatting.`,
-      messages: [{ role: 'user', content: userContext }],
+        },
+        { role: 'user', content: userContext },
+      ],
     })
 
-    const digest = response.content[0].type === 'text' ? response.content[0].text : ''
+    const digest = response.choices[0]?.message?.content ?? ''
 
     return NextResponse.json({
       digest,
