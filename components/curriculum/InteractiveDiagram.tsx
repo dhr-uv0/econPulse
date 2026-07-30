@@ -1,11 +1,65 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState } from 'react'
 import { Card, CardContent } from '@/components/ui/card'
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
-  ResponsiveContainer, ReferenceLine, Area, AreaChart,
+  ResponsiveContainer, ReferenceLine,
 } from 'recharts'
+import { Ruler, LayoutGrid } from 'lucide-react'
+import { ExternalityDiagram, PublicGoodsSimulator } from '@/components/curriculum/diagrams/interactive/f5-widgets'
+import { UnemploymentTypes, CPICalculator } from '@/components/curriculum/diagrams/interactive/f6-widgets'
+import { RevenueCurves, ProfitMax } from '@/components/curriculum/diagrams/interactive/i1-widgets'
+import {
+  PerfectCompetitionDiagram, MonopolyDiagram, MonopolisticCompetitionDiagram,
+  OligopolyGame, PriceDiscrimination, MarketStructureComparison,
+} from '@/components/curriculum/diagrams/interactive/i2-widgets'
+import {
+  MRPLabourDemand, LabourMarketEquilibrium, MonopsonyLabourMarket,
+  EconomicRentCalculator, LorenzGiniCalculator,
+} from '@/components/curriculum/diagrams/interactive/i3-widgets'
+import {
+  AutomaticStabilizers, DebtSustainability, MoneyMarketDiagram, PolicyComparison,
+} from '@/components/curriculum/diagrams/interactive/i5-widgets'
+import {
+  ComparativeAdvantage, TariffDiagram, ExchangeRateMarket, BOPComponents,
+} from '@/components/curriculum/diagrams/interactive/i6-widgets'
+import {
+  AntitrustRegulation, ValueAddedCalculator, RealNominalGDP, MoneyMultiplier,
+  LoanableFundsMarket, PhillipsCurve, GrowthProductivity,
+} from '@/components/curriculum/diagrams/interactive/ap-widgets'
+import {
+  ConsumerProducerSurplus, YEDXEDClassifier, PESCalculator,
+  MarshallLernerJCurve, TermsOfTradeIndex, DevelopmentIndicators,
+} from '@/components/curriculum/diagrams/interactive/ib-widgets'
+import {
+  UtilityMaximization, SlutskyDecomposition, IsoquantCostMinimization,
+  EdgeworthBoxGE, ArrowsImpossibilityVoting, MatchingTheory,
+} from '@/components/curriculum/diagrams/interactive/ol1-widgets'
+import {
+  SolowGrowthModel, NewKeynesianPhillips, FisherMonetaryTheory,
+  RicardianEquivalenceMultiplier, MundellFlemingISLMBP,
+  ParetoWelfareFrontier, SocialWelfareFunction,
+} from '@/components/curriculum/diagrams/interactive/ol2-widgets'
+import {
+  GameSolver, GameTreeBackwardInduction, AuctionSimulator,
+} from '@/components/curriculum/diagrams/interactive/ol3-widgets'
+import {
+  OLSRegressionSandbox, InferenceAndOVB, CausalInferenceToolkit,
+} from '@/components/curriculum/diagrams/interactive/ol5-widgets'
+import {
+  HeckscherOhlinFactorIntensity, KrugmanNewTradeModel,
+} from '@/components/curriculum/diagrams/interactive/ol6-widgets'
+import {
+  OptimalTaxationRamsey, SocialInsuranceAdverseSelection, CostBenefitNPV,
+} from '@/components/curriculum/diagrams/interactive/ol7-widgets'
+import {
+  ProspectTheorySimulator, NudgeDefaultEffect, PovertyTrapDynamics,
+} from '@/components/curriculum/diagrams/interactive/ol8-widgets'
+import {
+  MarketingMixSimulator, ROASCalculator, FinancialStatementRatios,
+  TimeValueOfMoney, InvestmentPortfolioRisk,
+} from '@/components/curriculum/diagrams/interactive/dc-widgets'
 
 interface Props {
   lessonId: string
@@ -33,24 +87,183 @@ const LESSON_DIAGRAM_MAP: Record<string, string> = {
   'f4-l2': 'demand-curve-shifter',
   'f4-l3': 'demand-curve-shifter',
   'f4-l4': 'demand-curve-shifter',
+  'f5-l1': 'externality-diagram',
   'f5-l2': 'tax-incidence',
   'f5-l3': 'price-mechanism-simulator',
   'f5-l4': 'tax-incidence',
+  'f5-l5': 'public-goods-simulator',
   'f6-l1': 'gdp-components',
   'f6-l2': 'business-cycle',
+  'f6-l3': 'unemployment-types',
+  'f6-l4': 'cpi-calculator',
   'f6-l5': 'adas-diagram',
   'i1-l1': 'cost-curves',
   'i1-l2': 'cost-curves',
   'i1-l3': 'cost-curves',
   'i1-l4': 'cost-curves',
-  'i2-l1': 'demand-curve-shifter',
-  'i2-l2': 'demand-curve-shifter',
+  'i1-l5': 'revenue-curves',
+  'i1-l6': 'profit-max',
+  'i2-l1': 'perfect-competition-diagram',
+  'i2-l2': 'monopoly-diagram',
+  'i2-l3': 'monopolistic-competition-diagram',
+  'i2-l4': 'oligopoly-game',
+  'i2-l5': 'price-discrimination',
+  'i2-l6': 'market-structure-comparison',
+  'i3-l1': 'mrp-labour-demand',
+  'i3-l2': 'labour-market-equilibrium',
+  'i3-l3': 'monopsony-labour-market',
+  'i3-l4': 'economic-rent-calculator',
+  'i3-l5': 'lorenz-gini-calculator',
   'i4-l1': 'adas-diagram',
   'i4-l2': 'adas-diagram',
   'i4-l3': 'adas-diagram',
   'i4-l4': 'adas-diagram',
   'i4-l5': 'adas-diagram',
   'i4-l6': 'demand-curve-shifter',
+  'i5-l1': 'adas-diagram',
+  'i5-l2': 'automatic-stabilizers',
+  'i5-l3': 'debt-sustainability',
+  'i5-l4': 'money-market-diagram',
+  'i5-l5': 'money-market-diagram',
+  'i5-l6': 'policy-comparison',
+  'i6-l1': 'comparative-advantage',
+  'i6-l2': 'comparative-advantage',
+  'i6-l3': 'tariff-diagram',
+  'i6-l4': 'exchange-rate-market',
+  'i6-l5': 'bop-components',
+
+  // ── AP Economics ─────────────────────────────────────────────────────────
+  'ap1-l1': 'cost-curves',
+  'ap1-l2': 'cost-curves',
+  'ap1-l3': 'perfect-competition-diagram',
+  'ap1-l4': 'perfect-competition-diagram',
+  'ap2-l1': 'perfect-competition-diagram',
+  'ap2-l2': 'monopoly-diagram',
+  'ap2-l3': 'oligopoly-game',
+  'ap2-l4': 'monopolistic-competition-diagram',
+  'ap2-l5': 'labour-market-equilibrium',
+  'ap3-l1': 'externality-diagram',
+  'ap3-l2': 'public-goods-simulator',
+  'ap3-l3': 'antitrust-regulation',
+  'ap4-l1': 'gdp-components',
+  'ap4-l2': 'value-added-calculator',
+  'ap4-l3': 'real-nominal-gdp',
+  'ap4-l4': 'cpi-calculator',
+  'ap5-l1': 'money-market-diagram',
+  'ap5-l2': 'money-multiplier',
+  'ap5-l3': 'money-market-diagram',
+  'ap5-l4': 'loanable-funds-market',
+  'ap5-l5': 'phillips-curve',
+  'ap6-l1': 'exchange-rate-market',
+  'ap6-l2': 'bop-components',
+  'ap6-l3': 'solow-growth-model',
+  'ap7-l1': 'growth-productivity',
+  'ap7-l2': 'loanable-funds-market',
+  'ap7-l3': 'phillips-curve',
+  'ap7-l4': 'policy-comparison',
+  'ap7-l5': 'exchange-rate-market',
+
+  // ── IB Economics ─────────────────────────────────────────────────────────
+  'ib1-l1': 'scarcity-slider',
+  'ib1-l3': 'ppc-slider',
+  'ib2-l1': 'demand-curve-shifter',
+  'ib2-l2': 'demand-curve-shifter',
+  'ib2-l3': 'price-mechanism-simulator',
+  'ib2-l4': 'elasticity-calculator',
+  'ib2-l5': 'consumer-producer-surplus',
+  'ib2-l6': 'tax-incidence',
+  'ib3-l1': 'elasticity-calculator',
+  'ib3-l2': 'yed-xed-classifier',
+  'ib3-l3': 'pes-calculator',
+  'ib3-l4': 'tax-incidence',
+  'ib3-l5': 'price-mechanism-simulator',
+  'ib4-l1': 'cost-curves',
+  'ib4-l2': 'profit-max',
+  'ib4-l3': 'perfect-competition-diagram',
+  'ib4-l4': 'antitrust-regulation',
+  'ib4-l5': 'monopolistic-competition-diagram',
+  'ib4-l6': 'oligopoly-game',
+  'ib4-l7': 'price-discrimination',
+  'ib5-l1': 'gdp-components',
+  'ib5-l2': 'business-cycle',
+  'ib5-l3': 'unemployment-types',
+  'ib5-l4': 'cpi-calculator',
+  'ib5-l5': 'phillips-curve',
+  'ib6-l1': 'comparative-advantage',
+  'ib6-l2': 'tariff-diagram',
+  'ib6-l4': 'exchange-rate-market',
+  'ib6-l5': 'bop-components',
+  'ib6-l6': 'marshall-lerner-jcurve',
+  'ib6-l7': 'terms-of-trade-index',
+  'ib7-l1': 'development-indicators',
+  'ib7-l3': 'comparative-advantage',
+  'ib7-l4': 'debt-sustainability',
+  'ib7-l5': 'bop-components',
+  'ib8-l1': 'tariff-diagram',
+  'ib8-l2': 'lorenz-gini-calculator',
+  'ib8-l3': 'externality-diagram',
+  'ib8-l4': 'terms-of-trade-index',
+  'ib8-l5': 'marshall-lerner-jcurve',
+
+  // ── Olympiad ──────────────────────────────────────────────────────────────
+  'ol1-l1': 'utility-maximization',
+  'ol1-l2': 'slutsky-decomposition',
+  'ol1-l3': 'isoquant-cost-minimization',
+  'ol1-l4': 'edgeworth-box-ge',
+  'ol1-l5': 'arrows-impossibility-voting',
+  'ol1-l6': 'matching-theory',
+  'ol2-l1': 'solow-growth-model',
+  'ol2-l2': 'new-keynesian-phillips',
+  'ol2-l3': 'fisher-monetary-theory',
+  'ol2-l4': 'ricardian-equivalence-multiplier',
+  'ol2-l5': 'mundell-fleming-islmbp',
+  'ol3-l1': 'game-solver',
+  'ol3-l2': 'game-solver',
+  'ol3-l3': 'oligopoly-game',
+  'ol3-l4': 'game-tree-backward-induction',
+  'ol3-l5': 'auction-simulator',
+  'ol4-l1': 'pareto-welfare-frontier',
+  'ol4-l2': 'social-welfare-function',
+  'ol4-l3': 'edgeworth-box-ge',
+  'ol4-l4': 'arrows-impossibility-voting',
+  'ol4-l5': 'externality-diagram',
+  'ol5-l1': 'ols-regression-sandbox',
+  'ol5-l2': 'ols-regression-sandbox',
+  'ol5-l3': 'ols-regression-sandbox',
+  'ol5-l4': 'inference-and-ovb',
+  'ol5-l5': 'inference-and-ovb',
+  'ol5-l6': 'causal-inference-toolkit',
+  'ol5-l7': 'causal-inference-toolkit',
+  'ol6-l1': 'comparative-advantage',
+  'ol6-l2': 'heckscher-ohlin-factor-intensity',
+  'ol6-l3': 'krugman-new-trade-model',
+  'ol6-l4': 'tariff-diagram',
+  'ol6-l5': 'comparative-advantage',
+  'ol7-l1': 'public-goods-simulator',
+  'ol7-l2': 'optimal-taxation-ramsey',
+  'ol7-l3': 'social-insurance-adverse-selection',
+  'ol7-l4': 'arrows-impossibility-voting',
+  'ol7-l5': 'cost-benefit-npv',
+  'ol8-l2': 'prospect-theory-simulator',
+  'ol8-l3': 'nudge-default-effect',
+  'ol8-l4': 'poverty-trap-dynamics',
+  'ol8-l5': 'solow-growth-model',
+
+  // ── DECA ─────────────────────────────────────────────────────────────────
+  'dc2-l1': 'marketing-mix-simulator',
+  'dc2-l4': 'roas-calculator',
+  'dc3-l1': 'financial-statement-ratios',
+  'dc3-l2': 'time-value-of-money',
+  'dc3-l3': 'investment-portfolio-risk',
+  'dc3-l4': 'financial-statement-ratios',
+  'dc4-l2': 'revenue-curves',
+  'dc4-l3': 'monopolistic-competition-diagram',
+  'dc4-l4': 'profit-max',
+  'dc4-l5': 'cpi-calculator',
+  'dc4-l6': 'money-market-diagram',
+  'dc5-l1': 'business-cycle',
+  'dc5-l2': 'business-cycle',
+  'dc5-l3': 'exchange-rate-market',
 }
 
 export function InteractiveDiagram({ lessonId, diagramType }: Props) {
@@ -66,6 +279,76 @@ export function InteractiveDiagram({ lessonId, diagramType }: Props) {
     case 'adas-diagram':            return <ADASDiagram />
     case 'gdp-components':          return <GDPComponents />
     case 'business-cycle':          return <BusinessCycle />
+    case 'externality-diagram':     return <ExternalityDiagram />
+    case 'public-goods-simulator':  return <PublicGoodsSimulator />
+    case 'unemployment-types':      return <UnemploymentTypes />
+    case 'cpi-calculator':          return <CPICalculator />
+    case 'revenue-curves':          return <RevenueCurves />
+    case 'profit-max':              return <ProfitMax />
+    case 'perfect-competition-diagram':      return <PerfectCompetitionDiagram />
+    case 'monopoly-diagram':                 return <MonopolyDiagram />
+    case 'monopolistic-competition-diagram': return <MonopolisticCompetitionDiagram />
+    case 'oligopoly-game':                   return <OligopolyGame />
+    case 'price-discrimination':             return <PriceDiscrimination />
+    case 'market-structure-comparison':      return <MarketStructureComparison />
+    case 'mrp-labour-demand':          return <MRPLabourDemand />
+    case 'labour-market-equilibrium':  return <LabourMarketEquilibrium />
+    case 'monopsony-labour-market':    return <MonopsonyLabourMarket />
+    case 'economic-rent-calculator':   return <EconomicRentCalculator />
+    case 'lorenz-gini-calculator':     return <LorenzGiniCalculator />
+    case 'automatic-stabilizers': return <AutomaticStabilizers />
+    case 'debt-sustainability':   return <DebtSustainability />
+    case 'money-market-diagram':  return <MoneyMarketDiagram />
+    case 'policy-comparison':     return <PolicyComparison />
+    case 'comparative-advantage': return <ComparativeAdvantage />
+    case 'tariff-diagram':        return <TariffDiagram />
+    case 'exchange-rate-market':  return <ExchangeRateMarket />
+    case 'bop-components':        return <BOPComponents />
+    case 'antitrust-regulation':   return <AntitrustRegulation />
+    case 'value-added-calculator': return <ValueAddedCalculator />
+    case 'real-nominal-gdp':       return <RealNominalGDP />
+    case 'money-multiplier':       return <MoneyMultiplier />
+    case 'loanable-funds-market':  return <LoanableFundsMarket />
+    case 'phillips-curve':         return <PhillipsCurve />
+    case 'growth-productivity':    return <GrowthProductivity />
+    case 'consumer-producer-surplus': return <ConsumerProducerSurplus />
+    case 'yed-xed-classifier':        return <YEDXEDClassifier />
+    case 'pes-calculator':            return <PESCalculator />
+    case 'marshall-lerner-jcurve':    return <MarshallLernerJCurve />
+    case 'terms-of-trade-index':      return <TermsOfTradeIndex />
+    case 'development-indicators':    return <DevelopmentIndicators />
+    case 'utility-maximization':      return <UtilityMaximization />
+    case 'slutsky-decomposition':     return <SlutskyDecomposition />
+    case 'isoquant-cost-minimization': return <IsoquantCostMinimization />
+    case 'edgeworth-box-ge':           return <EdgeworthBoxGE />
+    case 'arrows-impossibility-voting': return <ArrowsImpossibilityVoting />
+    case 'matching-theory':             return <MatchingTheory />
+    case 'solow-growth-model':              return <SolowGrowthModel />
+    case 'new-keynesian-phillips':          return <NewKeynesianPhillips />
+    case 'fisher-monetary-theory':          return <FisherMonetaryTheory />
+    case 'ricardian-equivalence-multiplier': return <RicardianEquivalenceMultiplier />
+    case 'mundell-fleming-islmbp':          return <MundellFlemingISLMBP />
+    case 'pareto-welfare-frontier':         return <ParetoWelfareFrontier />
+    case 'social-welfare-function':         return <SocialWelfareFunction />
+    case 'game-solver':                  return <GameSolver />
+    case 'game-tree-backward-induction': return <GameTreeBackwardInduction />
+    case 'auction-simulator':            return <AuctionSimulator />
+    case 'ols-regression-sandbox':      return <OLSRegressionSandbox />
+    case 'inference-and-ovb':           return <InferenceAndOVB />
+    case 'causal-inference-toolkit':    return <CausalInferenceToolkit />
+    case 'heckscher-ohlin-factor-intensity': return <HeckscherOhlinFactorIntensity />
+    case 'krugman-new-trade-model':          return <KrugmanNewTradeModel />
+    case 'optimal-taxation-ramsey':            return <OptimalTaxationRamsey />
+    case 'social-insurance-adverse-selection': return <SocialInsuranceAdverseSelection />
+    case 'cost-benefit-npv':                   return <CostBenefitNPV />
+    case 'prospect-theory-simulator': return <ProspectTheorySimulator />
+    case 'nudge-default-effect':      return <NudgeDefaultEffect />
+    case 'poverty-trap-dynamics':     return <PovertyTrapDynamics />
+    case 'marketing-mix-simulator':    return <MarketingMixSimulator />
+    case 'roas-calculator':            return <ROASCalculator />
+    case 'financial-statement-ratios': return <FinancialStatementRatios />
+    case 'time-value-of-money':        return <TimeValueOfMoney />
+    case 'investment-portfolio-risk':  return <InvestmentPortfolioRisk />
     default:                        return <DefaultDiagram lessonId={lessonId} exerciseText={diagramType} />
   }
 }
@@ -74,7 +357,6 @@ export function InteractiveDiagram({ lessonId, diagramType }: Props) {
 function DemandCurveShifter() {
   const [demandShift, setDemandShift] = useState(0)   // -2 to +2
   const [supplyShift, setSupplyShift] = useState(0)   // -2 to +2
-  const [showSurplus, setShowSurplus] = useState(false)
 
   const D_INTERCEPT = 10 + demandShift * 1.5
   const S_INTERCEPT = 2  + supplyShift * 1.5
@@ -168,9 +450,9 @@ function DemandCurveShifter() {
               <span>Increase demand →</span>
             </div>
             <p className="text-xs text-[var(--muted-fg)]">
-              {demandShift < 0 ? '📉 Demand decreases (e.g., income falls, substitute gets cheaper)' :
-               demandShift > 0 ? '📈 Demand increases (e.g., income rises, advertising, fashion trend)' :
-               '↔ Demand unchanged'}
+              {demandShift < 0 ? 'Demand decreases (e.g., income falls, substitute gets cheaper)' :
+               demandShift > 0 ? 'Demand increases (e.g., income rises, advertising, fashion trend)' :
+               'Demand unchanged'}
             </p>
           </div>
 
@@ -189,9 +471,9 @@ function DemandCurveShifter() {
               <span>Increase supply →</span>
             </div>
             <p className="text-xs text-[var(--muted-fg)]">
-              {supplyShift < 0 ? '📉 Supply decreases (e.g., input costs rise, natural disaster)' :
-               supplyShift > 0 ? '📈 Supply increases (e.g., technology improves, new firms enter)' :
-               '↔ Supply unchanged'}
+              {supplyShift < 0 ? 'Supply decreases (e.g., input costs rise, natural disaster)' :
+               supplyShift > 0 ? 'Supply increases (e.g., technology improves, new firms enter)' :
+               'Supply unchanged'}
             </p>
           </div>
         </div>
@@ -308,7 +590,7 @@ function PPCSlider() {
               aria-label="Simulate economic growth"
             />
             <p className="text-xs text-[var(--muted-fg)]">
-              {growthLevel > 0 ? '📈 Outward shift: technology or resource improvement' : 'Baseline — no growth'}
+              {growthLevel > 0 ? 'Outward shift: technology or resource improvement' : 'Baseline — no growth'}
             </p>
           </div>
         </div>
@@ -371,8 +653,8 @@ function ScarcityDiagram() {
             </div>
             <div className="mt-1 text-sm text-[var(--muted-fg)]">
               {gap > 0
-                ? '⚠ Scarcity exists → choices must be made → opportunity costs arise'
-                : '✓ Resources exceed wants → no economic problem (theoretical)'
+                ? 'Scarcity exists → choices must be made → opportunity costs arise'
+                : 'Resources exceed wants → no economic problem (theoretical)'
               }
             </div>
           </div>
@@ -437,10 +719,10 @@ function PriceMechanism() {
 
         <div className="rounded-lg bg-[var(--muted)] p-3 text-sm text-[var(--muted-fg)]">
           {surplus > 0
-            ? '📉 Surplus → producers cut price → Qd ↑, Qs ↓ → moves toward equilibrium'
+            ? 'Surplus → producers cut price → Qd ↑, Qs ↓ → moves toward equilibrium'
             : shortage > 0
-            ? '📈 Shortage → consumers bid up price → Qd ↓, Qs ↑ → moves toward equilibrium'
-            : '✓ Market is in equilibrium — no tendency to change'}
+            ? 'Shortage → consumers bid up price → Qd ↓, Qs ↑ → moves toward equilibrium'
+            : 'Market is in equilibrium — no tendency to change'}
         </div>
       </CardContent>
     </Card>
@@ -476,21 +758,21 @@ function ElasticityCalculator() {
           <div className="space-y-4">
             <div className="space-y-2">
               <label className="text-sm font-semibold text-[var(--fg)]">Original Price (P₁): ${p1}</label>
-              <input type="range" min={1} max={20} value={p1} onChange={(e) => setP1(Number(e.target.value))} className="w-full accent-blue-500" />
+              <input type="range" min={1} max={20} value={p1} onChange={(e) => setP1(Number(e.target.value))} className="w-full accent-blue-500" aria-label="Original price" />
             </div>
             <div className="space-y-2">
               <label className="text-sm font-semibold text-[var(--fg)]">New Price (P₂): ${p2}</label>
-              <input type="range" min={1} max={30} value={p2} onChange={(e) => setP2(Number(e.target.value))} className="w-full accent-blue-500" />
+              <input type="range" min={1} max={30} value={p2} onChange={(e) => setP2(Number(e.target.value))} className="w-full accent-blue-500" aria-label="New price" />
             </div>
           </div>
           <div className="space-y-4">
             <div className="space-y-2">
               <label className="text-sm font-semibold text-[var(--fg)]">Original Qty (Q₁): {q1}</label>
-              <input type="range" min={10} max={200} value={q1} onChange={(e) => setQ1(Number(e.target.value))} className="w-full accent-green-500" />
+              <input type="range" min={10} max={200} value={q1} onChange={(e) => setQ1(Number(e.target.value))} className="w-full accent-green-500" aria-label="Original quantity" />
             </div>
             <div className="space-y-2">
               <label className="text-sm font-semibold text-[var(--fg)]">New Qty (Q₂): {q2}</label>
-              <input type="range" min={10} max={200} value={q2} onChange={(e) => setQ2(Number(e.target.value))} className="w-full accent-green-500" />
+              <input type="range" min={10} max={200} value={q2} onChange={(e) => setQ2(Number(e.target.value))} className="w-full accent-green-500" aria-label="New quantity" />
             </div>
           </div>
         </div>
@@ -578,11 +860,11 @@ function TaxIncidence() {
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
             <label className="text-sm font-semibold">Per-unit tax: ${taxRate}</label>
-            <input type="range" min={0} max={6} step={0.5} value={taxRate} onChange={(e) => setTaxRate(Number(e.target.value))} className="w-full accent-red-500" />
+            <input type="range" min={0} max={6} step={0.5} value={taxRate} onChange={(e) => setTaxRate(Number(e.target.value))} className="w-full accent-red-500" aria-label="Per-unit tax" />
           </div>
           <div className="space-y-2">
             <label className="text-sm font-semibold">Demand elasticity: {pedSlider <= 3 ? 'Inelastic' : pedSlider >= 8 ? 'Elastic' : 'Moderate'}</label>
-            <input type="range" min={1} max={10} value={pedSlider} onChange={(e) => setPedSlider(Number(e.target.value))} className="w-full accent-blue-500" />
+            <input type="range" min={1} max={10} value={pedSlider} onChange={(e) => setPedSlider(Number(e.target.value))} className="w-full accent-blue-500" aria-label="Demand elasticity" />
           </div>
         </div>
 
@@ -649,12 +931,12 @@ function CostCurves() {
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
             <label className="text-sm font-semibold">Total Fixed Cost: ${tfc}</label>
-            <input type="range" min={20} max={300} step={10} value={tfc} onChange={(e) => setTfc(Number(e.target.value))} className="w-full accent-blue-500" />
+            <input type="range" min={20} max={300} step={10} value={tfc} onChange={(e) => setTfc(Number(e.target.value))} className="w-full accent-blue-500" aria-label="Total fixed cost" />
             <p className="text-xs text-[var(--muted-fg)]">Higher TFC → AFC curve shifts up, ATC shifts up</p>
           </div>
           <div className="space-y-2">
             <label className="text-sm font-semibold">Variable cost factor: {variable}</label>
-            <input type="range" min={1} max={10} value={variable} onChange={(e) => setVariable(Number(e.target.value))} className="w-full accent-green-500" />
+            <input type="range" min={1} max={10} value={variable} onChange={(e) => setVariable(Number(e.target.value))} className="w-full accent-green-500" aria-label="Variable cost factor" />
             <p className="text-xs text-[var(--muted-fg)]">Higher variable costs → AVC and MC shift up</p>
           </div>
         </div>
@@ -724,13 +1006,13 @@ function ADASDiagram() {
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
             <label className="text-sm font-semibold text-blue-500">AD Shift (demand shock): {adShift > 0 ? '+' : ''}{adShift}</label>
-            <input type="range" min={-3} max={3} step={0.5} value={adShift} onChange={(e) => setAdShift(Number(e.target.value))} className="w-full accent-blue-500" />
-            <p className="text-xs text-[var(--muted-fg)]">{adShift > 0 ? '📈 Positive demand shock (stimulus, confidence rise)' : adShift < 0 ? '📉 Negative demand shock (recession, fear, austerity)' : 'AD neutral'}</p>
+            <input type="range" min={-3} max={3} step={0.5} value={adShift} onChange={(e) => setAdShift(Number(e.target.value))} className="w-full accent-blue-500" aria-label="Shift AD curve" />
+            <p className="text-xs text-[var(--muted-fg)]">{adShift > 0 ? 'Positive demand shock (stimulus, confidence rise)' : adShift < 0 ? 'Negative demand shock (recession, fear, austerity)' : 'AD neutral'}</p>
           </div>
           <div className="space-y-2">
             <label className="text-sm font-semibold text-amber-500">SRAS Shift (supply shock): {srasShift > 0 ? '+' : ''}{srasShift}</label>
-            <input type="range" min={-3} max={3} step={0.5} value={srasShift} onChange={(e) => setSrasShift(Number(e.target.value))} className="w-full accent-amber-500" />
-            <p className="text-xs text-[var(--muted-fg)]">{srasShift > 0 ? '✅ Favourable supply shock (tech, lower input costs)' : srasShift < 0 ? '⚠️ Adverse supply shock (oil crisis, stagflation)' : 'SRAS neutral'}</p>
+            <input type="range" min={-3} max={3} step={0.5} value={srasShift} onChange={(e) => setSrasShift(Number(e.target.value))} className="w-full accent-amber-500" aria-label="Shift SRAS curve" />
+            <p className="text-xs text-[var(--muted-fg)]">{srasShift > 0 ? 'Favourable supply shock (tech, lower input costs)' : srasShift < 0 ? 'Adverse supply shock (oil crisis, stagflation)' : 'SRAS neutral'}</p>
           </div>
         </div>
 
@@ -801,7 +1083,7 @@ function GDPComponents() {
           ].map(({ label, val, set, min, max, color }) => (
             <div key={label} className="space-y-1">
               <label className="text-xs font-semibold text-[var(--muted-fg)]">{label}: ${val}B</label>
-              <input type="range" min={min} max={max} value={val} onChange={(e) => set(Number(e.target.value))} className={`w-full accent-${color}-500`} />
+              <input type="range" min={min} max={max} value={val} onChange={(e) => set(Number(e.target.value))} className={`w-full accent-${color}-500`} aria-label={label} />
             </div>
           ))}
         </div>
@@ -882,7 +1164,7 @@ function DefaultDiagram({ lessonId, exerciseText }: { lessonId: string; exercise
       <Card>
         <CardContent className="pt-6 space-y-4">
           <div className="flex items-center gap-2">
-            <span className="text-2xl">📐</span>
+            <Ruler className="h-5 w-5 text-[var(--accent)]" />
             <h3 className="font-bold text-[var(--fg)]">Diagram &amp; Exercise</h3>
           </div>
           <p className="text-sm text-[var(--muted-fg)] italic">
@@ -901,7 +1183,7 @@ function DefaultDiagram({ lessonId, exerciseText }: { lessonId: string; exercise
   return (
     <Card>
       <CardContent className="pt-6 text-center text-[var(--muted-fg)] py-12">
-        <div className="text-4xl mb-3">📊</div>
+        <LayoutGrid className="h-9 w-9 mx-auto mb-3 opacity-50" />
         <p className="font-semibold">Interactive diagram for this lesson is coming soon.</p>
         <p className="text-sm mt-1">Lesson: {lessonId}</p>
       </CardContent>

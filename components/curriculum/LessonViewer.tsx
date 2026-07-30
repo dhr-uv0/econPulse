@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { LessonQuiz } from '@/components/curriculum/LessonQuiz'
 import { VocabFlashcards } from '@/components/curriculum/VocabFlashcards'
+import { InteractiveDiagram } from '@/components/curriculum/InteractiveDiagram'
 import {
   ChevronLeft, ChevronRight, Check, ChevronDown, ChevronUp,
   Lightbulb, AlertTriangle, GraduationCap, Sparkles,
@@ -33,7 +34,7 @@ interface Props {
   initialStatus: LessonStatus
 }
 
-type Tab = 'lesson' | 'vocab' | 'assignment' | 'quiz'
+type Tab = 'lesson' | 'diagram' | 'vocab' | 'assignment' | 'quiz'
 
 export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Props) {
   const router = useRouter()
@@ -47,7 +48,11 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
   const [startTime] = useState(() => Date.now())
   const adaptiveApplied = useRef(false)
 
-  // Apply adaptive tab selection and difficulty once preferences load
+  // Apply adaptive tab selection and difficulty once preferences load.
+  // Guarded by adaptiveApplied so this only ever fires once per mount, after
+  // prefs finishes its async fetch — there's no synchronous way to know prefs
+  // before that resolves, so a one-shot effect is the correct tool here.
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     if (!prefs || adaptiveApplied.current) return
     adaptiveApplied.current = true
@@ -59,6 +64,7 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
       setDeeperOpen(true)
     }
   }, [prefs, lesson.content.interactiveElement, lesson.content.deeperDive])
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   // Track time spent
   useEffect(() => {
@@ -95,6 +101,7 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
 
   const tabs: { id: Tab; label: string; shortLabel: string; icon: React.ReactNode }[] = [
     { id: 'lesson',     label: 'Lesson',     shortLabel: 'Lesson', icon: <BookOpen className="h-3.5 w-3.5" /> },
+    { id: 'diagram',    label: 'Explore',    shortLabel: 'Explore', icon: <Sparkles className="h-3.5 w-3.5" /> },
     { id: 'vocab',      label: 'Vocabulary', shortLabel: 'Vocab',  icon: <GraduationCap className="h-3.5 w-3.5" /> },
     ...(lesson.lessonAssignment ? [{ id: 'assignment' as Tab, label: 'Assignment', shortLabel: 'Task', icon: <PenLine className="h-3.5 w-3.5" /> }] : []),
     { id: 'quiz',       label: 'Quiz',       shortLabel: 'Quiz',   icon: <Check className="h-3.5 w-3.5" /> },
@@ -401,6 +408,10 @@ export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Pro
             </Button>
           </div>
         </div>
+      )}
+
+      {activeTab === 'diagram' && (
+        <InteractiveDiagram lessonId={lesson.id} diagramType={lesson.content.interactiveElement} />
       )}
 
       {activeTab === 'vocab' && (
