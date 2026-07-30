@@ -52,9 +52,12 @@ const DIFFICULTY_QUESTIONS = [
   },
 ]
 
-function tally<T extends string>(votes: T[]): T {
+function tally<T extends string>(votes: T[], tieFallback: T): T {
   const counts = votes.reduce((acc, v) => ({ ...acc, [v]: (acc[v] ?? 0) + 1 }), {} as Record<T, number>)
-  return Object.entries(counts).sort(([, a], [, b]) => (b as number) - (a as number))[0][0] as T
+  const sorted = Object.entries(counts).sort(([, a], [, b]) => (b as number) - (a as number))
+  if (sorted.length === 0) return tieFallback
+  if (sorted.length > 1 && sorted[0][1] === sorted[1][1]) return tieFallback
+  return sorted[0][0] as T
 }
 
 export function LearningStyleQuiz() {
@@ -83,10 +86,10 @@ export function LearningStyleQuiz() {
     } else {
       // All answered — save and redirect
       setSaving(true)
-      const finalStyle = tally([...styleVotes, ...(isStyleQ ? [value as LearningStyle] : [])])
-      const finalDiff  = tally([...diffVotes,  ...(isStyleQ ? [] : [value as DifficultyMode])])
+      const finalStyle = tally([...styleVotes, ...(isStyleQ ? [value as LearningStyle] : [])], 'mixed')
+      const finalDiff  = tally([...diffVotes,  ...(isStyleQ ? [] : [value as DifficultyMode])], 'standard')
       await completeOnboarding(finalStyle, finalDiff)
-      router.push('/dashboard')
+      router.push('/dashboard?onboarding=true')
     }
   }
 
@@ -147,7 +150,7 @@ export function LearningStyleQuiz() {
         </div>
 
         <button
-          onClick={() => router.push('/dashboard')}
+          onClick={() => router.push('/dashboard?onboarding=true')}
           className="w-full text-center text-xs text-[var(--muted-fg)] hover:text-[var(--fg)] transition-colors"
         >
           Skip — use default settings

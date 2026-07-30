@@ -7,8 +7,11 @@ import { formatDate } from '@/lib/utils'
 interface Props { quizzes: QuizResult[] }
 
 export function QuizScoreTrend({ quizzes }: Props) {
+  // Callers pass quizzes in different orders (dashboard page queries newest-first,
+  // progress page queries oldest-first), so sort explicitly by date rather than
+  // assuming a caller-supplied order — otherwise the line chart can plot right-to-left.
   const data = [...quizzes]
-    .reverse()
+    .sort((a, b) => new Date(a.completed_at).getTime() - new Date(b.completed_at).getTime())
     .map((q) => ({
       date: formatDate(q.completed_at),
       score: Math.round((q.score / q.total_questions) * 100),

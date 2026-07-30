@@ -62,10 +62,10 @@ export function PPFDiagram() {
         <text x="256" y="84" fontSize="9" fill="#22c55e" fontFamily="inherit" opacity="0.85">Growth</text>
 
         {/* ── Point A: ON the curve (efficient) ~t=0.45 ── */}
-        {/* Cubic bezier at t≈0.45: x≈196, y≈113 */}
-        <circle cx="196" cy="113" r="5" fill="#22c55e" />
-        <text x="212" y="111" fontSize="10" fill="currentColor" fontFamily="inherit" fontWeight="600">A</text>
-        <text x="212" y="123" fontSize="8.5" fill="currentColor" opacity="0.6" fontFamily="inherit">Efficient</text>
+        {/* Cubic bezier "M 50 40 C 185 40 295 168 295 255" at t=0.45: x≈209, y≈102 */}
+        <circle cx="209" cy="102" r="5" fill="#22c55e" />
+        <text x="192" y="100" fontSize="10" fill="currentColor" fontFamily="inherit" fontWeight="600" textAnchor="end">A</text>
+        <text x="192" y="112" fontSize="8.5" fill="currentColor" opacity="0.6" fontFamily="inherit" textAnchor="end">Efficient</text>
 
         {/* ── Point B: INSIDE the curve (inefficient) ── */}
         <circle cx="145" cy="165" r="5" fill="currentColor" fillOpacity="0.25" stroke="currentColor" strokeWidth="1.5" opacity="0.6" />

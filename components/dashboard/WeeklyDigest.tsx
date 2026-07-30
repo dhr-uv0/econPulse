@@ -55,8 +55,14 @@ export function WeeklyDigest() {
     setError(null)
     try {
       const res = await fetch('/api/weekly-digest')
-      if (!res.ok) throw new Error('Failed to generate digest')
-      const data = await res.json()
+      const data = await res.json().catch(() => null)
+      if (!res.ok) {
+        // Route returns { error: '...' } for 401/503/500 — surface that message
+        // (e.g. "Weekly digest is not configured. Contact support.") instead of a
+        // generic retry prompt that doesn't fit a non-transient failure.
+        setError(data?.error || 'Could not generate your digest. Try again in a moment.')
+        return
+      }
       setDigest(data.digest)
       setStats(data.stats)
       setExpanded(true)

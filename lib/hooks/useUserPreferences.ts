@@ -35,7 +35,7 @@ export function useUserPreferences() {
         .from('user_preferences')
         .select('*')
         .eq('user_id', user.id)
-        .single()
+        .maybeSingle()
 
       if (!cancelled) {
         if (data) {
@@ -55,19 +55,23 @@ export function useUserPreferences() {
 
   const update = useCallback(async (patch: Partial<Pick<UserPreferences, 'learning_style' | 'difficulty' | 'onboarding_completed' | 'manual_override'>>) => {
     const { data: { user } } = await supabase.auth.getUser()
-    if (!user || !prefs) return
+    if (!user) return
 
-    const updated = { ...prefs, ...patch, manual_override: true, updated_at: new Date().toISOString() }
+    // Fall back to defaults if the initial fetch hasn't resolved yet, so a fast
+    // caller can't silently no-op and drop the write.
+    const base = prefs ?? { ...DEFAULTS, user_id: user.id, updated_at: new Date().toISOString() }
+    const updated = { ...base, ...patch, manual_override: true, updated_at: new Date().toISOString() }
     setPrefs(updated)
     await supabase.from('user_preferences').upsert(updated)
   }, [prefs, supabase])
 
   const completeOnboarding = useCallback(async (style: LearningStyle, difficulty: DifficultyMode) => {
     const { data: { user } } = await supabase.auth.getUser()
-    if (!user || !prefs) return
+    if (!user) return
 
+    const base = prefs ?? { ...DEFAULTS, user_id: user.id, updated_at: new Date().toISOString() }
     const updated = {
-      ...prefs,
+      ...base,
       learning_style: style,
       difficulty,
       onboarding_completed: true,

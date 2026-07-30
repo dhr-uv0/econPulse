@@ -1,5 +1,6 @@
 'use client'
 
+import { useMemo } from 'react'
 import type { Profile, CurriculumProgress, QuizResult, Streak } from '@/lib/types'
 import { levelFromXP, clampProgress } from '@/lib/utils'
 import { CURRICULUM } from '@/lib/curriculum/data'
@@ -68,11 +69,24 @@ export function ProgressDashboard({ profile, progress, quizzes, streak }: Props)
     pct: clampProgress(Math.round((done / total) * 100)),
   }))
 
-  // Weekly study bar chart data (simulated with a deterministic wave so it's stable across renders)
-  const weeklyData = Array.from({ length: 8 }, (_, i) => ({
-    week: `W${i + 1}`,
-    hours: Math.max(0, Math.round(totalStudyHours / 8 + Math.sin(i * 2.4) * 1.5)),
-  }))
+  // Weekly study bar chart data — real per-week totals from time_spent_seconds,
+  // bucketed by how many 7-day periods ago each lesson visit's last_accessed
+  // falls (W1 = 7 weeks ago, W8 = current week). Memoized since it reads
+  // Date.now(), which must not be called directly in the render body.
+  const weeklyData = useMemo(() => {
+    const now = new Date().getTime()
+    const weekMs = 7 * 24 * 60 * 60 * 1000
+    const secondsByWeeksAgo = new Array(8).fill(0)
+    for (const p of progress) {
+      if (!p.last_accessed || !p.time_spent_seconds) continue
+      const weeksAgo = Math.floor((now - new Date(p.last_accessed).getTime()) / weekMs)
+      if (weeksAgo >= 0 && weeksAgo < 8) secondsByWeeksAgo[weeksAgo] += p.time_spent_seconds
+    }
+    return Array.from({ length: 8 }, (_, i) => ({
+      week: `W${i + 1}`,
+      hours: Math.round((secondsByWeeksAgo[7 - i] / 3600) * 10) / 10,
+    }))
+  }, [progress])
 
   // Exam readiness
   const targetExam = profile?.target_exam
@@ -141,7 +155,7 @@ export function ProgressDashboard({ profile, progress, quizzes, streak }: Props)
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <StreakHeatmap />
+              <StreakHeatmap progress={progress} />
               <div className="mt-3 flex items-center gap-4 text-xs text-[var(--muted-fg)]">
                 <span>Current streak: <strong className="text-[var(--fg)]">{streak?.current_streak ?? 0} days</strong></span>
                 <span>Longest: <strong className="text-[var(--fg)]">{streak?.longest_streak ?? 0} days</strong></span>

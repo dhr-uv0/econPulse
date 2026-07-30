@@ -18,6 +18,7 @@ export default async function Leaderboard() {
     supabase
       .from('leaderboard_opt_ins')
       .select(`
+        user_id,
         display_name,
         opted_in,
         profiles!inner(xp_points),

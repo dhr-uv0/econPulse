@@ -5,6 +5,8 @@ export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url)
   const code = searchParams.get('code')
   const next = searchParams.get('next') ?? '/dashboard'
+  const providerError = searchParams.get('error')
+  const providerErrorDescription = searchParams.get('error_description')
 
   if (code) {
     const supabase = await createClient()
@@ -58,6 +60,14 @@ export async function GET(request: Request) {
     }
   }
 
-  // Error: redirect to login with error
+  // Error: redirect to login, preserving the upstream error reason when the
+  // provider (e.g. Google via Supabase) sent one, so messages like
+  // "access_denied" surface correctly instead of always showing the generic
+  // fallback.
+  if (providerError) {
+    const params = new URLSearchParams({ error: providerError })
+    if (providerErrorDescription) params.set('error_description', providerErrorDescription)
+    return NextResponse.redirect(`${origin}/login?${params.toString()}`)
+  }
   return NextResponse.redirect(`${origin}/login?error=auth_callback_failed`)
 }

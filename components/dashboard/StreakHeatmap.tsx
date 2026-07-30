@@ -1,22 +1,35 @@
 'use client'
 
 import { useMemo } from 'react'
+import type { CurriculumProgress } from '@/lib/types'
 
-// Generates 52 weeks × 7 days of fake-but-realistic activity for display
-function generateHeatmapData(): number[] {
-  const data: number[] = []
+const TOTAL_DAYS = 365
+
+// YYYY-MM-DD in local time — matches how `d` below is constructed (also
+// local time), so grouping and lookup use the same calendar day consistently.
+function localDateKey(date: Date): string {
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`
+}
+
+// Builds 365 days of real activity levels from the user's actual lesson-visit
+// timestamps, bucketing "lessons touched that day" into the 0-5 intensity
+// scale the heatmap cells render.
+function buildHeatmapData(progress: CurriculumProgress[]): number[] {
+  const countByDay = new Map<string, number>()
+  for (const p of progress) {
+    if (!p.last_accessed) continue
+    const key = localDateKey(new Date(p.last_accessed))
+    countByDay.set(key, (countByDay.get(key) ?? 0) + 1)
+  }
+
   const today = new Date()
-  for (let i = 364; i >= 0; i--) {
+  const data: number[] = []
+  for (let i = TOTAL_DAYS - 1; i >= 0; i--) {
     const d = new Date(today)
     d.setDate(today.getDate() - i)
-    // Simulate activity — in production this comes from Supabase
-    const rand = Math.random()
-    if (rand < 0.35) data.push(0)
-    else if (rand < 0.55) data.push(1)
-    else if (rand < 0.70) data.push(2)
-    else if (rand < 0.82) data.push(3)
-    else if (rand < 0.92) data.push(4)
-    else data.push(5)
+    const count = countByDay.get(localDateKey(d)) ?? 0
+    const level = count === 0 ? 0 : count === 1 ? 1 : count <= 2 ? 2 : count <= 4 ? 3 : count <= 6 ? 4 : 5
+    data.push(level)
   }
   return data
 }
@@ -24,12 +37,19 @@ function generateHeatmapData(): number[] {
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 const DAYS   = ['', 'Mon', '', 'Wed', '', 'Fri', '']
 
-export function StreakHeatmap() {
-  const data = useMemo(() => generateHeatmapData(), [])
+interface Props {
+  progress: CurriculumProgress[]
+}
 
-  // Split into 52 weeks (some may be partial)
+export function StreakHeatmap({ progress }: Props) {
+  const data = useMemo(() => buildHeatmapData(progress), [progress])
+
+  // Split into weeks (last week may be partial). Using Math.ceil ensures every
+  // generated day — including today, the most recent entry — is actually rendered;
+  // a fixed 52-week split silently dropped the final (most recent) day.
+  const weekCount = Math.ceil(data.length / 7)
   const weeks: number[][] = []
-  for (let w = 0; w < 52; w++) {
+  for (let w = 0; w < weekCount; w++) {
     weeks.push(data.slice(w * 7, w * 7 + 7))
   }
 
@@ -37,9 +57,9 @@ export function StreakHeatmap() {
   const today = new Date()
   const monthLabels: { label: string; col: number }[] = []
   let lastMonth = -1
-  for (let w = 0; w < 52; w++) {
+  for (let w = 0; w < weekCount; w++) {
     const d = new Date(today)
-    d.setDate(today.getDate() - (364 - w * 7))
+    d.setDate(today.getDate() - (data.length - 1 - w * 7))
     if (d.getMonth() !== lastMonth) {
       monthLabels.push({ label: MONTHS[d.getMonth()], col: w })
       lastMonth = d.getMonth()

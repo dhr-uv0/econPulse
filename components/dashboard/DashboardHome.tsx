@@ -181,7 +181,7 @@ export function DashboardHome({ profile, streak, progress, recentQuizzes, dueCar
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <StreakHeatmap />
+              <StreakHeatmap progress={progress} />
             </CardContent>
           </Card>
 

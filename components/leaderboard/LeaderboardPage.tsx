@@ -8,6 +8,7 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { levelFromXP, getInitials } from '@/lib/utils'
 
 interface LeaderEntry {
+  user_id: string
   display_name: string
   opted_in: boolean
   profiles: { xp_points: number } | { xp_points: number }[]
@@ -30,7 +31,7 @@ const RANK_ICONS = [
 
 type Tab = 'xp' | 'streak'
 
-export function LeaderboardPage({ leaders, myOptIn, myXP, myStreak }: Props) {
+export function LeaderboardPage({ leaders, myOptIn, myXP, myStreak, userId }: Props) {
   const [tab, setTab] = useState<Tab>('xp')
 
   function getXP(e: LeaderEntry) {
@@ -42,12 +43,15 @@ export function LeaderboardPage({ leaders, myOptIn, myXP, myStreak }: Props) {
     return Array.isArray(s) ? (s[0]?.current_streak ?? 0) : s.current_streak
   }
 
-  const sorted = [...leaders].sort((a, b) =>
-    tab === 'xp' ? getXP(b) - getXP(a) : getStreak(b) - getStreak(a)
-  )
+  // Always keep the XP ranking around, independent of the active tab, so the
+  // "Your XP" stat card doesn't show a streak-based rank when the Streak tab is active.
+  const sortedByXP = [...leaders].sort((a, b) => getXP(b) - getXP(a))
+  const sorted = tab === 'xp'
+    ? sortedByXP
+    : [...leaders].sort((a, b) => getStreak(b) - getStreak(a))
 
   const myRankXP = myOptIn?.opted_in
-    ? sorted.findIndex((l) => l.display_name === myOptIn.display_name) + 1
+    ? sortedByXP.findIndex((l) => l.user_id === userId) + 1
     : null
 
   return (
@@ -125,10 +129,10 @@ export function LeaderboardPage({ leaders, myOptIn, myXP, myStreak }: Props) {
                 const xp = getXP(entry)
                 const streak = getStreak(entry)
                 const { level, title: lvlTitle } = levelFromXP(xp)
-                const isMe = myOptIn?.opted_in && entry.display_name === myOptIn.display_name
+                const isMe = myOptIn?.opted_in && entry.user_id === userId
                 return (
                   <li
-                    key={entry.display_name}
+                    key={entry.user_id}
                     className={`flex items-center gap-4 px-5 py-3.5 transition-colors ${
                       isMe ? 'bg-[var(--accent)]/8' : 'hover:bg-[var(--card-bg)]'
                     }`}

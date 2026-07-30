@@ -37,15 +37,27 @@ export function ProfileSettings({ profile, optIn, user }: Props) {
   const { level, title: levelTitle } = levelFromXP(profile?.xp_points ?? 0)
 
   async function handleSave() {
+    const trimmedDisplayName = leaderboard.display_name.trim()
+    if (leaderboard.opted_in && !trimmedDisplayName) {
+      toast.error('Display name required', 'Enter a display name to appear on the leaderboard.')
+      return
+    }
+
     setSaving(true)
     const { error } = await supabase
       .from('profiles')
-      .update({ ...form, updated_at: new Date().toISOString() })
+      .update({
+        ...form,
+        full_name: form.full_name.trim(),
+        school: form.school.trim(),
+        bio: form.bio.trim(),
+        updated_at: new Date().toISOString(),
+      })
       .eq('id', user.id)
 
-    if (leaderboard.opted_in && leaderboard.display_name) {
+    if (leaderboard.opted_in && trimmedDisplayName) {
       await supabase.from('leaderboard_opt_ins').upsert(
-        { user_id: user.id, display_name: leaderboard.display_name, opted_in: leaderboard.opted_in },
+        { user_id: user.id, display_name: trimmedDisplayName, opted_in: leaderboard.opted_in },
         { onConflict: 'user_id' }
       )
     } else if (!leaderboard.opted_in) {
