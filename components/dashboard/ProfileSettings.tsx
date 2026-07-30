@@ -34,7 +34,7 @@ export function ProfileSettings({ profile, optIn, user }: Props) {
     display_name: optIn?.display_name ?? '',
   })
 
-  const { level, title: levelTitle, nextLevelXP } = levelFromXP(profile?.xp_points ?? 0)
+  const { level, title: levelTitle } = levelFromXP(profile?.xp_points ?? 0)
 
   async function handleSave() {
     setSaving(true)

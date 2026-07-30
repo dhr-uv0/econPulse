@@ -110,7 +110,7 @@ export function LearningStyleQuiz() {
           <div className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)]/10 px-3 py-1 text-xs font-semibold text-[var(--accent)]">
             Quick setup · {allQuestions.length - step} questions left
           </div>
-          <h1 className="text-2xl font-extrabold text-[var(--fg)]">Let's personalise your experience</h1>
+          <h1 className="text-2xl font-extrabold text-[var(--fg)]">Let&apos;s personalise your experience</h1>
           <p className="text-[var(--muted-fg)] text-sm">Your answers shape how EconPulse teaches you. You can change this anytime.</p>
         </div>
 

@@ -71,7 +71,7 @@ export function OpportunityCostDiagram() {
         </text>
       </svg>
       <figcaption className="text-center text-[11px] text-[var(--muted-fg)] mt-1">
-        Every choice has a hidden price — the best option you didn't take
+        Every choice has a hidden price — the best option you didn&apos;t take
       </figcaption>
     </figure>
   )

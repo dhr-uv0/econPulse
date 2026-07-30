@@ -6,8 +6,7 @@ import type { User } from '@supabase/supabase-js'
 import type { Profile, Streak } from '@/lib/types'
 import { useAppStore } from '@/lib/store/useAppStore'
 import { createClient } from '@/lib/supabase/client'
-import { cn, getInitials } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
+import { getInitials } from '@/lib/utils'
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { toast } from '@/lib/hooks/useToast'
@@ -23,7 +22,7 @@ interface Props {
 
 export function TopBar({ profile, streak, user }: Props) {
   const router = useRouter()
-  const { sidebarCollapsed, setSidebarCollapsed, mobileSidebarOpen, setMobileSidebarOpen } = useAppStore()
+  const { mobileSidebarOpen, setMobileSidebarOpen } = useAppStore()
   const { theme, setTheme } = useTheme()
   const [menuOpen, setMenuOpen] = useState(false)
   const supabase = createClient()
@@ -36,7 +35,7 @@ export function TopBar({ profile, streak, user }: Props) {
   }
 
   return (
-    <header className="sticky top-0 z-20 flex h-14 items-center border-b border-[var(--border)] bg-[var(--card-bg)]/80 backdrop-blur-xl px-4 gap-3">
+    <header className="sticky top-0 z-20 flex h-14 items-center border-b border-[var(--border)] bg-[var(--card-bg)] px-4 gap-3">
       {/* Mobile menu toggle */}
       <button
         className="flex lg:hidden h-8 w-8 items-center justify-center rounded-lg text-[var(--muted-fg)] hover:bg-[var(--muted)] hover:text-[var(--fg)] transition-colors"

@@ -4,7 +4,6 @@ import type { Profile, Assignment } from '@/lib/types'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { Progress } from '@/components/ui/progress'
 import { getInitials, formatRelativeTime, levelFromXP } from '@/lib/utils'
 import { Users, FileText, TrendingUp, Award } from 'lucide-react'
 

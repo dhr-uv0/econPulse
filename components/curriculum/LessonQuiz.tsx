@@ -51,7 +51,7 @@ function prepareQuestions(questions: QuizQuestion[]): PreparedQuestion[] {
   })
 }
 
-export function LessonQuiz({ questions, lessonId, moduleId, userId, alreadyPassed, onPass, onNextLesson }: Props) {
+export function LessonQuiz({ questions, moduleId, userId, alreadyPassed, onPass, onNextLesson }: Props) {
   const supabase = createClient()
   // Prepare questions once on mount (stable reference via useMemo with no deps = run once)
   const prepared = useMemo(() => prepareQuestions(questions), []) // eslint-disable-line

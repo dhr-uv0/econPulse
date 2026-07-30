@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import type { CurriculumModule, QuizResult } from '@/lib/types'
-import { Card, CardContent } from '@/components/ui/card'
+import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { formatDate } from '@/lib/utils'
@@ -15,8 +15,6 @@ interface Props {
 }
 
 export function QuizHub({ modules, recentResults }: Props) {
-  const withQuestions = modules.filter((m) => m.lessons.some((l) => l.quiz.length > 0))
-
   return (
     <div className="space-y-6 max-w-4xl mx-auto">
       <div>

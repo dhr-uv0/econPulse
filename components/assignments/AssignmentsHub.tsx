@@ -8,7 +8,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import {
-  Newspaper, Scale, Eye, PenLine,
+  Newspaper, Scale, Eye,
   FileText, Globe, Plus, ArrowRight,
   Clock, Check, Lightbulb,
 } from 'lucide-react'

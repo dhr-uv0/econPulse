@@ -47,9 +47,9 @@ export function MicroMacroDiagram() {
 
         {/* Example question */}
         <rect x="20" y="198" width="152" height="42" rx="6" fill="#3b82f6" fillOpacity="0.08" />
-        <text x="96" y="212" fontSize="7.5" fill="#3b82f6" opacity="0.8" textAnchor="middle" fontFamily="inherit" fontStyle="italic">"Why do airports charge</text>
+        <text x="96" y="212" fontSize="7.5" fill="#3b82f6" opacity="0.8" textAnchor="middle" fontFamily="inherit" fontStyle="italic">&ldquo;Why do airports charge</text>
         <text x="96" y="223" fontSize="7.5" fill="#3b82f6" opacity="0.8" textAnchor="middle" fontFamily="inherit" fontStyle="italic">more for coffee than</text>
-        <text x="96" y="234" fontSize="7.5" fill="#3b82f6" opacity="0.8" textAnchor="middle" fontFamily="inherit" fontStyle="italic">the high street?"</text>
+        <text x="96" y="234" fontSize="7.5" fill="#3b82f6" opacity="0.8" textAnchor="middle" fontFamily="inherit" fontStyle="italic">the high street?&rdquo;</text>
 
         {/* ══ RIGHT: Macroeconomics ══ */}
         <rect x="200" y="28" width="168" height="220" rx="10" fill="#8b5cf6" fillOpacity="0.06" stroke="#8b5cf6" strokeWidth="1.2" strokeOpacity="0.3" />
@@ -78,9 +78,9 @@ export function MicroMacroDiagram() {
         ))}
 
         <rect x="208" y="198" width="152" height="42" rx="6" fill="#8b5cf6" fillOpacity="0.08" />
-        <text x="284" y="212" fontSize="7.5" fill="#8b5cf6" opacity="0.8" textAnchor="middle" fontFamily="inherit" fontStyle="italic">"Why did the UK economy</text>
-        <text x="284" y="223" fontSize="7.5" fill="#8b5cf6" opacity="0.8" textAnchor="middle" fontFamily="inherit" fontStyle="italic">grow faster than France's</text>
-        <text x="284" y="234" fontSize="7.5" fill="#8b5cf6" opacity="0.8" textAnchor="middle" fontFamily="inherit" fontStyle="italic">last year?"</text>
+        <text x="284" y="212" fontSize="7.5" fill="#8b5cf6" opacity="0.8" textAnchor="middle" fontFamily="inherit" fontStyle="italic">&ldquo;Why did the UK economy</text>
+        <text x="284" y="223" fontSize="7.5" fill="#8b5cf6" opacity="0.8" textAnchor="middle" fontFamily="inherit" fontStyle="italic">grow faster than France&apos;s</text>
+        <text x="284" y="234" fontSize="7.5" fill="#8b5cf6" opacity="0.8" textAnchor="middle" fontFamily="inherit" fontStyle="italic">last year?&rdquo;</text>
 
         {/* ══ VS divider ══ */}
         <text x="190" y="143" fontSize="13" fill="currentColor" opacity="0.2" textAnchor="middle" fontFamily="inherit" fontWeight="700">vs</text>

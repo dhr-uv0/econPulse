@@ -5,7 +5,6 @@ import Link from 'next/link'
 import type { CurriculumModule, CurriculumTier } from '@/lib/types'
 import { cn } from '@/lib/utils'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
-import { Progress } from '@/components/ui/progress'
 import { Button } from '@/components/ui/button'
 import { BookOpen, Check, Clock, ChevronRight, Lock, Play, Target, Trophy, Briefcase, TrendingUp, Zap } from 'lucide-react'
 
