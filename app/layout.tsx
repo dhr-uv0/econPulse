@@ -1,11 +1,15 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Libre_Baskerville } from 'next/font/google'
 import { ThemeProvider } from '@/components/layout/ThemeProvider'
 import { Toaster } from '@/components/layout/Toaster'
 import './globals.css'
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
+const libreBaskerville = Libre_Baskerville({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  variable: '--font-libre-baskerville',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: {
@@ -31,8 +35,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#fdfaf5' },
-    { media: '(prefers-color-scheme: dark)',  color: '#070d1a' },
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)',  color: '#0a0a0a' },
   ],
   width: 'device-width',
   initialScale: 1,
@@ -44,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full`}
+      className={`${libreBaskerville.variable} h-full`}
     >
       <head>
         <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
