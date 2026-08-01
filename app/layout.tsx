@@ -50,9 +50,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
       className={`${libreBaskerville.variable} h-full`}
     >
-      <head>
-        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
-      </head>
       <body className="min-h-full antialiased">
         <ThemeProvider>
           {children}
