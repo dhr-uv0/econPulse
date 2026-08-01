@@ -151,7 +151,7 @@ export function ProgressDashboard({ profile, progress, quizzes, streak }: Props)
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center gap-2">
                 <Flame className="h-4 w-4 text-orange-500" />
-                Study Activity (Last Year)
+                Study Activity
               </CardTitle>
             </CardHeader>
             <CardContent>
