@@ -69,13 +69,15 @@ export function StreakHeatmap({ progress }: Props) {
   return (
     <div className="overflow-x-auto">
       <div className="inline-block min-w-full">
-        {/* Month labels */}
-        <div className="relative mb-1 ml-8 flex">
+        {/* Month labels — explicit height since the labels inside are absolutely
+            positioned and wouldn't otherwise contribute any height to this row,
+            which left them overlapping the first row of cells below. */}
+        <div className="relative h-3 mb-1 ml-8">
           {monthLabels.map(({ label, col }) => (
             <span
               key={label + col}
-              className="absolute text-[10px] text-[var(--muted-fg)]"
-              style={{ left: `${col * 14}px` }}
+              className="absolute top-0 text-[10px] text-[var(--muted-fg)]"
+              style={{ left: `${col * 16}px` }}
             >
               {label}
             </span>
