@@ -56,15 +56,16 @@ export function TopBar({ profile, streak, user }: Props) {
       {/* Streak indicator */}
       {streak && streak.current_streak > 0 && (
         <div data-tour="streak" className="flex items-center gap-1.5 rounded-full border border-[var(--border)] bg-[var(--muted)] px-3 py-1">
-          <Flame className="h-3.5 w-3.5 text-orange-500" />
+          <Flame className="h-3.5 w-3.5 text-orange-500 animate-flicker" />
           <span className="text-xs font-bold text-[var(--fg)]">{streak.current_streak}</span>
           <span className="hidden text-xs text-[var(--muted-fg)] sm:block">day streak</span>
         </div>
       )}
 
-      {/* XP badge */}
+      {/* XP badge — keyed on xp_points so it pops in fresh every time the
+          total changes (a page refresh after earning XP re-mounts it) */}
       {profile && (
-        <Badge data-tour="xp" variant="gold" className="gap-1">
+        <Badge key={profile.xp_points} data-tour="xp" variant="gold" className="gap-1 animate-pop-in">
           <Zap className="h-3 w-3" />
           {profile.xp_points.toLocaleString()} XP
         </Badge>
@@ -74,6 +75,7 @@ export function TopBar({ profile, streak, user }: Props) {
 
       {/* Theme toggle */}
       <button
+        data-tour="theme-toggle"
         onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
         className="h-8 w-8 flex items-center justify-center rounded-lg text-[var(--muted-fg)] hover:bg-[var(--muted)] hover:text-[var(--fg)] transition-colors"
         aria-label="Toggle theme"
@@ -90,7 +92,7 @@ export function TopBar({ profile, streak, user }: Props) {
       </button>
 
       {/* Avatar dropdown */}
-      <div className="relative">
+      <div data-tour="profile-menu" className="relative">
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="flex items-center gap-2 rounded-lg p-1 hover:bg-[var(--muted)] transition-colors"

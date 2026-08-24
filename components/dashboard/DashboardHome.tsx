@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useMemo } from 'react'
 import type { Profile, Streak, CurriculumProgress, QuizResult, CurriculumModule } from '@/lib/types'
 import { levelFromXP, clampProgress } from '@/lib/utils'
+import { useCountUp } from '@/lib/hooks/useCountUp'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
 import { Button } from '@/components/ui/button'
@@ -79,6 +80,12 @@ export function DashboardHome({ profile, streak, progress, recentQuizzes, dueCar
     return Math.round(avg)
   }, [recentQuizzes])
 
+  // Animated stat-tile numbers — a bit of gamified polish on page load.
+  const streakCount = useCountUp(streak?.current_streak ?? 0)
+  const levelCount = useCountUp(level)
+  const masteryCount = useCountUp(overallMastery)
+  const avgScoreCount = useCountUp(avgScore ?? 0)
+
   const greeting = () => {
     const h = new Date().getHours()
     if (h < 12) return 'Good morning'
@@ -126,7 +133,7 @@ export function DashboardHome({ profile, streak, progress, recentQuizzes, dueCar
             <span className="text-xs font-semibold uppercase tracking-widest text-[var(--muted-fg)]">Streak</span>
             <Flame className="h-4 w-4 text-orange-500" />
           </div>
-          <div className="text-3xl font-black text-[var(--fg)]">{streak?.current_streak ?? 0}</div>
+          <div className="text-3xl font-black text-[var(--fg)] tabular-nums">{streakCount}</div>
           <div className="text-xs text-[var(--muted-fg)] mt-0.5">
             days · best {streak?.longest_streak ?? 0}
           </div>
@@ -138,7 +145,7 @@ export function DashboardHome({ profile, streak, progress, recentQuizzes, dueCar
             <span className="text-xs font-semibold uppercase tracking-widest text-[var(--muted-fg)]">Level</span>
             <Award className="h-4 w-4 text-[var(--accent)]" />
           </div>
-          <div className="text-3xl font-black text-[var(--fg)]">{level}</div>
+          <div className="text-3xl font-black text-[var(--fg)] tabular-nums">{levelCount}</div>
           <div className="text-xs text-[var(--muted-fg)] mt-0.5 truncate">{levelTitle}</div>
           <Progress value={xpPct} className="mt-2 h-1.5" />
           <div className="text-[10px] text-[var(--muted-fg)] mt-1">{xp.toLocaleString()} / {nextLevelXP.toLocaleString()} XP</div>
@@ -150,7 +157,7 @@ export function DashboardHome({ profile, streak, progress, recentQuizzes, dueCar
             <span className="text-xs font-semibold uppercase tracking-widest text-[var(--muted-fg)]">Mastery</span>
             <TrendingUp className="h-4 w-4 text-green-500" />
           </div>
-          <div className="text-3xl font-black text-[var(--fg)]">{overallMastery}%</div>
+          <div className="text-3xl font-black text-[var(--fg)] tabular-nums">{masteryCount}%</div>
           <div className="text-xs text-[var(--muted-fg)] mt-0.5">{completedCount} / {totalLessons} lessons done</div>
           <Progress value={overallMastery} className="mt-2 h-1.5" indicatorClassName="bg-green-500" />
         </Card>
@@ -161,8 +168,8 @@ export function DashboardHome({ profile, streak, progress, recentQuizzes, dueCar
             <span className="text-xs font-semibold uppercase tracking-widest text-[var(--muted-fg)]">Avg Score</span>
             <Target className="h-4 w-4 text-blue-500" />
           </div>
-          <div className="text-3xl font-black text-[var(--fg)]">
-            {avgScore !== null ? `${avgScore}%` : '—'}
+          <div className="text-3xl font-black text-[var(--fg)] tabular-nums">
+            {avgScore !== null ? `${avgScoreCount}%` : '—'}
           </div>
           <div className="text-xs text-[var(--muted-fg)] mt-0.5">last {recentQuizzes.length} quizzes</div>
         </Card>

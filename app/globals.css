@@ -142,11 +142,12 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
 }
 .card-hover {
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 .card-hover:hover {
   box-shadow: 0 4px 12px 0 rgb(0 0 0 / 0.06);
   border-color: var(--accent);
+  transform: translateY(-2px);
 }
 
 /* ─── Heatmap Cells ────────────────────────────────────────────────────────── */
@@ -201,12 +202,28 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes spin-slow {
   to { transform: rotate(360deg); }
 }
+@keyframes pop-in {
+  0%   { opacity: 0; transform: scale(0.5); }
+  60%  { opacity: 1; transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+@keyframes flicker {
+  0%, 100% { opacity: 1;    transform: scale(1); }
+  50%       { opacity: 0.82; transform: scale(1.1); }
+}
+@keyframes confetti-fall {
+  0%   { transform: translateY(-8px) rotate(0deg);   opacity: 1; }
+  100% { transform: translateY(140px) rotate(540deg); opacity: 0; }
+}
 
 .animate-fade-up    { animation: fade-up 0.5s ease both; }
 .animate-fade-in    { animation: fade-in 0.4s ease both; }
 .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
 .animate-float      { animation: float 3s ease-in-out infinite; }
 .animate-spin-slow  { animation: spin-slow 8s linear infinite; }
+.animate-pop-in      { animation: pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.animate-flicker     { animation: flicker 1.6s ease-in-out infinite; }
+.animate-confetti-fall { animation: confetti-fall 900ms ease-in forwards; }
 
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }

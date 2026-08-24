@@ -9,6 +9,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
+import { Confetti } from '@/components/ui/confetti'
 import {
   Zap, Trophy, RefreshCw, BookOpen, Filter, ChevronRight,
 } from 'lucide-react'
@@ -143,9 +144,10 @@ export function FlashcardsHub({ cards, userId }: Props) {
     return (
       <div className="max-w-2xl mx-auto space-y-6">
         <h1 className="text-2xl font-extrabold text-[var(--fg)]">Session Complete</h1>
-        <Card className="text-center py-10">
+        <Card className="relative overflow-hidden text-center py-10">
+          <Confetti />
           <CardContent className="space-y-6">
-            <Trophy className="h-16 w-16 text-[var(--accent)] mx-auto" />
+            <Trophy className="h-16 w-16 text-[var(--accent)] mx-auto animate-pop-in" />
             <div>
               <h2 className="text-2xl font-extrabold text-[var(--fg)]">Great session!</h2>
               <p className="text-[var(--muted-fg)] mt-1">+{total * 5} XP earned · {queue.length} cards reviewed</p>

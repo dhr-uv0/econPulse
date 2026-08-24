@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
+import { AnimatePresence, motion } from 'framer-motion'
 import { X, ChevronRight, ChevronLeft, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useAppStore } from '@/lib/store/useAppStore'
@@ -44,6 +45,18 @@ const STEPS: Step[] = [
     title: 'Meet Eco-Clippy',
     body: 'Stuck on a concept? Click the chat bubble anytime. Eco-Clippy is your personal economics tutor — ask anything.',
     placement: 'top',
+  },
+  {
+    target: '[data-tour="theme-toggle"]',
+    title: 'Light or Dark',
+    body: 'Switch between light and dark mode anytime — whatever is easier on your eyes during a long study session.',
+    placement: 'bottom',
+  },
+  {
+    target: '[data-tour="profile-menu"]',
+    title: 'Your Account',
+    body: 'Update your profile, set your target exam, and manage your leaderboard visibility here.',
+    placement: 'bottom',
   },
 ]
 
@@ -170,10 +183,10 @@ export function OnboardingTour() {
         )}
       </div>
 
-      {/* Highlight ring around target */}
+      {/* Highlight ring around target — pulses to draw the eye without being loud */}
       {rect && (
         <div
-          className="fixed z-[9999] pointer-events-none rounded-lg ring-2 ring-[var(--accent)] ring-offset-0 transition-all duration-300"
+          className="fixed z-[9999] pointer-events-none rounded-lg ring-2 ring-[var(--accent)] ring-offset-0 animate-pulse-glow transition-[top,left,width,height] duration-300"
           style={{
             top: rect.top - PADDING,
             left: rect.left - PADDING,
@@ -184,64 +197,71 @@ export function OnboardingTour() {
       )}
 
       {/* Popover */}
-      <div
-        ref={popoverRef}
-        className="fixed z-[10000] w-80 rounded-xl border border-[var(--border)] bg-[var(--card-bg)] shadow-2xl p-5"
-        style={popoverStyle}
-      >
-        {/* Header */}
-        <div className="flex items-start justify-between gap-2 mb-2">
-          <div className="flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-[var(--accent)] shrink-0" />
-            <span className="font-bold text-[var(--fg)]">{currentStep.title}</span>
-          </div>
-          <button
-            onClick={dismiss}
-            className="text-[var(--muted-fg)] hover:text-[var(--fg)] transition-colors shrink-0"
-            aria-label="Skip tour"
-          >
-            <X className="h-4 w-4" />
-          </button>
-        </div>
-
-        <p className="text-sm text-[var(--muted-fg)] leading-relaxed mb-4">
-          {currentStep.body}
-        </p>
-
-        {/* Footer */}
-        <div className="flex items-center justify-between">
-          {/* Dots */}
-          <div className="flex gap-1.5">
-            {STEPS.map((_, i) => (
-              <div
-                key={i}
-                className={cn(
-                  'h-1.5 rounded-full transition-all',
-                  i === step ? 'w-4 bg-[var(--accent)]' : 'w-1.5 bg-[var(--border)]'
-                )}
-              />
-            ))}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={step}
+          ref={popoverRef}
+          initial={{ opacity: 0, scale: 0.94, y: 6 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.97 }}
+          transition={{ duration: 0.2, ease: 'easeOut' }}
+          className="fixed z-[10000] w-80 rounded-xl border border-[var(--border)] bg-[var(--card-bg)] shadow-2xl p-5"
+          style={popoverStyle}
+        >
+          {/* Header */}
+          <div className="flex items-start justify-between gap-2 mb-2">
+            <div className="flex items-center gap-2">
+              <Sparkles className="h-4 w-4 text-[var(--accent)] shrink-0" />
+              <span className="font-bold text-[var(--fg)]">{currentStep.title}</span>
+            </div>
+            <button
+              onClick={dismiss}
+              className="text-[var(--muted-fg)] hover:text-[var(--fg)] transition-colors shrink-0"
+              aria-label="Skip tour"
+            >
+              <X className="h-4 w-4" />
+            </button>
           </div>
 
-          <div className="flex items-center gap-2">
-            {step > 0 && (
-              <button
-                onClick={prev}
-                className="text-xs text-[var(--muted-fg)] hover:text-[var(--fg)] flex items-center gap-0.5 transition-colors"
-              >
-                <ChevronLeft className="h-3.5 w-3.5" /> Back
-              </button>
-            )}
-            <Button variant="gold" onClick={next} className="h-8 px-4 text-xs gap-1">
-              {step < STEPS.length - 1 ? (
-                <>Next <ChevronRight className="h-3.5 w-3.5" /></>
-              ) : (
-                'Get started!'
+          <p className="text-sm text-[var(--muted-fg)] leading-relaxed mb-4">
+            {currentStep.body}
+          </p>
+
+          {/* Footer */}
+          <div className="flex items-center justify-between">
+            {/* Dots */}
+            <div className="flex gap-1.5">
+              {STEPS.map((_, i) => (
+                <div
+                  key={i}
+                  className={cn(
+                    'h-1.5 rounded-full transition-all',
+                    i === step ? 'w-4 bg-[var(--accent)]' : 'w-1.5 bg-[var(--border)]'
+                  )}
+                />
+              ))}
+            </div>
+
+            <div className="flex items-center gap-2">
+              {step > 0 && (
+                <button
+                  onClick={prev}
+                  className="text-xs text-[var(--muted-fg)] hover:text-[var(--fg)] flex items-center gap-0.5 transition-colors"
+                >
+                  <ChevronLeft className="h-3.5 w-3.5" /> Back
+                </button>
               )}
-            </Button>
+              <Button variant="gold" onClick={next} className="h-8 px-4 text-xs gap-1">
+                {step < STEPS.length - 1 ? (
+                  <>Next <ChevronRight className="h-3.5 w-3.5" /></>
+                ) : (
+                  'Get started!'
+                )}
+              </Button>
+            </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </AnimatePresence>
     </>
   )
 }

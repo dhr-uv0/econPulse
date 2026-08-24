@@ -8,6 +8,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Check, X, Trophy, RotateCcw, ChevronRight } from 'lucide-react'
+import { Confetti } from '@/components/ui/confetti'
 
 interface Props {
   questions: QuizQuestion[]
@@ -127,10 +128,11 @@ export function LessonQuiz({ questions, moduleId, userId, alreadyPassed, onPass,
   // Results screen
   if (quizDone) {
     return (
-      <Card>
+      <Card className="relative overflow-hidden">
+        {passed && <Confetti />}
         <CardContent className="pt-8 pb-8 flex flex-col items-center text-center gap-6">
           <div className={cn(
-            'flex h-20 w-20 items-center justify-center rounded-full',
+            'flex h-20 w-20 items-center justify-center rounded-full animate-pop-in',
             passed ? 'bg-green-500/15' : 'bg-red-500/15'
           )}>
             {passed
