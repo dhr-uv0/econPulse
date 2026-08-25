@@ -6,7 +6,7 @@ import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { formatDate } from '@/lib/utils'
-import { Target, ChevronRight, Check, X, Clock } from 'lucide-react'
+import { Target, ChevronRight, Check, X, Clock, ClipboardList } from 'lucide-react'
 
 interface Props {
   modules: CurriculumModule[]
@@ -23,6 +23,23 @@ export function QuizHub({ modules, recentResults }: Props) {
           Immediate feedback, detailed explanations, and Olympiad-level challenge problems.
         </p>
       </div>
+
+      {/* Mock test CTA */}
+      <Card className="card-hover p-5 flex items-center gap-4 border-[var(--accent)]/40">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[var(--accent)]/15">
+          <ClipboardList className="h-6 w-6 text-[var(--accent)]" />
+        </div>
+        <div className="flex-1 min-w-0">
+          <h3 className="font-bold text-[var(--fg)]">Build a Mock Test</h3>
+          <p className="text-sm text-[var(--muted-fg)]">Choose your path, topics, and difficulty — then review every answer at the end.</p>
+        </div>
+        <Link href="/quiz/mock-test">
+          <Button variant="gold" size="sm" className="gap-1.5 shrink-0">
+            Get Started
+            <ChevronRight className="h-3.5 w-3.5" />
+          </Button>
+        </Link>
+      </Card>
 
       {/* Recent results */}
       {recentResults.length > 0 && (

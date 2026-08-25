@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { Trophy, Flame, Star, Medal, Crown, TrendingUp } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -192,9 +193,9 @@ export function LeaderboardPage({ leaders, myOptIn, myXP, myStreak, userId }: Pr
       {!myOptIn?.opted_in && (
         <p className="text-center text-xs text-[var(--muted-fg)]">
           Want to appear here?{' '}
-          <a href="/dashboard/profile" className="text-[var(--accent)] hover:underline font-medium">
+          <Link href="/profile" className="text-[var(--accent)] hover:underline font-medium">
             Enable leaderboard in Profile Settings
-          </a>
+          </Link>
         </p>
       )}
     </div>
