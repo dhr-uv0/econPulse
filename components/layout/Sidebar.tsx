@@ -9,16 +9,17 @@ import { cn } from '@/lib/utils'
 import {
   LayoutDashboard, BookOpen, Zap, ClipboardList, BarChart3,
   TrendingUp, User as UserIcon, Users, ChevronLeft, ChevronRight,
-  Trophy,
+  Trophy, ListChecks,
 } from 'lucide-react'
 
 const NAV_ITEMS = [
-  { href: '/dashboard',    icon: LayoutDashboard, label: 'Dashboard' },
-  { href: '/curriculum',   icon: BookOpen,         label: 'Curriculum' },
-  { href: '/flashcards',   icon: Zap,              label: 'Flashcards' },
-  { href: '/assignments',  icon: ClipboardList,    label: 'Assignments' },
-  { href: '/progress',     icon: BarChart3,        label: 'Progress' },
-  { href: '/leaderboard',  icon: Trophy,           label: 'Leaderboard' },
+  { href: '/dashboard',       icon: LayoutDashboard, label: 'Dashboard' },
+  { href: '/curriculum',      icon: BookOpen,         label: 'Curriculum' },
+  { href: '/flashcards',      icon: Zap,              label: 'Flashcards' },
+  { href: '/quiz/mock-test',  icon: ListChecks,       label: 'Mock Test' },
+  { href: '/assignments',     icon: ClipboardList,    label: 'Assignments' },
+  { href: '/progress',        icon: BarChart3,        label: 'Progress' },
+  { href: '/leaderboard',     icon: Trophy,           label: 'Leaderboard' },
 ]
 
 interface Props {
