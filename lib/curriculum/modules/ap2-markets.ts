@@ -74,7 +74,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Economic profit = (P − ATC) × Q = ($25 − $18) × 80 = $7 × 80 = $560. AVC is irrelevant to the profit calculation (it matters only for the shutdown decision). Total revenue = $2,000 and total cost = $1,440, confirming profit = $560.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l1-2',
@@ -89,7 +89,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Economic profits attract new entrants who expand supply, lowering price until profit disappears. Economic losses trigger exit, contracting supply and raising price until losses disappear. The process terminates only when P = minimum ATC and economic profit = 0.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l1-3',
@@ -104,7 +104,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'P = $12 > minimum AVC = $10, so each unit sold covers variable costs and generates $2 toward fixed costs. Producing minimises the loss relative to shutting down (loss = TFC). The loss exists (P < ATC = $16) but exit is a long-run decision triggered when P < minimum ATC, not a short-run one.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l1-4',
@@ -119,7 +119,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Allocative efficiency requires P = MC — the price signals consumers\' willingness to pay for the last unit, and MC captures the opportunity cost of producing it. When P = MC, no mutually beneficial trade is left unexploited. Productive efficiency (minimum ATC) is a separate condition, also met in perfect competition but describing cost minimisation rather than resource allocation.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap2-l1-5',
@@ -164,7 +164,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'The break-even price equals minimum ATC. At this price P = ATC, so total revenue equals total cost including implicit costs (the opportunity cost of the owner\'s capital and labour). Economic profit = 0 means the firm earns a normal profit — just enough to keep resources in their current use. Accounting profit is likely positive because it excludes implicit costs.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap2-l1-8',
@@ -194,7 +194,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'P = MR = $15 (since P = MR for a price taker). ATC = $12, so P > ATC: economic profit = (P − ATC) × Q = ($15 − $12) × Q > 0. The firm is earning positive economic profit. AVC ($9) is relevant only for the shutdown decision, which is moot here since P far exceeds both AVC and ATC.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l1-10',
@@ -209,7 +209,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'In long-run equilibrium: P = MR (price taking), MR = MC (profit maximisation), and P = minimum ATC (zero economic profit from free entry/exit). MC also equals minimum ATC at the trough of the ATC curve. This four-way equality — P = MR = MC = min ATC — achieves both allocative efficiency (P = MC) and productive efficiency (min ATC) simultaneously. AVC equals MC only at the AVC minimum, which is at a different output level.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
     ],
     content: {
@@ -319,7 +319,7 @@ The power of the competitive model lies in its long-run dynamics. Positive profi
         correctAnswer: 1,
         explanation: 'The monopolist restricts output below the competitive level (where D = MC) and charges a price above marginal cost, transferring consumer surplus to producer surplus and creating a deadweight loss triangle. The competitive equilibrium (P = MC) maximises total surplus.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap2-l2-2',
@@ -334,7 +334,7 @@ The power of the competitive model lies in its long-run dynamics. Positive profi
         correctAnswer: 1,
         explanation: 'For a natural monopoly, LRAC is still declining at the competitive output level, so MC < ATC. Setting P = MC means revenue is insufficient to cover total cost — the firm would exit without a subsidy. P = ATC gives zero economic profit (commercially viable) at a price lower than the unregulated monopoly, though P > MC remains, leaving allocative inefficiency.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l2-3',
@@ -344,7 +344,7 @@ The power of the competitive model lies in its long-run dynamics. Positive profi
         correctAnswer: 2,
         explanation: 'MR = 100 − 4Q (same intercept, twice the slope). Set MR = MC: 100 − 4Q = 20 → 4Q = 80 → Q* = 20. Then P* = 100 − 2(20) = $60. Wait — rechecking: Q* = 20, not 25. The correct answer is Q = 20. (Option B.) Explanation: MR = 100 − 4Q = 20 → Q* = 20. P* = 100 − 2(20) = $60.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l2-4',
@@ -359,7 +359,7 @@ The power of the competitive model lies in its long-run dynamics. Positive profi
         correctAnswer: 1,
         explanation: 'The DWL triangle is bounded by: (1) the demand curve (top side — consumers\' willingness to pay), (2) the MC curve (bottom side — cost of production), and (3) a vertical line at the monopoly output Q* (left side). It extends from Q* to the competitive output where D = MC. This triangle represents mutually beneficial trades that do not occur because the monopolist restricts output.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l2-5',
@@ -374,7 +374,7 @@ The power of the competitive model lies in its long-run dynamics. Positive profi
         correctAnswer: 1,
         explanation: 'Unlike perfect competition where free entry erodes economic profit, monopoly profit persists in the long run because barriers to entry — patents, control of key resources, economies of scale, government franchises — block rivals from entering. The monopolist does not need to be the lowest-cost producer; it just needs to be protected from competition.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap2-l2-6',
@@ -389,7 +389,7 @@ The power of the competitive model lies in its long-run dynamics. Positive profi
         correctAnswer: 2,
         explanation: 'The monopolist faces a downward-sloping demand curve. To sell one more unit, it must lower the price on all previously sold units — the revenue gained on the marginal unit is offset partly by the price reduction on existing units. Therefore MR < P at every positive output. MR = 0 maximises total revenue but not profit (profit maximum requires MR = MC > 0 unless MC = 0).',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l2-7',
@@ -449,7 +449,7 @@ The power of the competitive model lies in its long-run dynamics. Positive profi
         correctAnswer: 1,
         explanation: 'Antitrust law aims to prevent the exercise of market power that results in P > MC, restricted output, and deadweight loss. It does not target all profit — competitive firms also earn profit in the short run. The goal is to preserve or restore competitive conditions: low barriers to entry, no anticompetitive mergers, no price-fixing cartels. The efficiency benchmark is P = MC, not zero profit.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
     ],
     content: {
@@ -559,7 +559,7 @@ Policy responses to monopoly power include price regulation (setting P = ATC for
         correctAnswer: 0,
         explanation: "Confess is a dominant strategy for each player: regardless of the other's choice, confessing results in a lighter personal sentence. Both playing their dominant strategy produces the Nash equilibrium (both confess), which is collectively worse than mutual silence — illustrating how individual rationality can produce collectively inferior outcomes.",
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l3-2',
@@ -574,7 +574,7 @@ Policy responses to monopoly power include price regulation (setting P = ATC for
         correctAnswer: 1,
         explanation: "The kink arises from asymmetric rival responses: a price cut is matched (so demand is inelastic below the kink — undercutting gains few customers), while a price rise is not matched (so demand is elastic above the kink — the firm loses many customers). The resulting gap in the MR curve means moderate cost changes don't shift profit-maximising output, producing sticky prices.",
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l3-3',
@@ -604,7 +604,7 @@ Policy responses to monopoly power include price regulation (setting P = ATC for
         correctAnswer: 1,
         explanation: 'Each OPEC member earns more by selling above quota (if others comply, the cheater gets cartel prices on extra units). If others also cheat, compliance is even worse. Cheating is a dominant strategy — the Nash equilibrium has all members cheating, collapsing prices toward competitive levels. This is precisely the Prisoners\' Dilemma applied to cartel economics.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l3-5',
@@ -619,7 +619,7 @@ Policy responses to monopoly power include price regulation (setting P = ATC for
         correctAnswer: 2,
         explanation: 'A Nash Equilibrium is defined by the absence of any profitable unilateral deviation — given what others are doing, no individual player can improve their own payoff by switching strategies. Nash Equilibria need not be equal, socially optimal, or composed of dominant strategies (when no dominant strategy exists, Nash Equilibria may still exist as mutual best responses).',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap2-l3-6',
@@ -649,7 +649,7 @@ Policy responses to monopoly power include price regulation (setting P = ATC for
         correctAnswer: 1,
         explanation: 'In a one-shot game, cheating has no future cost. In a repeated game, a firm that defects today faces retaliation (e.g., price war) in all future rounds. If the firm values future profits sufficiently (low discount rate), the long-run cost of retaliation exceeds the short-run gain from cheating — cooperation becomes self-enforcing. This is why industries with stable long-run relationships (airlines, gasoline retailers) often maintain tacit collusion without explicit agreements.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l3-8',
@@ -664,7 +664,7 @@ Policy responses to monopoly power include price regulation (setting P = ATC for
         correctAnswer: 2,
         explanation: 'Strategic interdependence — each firm must consider how rivals will respond before making price or output decisions — is the defining feature of oligopoly. Downward-sloping demand and barriers to entry also apply to monopoly and monopolistic competition. Long-run economic profit also characterises monopoly. Only oligopoly is defined by the fact that a small number of large firms must explicitly account for rivals\' reactions.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap2-l3-9',
@@ -694,7 +694,7 @@ Policy responses to monopoly power include price regulation (setting P = ATC for
         correctAnswer: 1,
         explanation: 'The Prisoners\' Dilemma is the canonical example of a situation where rational individual behaviour produces a collectively inferior outcome — the Nash Equilibrium (both confess / both cheat / both advertise) is worse for everyone than mutual cooperation. This insight underlies analyses of arms races, environmental agreements, trade policy, and cartel stability — anywhere individual incentives conflict with collective welfare.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
     ],
     content: {
@@ -804,7 +804,7 @@ Applied to oligopoly, game theory explains why cartels are inherently fragile. E
         correctAnswer: 1,
         explanation: "Free entry drives profit to zero in the long run, with demand tangent to ATC. However, this tangency occurs on the downward-sloping segment of ATC (left of minimum ATC), not at the trough. The firm operates with excess capacity — it could reduce per-unit cost by producing more, but the profit-maximising quantity is lower than the productively efficient quantity.",
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l4-2',
@@ -819,7 +819,7 @@ Applied to oligopoly, game theory explains why cartels are inherently fragile. E
         correctAnswer: 1,
         explanation: 'New entrants sell differentiated substitutes, stealing customers from incumbents and shifting each firm\'s demand curve leftward (and making it more elastic). Entry continues until demand is just tangent to ATC — zero economic profit. Output per firm falls and excess capacity increases.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l4-3',
@@ -834,7 +834,7 @@ Applied to oligopoly, game theory explains why cartels are inherently fragile. E
         correctAnswer: 1,
         explanation: 'In long-run monopolistic competition equilibrium: free entry drives P = ATC (zero profit, demand tangent to ATC). But the firm still has market power (downward-sloping demand), so MR < P and the profit-maximising condition MR = MC means P > MC at the tangency output. The tangency occurs left of minimum ATC — excess capacity and productive inefficiency.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l4-4',
@@ -864,7 +864,7 @@ Applied to oligopoly, game theory explains why cartels are inherently fragile. E
         correctAnswer: 1,
         explanation: 'Relative to perfect competition: monopolistic competition produces less output per firm (excess capacity), charges a higher price (P > MC vs. P = MC), and operates at higher average cost (left of minimum ATC vs. at minimum ATC). These are the costs of product differentiation — consumers get variety but pay in productive and allocative efficiency.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l4-6',
@@ -879,7 +879,7 @@ Applied to oligopoly, game theory explains why cartels are inherently fragile. E
         correctAnswer: 1,
         explanation: 'New entrants in monopolistic competition offer close substitutes, drawing customers away from existing firms. This shifts each incumbent\'s demand curve leftward (fewer customers at every price) and makes it more elastic (customers now have more alternatives, so a price increase causes a larger loss of sales). Entry continues until profit is zero — the new demand curve is tangent to ATC.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap2-l4-7',
@@ -909,7 +909,7 @@ Applied to oligopoly, game theory explains why cartels are inherently fragile. E
         correctAnswer: 1,
         explanation: 'Free entry — the key feature shared with perfect competition — erodes profit in monopolistic competition. New firms enter with differentiated products, expanding the available varieties and drawing customers from incumbents. Each incumbent\'s demand curve shifts leftward until it is tangent to ATC at zero economic profit. No government action is required; the market mechanism (entry incentive + leftward demand shift) drives the adjustment.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap2-l4-9',
@@ -1049,7 +1049,7 @@ The long-run tangency equilibrium is inefficient in two ways. First, P > MC at t
         correctAnswer: 2,
         explanation: 'MRP = MP × P = 6 × $8 = $48. Since MRP = $48 > W = $40, the worker adds $48 to revenue but only $40 to cost — hiring increases profit by $8. The firm should hire until MRP falls to equal the wage.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l5-2',
@@ -1064,7 +1064,7 @@ The long-run tangency equilibrium is inefficient in two ways. First, P > MC at t
         correctAnswer: 1,
         explanation: 'The monopsonist faces an upward-sloping supply of labour, so MFC > wage at every employment level. Hiring until MRP = MFC yields a lower employment level than the competitive outcome (where MRP = W). The wage is then read off the supply curve at that employment level — lower than the competitive wage. Both quantity and price of labour are depressed.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap2-l5-3',
@@ -1079,7 +1079,7 @@ The long-run tangency equilibrium is inefficient in two ways. First, P > MC at t
         correctAnswer: 0,
         explanation: 'MRP = MP × P = 10 × $5 = $50. Since MRP ($50) > W ($45), the 5th worker contributes $50 to revenue and costs only $45 — profit increases by $5. The hiring rule is simple: hire if MRP ≥ W. The firm\'s total profit level and ATC are irrelevant to the marginal hiring decision.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap2-l5-4',
@@ -1094,7 +1094,7 @@ The long-run tangency equilibrium is inefficient in two ways. First, P > MC at t
         correctAnswer: 1,
         explanation: 'Diminishing marginal returns is the direct cause: as more workers are hired alongside a fixed capital stock, each additional worker adds less to output (MP falls). Since MRP = MP × MR (= MP × P for competitive firms), falling MP directly reduces MRP. The downward slope of the MRP curve reflects the physical law of diminishing returns applied to the revenue context.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap2-l5-5',
@@ -1109,7 +1109,7 @@ The long-run tangency equilibrium is inefficient in two ways. First, P > MC at t
         correctAnswer: 2,
         explanation: 'MRP = MP × P. Initially: MRP = 4 × $10 = $40. After price rise: MRP = 4 × $15 = $60. The higher product price raises the value of what each worker produces — MRP rises at every employment level, shifting the entire MRP (labour demand) curve rightward. This is why product market changes directly affect factor market outcomes.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l5-6',
@@ -1139,7 +1139,7 @@ The long-run tangency equilibrium is inefficient in two ways. First, P > MC at t
         correctAnswer: 1,
         explanation: 'In a competitive labour market, the equilibrium wage equates quantity demanded and supplied. A minimum wage above this level raises the wage floor, causing firms to reduce quantity of labour demanded (movement up the MRP curve) while more workers enter the market (movement up the supply curve). The result is a labour surplus — unemployment — with fewer workers actually employed than before.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap2-l5-8',
@@ -1169,7 +1169,7 @@ The long-run tangency equilibrium is inefficient in two ways. First, P > MC at t
         correctAnswer: 2,
         explanation: 'MRP = MP × P. A 20% increase in MP raises MRP by 20% at every employment level — the entire labour demand (MRP) curve shifts rightward. With an upward-sloping labour supply, the rightward shift in demand raises both the equilibrium wage and equilibrium employment. This is the mechanism by which productivity growth translates into higher wages over time.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap2-l5-10',
@@ -1184,7 +1184,7 @@ The long-run tangency equilibrium is inefficient in two ways. First, P > MC at t
         correctAnswer: 1,
         explanation: 'At 10 workers: MRP = $65 > W = $50 — hiring the 10th worker is profitable. At 11 workers: MRP = $45 < W = $50 — hiring the 11th worker costs more than it adds to revenue. The firm maximises profit by hiring the last worker for which MRP ≥ W. With 10 workers MRP > W (hire) and with 11 MRP < W (do not hire), the optimal quantity is exactly 10 workers.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
     ],
     content: {

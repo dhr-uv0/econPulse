@@ -124,7 +124,7 @@ From a policy perspective, PED governs the effectiveness of indirect taxes in re
         correctAnswer: 0,
         explanation: '% ΔQd = (−75/500) × 100 = −15%. % ΔP = (5/20) × 100 = 25%. PED = −15% ÷ 25% = −0.6. Since |PED| = 0.6 < 1, demand is inelastic. A price rise with inelastic demand means the percentage price gain outweighs the percentage quantity loss, so TR rises from $20 × 500 = $10,000 to $25 × 425 = $10,625.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib3-l1-q2',
@@ -139,7 +139,7 @@ From a policy perspective, PED governs the effectiveness of indirect taxes in re
         correctAnswer: 0,
         explanation: 'Tax revenue per unit is fixed (the tax rate), so total tax revenue = tax per unit × quantity sold. The government maximises tax revenue by ensuring quantity sold remains high — which happens when demand is inelastic. Inelastic demand means consumers cannot easily cut back, so the tax causes only a small fall in quantity, keeping tax revenue large. Elastic demand would see a large quantity reduction, undermining revenue.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib3-l1-q3',
@@ -270,7 +270,7 @@ XED analysis underpins competition policy and antitrust regulation. When two fir
         correctAnswer: 0,
         explanation: 'YED = (−4%) ÷ (+8%) = −0.5. The negative sign classifies bus travel as an inferior good — as incomes rise, consumers switch to car ownership or taxis, so demand for bus travel falls. The magnitude of 0.5 suggests a moderate degree of inferiority. Luxuries have YED > 1 and are normal goods; necessities have 0 < YED < 1.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib3-l2-q2',
@@ -285,7 +285,7 @@ XED analysis underpins competition policy and antitrust regulation. When two fir
         correctAnswer: 0,
         explanation: 'XED = (−30%) ÷ (+20%) = −1.5. The negative sign indicates complements — petrol and SUVs are consumed together. When petrol becomes more expensive, the running cost of an SUV rises, so consumers demand fewer SUVs. The magnitude of 1.5 shows a strong complementary relationship. Inferior good status is determined by YED (income relationship), not XED.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib3-l2-q3',
@@ -398,7 +398,7 @@ IB HL students should also understand that governments' ability to achieve polic
         correctAnswer: 0,
         explanation: 'In the momentary period, the supply of wheat is fixed by what was already harvested — the supply curve is vertical. A negative supply shock (drought) shifts this vertical curve left, and since quantity cannot adjust, the entire burden falls on price. Wheat prices spike sharply. In the short and long run, farmers can plant more and new land can be brought into production, making supply gradually more elastic and moderating the price rise over time.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'ib3-l3-q2',
@@ -526,7 +526,7 @@ Subsidies create a mirror-image set of welfare effects. A per-unit subsidy shift
         correctAnswer: 0,
         explanation: 'Consumer burden = P_c − P_original = $5 − $2 = $3. Producer burden = P_original − P_p = $2 − $1 = $1. Total = $4 = the full tax. Consumers bear 75% ($3) of the tax because demand is relatively inelastic in this market — consumers cannot easily reduce their quantity purchased, so most of the tax is passed on via a higher price. The legal obligation to remit tax to the government has no bearing on economic incidence.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'ib3-l4-q2',
@@ -541,7 +541,7 @@ Subsidies create a mirror-image set of welfare effects. A per-unit subsidy shift
         correctAnswer: 0,
         explanation: 'A per-unit subsidy to producers shifts the supply curve rightward (downward) by the subsidy amount. The consumer price falls, the producer\'s effective price (market price plus subsidy) rises, and quantity increases. Government expenditure = subsidy per unit × new quantity. If the market was already at the allocatively efficient quantity, the additional output represents overproduction and a DWL triangle forms — the subsidy costs more than the welfare gain. However, if an underproduction externality existed, the subsidy may be welfare-improving by correcting the original market failure.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib3-l4-q3',
@@ -654,7 +654,7 @@ IB evaluation of minimum wage policy must go beyond the simple competitive model
         correctAnswer: 0,
         explanation: 'Price ceilings that reduce rents below the market-clearing rate discourage investment in rental housing. In the long run, landlords facing below-market returns sell properties to owner-occupiers, convert them to other uses, or allow quality to deteriorate. Supply of rental units shrinks, worsening the shortage beyond the initial short-run gap. This long-run supply reduction is more severe when supply is elastic in the long run (as in housing, where construction can respond over years). The price ceiling undermines its own objective of improving housing affordability for all renters.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib3-l5-q2',
@@ -669,7 +669,7 @@ IB evaluation of minimum wage policy must go beyond the simple competitive model
         correctAnswer: 0,
         explanation: 'If labour demand is inelastic (|PED of labour| < 1), firms do not significantly reduce the quantity of labour they hire in response to a wage rise — perhaps because labour and capital are not easily substitutable, or because labour is a small share of total costs. The minimum wage still creates some unemployment (L_d falls below L*), but the reduction is proportionally smaller than the wage increase. This is a key evaluation point: the employment impact of a minimum wage depends critically on the elasticity of labour demand in that specific industry.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib3-l5-q3',
@@ -684,7 +684,7 @@ IB evaluation of minimum wage policy must go beyond the simple competitive model
         correctAnswer: 0,
         explanation: 'A price floor above equilibrium creates a surplus (Qs > Qd). At the higher guaranteed price, dairy farmers are incentivised to produce more; simultaneously, consumers demand less at the higher price. The resulting surplus must be addressed by government policy: purchasing and storing the excess (as under EU dairy intervention schemes), imposing quotas to cap output, or subsidising exports (which can distort world markets and draw WTO objections). Shortages arise from price ceilings (below equilibrium), not price floors.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
     ],
   },

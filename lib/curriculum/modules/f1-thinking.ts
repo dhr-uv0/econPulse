@@ -186,7 +186,7 @@ Deduct for: confusing positive with normative, using the lesson's exact examples
         correctAnswer: 2,
         explanation: 'Option C contains the value judgement "should prioritise," making it normative. Options A, B, and D are factual claims testable against evidence — they are positive statements.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l1-q2',
@@ -201,7 +201,7 @@ Deduct for: confusing positive with normative, using the lesson's exact examples
         correctAnswer: 2,
         explanation: 'Macroeconomics examines economy-wide aggregates such as national output (GDP), the general price level (inflation), and total employment. Options A, B, and D describe microeconomic topics.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l1-q3',
@@ -216,7 +216,7 @@ Deduct for: confusing positive with normative, using the lesson's exact examples
         correctAnswer: 1,
         explanation: 'Scarcity — the gap between unlimited wants and finite resources — is the universal starting point of economics. It applies regardless of a country\'s government type or technological level.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l1-q4',
@@ -231,7 +231,7 @@ Deduct for: confusing positive with normative, using the lesson's exact examples
         correctAnswer: 2,
         explanation: 'Option C is a factual, testable claim about the relationship between price and smoking behaviour — a positive statement. Options A, B, and D all contain value judgements ("should," "ought," "unacceptably").',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l1-q5',
@@ -246,7 +246,7 @@ Deduct for: confusing positive with normative, using the lesson's exact examples
         correctAnswer: 1,
         explanation: 'The screens didn\'t force anyone to tip more — they just changed which option required the least effort. This is a choice-architecture incentive: by making 20%+ the path of least resistance, the design shifted behaviour at scale. Incentives don\'t have to be fines or rewards; they can be defaults.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f1-l1-q6',
@@ -261,7 +261,7 @@ Deduct for: confusing positive with normative, using the lesson's exact examples
         correctAnswer: 2,
         explanation: 'This is a microeconomic decision — an individual allocating their scarce resource (time) between competing uses. Scarcity of time forces the choice.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f1-l1-q7',
@@ -276,7 +276,7 @@ Deduct for: confusing positive with normative, using the lesson's exact examples
         correctAnswer: 1,
         explanation: '"The minimum wage should be £15" is normative (contains "should"). "Raising the minimum wage reduces teen employment" is positive — it is an empirical claim testable with data.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'higher',
       },
       {
         id: 'f1-l1-q8',
@@ -291,7 +291,7 @@ Deduct for: confusing positive with normative, using the lesson's exact examples
         correctAnswer: 1,
         explanation: 'Normative statements express what *should* be. Whether the government should tax the rich more depends on values like fairness and efficiency — reasonable people can disagree even when they share the same facts.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f1-l1-q9',
@@ -306,7 +306,7 @@ Deduct for: confusing positive with normative, using the lesson's exact examples
         correctAnswer: 1,
         explanation: 'Incentives are broader than financial rewards — they include social norms, reputation, moral obligation, and legal consequences. The key idea is that they change the perceived costs or benefits of a decision.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f1-l1-q10',
@@ -352,7 +352,7 @@ Deduct for: confusing positive with normative, using the lesson's exact examples
           correctAnswer: 2,
           explanation: 'Option C contains "should" — a value judgement. The other options are factual claims testable with data (positive statements).',
           marks: 1 as const,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -510,7 +510,7 @@ Deduct for: listing multiple opportunity costs without identifying the single be
         correctAnswer: 1,
         explanation: 'Opportunity cost is the next-best alternative forgone — the £30,000 salary she would have earned by working instead. Tuition is a monetary (accounting) cost, not the opportunity cost. The two should not be combined.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f1-l2-q2',
@@ -525,7 +525,7 @@ Deduct for: listing multiple opportunity costs without identifying the single be
         correctAnswer: 1,
         explanation: 'Scarcity is a universal condition rooted in unlimited wants meeting finite resources — not caused by poverty or inequality. A wealthy country still has limited land, labour, capital, and enterprise, and must make choices among competing uses.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f1-l2-q3',
@@ -540,7 +540,7 @@ Deduct for: listing multiple opportunity costs without identifying the single be
         correctAnswer: 2,
         explanation: 'Even with a full scholarship, the student bears the opportunity cost of four years that could have been spent earning, gaining experience, or pursuing other goals. "Free" tuition does not eliminate the real cost of attending university.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f1-l2-q4',
@@ -555,7 +555,7 @@ Deduct for: listing multiple opportunity costs without identifying the single be
         correctAnswer: 2,
         explanation: 'The £50 is a sunk cost — it\'s gone regardless of your decision. The rational choice is to compare the marginal benefit of attending (enjoyment) against the marginal cost (discomfort of being unwell). Sunk costs should never influence forward-looking decisions.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l2-q5',
@@ -570,7 +570,7 @@ Deduct for: listing multiple opportunity costs without identifying the single be
         correctAnswer: 2,
         explanation: 'Opportunity cost is the next-best alternative foregone — the single most valuable thing the £5 billion could have funded instead of the motorway. The construction materials and tax revenue are inputs, not opportunity costs.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l2-q6',
@@ -585,7 +585,7 @@ Deduct for: listing multiple opportunity costs without identifying the single be
         correctAnswer: 2,
         explanation: 'Money is not a factor of production — it is a medium of exchange, not a productive resource itself. The four factors of production are land, labour, capital (physical tools and machinery), and enterprise.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l2-q7',
@@ -600,7 +600,7 @@ Deduct for: listing multiple opportunity costs without identifying the single be
         correctAnswer: 1,
         explanation: 'Opportunity cost is the single next-best alternative foregone — the £60 part-time wage the student would have earned otherwise. It is not every possible alternative (only the best one), and leisure activities absolutely have opportunity costs.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f1-l2-q8',
@@ -615,7 +615,7 @@ Deduct for: listing multiple opportunity costs without identifying the single be
         correctAnswer: 2,
         explanation: 'The $250,000 is the accounting cost. The true economic cost includes the opportunity cost: Bezos\'s foregone annual salary (~$1m) plus what his parents could have earned investing that $250,000 elsewhere. Opportunity cost covers all resources committed — cash, time, and career — not just cash payments.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'higher',
       },
       {
         id: 'f1-l2-q9',
@@ -630,7 +630,7 @@ Deduct for: listing multiple opportunity costs without identifying the single be
         correctAnswer: 2,
         explanation: '"What to produce?" asks which goods and services a society or firm should create. Choosing electric vehicles over petrol cars is a decision about *what* to make, not how or for whom.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l2-q10',
@@ -645,7 +645,7 @@ Deduct for: listing multiple opportunity costs without identifying the single be
         correctAnswer: 1,
         explanation: 'TANSTAAFL: even when money changes hands for nothing, the time spent attending is a scarce resource with an opportunity cost. You could have used that time for work, study, or another activity. Nothing is truly free when resources — including time — are involved.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
     ],
   },
@@ -676,7 +676,7 @@ Deduct for: listing multiple opportunity costs without identifying the single be
           correctAnswer: 1,
           explanation: 'Opportunity cost is the single next-best alternative foregone — the £30,000 salary she would have earned by working.',
           marks: 1 as const,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
         {
           id: 'f1-l3-recall-2',
@@ -691,7 +691,7 @@ Deduct for: listing multiple opportunity costs without identifying the single be
           correctAnswer: 1,
           explanation: '"There Ain\'t No Such Thing As A Free Lunch" captures the idea that even things with no price tag consume scarce resources — time, effort, or money — so there is always an opportunity cost.',
           marks: 1 as const,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -850,7 +850,7 @@ Deduct for: confusing movement along PPF with outward shift, describing growth a
         correctAnswer: 1,
         explanation: 'A point inside the PPF signals productive inefficiency — some resources are idle (e.g., unemployed workers) or misallocated. The economy could produce more of both goods by using its resources more fully and effectively.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l3-q2',
@@ -865,7 +865,7 @@ Deduct for: confusing movement along PPF with outward shift, describing growth a
         correctAnswer: 2,
         explanation: 'New natural resources and improved technology increase productive capacity, shifting the entire PPF outward. This is economic growth — more of all goods can now be produced simultaneously.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f1-l3-q3',
@@ -880,7 +880,7 @@ Deduct for: confusing movement along PPF with outward shift, describing growth a
         correctAnswer: 1,
         explanation: 'Resources are not perfectly interchangeable. As you shift more resources toward one good, you use resources increasingly ill-suited to producing it — so each extra unit costs more of the other good foregone.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l3-q4',
@@ -910,7 +910,7 @@ Deduct for: confusing movement along PPF with outward shift, describing growth a
         correctAnswer: 1,
         explanation: 'Being *on* the PPF means all resources are already fully employed. To produce more clothing, the economy must reallocate resources away from food — giving up some food output.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f1-l3-q6',
@@ -925,7 +925,7 @@ Deduct for: confusing movement along PPF with outward shift, describing growth a
         correctAnswer: 2,
         explanation: 'Productive efficiency means all resources are fully and effectively employed — you are on the PPF. Allocative efficiency (what consumers want most) is a separate concept — you can be productively efficient but allocatively inefficient.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l3-q7',
@@ -955,7 +955,7 @@ Deduct for: confusing movement along PPF with outward shift, describing growth a
         correctAnswer: 1,
         explanation: 'By investing in capital goods (factories, skills) today rather than consumer goods, the country accepts a lower point on the consumer goods axis now. But this builds productive capacity — shifting the PPF outward in the future, as South Korea\'s development model demonstrated.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'higher',
       },
       {
         id: 'f1-l3-q9',
@@ -970,7 +970,7 @@ Deduct for: confusing movement along PPF with outward shift, describing growth a
         correctAnswer: 1,
         explanation: 'Reducing unemployment puts previously idle workers back to work — moving the economy from inside the PPF (inefficient) to on it (efficient). Discovering oil reserves, better technology, or more workers would shift the PPF outward (growth), not just move to the frontier.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'higher',
       },
       {
         id: 'f1-l3-q10',
@@ -1016,7 +1016,7 @@ Deduct for: confusing movement along PPF with outward shift, describing growth a
           correctAnswer: 2,
           explanation: 'A point inside the PPF indicates productive inefficiency — resources are idle or poorly allocated, so the economy could produce more of both goods.',
           marks: 1 as const,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -1173,7 +1173,7 @@ Yet the market system is not without critics. The 2008 financial crisis demonstr
         correctAnswer: 1,
         explanation: 'In a market economy, goods go to those who can and are willing to pay the market price. Distribution is determined by income (purchasing power) and relative prices — not planning or tradition.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l4-q2',
@@ -1188,7 +1188,7 @@ Yet the market system is not without critics. The 2008 financial crisis demonstr
         correctAnswer: 1,
         explanation: 'Hayek\'s "knowledge problem": no central authority can gather and process the dispersed, local information encoded in millions of market prices. This leads to chronic mismatches between what is planned and what consumers actually need.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f1-l4-q3',
@@ -1203,7 +1203,7 @@ Yet the market system is not without critics. The 2008 financial crisis demonstr
         correctAnswer: 1,
         explanation: 'Every functioning economy — from the United States to Sweden to Singapore — combines markets with government activity. The differences are in the *degree and type* of intervention, not in whether it exists at all.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l4-q4',
@@ -1233,7 +1233,7 @@ Yet the market system is not without critics. The 2008 financial crisis demonstr
         correctAnswer: 1,
         explanation: 'Smith argued that individuals pursuing self-interest (e.g., profit) in competitive markets are led "as if by an invisible hand" to outcomes that benefit society — through prices that coordinate supply and demand without any central planner.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l4-q6',
@@ -1263,7 +1263,7 @@ Yet the market system is not without critics. The 2008 financial crisis demonstr
         correctAnswer: 3,
         explanation: 'Any economy combining government provision of some goods with market provision of others is a mixed economy. This description — essentially that of the United States, UK, or most modern nations — is the defining feature of mixed economies.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l4-q8',
@@ -1278,7 +1278,7 @@ Yet the market system is not without critics. The 2008 financial crisis demonstr
         correctAnswer: 2,
         explanation: 'Prices are the market\'s communication system. A rising price signals high demand and attracts more supply; a falling price signals oversupply and causes production to fall. This happens automatically without any central coordinator.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l4-q9',
@@ -1339,7 +1339,7 @@ Yet the market system is not without critics. The 2008 financial crisis demonstr
           correctAnswer: 2,
           explanation: 'In a market economy, rising prices signal high demand and make production more profitable — attracting resources into that good. Prices are the market\'s automatic answer to "what to produce?"',
           marks: 1 as const,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -1494,7 +1494,7 @@ There's also a sharp mathematical relationship between marginal and average: whe
         correctAnswer: 2,
         explanation: 'Marginal analysis compares the marginal benefit (grade improvement from the 4th hour) to the marginal cost (opportunity cost of the time). Options A and B use total/average values, which are irrelevant. Option D is the sunk cost fallacy.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f1-l5-q2',
@@ -1509,7 +1509,7 @@ There's also a sharp mathematical relationship between marginal and average: whe
         correctAnswer: 2,
         explanation: 'When MC (£12) > MB (£9), producing the extra unit costs more than it earns — reducing net profit by £3. The rational decision is to stop at 500 units. Whether total profit is positive is irrelevant to the marginal decision.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f1-l5-q3',
@@ -1524,7 +1524,7 @@ There's also a sharp mathematical relationship between marginal and average: whe
         correctAnswer: 1,
         explanation: 'The £50 is a sunk cost — it\'s gone regardless of his decision. James should compare only the marginal benefit of each future gym visit (health, enjoyment) against the marginal cost (time, discomfort). If MB < MC, he should stop going.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f1-l5-q4',
@@ -1539,7 +1539,7 @@ There's also a sharp mathematical relationship between marginal and average: whe
         correctAnswer: 1,
         explanation: 'Once a flight\'s fixed costs (aircraft, crew, fuel) are covered, the marginal cost of one more passenger is tiny — some snacks and a fraction of fuel. Any ticket price above that marginal cost adds to profit, so selling deeply discounted seats beats flying empty.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f1-l5-q5',
@@ -1554,7 +1554,7 @@ There's also a sharp mathematical relationship between marginal and average: whe
         correctAnswer: 2,
         explanation: 'Diminishing marginal benefit captures the intuition that the first unit of something is typically most valuable. Your first coffee of the day is wonderful; the fifth barely registers. As consumption increases, each additional unit adds less satisfaction.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l5-q6',
@@ -1569,7 +1569,7 @@ There's also a sharp mathematical relationship between marginal and average: whe
         correctAnswer: 2,
         explanation: 'The rational rule is: continue as long as MB ≥ MC; stop when MC > MB. At the point where MC first exceeds MB, the next unit of activity destroys net benefit rather than creating it.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l5-q7',
@@ -1599,7 +1599,7 @@ There's also a sharp mathematical relationship between marginal and average: whe
         correctAnswer: 2,
         explanation: 'The cinema-goer is committing the sunk cost fallacy — staying because of the £15 already spent, when the rational decision should be based only on whether the *remaining* time watching is worth more than leaving. The £15 is gone either way.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'higher',
       },
       {
         id: 'f1-l5-q9',
@@ -1614,7 +1614,7 @@ There's also a sharp mathematical relationship between marginal and average: whe
         correctAnswer: 2,
         explanation: 'Marginal cost = change in total cost ÷ change in quantity = (£108 - £100) ÷ (11 - 10) = £8. It is neither the total cost nor the average cost — it is the *additional* cost of producing that specific extra unit.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f1-l5-q10',
@@ -1629,7 +1629,7 @@ There's also a sharp mathematical relationship between marginal and average: whe
         correctAnswer: 2,
         explanation: 'Jevons, Menger, and Walras independently developed the idea that economic value is determined at the margin — the additional unit — rather than by totals or averages. This reframing enabled modern price theory, consumer theory, and firm theory.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
     ],
   },

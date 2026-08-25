@@ -40,7 +40,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'MPS = 1 − MPC = 1 − 0.8 = 0.2. Multiplier k = 1 / 0.2 = 5. ΔY = 5 × £100 billion = £500 billion. A higher MPC means a larger multiplier because more of each income round is re-spent rather than saved.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook:
@@ -155,7 +155,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Raising corporation tax withdraws money from the circular flow, reducing firms\' after-tax profits and thus investment, which decreases AD. The other options are all expansionary measures.',
         marks: 2,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i5-l1-q3',
@@ -167,7 +167,7 @@ export const lessons: Lesson[] = [
         explanation:
           'The impact lag (also called the effectiveness lag) is the delay between a policy being implemented and its full effects materialising in GDP, employment, and prices. Recognition lag is about identifying the problem; decision and implementation lags relate to agreeing and deploying the policy.',
         marks: 2,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i5-l1-q4',
@@ -182,7 +182,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'When G rises by £1, the full £1 enters the spending stream immediately. When taxes fall by £1, households save MPS × £1 first, so only MPC × £1 reaches AD in round one. The tax multiplier is −MPC/(1−MPC), which is smaller in magnitude than the spending multiplier 1/(1−MPC).',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l1-q5',
@@ -197,7 +197,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Ricardian equivalence holds that rational, forward-looking households recognise that borrowing today means higher taxes tomorrow. They save the entire tax windfall to pay the future liability, so consumption and AD are unchanged. The fiscal multiplier collapses to zero under strict Ricardian assumptions.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l1-q6',
@@ -222,7 +222,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'Multiplier = 1/(1−0.8) = 5. To close a £200 billion gap: ΔG = £200 billion / 5 = £40 billion. Only £40 billion of new spending is needed because the multiplier amplifies it fivefold. A common error is to confuse the size of the gap with the required injection.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l1-q8',
@@ -237,7 +237,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'When spending leaks abroad through imports, each round of re-spending is smaller than the MPC alone would suggest — the marginal propensity to import acts as an additional leakage, reducing the effective multiplier. A below-potential economy and low interest rates both tend to increase the multiplier, not reduce it.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l1-q9',
@@ -309,7 +309,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'MPS = 1 − MPC = 1 − 0.75 = 0.25. Multiplier k = 1 / 0.25 = 4. The £40 billion injection will ultimately raise GDP by £160 billion if the multiplier operates fully, assuming no leakages from taxation or imports.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook:
@@ -412,7 +412,7 @@ export const lessons: Lesson[] = [
         explanation:
           'With a progressive tax system, higher incomes push households into higher marginal tax brackets, so tax revenue rises faster than GDP during a boom. This automatically withdraws purchasing power, moderating the expansion without any new legislation.',
         marks: 2,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i5-l2-q2',
@@ -428,7 +428,7 @@ export const lessons: Lesson[] = [
         explanation:
           'The defining feature of automatic stabilisers is that they react to changes in economic conditions (income, employment) automatically through pre-existing rules, with no need for new laws or deliberate decisions by policymakers.',
         marks: 2,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i5-l2-q3',
@@ -460,7 +460,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'In the presence of automatic stabilisers, a larger share of each income round is withdrawn — through higher tax payments and reduced benefits — before it can be re-spent. The effective MPC is lower, so the multiplier (1/(1−effective MPC)) is smaller. Paradoxically, this is desirable: a smaller multiplier means shocks propagate less.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l2-q5',
@@ -475,7 +475,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'The cyclically adjusted (structural) balance strips out the portion of the deficit or surplus driven by the business cycle — the automatic stabiliser movements in tax revenue and benefit spending. What remains reflects deliberate government choices about spending and taxation, allowing meaningful comparisons of fiscal stance across different phases of the cycle.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l2-q6',
@@ -490,7 +490,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Strong automatic stabilisers require: (1) high sensitivity of tax revenue to income changes — achieved by steep progressivity; and (2) large, rapid benefit payments when unemployment rises — achieved by generous replacement rates. Countries like Denmark and the Netherlands score highly on both dimensions.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l2-q7',
@@ -520,7 +520,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'In the paradox of thrift, simultaneous attempts by households to save more reduce aggregate income, defeating the saving goal. Automatic stabilisers interrupt this spiral: as incomes fall, benefit payments rise, partially replacing lost private income and sustaining consumer spending. They soften the self-reinforcing dynamic that makes recessions so damaging.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l2-q9',
@@ -592,7 +592,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'The defining feature of automatic stabilisers is that they react to changes in economic conditions through pre-existing rules — progressive taxes and benefit systems — without any new laws or deliberate policy decisions. This gives them zero implementation lag, unlike discretionary fiscal measures.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
       realWorldHook:
@@ -707,7 +707,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Crowding out occurs when government borrowing drives up interest rates in financial markets, making it more expensive for private firms to borrow and invest. The increase in G is partially offset by a fall in private I, reducing the net impact on AD.',
         marks: 2,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i5-l3-q3',
@@ -739,7 +739,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'The primary deficit = government spending (excluding debt interest) minus tax revenue. The overall deficit adds interest payments on the existing debt stock. For sustainability analysis, the primary balance is crucial: a country running a primary surplus but an overall deficit is still making progress toward stabilising its debt ratio.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'i5-l3-q5',
@@ -754,7 +754,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Japan\'s sustainability rests on three pillars: domestic ownership (no foreign creditor flight risk), near-zero interest rates (very low debt servicing costs), and yen-denominated debt (the Bank of Japan can always provide liquidity). None of these imply Japan\'s situation is replicable by countries that borrow in foreign currencies or at high rates.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l3-q6',
@@ -769,7 +769,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'When r > g (3% > 2%), the snowball effect means debt grows faster than the economy. The debt-to-GDP ratio will rise unless the government runs a primary surplus large enough to offset the difference. Specifically, the required primary surplus = (r − g) × debt-to-GDP ratio = 1% × 100% = 1% of GDP.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l3-q7',
@@ -784,7 +784,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Debt monetisation involves the central bank purchasing government bonds with newly created money, financing government deficits through seigniorage. While it avoids crowding-out and keeps borrowing costs low, if the money creation exceeds productive capacity it generates inflation — in extreme cases, hyperinflation, as occurred in Weimar Germany and Zimbabwe.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l3-q8',
@@ -871,7 +871,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'Crowding out occurs when government borrowing drives up interest rates in financial markets, making private borrowing more expensive. The increase in G is partially offset by a fall in private investment (I), reducing the net impact on AD.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook:
@@ -975,7 +975,7 @@ export const lessons: Lesson[] = [
         explanation:
           'The primary and most direct transmission channel is from the policy rate to commercial interest rates. Banks raise mortgage and business loan rates, making borrowing costlier, which reduces household consumption and firm investment — the core mechanism for cooling demand and inflation.',
         marks: 2,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i5-l4-q2',
@@ -991,7 +991,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Politicians have incentives to stimulate the economy before elections. An independent central bank removes this political pressure, allowing it to maintain an anti-inflationary stance even when this is unpopular. Evidence shows more independent central banks achieve lower average inflation.',
         marks: 2,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i5-l4-q3',
@@ -1023,7 +1023,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Monetary policy transmission is gradual: not all loans are repriced immediately (many are fixed-rate), firms and households adjust investment and spending plans slowly, and price and wage contracts run for months or years. The Bank of England estimates it takes up to two years for a rate change to have its peak effect on inflation.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l4-q5',
@@ -1038,7 +1038,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Demand-pull inflation requires cooling excess demand. Raising the policy rate operates through: (1) the bank lending channel — higher borrowing costs reduce investment and consumption, shifting AD left; and (2) the exchange rate channel — higher rates attract capital inflows, appreciating the currency, which lowers import prices and reduces export demand, both moderating inflationary pressure.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l4-q6',
@@ -1053,7 +1053,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'The key benefit of inflation targeting is expectational: if households, firms, and wage-setters believe the central bank will keep inflation at 2%, they set wages and prices accordingly, creating a self-fulfilling prophecy that makes the target easier to hit. This reduces the "sacrifice ratio" — the output loss required to reduce inflation — compared to a regime with no anchor.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l4-q7',
@@ -1098,7 +1098,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The lag between a rate change and its full impact on inflation (12–24 months) means that by the time the effects materialise, the economic situation may have changed. A central bank that raises rates aggressively in a boom may find the rate rises still feeding through into a recession, deepening the downturn unnecessarily.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l4-q10',
@@ -1155,7 +1155,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'The primary and most direct channel is from the policy rate to commercial interest rates. Banks raise mortgage and business loan rates, making borrowing costlier, which reduces household consumption and firm investment — the core mechanism for cooling demand and inflation.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook:
@@ -1258,7 +1258,7 @@ export const lessons: Lesson[] = [
         explanation:
           'QE works through asset purchases: buying bonds in large quantities pushes up their price. Since bond yield and price move inversely (yield = coupon / price), rising prices mean falling yields. Lower government bond yields reduce benchmark rates across the economy, lowering borrowing costs for firms and households.',
         marks: 2,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i5-l5-q2',
@@ -1305,7 +1305,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Portfolio rebalancing is the key secondary transmission of QE. Pension funds selling government bonds receive cash. Since their mandates require them to hold yield-bearing assets, they reinvest in equities, corporate bonds, and other securities. This broad-based buying pushes up asset prices and reduces yields across the economy, easing financing conditions beyond the government bond market.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l5-q5',
@@ -1320,7 +1320,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'QT is the reversal of QE: as the central bank\'s bond holdings mature or are sold, bond supply in the market rises, pushing prices down and yields up. If done too rapidly, this can destabilise bond markets, sharply raise sovereign borrowing costs, and trigger losses for institutions holding bonds at inflated QE-era prices.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l5-q6',
@@ -1335,7 +1335,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Asset price inflation from QE disproportionately benefits those who already hold assets — predominantly wealthier households. The Bank of England itself acknowledged that QE raised household wealth substantially in aggregate, but this gain was concentrated among higher-income groups who own equities, bonds, and property. Lower-income renters without financial assets gained little from rising asset prices.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'i5-l5-q7',
@@ -1350,7 +1350,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'QE works partly through banks\' willingness to convert reserves into loans. After 2008, many banks were severely capital-constrained and risk-averse. They used new reserves to repair balance sheets and meet regulatory requirements rather than expand lending. This "leakage" from QE into idle reserves is one reason why QE generated less real-economy stimulus than its scale might suggest.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l5-q8',
@@ -1437,7 +1437,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'QE works through asset purchases: buying bonds in large quantities pushes up their price. Since bond yield and price move inversely (yield = coupon / price), rising prices mean falling yields. Lower government bond yields reduce benchmark borrowing costs across the economy.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook:
@@ -1541,7 +1541,7 @@ export const lessons: Lesson[] = [
         explanation:
           'In a liquidity trap, the policy rate is already at or near its lower bound. Further reductions cannot meaningfully lower already-negligible borrowing costs. Additionally, with deeply pessimistic expectations, households and firms prefer to hold cash regardless of low rates — monetary policy loses its transmission channel.',
         marks: 2,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i5-l6-q2',
@@ -1575,7 +1575,7 @@ export const lessons: Lesson[] = [
         explanation:
           'A supply-side shock reduces productive capacity and raises costs simultaneously (stagflation). Expansionary demand-side policies (loose fiscal or monetary) can support output but at the risk of fuelling inflation. Contractionary policies can contain inflation but deepen the output loss. Neither tool addresses the root cause — the cost of energy — directly.',
         marks: 2,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i5-l6-q4',
@@ -1590,7 +1590,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Fiscal dominance occurs when the central bank cannot credibly tighten policy without triggering a debt sustainability crisis. Markets anticipate this and expect inflation — because the central bank will effectively monetise the debt. Once this expectation takes hold, inflation becomes self-fulfilling and much harder to reverse without a severe recession.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l6-q5',
@@ -1605,7 +1605,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'For routine cycle management, monetary policy\'s advantages in implementation speed, reversibility, and insulation from political bias make it the preferred tool. A central bank can raise or cut rates within hours; a government stimulus package may take 12–18 months from conception to households receiving cash. Monetary policy is also easier to reverse if it turns out to be excessive.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l6-q6',
@@ -1635,7 +1635,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'The political economy of fiscal policy introduces systematic distortions: stimulus arrives late (after recognition, decision, and implementation lags), spending targets electoral constituencies rather than high-multiplier sectors, and tax increases to fund the spending are politically delayed. Each distortion reduces the effective multiplier below its textbook value. This is the core of the political economy argument for preferring rules-based monetary policy over discretionary fiscal policy for routine stabilisation.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l6-q8',
@@ -1650,7 +1650,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'With central banks holding policy rates near zero and undertaking QE, government bond yields remained historically low despite massive bond issuance. This meant the fiscal expansion did not trigger the interest rate rises that cause crowding-out — private borrowing costs stayed depressed, and the fiscal multiplier was larger than it would have been in a higher-rate environment. The coordination amplified the stimulus.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i5-l6-q9',

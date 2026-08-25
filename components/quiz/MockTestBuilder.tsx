@@ -45,7 +45,7 @@ export function MockTestBuilder({ modules, userId }: Props) {
 
   const [phase, setPhase] = useState<Phase>('setup')
   const [selectedTiers, setSelectedTiers] = useState<CurriculumTier[]>(['FOUNDATIONS'])
-  const [selectedModuleIds, setSelectedModuleIds] = useState<string[]>([])
+  const [selectedLessonIds, setSelectedLessonIds] = useState<string[]>([])
   const [showTopics, setShowTopics] = useState(false)
   const [selectedDifficulties, setSelectedDifficulties] = useState<QuizQuestion['difficulty'][]>([...ALL_DIFFICULTIES])
   const [questionCount, setQuestionCount] = useState(10)
@@ -56,29 +56,35 @@ export function MockTestBuilder({ modules, userId }: Props) {
   const [saving, setSaving] = useState(false)
   const [xpEarned, setXpEarned] = useState(0)
 
-  const availableModules = modules.filter((m) => selectedTiers.includes(m.tier ?? 'FOUNDATIONS') && m.lessons.some((l) => l.quiz.some((q) => q.type === 'mcq')))
+  // Topics are picked at lesson granularity — each lesson with at least one
+  // mcq question is its own toggleable topic, grouped by module for display.
+  const availableModules = modules
+    .filter((m) => selectedTiers.includes(m.tier ?? 'FOUNDATIONS'))
+    .map((m) => ({ ...m, mcqLessons: m.lessons.filter((l) => l.quiz.some((q) => q.type === 'mcq')) }))
+    .filter((m) => m.mcqLessons.length > 0)
+  const availableLessonIds = availableModules.flatMap((m) => m.mcqLessons.map((l) => l.id))
 
   const filteredPool = useMemo(
-    () => filterPool(pool, { tiers: selectedTiers, moduleIds: selectedModuleIds, difficulties: selectedDifficulties }),
-    [pool, selectedTiers, selectedModuleIds, selectedDifficulties]
+    () => filterPool(pool, { tiers: selectedTiers, lessonIds: selectedLessonIds, difficulties: selectedDifficulties }),
+    [pool, selectedTiers, selectedLessonIds, selectedDifficulties]
   )
 
   function toggleTier(tier: CurriculumTier) {
     setSelectedTiers((prev) => prev.includes(tier) ? prev.filter((t) => t !== tier) : [...prev, tier])
-    setSelectedModuleIds([])
+    setSelectedLessonIds([])
   }
 
   function toggleDifficulty(d: QuizQuestion['difficulty']) {
     setSelectedDifficulties((prev) => prev.includes(d) ? prev.filter((x) => x !== d) : [...prev, d])
   }
 
-  function toggleModule(id: string) {
-    // An empty selection implicitly means "every available module" — so the
+  function toggleLesson(id: string) {
+    // An empty selection implicitly means "every available lesson" — so the
     // first uncheck must expand into that full set minus the one being
     // removed, not just add `id` as if starting from nothing selected.
-    const effective = selectedModuleIds.length > 0 ? selectedModuleIds : availableModules.map((m) => m.id)
+    const effective = selectedLessonIds.length > 0 ? selectedLessonIds : availableLessonIds
     const next = effective.includes(id) ? effective.filter((x) => x !== id) : [...effective, id]
-    setSelectedModuleIds(next)
+    setSelectedLessonIds(next)
   }
 
   function generateTest() {
@@ -202,24 +208,31 @@ export function MockTestBuilder({ modules, userId }: Props) {
               {showTopics ? 'Hide topic selection' : 'Customize specific topics (optional)'}
             </button>
             {showTopics && (
-              <div className="mt-3 grid gap-2 sm:grid-cols-2 max-h-64 overflow-y-auto pr-1">
-                {availableModules.map((mod) => {
-                  const checked = selectedModuleIds.length === 0 || selectedModuleIds.includes(mod.id)
-                  return (
-                    <label
-                      key={mod.id}
-                      className="flex items-center gap-2 text-sm text-[var(--fg)] rounded-lg border border-[var(--border)] px-3 py-2 cursor-pointer hover:border-[var(--accent)]/50"
-                    >
-                      <input
-                        type="checkbox"
-                        checked={checked}
-                        onChange={() => toggleModule(mod.id)}
-                        className="accent-[var(--accent)]"
-                      />
-                      <span className="truncate">{mod.title}</span>
-                    </label>
-                  )
-                })}
+              <div className="mt-3 max-h-80 overflow-y-auto pr-1 space-y-4">
+                {availableModules.map((mod) => (
+                  <div key={mod.id}>
+                    <h4 className="text-xs font-semibold uppercase tracking-wide text-[var(--muted-fg)] mb-1.5">{mod.title}</h4>
+                    <div className="grid gap-2 sm:grid-cols-2">
+                      {mod.mcqLessons.map((lesson) => {
+                        const checked = selectedLessonIds.length === 0 || selectedLessonIds.includes(lesson.id)
+                        return (
+                          <label
+                            key={lesson.id}
+                            className="flex items-center gap-2 text-sm text-[var(--fg)] rounded-lg border border-[var(--border)] px-3 py-2 cursor-pointer hover:border-[var(--accent)]/50"
+                          >
+                            <input
+                              type="checkbox"
+                              checked={checked}
+                              onChange={() => toggleLesson(lesson.id)}
+                              className="accent-[var(--accent)]"
+                            />
+                            <span className="truncate">{lesson.title}</span>
+                          </label>
+                        )
+                      })}
+                    </div>
+                  </div>
+                ))}
               </div>
             )}
           </div>

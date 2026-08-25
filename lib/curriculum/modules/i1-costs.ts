@@ -43,7 +43,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'A price ceiling below equilibrium reduces quantity traded below the efficient level. Consumers who buy gain surplus, but the deadweight loss from units no longer traded means total surplus (consumer + producer) falls. This is the core inefficiency result from government intervention studied in FOUNDATIONS.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook:
@@ -145,7 +145,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Building a new assembly plant changes the firm\'s capital stock — a factor that is fixed in the short run. All other options involve adjusting variable inputs (labour, hours, inventory) and are therefore short-run decisions.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i1-l1-q3',
@@ -160,7 +160,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'A bar over a variable in economics conventionally denotes that the quantity is fixed (held constant). K̄ means capital is at a set level that the firm cannot change — the defining characteristic of the short run.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i1-l1-q4',
@@ -175,7 +175,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The warehouse lease is a fixed capital input that cannot be changed in the current period; workers can be adjusted immediately. This is precisely the definition of the short run — at least one factor (capital) is fixed while labour is variable. Sunk costs are a separate concept and do not define the short run.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l1-q5',
@@ -190,7 +190,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Fixed costs exist because some inputs cannot be changed in the short run. Once all inputs are variable — the definition of the long run — there is no longer any fixed commitment, so every cost varies with output. The long run is not defined by calendar time, and fixed costs do not simply "expire".',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l1-q6',
@@ -220,7 +220,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The short run lasts as long as it takes to adjust the fixed factor. For a street food vendor this could be hours; for a nuclear plant it is measured in decades. The duration of the short run is determined by the nature of the fixed capital in each industry — never by a fixed calendar period.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l1-q8',
@@ -235,7 +235,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Airlines\' capital (aircraft) has delivery lead times of one to several years, making the short run very long for aviation. A taxi firm can add new vehicles within weeks. Six months later, the taxi company may have fully adjusted its capital stock, while the airline almost certainly has not — it remains constrained by its existing fleet.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l1-q9',
@@ -306,7 +306,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'A bar over a variable in economics denotes that it is held constant — K̄ means capital is fixed at a set level. This is the defining characteristic of the short run: at least one factor cannot be adjusted, regardless of how much output the firm desires.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
       conceptualExplanation:
@@ -412,7 +412,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The LDMR is a short-run law that requires a fixed factor. Without a fixed factor (i.e., in the long run), there is no congestion effect and returns need not diminish.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i1-l2-q3',
@@ -427,7 +427,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'When MP is above AP, each new worker pulls the average up. Once MP drops below AP, each new worker pulls the average down — so AP begins to fall. AP peaks exactly where MP = AP.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i1-l2-q4',
@@ -442,7 +442,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'MP of the 6th worker = 93 − 80 = 13; MP of the 7th worker = 103 − 93 = 10. Since MP fell from 13 to 10, diminishing marginal returns have set in by the 7th worker. Total output still rising is irrelevant — LDMR is about MP declining, not TP declining.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l2-q5',
@@ -472,7 +472,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'If total output falls when the 8th worker is added, MP of that worker is negative (MP = ΔTP/ΔL < 0). This is the stage of negative marginal returns — beyond the point where diminishing returns have already been observed. TP peaks where MP = 0, so TP has already peaked before the 8th worker.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l2-q7',
@@ -532,7 +532,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'TP is maximised where MP = 0 — the point at which additional workers add nothing to output. Beyond 50 workers MP is negative and TP falls. The TP curve peaks at 50 workers. Where MP is highest (20 workers) is the inflection point of TP, not its maximum. TP does have a maximum — it peaks where MP first becomes zero.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {
@@ -573,7 +573,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'Diminishing marginal returns set in when marginal product falls — here MPL dropped from 12 to 8. Total product is still rising (just more slowly), so it has not fallen. This is a short-run phenomenon requiring at least one fixed factor.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       conceptualExplanation:
@@ -664,7 +664,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'MC = ΔTC / ΔQ = (£870 − £840) / (21 − 20) = £30 / 1 = £30.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i1-l3-q2',
@@ -679,7 +679,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'ATC is at its minimum where MC = ATC. This is the point of productive efficiency. When MC < ATC, ATC is still falling; when MC > ATC, ATC is rising. The crossing point is therefore ATC\'s lowest value.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i1-l3-q3',
@@ -694,7 +694,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'AFC = TFC / Q. Since TFC is constant and Q increases, AFC always falls. AVC, ATC, and MC are all U-shaped — they fall then rise.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i1-l3-q4',
@@ -709,7 +709,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'TC = TFC + TVC = £200 + £600 = £800. ATC = TC / Q = £800 / 40 = £20. Note: AFC = £200/40 = £5; AVC = £600/40 = £15; ATC = AFC + AVC = £5 + £15 = £20. Option B is AVC only; option C is AFC only.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l3-q5',
@@ -724,7 +724,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'When MC < ATC, each additional unit costs less than the current average — so the average is pulled downward. ATC is still declining at Q = 50. ATC only begins to rise when MC exceeds ATC. The reference to diminishing returns in option D may be true, but diminishing returns raises MC — it does not directly raise ATC while MC < ATC.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l3-q6',
@@ -739,7 +739,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'When output is zero, TVC = 0, so TC = TFC = £500. The £500 is therefore total fixed cost. MC = ΔTC/ΔQ = (£540 − £500) / (1 − 0) = £40. Fixed costs have already been paid, but they do not eliminate MC — MC measures only the change in total cost from producing one more unit.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l3-q7',
@@ -754,7 +754,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'MC > ATC means the cost of the last unit (£25) exceeds the current average (£18), pulling the average upward. The firm has passed its minimum ATC point. Minimum ATC occurs where MC = ATC; beyond that, MC > ATC and ATC rises. The firm should not necessarily shut down — producing may still cover variable costs.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l3-q8',
@@ -840,7 +840,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'ATC is minimised at the output where MC = ATC. When MC lies below ATC, each extra unit pulls the average down; when MC exceeds ATC, each extra unit pulls it up. The crossing point is therefore ATC\'s lowest value — the point of productive efficiency in the short run.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
       conceptualExplanation:
@@ -946,7 +946,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Managerial diseconomies — the difficulty of coordinating a very large organisation — are the primary internal cause of diseconomies of scale. Bulk orders usually mean lower (not higher) input prices, and large firms typically borrow more cheaply. Falling AFC is a short-run concept that lowers, not raises, costs.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i1-l4-q3',
@@ -976,7 +976,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Purchasing economies of scale arise when a large firm can negotiate bulk-buying discounts from suppliers that smaller firms cannot access. Technical economies relate to machinery and production processes; financial economies relate to borrowing costs; managerial economies relate to specialist management.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'i1-l4-q5',
@@ -991,7 +991,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'MES is the output level at the bottom of the LRAC curve — where the firm first achieves its lowest possible long-run average cost. Beyond MES, diseconomies of scale cause LRAC to rise. It has no direct relationship with break-even output (which depends on revenue) or a physical output maximum.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'i1-l4-q6',
@@ -1006,7 +1006,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Slow decision-making and bureaucratic conflicts are classic symptoms of managerial diseconomy — the primary long-run internal cause of diseconomies of scale. LDMR is a short-run concept. External diseconomies affect all firms in the industry via input price rises, not internal processes.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l4-q7',
@@ -1021,7 +1021,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Spreading large fixed costs (R&D expenditure) over a high volume of output is a technical economy of scale — the per-unit cost of development falls as volume rises. This is why pharmaceutical companies have incentives to maximise global sales volume. Purchasing, financial, and risk-bearing economies are distinct sources.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l4-q8',
@@ -1036,7 +1036,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'When MES is small relative to market demand (cheese), many firms can each reach MES — supporting a competitive market. When MES is enormous relative to market demand (steel), only a few firms can operate efficiently, leading naturally to oligopoly or monopoly. Scale economies are therefore a major structural determinant of market concentration.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l4-q9',
@@ -1107,7 +1107,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'If output rises faster than inputs, each unit of output is produced with proportionally fewer inputs — so average cost falls. This is the definition of economies of scale (increasing returns to scale), and the firm is on the downward-sloping portion of its LRAC curve.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       conceptualExplanation:
@@ -1213,7 +1213,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'In perfect competition, a firm is a price-taker. Every unit sold adds exactly the market price (£25) to total revenue, so MR = P = AR = £25 for every unit.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i1-l5-q3',
@@ -1228,7 +1228,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'For a linear demand curve P = a − bQ, TR = aQ − bQ², so MR = a − 2bQ. The vertical intercept (a) is the same as AR = a − bQ, but MR has slope −2b — twice as steep. So MR lies below AR and reaches zero at half the quantity where AR (demand) reaches zero.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i1-l5-q4',
@@ -1243,7 +1243,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'TR = P × Q = (100 − 2Q)Q = 100Q − 2Q². MR = dTR/dQ = 100 − 4Q. For a linear demand P = a − bQ, MR = a − 2bQ — same intercept (100), double the slope coefficient (4 instead of 2). Option B is simply the demand/AR curve; option C halves the intercept incorrectly.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l5-q5',
@@ -1258,7 +1258,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'TR is maximised where MR = 0. MR = 100 − 4Q = 0 → Q = 25. At Q = 25, P = 100 − 50 = £50, TR = £50 × 25 = £1,250. Beyond Q = 25, MR is negative and each extra unit reduces TR.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l5-q6',
@@ -1273,7 +1273,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'A constant AR (= price) at all output levels means the firm\'s demand curve is horizontal — it can sell any quantity at £80 without affecting price. This is the defining feature of a price-taker in perfect competition. Monopolists face a downward-sloping AR; constant AR is the opposite of market power.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l5-q7',
@@ -1333,7 +1333,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'A competitive firm takes market price as given (P constant), so TR = P × Q is a straight line through the origin. A monopolist faces a downward-sloping demand: to sell more, price must fall. TR rises initially (elastic region), peaks (unit elastic, MR = 0), then falls (inelastic region) — a classic inverted U-shape. This difference underpins why competitive and monopoly pricing behaviour diverges.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {
@@ -1374,7 +1374,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'For a linear demand curve P = a − bQ, TR = aQ − bQ², so MR = a − 2bQ. The vertical intercept (a) matches AR = a − bQ, but MR has slope −2b — twice as steep. MR therefore lies below AR at all positive output levels.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       conceptualExplanation:
@@ -1465,7 +1465,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'When MR > MC, producing the next unit adds more to revenue than it adds to cost — so profit increases. The firm should expand until MR = MC. Stopping earlier leaves profit on the table.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i1-l6-q2',
@@ -1480,7 +1480,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Economic profit = (AR − ATC) × Q = (£60 − £45) × 1,000 = £15 × 1,000 = £15,000.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i1-l6-q3',
@@ -1495,7 +1495,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Zero economic profit means the firm is earning normal profit — exactly covering all explicit and implicit (opportunity) costs, including the owner\'s opportunity cost of capital. The firm has every reason to stay in the industry, as it is earning a competitive return.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i1-l6-q4',
@@ -1510,7 +1510,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'MR = MC confirms profit maximisation (or loss minimisation). However, AR (= price) must equal ATC for normal profit. Here ATC = £75 > AR; the firm is making a loss per unit (AR − ATC < 0). But as long as AR ≥ AVC the firm should keep producing in the short run to cover variable costs. "Shut down immediately" is only correct if AR < AVC.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l6-q5',
@@ -1525,7 +1525,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Under monopoly, MR < P at all output levels. Profit maximisation gives MR = MC, which implies P > MC. Allocative efficiency requires P = MC, which the profit-maximising monopolist does not achieve. This is the fundamental source of deadweight loss under monopoly. P = ATC (normal profit) is only a special case, not always true.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l6-q6',
@@ -1540,7 +1540,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Since MR (£45) > MC (£38), the 500th unit adds more to revenue than it costs — a net addition of £7 to profit. The firm should produce it. MR > MC signals that expanding output increases profit; only when MR = MC is the profit-maximising point reached. The current sign of total profit is irrelevant to marginal decisions.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l6-q7',
@@ -1585,7 +1585,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Fixed costs must be paid whether the firm produces or not. If AR ≥ AVC, producing generates revenue that covers variable costs and contributes something toward fixed costs — so the loss from producing is smaller than the loss from shutting down (which equals TFC). Only if AR < AVC does producing worsen the loss, making shut-down the better short-run choice.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i1-l6-q10',

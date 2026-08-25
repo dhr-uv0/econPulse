@@ -94,7 +94,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Pollution is a negative production externality. The firm does not bear the full social cost (MPC < MSC = MPC + MEC), so the market price is lower than the socially optimal price and quantity produced exceeds the social optimum. The deadweight loss is the triangle between MSC and demand, from the social optimum to the market quantity.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap3-l1-3',
@@ -109,7 +109,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'Positive externalities mean MSB > MPB — some benefits accrue to people who do not pay for the vaccine (herd immunity). The market price only reflects private benefit, so demand is too low relative to the social optimum, causing underproduction. A Pigouvian subsidy equal to the marginal external benefit at the social optimum quantity would correct this. Options A and B are wrong because the market price does not capture spill-over benefits; option D describes a policy intervention, not the free-market outcome.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap3-l1-4',
@@ -124,7 +124,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Coase argued that efficiency does not depend on who holds the property right — only that someone does and that the parties can bargain costlessly. With low transaction costs and clear rights, the injured party can pay the polluter to reduce emissions, or the polluter can be required to compensate the harmed party; either way the socially efficient level of the activity emerges. The theorem breaks down in reality with many affected parties (high transaction costs, free-riding in coalition formation).',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap3-l1-5',
@@ -139,7 +139,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Before the tax, the market produces in excess of the social optimum — every unit beyond the optimum has social cost exceeding social benefit, creating DWL. A correctly calibrated Pigouvian tax shifts the firm\'s effective marginal cost curve up to MSC, moving output toward the social optimum and eliminating the DWL triangle. The tax does create a wedge between buyer and seller prices, but this wedge corrects the externality rather than introducing a new distortion.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap3-l1-6',
@@ -154,7 +154,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'Efficiency requires that abatement occur where it is cheapest. Permit trading allows low-cost reducers to cut more than required and sell permits, while high-cost firms buy permits and reduce less. This equalises marginal abatement costs across firms, achieving the total emissions target at minimum aggregate cost. Uniform percentage cuts (A) ignore cost differences and waste resources. A price set at average cost (B) is not cost-minimising. Expanding permits (D) undermines the environmental cap.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap3-l1-7',
@@ -169,7 +169,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'DWL is the triangle bounded by MSC above, the demand (MPB) curve below, from the social optimum quantity to the market quantity. For each of these excess units, MSC > MPB — social cost exceeds social benefit — yet the market produces them anyway. The area is a triangle because MSC and demand are linear and they converge at the social optimum. Option A describes a rectangle, not a triangle, and misidentifies the bounds. Option D describes tax revenue, not DWL.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap3-l1-8',
@@ -346,7 +346,7 @@ Correction tools include Pigouvian taxes (shifting MPC up to MSC, directing quan
         correctAnswer: 1,
         explanation: "National defence is non-rival (protecting one citizen doesn't reduce protection for others) and non-excludable (it is technically impossible to deny protection to any resident). These two properties, not government provision per se, define a public good. Government provision is the response to the resulting free-rider problem, not the definition.",
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap3-l2-2',
@@ -361,7 +361,7 @@ Correction tools include Pigouvian taxes (shifting MPC up to MSC, directing quan
         correctAnswer: 1,
         explanation: 'Moral hazard is a post-contractual hidden-action problem: after purchasing insurance, the homeowner changes behaviour because they bear less financial risk. This is distinct from adverse selection, which occurs before a contract is signed when high-risk individuals disproportionately self-select into insurance pools.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap3-l2-3',
@@ -376,7 +376,7 @@ Correction tools include Pigouvian taxes (shifting MPC up to MSC, directing quan
         correctAnswer: 2,
         explanation: 'A club good is excludable (you must pay admission) but becomes rival once congestion sets in — each additional swimmer reduces the experience for others. This is the defining characteristic of club goods. It is not a public good (which is non-excludable); not a common resource (which is non-excludable); not a pure private good (rivalry only emerges with congestion, not at low usage).',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap3-l2-4',
@@ -391,7 +391,7 @@ Correction tools include Pigouvian taxes (shifting MPC up to MSC, directing quan
         correctAnswer: 1,
         explanation: 'Information asymmetry means buyers cannot verify quality before purchase, so they price all cars at expected average value. High-quality sellers receive less than their car is worth and exit. This lowers the average quality of cars on the market, causing the price buyers will pay to fall further — a potential unravelling. This is the core adverse selection mechanism. Options C and D introduce factors not in Akerlof\'s model.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap3-l2-5',
@@ -406,7 +406,7 @@ Correction tools include Pigouvian taxes (shifting MPC up to MSC, directing quan
         correctAnswer: 2,
         explanation: 'Deductibles and co-payments reintroduce financial consequences for the insured\'s health-related decisions, reducing the moral hazard of over-consuming medical care. Option A addresses adverse selection (screening pre-existing conditions), not moral hazard. Community rating (B) reduces adverse selection discrimination but does nothing to align incentives post-contract. Government provision (D) does not inherently reduce moral hazard — it may worsen it if cost-sharing is eliminated.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap3-l2-6',
@@ -421,7 +421,7 @@ Correction tools include Pigouvian taxes (shifting MPC up to MSC, directing quan
         correctAnswer: 1,
         explanation: 'Fish are a common resource: each fish caught by one fleet is unavailable to others (rival), but no fleet can be excluded from fishing in international waters (non-excludable). Each fleet bears only its private cost but not the cost it imposes on future catches for all fleets — a negative externality among users. This is the tragedy of the commons. Fish are not non-rival (option A is wrong). Collusion (C) typically reduces output. Subsidies (D) are a separate market distortion, not the primary cause of the commons problem.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap3-l2-7',
@@ -523,7 +523,7 @@ Asymmetric information distorts markets in distinct ways depending on whether th
           correctAnswer: 0,
           explanation: 'The Pigouvian tax shifts MPC upward to equal MSC, redirecting the firm to produce at the social optimum. If the tax were calibrated to the market quantity (where output is too high), it would be set too large — pushing output past the social optimum into a range where social cost exceeds social benefit on net. The correct tax reads the MEC at the socially optimal output, not at the unregulated equilibrium.',
           marks: 1,
-          difficulty: 'standard' as const,
+          difficulty: 'higher' as const,
         },
       ],
       thinkAboutIt: {
@@ -614,7 +614,7 @@ Asymmetric information distorts markets in distinct ways depending on whether th
         correctAnswer: 1,
         explanation: 'At P = ATC the firm earns zero economic profit — commercially viable without a subsidy. However, because LRAC is still declining for a natural monopoly, MC < ATC at the regulated output, meaning P > MC. The firm produces less than the allocatively efficient quantity. This is a second-best outcome: better than unregulated monopoly, but not first-best.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap3-l3-2',
@@ -629,7 +629,7 @@ Asymmetric information distorts markets in distinct ways depending on whether th
         correctAnswer: 1,
         explanation: 'Market allocation agreements between competitors — agreeing not to compete in each other\'s territories — are per se illegal under antitrust law. Per se violations do not require proof of actual harm; the anti-competitive intent is inherent in the practice. The other options are either pro-competitive (price cutting, innovation) or subject to case-by-case "rule of reason" analysis (vertical mergers).',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap3-l3-3',
@@ -644,7 +644,7 @@ Asymmetric information distorts markets in distinct ways depending on whether th
         correctAnswer: 2,
         explanation: 'For a natural monopoly, LRAC is declining, so at any output level MC < LRAC. Setting P = MC means price falls below average cost — total revenue is less than total cost — so the firm incurs a loss and requires a government subsidy to operate. This is why marginal-cost pricing, despite being allocatively efficient, is financially unsustainable for natural monopolies without subsidy support.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap3-l3-4',
@@ -674,7 +674,7 @@ Asymmetric information distorts markets in distinct ways depending on whether th
         correctAnswer: 1,
         explanation: 'Rate-of-return regulation grants the firm a permitted profit proportional to its invested capital. This creates an incentive to inflate the capital base — more capital means more permitted total profit. The result is that the firm uses a capital-intensive production method even when cheaper alternatives exist, causing productive inefficiency. This distortion motivated the development of RPI-X (price-cap) regulation in the UK and elsewhere.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap3-l3-6',
@@ -689,7 +689,7 @@ Asymmetric information distorts markets in distinct ways depending on whether th
         correctAnswer: 1,
         explanation: 'Per se illegal practices (price-fixing, market allocation, bid-rigging) are condemned without inquiry into their actual effects — the anti-competitive harm is deemed inherent. Rule of reason analysis applies to practices with ambiguous competitive effects (exclusive dealing, tying arrangements, most vertical restraints), where courts weigh pro-competitive efficiencies against anti-competitive harms on the specific facts. Option A inverts the definitions. Options C and D incorrectly limit the rules by practice type or institution.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap3-l3-7',
@@ -749,7 +749,7 @@ Asymmetric information distorts markets in distinct ways depending on whether th
         correctAnswer: 1,
         explanation: 'A natural monopoly arises from cost structure, not legal barriers. Electricity transmission requires enormous upfront fixed investment in wires, pylons, and transformers that is largely independent of the volume of electricity carried. Once built, the marginal cost of transmitting additional electricity is very low. LRAC declines continuously, so a single network serves the market at lower average cost than duplicating the infrastructure. Option A confuses electricity with a public good (it is excludable and rival). Options C and D describe legal or technological barriers, not the natural cost-based monopoly.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
     ],
     content: {
@@ -791,7 +791,7 @@ Where competition is not viable — natural monopolies such as electricity grids
           correctAnswer: 0,
           explanation: 'Non-excludability means free-riding is possible — individuals can consume the good without paying. Rational agents have no incentive to contribute voluntarily, so private producers cannot recover costs and will not supply the good. Non-rivalry means one person\'s consumption does not reduce availability for others — but this amplifies the free-rider problem rather than solving it. Government provision funded by taxation is the standard response.',
           marks: 1,
-          difficulty: 'standard' as const,
+          difficulty: 'easy' as const,
         },
       ],
       thinkAboutIt: {

@@ -40,7 +40,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'A lower Gini coefficient means the Lorenz curve is closer to the line of perfect equality — income is distributed more evenly. The Gini says nothing directly about average incomes, poverty headcounts, or GDP per capita.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
       realWorldHook:
@@ -137,7 +137,7 @@ export const lessons: Lesson[] = [
         explanation:
           'The AD curve slopes downward because of three effects that link the price level to the quantity of real output demanded: the wealth effect, the interest rate effect, and the exchange rate effect. Option A describes a microeconomic substitution effect, not an AD explanation. Options C and D confuse supply-side reasoning or nominal vs. real distinctions.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i4-l1-q2',
@@ -186,7 +186,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'The interest rate effect works as follows: a higher price level means households need more money for transactions → money demand rises → interest rates are bid up → investment and purchases of consumer durables fall → quantity of AD demanded falls. Options A and C describe the wealth effect and exchange rate effect respectively. Option D is a monetary policy response, not the interest rate effect.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'i4-l1-q5',
@@ -201,7 +201,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'Rising household debt burdens prompt consumers to reduce spending to repair their balance sheets — a negative consumption shock that shifts AD leftward. Options A and D are positive demand shocks (shift AD right). Option B is a favourable exchange rate movement that boosts net exports and shifts AD right.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l1-q6',
@@ -216,7 +216,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Both G and X are components of AD. A fall in G shifts AD left; a rise in X shifts AD right. The net effect depends entirely on which change is larger in magnitude. The price level, central bank policy, and SRAS are not determinants of this comparison — the question is purely about the relative size of the two AD components changing in opposite directions.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l1-q7',
@@ -231,7 +231,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'A central bank rate cut lowers the cost of borrowing. Households respond by increasing spending on credit-financed goods (cars, appliances) — boosting C. Firms respond by expanding capital investment projects that previously did not meet their hurdle rate — boosting I. While exchange rate effects may also shift NX, the most direct and immediate channels are C and I. The central bank does not control G (that is fiscal policy).',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l1-q8',
@@ -318,7 +318,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'Rising household wealth — via the wealth effect — increases consumers\' willingness and ability to spend at every price level, shifting the entire AD curve rightward. This is a shift of AD (a non-price-level determinant changed), not a movement along it.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook:
@@ -415,7 +415,7 @@ export const lessons: Lesson[] = [
         explanation:
           'The SRAS curve slopes upward because nominal wages are sticky. When the price level rises while wages are fixed, profit margins widen and firms expand output. Option A ignores the stickiness. Option C describes a demand-side mechanism, not a supply mechanism. Option D is factually incorrect — governments do not generally fix all wages.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i4-l2-q2',
@@ -449,7 +449,7 @@ export const lessons: Lesson[] = [
         explanation:
           'When actual GDP ($18 trillion) is below potential GDP ($20 trillion), the economy has a recessionary (negative) output gap of $2 trillion. Resources are underutilised, so unemployment exceeds its natural rate. An inflationary gap would require actual GDP to exceed potential. The economy does not automatically remain at potential — that is the point of the SRAS model.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i4-l2-q4',
@@ -464,7 +464,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Real labour cost = nominal wage / price level. With the nominal wage fixed at $30 and the price level falling 5%, the real cost of labour rises — the firm is paying more in real terms than before. This squeeze on profit margins is why firms cut output and employment in a downturn rather than wages, and why the SRAS curve slopes upward.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l2-q5',
@@ -479,7 +479,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'Wage settlements based on expected inflation raise firms\' labour costs before the price level has actually risen. Since costs are higher at every price level, firms supply less output — the SRAS curve shifts leftward. This is a key mechanism linking inflation expectations to actual cost-push pressures. The AD curve is unaffected by the wage settlement itself.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l2-q6',
@@ -509,7 +509,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'A productivity improvement means each worker produces more output with the same wage payment — the cost per unit of output falls. Since firms can now supply more at every price level (or equivalently, supply the same amount at a lower price level), the SRAS shifts rightward. Both SRAS and LRAS can shift rightward from a productivity improvement, though for different reasons: SRAS because of lower current unit costs, LRAS because productive capacity has increased.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l2-q8',
@@ -554,7 +554,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Both a fall in commodity prices (lower input costs) and a productivity improvement (lower per-unit labour costs) reduce firms\' costs of production at every output level, shifting SRAS rightward. Options A, C, and D all raise production costs: higher oil prices, higher minimum wages, stricter regulations, and costlier imported inputs each shift SRAS leftward.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {
@@ -596,7 +596,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'An oil price spike raises production costs at every output level, so firms are willing to supply less at any given price level — the SRAS curve shifts leftward. This is a supply-side shifter (changing input costs), not a price-level change, so it shifts the curve rather than moving along it.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook:
@@ -693,7 +693,7 @@ export const lessons: Lesson[] = [
         explanation:
           'The verticality of LRAS follows from full price and wage flexibility in the long run. When all nominal variables can adjust, the economy\'s real output is pinned at its potential (Y*) by real factors — technology, capital, and labour supply — not by the price level. None of the other options reflect the underlying reason for the vertical LRAS.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i4-l3-q2',
@@ -727,7 +727,7 @@ export const lessons: Lesson[] = [
         explanation:
           'The fundamental debate is about the speed of price and wage adjustment. Classical economists trust the self-correcting mechanism to restore full employment quickly, making stabilisation policy unnecessary or harmful. Keynesians doubt this speed, arguing that prolonged recessions justify active demand management. Options A, C, and D each reverse or misstate the two schools\' positions.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i4-l3-q4',
@@ -742,7 +742,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'The Classical dichotomy holds that in the long run, changes in nominal variables (money supply) affect only other nominal variables (price level). Doubling the money supply eventually doubles the price level, leaving real output unchanged at Y*. In the short run, sticky wages may create a temporary expansion, but the long-run effect on real output is zero — the economy returns to the vertical LRAS.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l3-q5',
@@ -757,7 +757,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Technological progress raises total factor productivity — the economy can produce more output from the same inputs. This expands potential GDP, shifting LRAS rightward. If AD remains unchanged, the new long-run equilibrium has higher real output and a lower price level. This is the mechanism behind long-run economic growth with stable or falling prices.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l3-q6',
@@ -772,7 +772,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'A flat (Keynesian) aggregate supply curve at low output means that spare capacity is large — firms can expand production without bidding up costs or prices significantly. In this zone, expansionary fiscal policy is relatively effective: it raises real GDP substantially with limited inflationary consequences. As the economy approaches full capacity (Y*), the curve steepens and further stimulus becomes more inflationary than growth-enhancing.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l3-q7',
@@ -787,7 +787,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Hysteresis describes a path-dependent process: a temporary negative demand shock, if prolonged, causes permanent damage to the economy\'s productive capacity. Long-term unemployment leads to skill erosion; firms cut R&D and capital investment; workers leave the labour force permanently. These effects reduce the economy\'s potential output and shift the LRAS leftward — the recession\'s damage outlasts the downturn itself.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l3-q8',
@@ -874,7 +874,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'The verticality of LRAS follows from full price and wage flexibility in the long run. When all nominal variables can adjust, the economy\'s real output is pinned at its potential (Y*) by real factors — technology, capital stock, and labour supply — not by the price level.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
       realWorldHook:
@@ -971,7 +971,7 @@ export const lessons: Lesson[] = [
         explanation:
           'A collapse in consumer confidence reduces consumption (C), shifting AD leftward. Starting from long-run equilibrium, the new short-run equilibrium has lower output (Y < Y*) — a recessionary gap — and a lower price level. SRAS is unchanged (no input cost change), and LRAS is unchanged (no change in productive capacity).',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i4-l4-q2',
@@ -1005,7 +1005,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Rapid growth in a trading partner boosts demand for domestic exports, increasing net exports (X − M) — a component of AD — shifting the AD curve rightward. This is a positive demand shock. A rise in oil prices is a supply shock (shifts SRAS). A central bank rate hike reduces investment and consumption, creating a negative demand shock. A spending cut is contractionary fiscal policy, also a negative demand shock.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i4-l4-q4',
@@ -1035,7 +1035,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'A positive demand shock and the resulting inflationary gap leads to higher nominal wages (self-correcting mechanism). Once wage settlements are made at the higher level, these become embedded in firms\' cost structures. Even after output returns to Y*, the price level remains permanently higher because the wage-price interaction has shifted the entire cost base of the economy upward.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l4-q6',
@@ -1050,7 +1050,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'The Classical economist trusts the self-correcting mechanism: wages will eventually fall, SRAS will shift right, and the economy will return to Y* without intervention. The Keynesian economist doubts this adjustment is fast enough and advocates using fiscal policy (raise G, cut taxes) or monetary policy (cut interest rates) to shift AD rightward and close the gap actively. The fundamental disagreement is about speed of adjustment, not just policy tools.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l4-q7',
@@ -1065,7 +1065,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'The COVID shock was primarily a demand shock transmitted through multiple channels: lockdowns physically prevented consumer spending (fall in C), business closures halted investment (fall in I), and extreme uncertainty caused firms to cancel spending plans. All of these shift AD leftward. While supply chains were also disrupted (SRAS shift), the dominant initial shock was to AD. Government stimulus subsequently shifted AD rightward. LRAS is affected by structural factors, not temporary demand disruptions.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l4-q8',
@@ -1095,7 +1095,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'A financial crisis that triggers multiple simultaneous negative shocks is the most severe scenario. It hits every component of AD at once: wealth destruction reduces C; a credit crunch reduces I; collapsing business confidence further reduces I; austerity reduces G. The compounding of these channels explains why financial crises produce much larger and more persistent recessions than other negative demand shocks.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l4-q10',
@@ -1152,7 +1152,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'A collapse in consumer confidence reduces consumption (C), shifting AD leftward. From long-run equilibrium, the new short-run equilibrium has lower output (Y < Y*) — a recessionary gap — and a lower price level. SRAS and LRAS are unchanged.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook:
@@ -1283,7 +1283,7 @@ export const lessons: Lesson[] = [
         explanation:
           'A technological breakthrough that lowers manufacturing costs shifts SRAS rightward, increasing output and reducing the price level — the hallmarks of a favourable supply shock. Options A and C shift AD rightward (demand-side policies). Option D raises input costs for imported materials, which is an adverse supply shock (shifts SRAS leftward).',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i4-l5-q4',
@@ -1313,7 +1313,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Oil is a pervasive input — transport, manufacturing, heating, agriculture all depend on it. A quadrupling of oil prices raised costs across virtually every sector simultaneously, shifting SRAS leftward. A leftward SRAS shift with unchanged AD produces the defining feature of stagflation: higher price level AND lower real output (higher unemployment). This is why it was unprecedented — standard macroeconomic models predicted that inflation and unemployment should not both rise simultaneously.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l5-q6',
@@ -1328,7 +1328,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Contractionary monetary policy (raising interest rates) shifts AD leftward. Starting from the stagflation equilibrium (lower Y, higher P), an AD shift left reduces the price level (helpful for inflation) but further reduces real output (worsening the recession). Unemployment rises. This is the core policy dilemma: any AD-based tool that fights one symptom of stagflation worsens the other. Only a rightward SRAS shift (e.g., a reversal of the oil shock) can resolve both problems simultaneously.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l5-q7',
@@ -1343,7 +1343,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'An adverse supply shock (leftward SRAS shift) is the only standard AD/AS scenario that produces simultaneously falling real GDP and a rising price level — stagflation. A negative demand shock produces falling GDP AND falling prices. A positive demand shock produces rising GDP and rising prices. A favourable supply shock produces rising GDP and falling prices.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'i4-l5-q8',
@@ -1358,7 +1358,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'Falling semiconductor prices reduced production costs across many industries, shifting SRAS rightward — a favourable supply shock. The macroeconomic effect is higher real output and a lower (or stable) price level. This is consistent with the "non-inflationary growth" experienced in the US in the 1990s, where the economy expanded rapidly with unusually low inflation. Both SRAS and LRAS shifted rightward as productivity and productive capacity increased.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l5-q9',
@@ -1430,7 +1430,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'Oil is a key production input. A price spike raises costs for firms across the economy, shifting SRAS leftward. The new short-run equilibrium has lower real GDP and a higher price level — classic stagflation. AD is unchanged because the shock does not alter spending plans at the initial price level.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook:
@@ -1544,7 +1544,7 @@ export const lessons: Lesson[] = [
         explanation:
           'The multiplier k = 1 / MPS = 1 / (1 − MPC). A higher MPC means a lower MPS, which means a larger multiplier. Options A, B, and D all increase leakages (saving, tax, or import withdrawals), which reduce the multiplier. The multiplier grows when households re-spend a larger share of each additional dollar of income.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i4-l6-q3',
@@ -1576,7 +1576,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'MPS = 1 − 0.8 = 0.2. Multiplier k = 1 / 0.2 = 5. ΔY = 5 × £100bn = £500 billion. Option A ignores the multiplier entirely. Option B uses k = 4, which would correspond to MPS = 0.25 (MPC = 0.75). Option D uses k = 8, which would correspond to MPS = 0.125.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'i4-l6-q5',
@@ -1591,7 +1591,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'In an open economy with taxes, the effective multiplier uses the formula k = 1 / (1 − MPC(1−t) + m), where t is the tax rate and m is the import propensity. Additional leakages from tax (25% of each income round is taken) and imports (30% of spending leaks abroad) dramatically reduce how much of each income round returns as domestic spending — the effective multiplier is substantially below the simple 1/MPS.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l6-q6',
@@ -1606,7 +1606,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'The tax-cut multiplier = MPC / MPS = 0.75 / 0.25 = 3. ΔY = 3 × £50bn = £150 billion. Alternatively: the government spending multiplier would be k = 1/0.25 = 4, giving £200bn (Option A) — but a tax cut is smaller because households save MPS × £50bn in the first round. The tax-cut multiplier is always MPC × (government spending multiplier).',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i4-l6-q7',
@@ -1666,7 +1666,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'Higher income tax rates are a leakage from the circular flow: each time income is earned, a larger fraction is taken in tax before it can be re-spent. This reduces the effective re-spending at each round of the multiplier process, lowering the effective multiplier. Options A and B both lower MPS / raise MPC, which increase the multiplier. Option D reduces import leakages, which would increase the multiplier.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {

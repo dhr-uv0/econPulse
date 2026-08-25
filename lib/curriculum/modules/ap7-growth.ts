@@ -112,7 +112,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Doubling time ≈ 70 ÷ 3.5 = 20 years. The Rule of 70 is a quick logarithmic approximation: at 3.5% annual growth, compounding doubles the level in approximately 20 years.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ap7-l1-q2',
@@ -127,7 +127,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Investing in human capital raises labour productivity and the economy\'s potential output, shifting LRAS rightward. This is a supply-side effect. AD may also shift rightward later (via higher incomes), but the direct, primary effect tested on AP exams is the LRAS shift.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'ap7-l1-q3',
@@ -183,7 +183,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'Investing in human capital raises labour quality and shifts LRAS rightward — the economy\'s potential output increases. This is primarily a level effect: the economy moves to a higher LRAS, but the long-run growth rate (determined by the ongoing pace of technological progress) is not permanently raised by a one-time education subsidy. Endogenous growth theory suggests it could be a growth effect if education permanently raises the rate of idea production, but the standard AP/Solow answer classifies it as a level effect.',
           marks: 1,
-          difficulty: 'standard' as const,
+          difficulty: 'higher' as const,
         },
       ],
       realWorldHook: `During the COVID-19 pandemic, the U.S. federal government ran a budget deficit exceeding $3 trillion in fiscal year 2020 — roughly 15% of GDP. Standard loanable funds theory predicts this massive increase in government borrowing should have crowded out private investment and raised real interest rates. In practice, the Federal Reserve simultaneously purchased trillions in Treasury bonds (quantitative easing), vastly increasing the supply of loanable funds and keeping real interest rates near zero or negative. This episode illustrates both the mechanics of the loanable funds model and how monetary policy can offset fiscal crowding out — a nuance tested in AP FRQ multi-market questions.`,
@@ -256,7 +256,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'A larger budget deficit means the government must borrow more, increasing the demand for loanable funds. The demand curve shifts right, equilibrium real interest rate rises, and at the higher rate, private investment is crowded out. This is the standard AP loanable funds crowding-out result.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ap7-l2-q2',
@@ -271,7 +271,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Higher household saving increases the supply of loanable funds (shifts supply rightward). The equilibrium real interest rate falls, making borrowing cheaper and stimulating private investment — the opposite of crowding out, sometimes called "crowding in." This illustrates why policies that raise national saving lower the cost of capital.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'ap7-l2-q3',
@@ -400,7 +400,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Expansionary monetary policy increases AD. In the short run, output rises above potential and unemployment falls below the NRU — this is movement UP-LEFT along a fixed SRPC (lower unemployment, higher inflation). The SRPC itself does not shift from a demand stimulus; only supply shocks or expectation changes shift the SRPC.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ap7-l3-q2',
@@ -471,7 +471,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'After a supply shock shifts the SRPC upward, the economy is already at higher inflation AND higher unemployment (stagflation). Contractionary policy moves the economy down-right along the new, elevated SRPC — trading still higher unemployment for lower inflation. This is the "disinflation via recession" path: the economy must suffer above-natural unemployment until falling inflation expectations shift the SRPC back down. There is no costless way to undo a supply shock with demand-side policy.',
           marks: 1,
-          difficulty: 'standard' as const,
+          difficulty: 'higher' as const,
         },
       ],
       realWorldHook: `Japan's experience from the 1990s through the 2010s is the world's most studied liquidity trap. After its asset bubble burst in 1991, Japan cut interest rates to zero by 1999 and introduced quantitative easing as early as 2001 — but growth remained sluggish and deflation persistent. The Bank of Japan found that even holding rates at zero (and eventually negative) failed to stimulate adequate borrowing and spending. Japan's government responded with massive fiscal stimulus packages, accumulating public debt exceeding 250% of GDP by the 2020s. The Japanese experience informed the Federal Reserve's playbook during the 2008 financial crisis and the COVID-19 pandemic — both episodes in which the ZLB was quickly reached and unconventional tools (QE, forward guidance) became the primary monetary instruments.`,
@@ -544,7 +544,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'In a liquidity trap, monetary policy is ineffective because nominal rates cannot fall further and money injections are hoarded. Fiscal policy bypasses the interest rate channel entirely — government spending directly adds to AD (G is a component of GDP). This is why Keynes advocated fiscal stimulus during the Great Depression and why QE had to be supplemented by fiscal stimulus in 2008–2009.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'ap7-l4-q2',
@@ -559,7 +559,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The outside lag of monetary policy refers to the time between the policy action and its full macroeconomic effect. Rate changes affect mortgages, business loans, exchange rates, and asset prices gradually. Businesses revise capital spending plans over quarters; housing market responses take time; exchange rate effects on trade take even longer. The full GDP effect typically takes 12–18 months.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ap7-l4-q3',
@@ -574,7 +574,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The Taylor Rule: federal funds rate = neutral rate + 0.5×(inflation gap) + 0.5×(output gap), where the inflation gap is actual minus target inflation and the output gap is actual minus potential GDP. It provides a rules-based benchmark for monetary policy, prescribing higher rates when inflation is above target or output is above potential, and lower rates in the opposite situations.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
     ],
     lessonAssignment: {
@@ -688,7 +688,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The balance of payments identity CA + KA = 0 requires that a current account deficit be exactly matched by a capital account surplus. Foreigners must be net purchasers of U.S. assets (stocks, bonds, real estate, FDI) in an amount exactly equal to the excess of U.S. imports over exports. This is an accounting identity, not a policy choice.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'ap7-l5-q2',

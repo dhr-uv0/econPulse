@@ -42,7 +42,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'In a liquidity trap the policy rate is at or near its lower bound. Further reductions cannot meaningfully lower already-negligible borrowing costs, and firms and households prefer to hold cash regardless — monetary policy loses its transmission channel. This is why fiscal policy becomes the primary stabilisation tool.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook:
@@ -151,7 +151,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l1-q2',
         type: 'mcq',
-        difficulty: 'standard',
+        difficulty: 'easy',
         marks: 1,
         question:
           'Which of the following best explains why a country with an absolute disadvantage in all goods can still benefit from trade?',
@@ -168,7 +168,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l1-q3',
         type: 'mcq',
-        difficulty: 'standard',
+        difficulty: 'easy',
         marks: 1,
         question:
           'When a country specialises according to comparative advantage and engages in free trade, what happens to its consumption possibilities?',
@@ -185,7 +185,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l1-q4',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question:
           'Country X can produce 120 tonnes of rice or 40 computers per year. Country Y can produce 60 tonnes of rice or 30 computers per year. Which country has the comparative advantage in computers, and what is its opportunity cost per computer?',
@@ -236,7 +236,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l1-q7',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question:
           'A developing country currently exports raw cotton and imports textiles. The government argues it should develop a domestic textile industry by taxing cotton exports and subsidising textile production. This policy is best described as:',
@@ -253,7 +253,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l1-q8',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question:
           'Countries A and B both have a comparative advantage in the same good (wheat). Which statement must be true?',
@@ -287,7 +287,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l1-q10',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question:
           'A country has a comparative advantage in producing coffee because of its climate. Over time, however, it invests heavily in education and technology, developing a comparative advantage in software. This is best explained by:',
@@ -343,7 +343,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'Country A\'s opportunity cost of 1 wheat = 30/60 = 0.5 cloth; Country B\'s = 40/40 = 1 cloth. A gives up less cloth per unit of wheat, so A has the comparative advantage in wheat. Reciprocally, Country B has the comparative advantage in cloth (opportunity cost: 40/40 = 1 wheat vs. A\'s 60/30 = 2 wheat).',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook:
@@ -469,7 +469,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l2-q3',
         type: 'mcq',
-        difficulty: 'standard',
+        difficulty: 'easy',
         marks: 1,
         question:
           'According to the Prebisch-Singer hypothesis, which countries are most at risk of a long-run deterioration in their terms of trade?',
@@ -486,7 +486,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l2-q4',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question:
           'A country\'s export price index falls from 100 to 90, and its import price index also falls from 100 to 80. What has happened to the terms of trade, and what is the new index value?',
@@ -520,7 +520,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l2-q6',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question:
           'If Country A improves its terms of trade by negotiating better export prices, what is the effect on its trading partner Country B (assuming a two-country world)?',
@@ -537,7 +537,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l2-q7',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'easy',
         marks: 1,
         question:
           'An oil-exporting country discovers new reserves and dramatically increases oil production, flooding the world market. What is the likely effect on its own terms of trade?',
@@ -554,7 +554,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l2-q8',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question:
           'Which of the following real-world developments would be most consistent with the Prebisch-Singer hypothesis playing out for a sub-Saharan African country heavily dependent on cocoa exports?',
@@ -644,7 +644,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'New ToT = (115 ÷ 105) × 100 ≈ 109.5. The ToT index has risen above 100 (base year), so the terms of trade have improved — each unit of exports now buys approximately 9.5% more imports than before.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook:
@@ -736,7 +736,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l3-q1',
         type: 'mcq',
-        difficulty: 'standard',
+        difficulty: 'easy',
         marks: 1,
         question:
           'A small open economy imposes a tariff on imported textiles. Which group is unambiguously made worse off?',
@@ -753,7 +753,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l3-q2',
         type: 'mcq',
-        difficulty: 'standard',
+        difficulty: 'easy',
         marks: 1,
         question:
           'Under a binding import quota with licences given free to importers, where does the "quota rent" go?',
@@ -787,7 +787,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l3-q4',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question:
           'In a tariff diagram for a small open economy, the world price is $10 and a tariff of $4 is imposed. Which of the following correctly identifies the government\'s tariff revenue?',
@@ -804,7 +804,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l3-q5',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question:
           'Why might economists argue that an import subsidy given to domestic producers is a less distortionary form of protection than a tariff, even though both increase domestic production?',
@@ -838,7 +838,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l3-q7',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question:
           'Country A imposes a 30% tariff on imported cars. As a result, domestic car prices rise, domestic car production increases, imports fall, and government revenue rises. Which group in Country A experiences a welfare loss that is NOT offset by any corresponding gain within the domestic economy?',
@@ -872,7 +872,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l3-q9',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question:
           'A government responds to job losses in its manufacturing sector by imposing tariffs on competing imports. An economist argues this is an inefficient solution. Which of the following best captures why a wage subsidy or retraining programme might be preferable?',
@@ -945,7 +945,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'A tariff raises the domestic price above the world price. Domestic consumers pay more and buy less — their consumer surplus falls unambiguously. Domestic producers gain (higher price, more output); the government gains tariff revenue; the effect on foreign exporters depends on elasticities.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
       realWorldHook:
@@ -1054,7 +1054,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l4-q2',
         type: 'mcq',
-        difficulty: 'standard',
+        difficulty: 'easy',
         marks: 1,
         question:
           'A country operates a fixed exchange rate and faces downward pressure on its currency. Which policy tool can the central bank use to defend the peg?',
@@ -1071,7 +1071,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l4-q3',
         type: 'mcq',
-        difficulty: 'standard',
+        difficulty: 'easy',
         marks: 1,
         question:
           'The Marshall-Lerner condition states that a depreciation will improve the trade balance if:',
@@ -1088,7 +1088,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l4-q4',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question:
           'Country A\'s currency depreciates by 20%. The price elasticity of demand for its exports is 0.4 and the price elasticity of demand for its imports is 0.5. What will happen to the trade balance in the long run?',
@@ -1105,7 +1105,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l4-q5',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question:
           'Why do price elasticities of demand for exports and imports tend to be lower in the short run than in the long run, and what does this imply for the J-curve?',
@@ -1156,7 +1156,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l4-q8',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question:
           'A country running a persistent current account deficit sees its currency depreciate significantly under a floating exchange rate. According to economic theory, what sequence of adjustments should follow?',
@@ -1190,7 +1190,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l4-q10',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question:
           'The "impossible trinity" (or "trilemma") in international monetary economics states that a country cannot simultaneously maintain:',
@@ -1246,7 +1246,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'The Marshall-Lerner condition requires |PED_x| + |PED_m| > 1. If this holds, the volume effects (more exports sold, fewer imports bought) outweigh the price effects of depreciation, and the trade balance improves. If both elasticities are very low, higher import prices worsen the balance even as volumes barely change.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook:
@@ -1355,7 +1355,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l5-q2',
         type: 'mcq',
-        difficulty: 'standard',
+        difficulty: 'easy',
         marks: 1,
         question:
           'A country persistently runs a large current account deficit. Which of the following is the most likely consequence over time?',
@@ -1372,7 +1372,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l5-q3',
         type: 'mcq',
-        difficulty: 'standard',
+        difficulty: 'easy',
         marks: 1,
         question:
           'In the IMF\'s balance of payments framework, which account records foreign direct investment flows?',
@@ -1389,7 +1389,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l5-q4',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question:
           'A multinational corporation based in the US earns $500 million in profits from its subsidiary in Germany and repatriates the money to the US. How does this transaction affect the German balance of payments?',
@@ -1406,7 +1406,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l5-q5',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question:
           'Country A has a current account deficit of $50 billion and a capital account surplus of $5 billion. What must be true of its financial account (ignoring statistical discrepancies)?',
@@ -1423,7 +1423,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i6-l5-q6',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question:
           'A country receives a large inflow of portfolio investment (foreign purchases of domestic government bonds). How does this appear in the balance of payments, and what risk does it create?',

@@ -55,7 +55,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'MRS = 3 means the consumer would sacrifice 3 units of Y for 1 unit of X. The market only requires giving up 2 units of Y to get 1 unit of X (Px/Py = 2). Since the marginal benefit exceeds the market cost, the consumer gains utility by buying more X (and less Y) until MRS falls to equal the price ratio at the new optimum.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
       {
         id: 'q-ol1-l1-2',
@@ -70,7 +70,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'If two indifference curves crossed at bundle A, a bundle B on the higher curve and a bundle C on the lower curve — both indifferent to A — would, by transitivity, be indifferent to each other. But B lies on a higher curve, implying it is strictly preferred to C. This contradiction proves intersection is impossible under well-behaved (transitive) preferences.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
     ],
     content: {
@@ -136,7 +136,7 @@ The utility-maximising bundle lies at the tangency of the highest reachable indi
         correctAnswer: 0,
         explanation: 'The substitution effect always increases demand for the good whose price has fallen (movement along the indifference curve toward the now-cheaper good). For an inferior good, the income effect works in the opposite direction: the fall in price raises real income, but higher real income reduces consumption of an inferior good. If the income effect dominates the substitution effect, X is a Giffen good and demand actually falls despite the price cut.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'q-ol1-l2-2',
@@ -151,7 +151,7 @@ The utility-maximising bundle lies at the tangency of the highest reachable indi
         correctAnswer: 0,
         explanation: 'The Slutsky compensated budget line has the slope of the new price ratio (reflecting the actual price change) but is shifted in or out until it passes through the original optimal bundle. This ensures the consumer can just afford the original bundle at the new prices, so any movement away from it reflects pure substitution — not a change in real purchasing power.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
     ],
     content: {
@@ -216,7 +216,7 @@ The taxonomy of goods follows from the signs and magnitudes of these effects. No
         correctAnswer: 0,
         explanation: 'Compare marginal product per dollar: MPL/w = 20/5 = 4, MPK/r = 10/8 = 1.25. The last dollar on labour yields 4 units of output vs 1.25 for capital. The firm should substitute labour for capital until MPL/w = MPK/r — i.e., MRTS = w/r. As labour increases MPL falls and as capital decreases MPK rises, restoring the equality.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'q-ol1-l3-2',
@@ -231,7 +231,7 @@ The taxonomy of goods follows from the signs and magnitudes of these effects. No
         correctAnswer: 0,
         explanation: 'Output is measured in physical units (cars, tonnes of wheat), so isoquants carry cardinal labels — the Q = 100 isoquant is literally 100 units of output more than the Q = 0 isoquant. Utility is ordinal; we can only say a higher indifference curve is preferred, not by how much. Both curves are convex and non-intersecting (crossing isoquants would imply the same input combination produces two different output levels, contradicting the production function).',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
     ],
     content: {
@@ -296,7 +296,7 @@ This optimality condition — equivalently written MPL/w = MPK/r — ensures the
         correctAnswer: 0,
         explanation: 'Pareto efficiency requires MRS_A = MRS_B. Here MRS_A = 2 and MRS_B = 5, so the indifference curves cross and there is a lens-shaped region of mutually beneficial trades. Agent A values one unit of X at 2 units of Y; agent B values one unit of X at 5 units of Y. Trading X from B to A (and Y from A to B) can make both better off. The allocation is inefficient.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'q-ol1-l4-2',
@@ -311,7 +311,7 @@ This optimality condition — equivalently written MPL/w = MPK/r — ensures the
         correctAnswer: 0,
         explanation: 'The contract curve (or Pareto set) connects all allocations at which the two indifference curves are tangent — i.e., MRS_A = MRS_B — and runs from agent A\'s origin (A has nothing) to agent B\'s origin (B has nothing). All points on it are Pareto efficient; off it, mutually beneficial trades exist. The core (relevant for voluntary exchange) is the subset of the contract curve that makes both agents at least as well off as their initial endowment.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
     ],
     content: {
@@ -376,7 +376,7 @@ The competitive equilibrium of this exchange economy is found by choosing a pric
         correctAnswer: 0,
         explanation: 'The Second Welfare Theorem separates efficiency from equity: any desired Pareto-efficient allocation can be achieved by first redistributing endowments (lump-sum) and then letting competitive markets operate. Lump-sum transfers do not distort prices or incentives, preserving efficiency. Price controls, taxes on earned income, and nationalisation all introduce distortions (deadweight loss) that violate Pareto efficiency.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
       {
         id: 'q-ol1-l5-2',
@@ -391,7 +391,7 @@ The competitive equilibrium of this exchange economy is found by choosing a pric
         correctAnswer: 0,
         explanation: "The Condorcet paradox shows three voters (A prefers X>Y>Z, B prefers Y>Z>X, C prefers Z>X>Y) produce cycles: X beats Y by majority, Y beats Z by majority, yet Z beats X by majority. The social preference relation is intransitive — it cycles — violating the requirement that society's ranking be a transitive ordering (rational social choice). This is a violation of the requirement for a well-defined social welfare ordering, which Arrow terms part of the unrestricted domain / rationality condition.",
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
     ],
     content: {
@@ -456,7 +456,7 @@ To rank Pareto-efficient allocations, economists invoke social welfare functions
         correctAnswer: 0,
         explanation: "When men propose, Gale-Shapley yields the men-optimal stable matching: every man receives the best partner he could receive in any stable matching. Conversely, every woman receives the worst partner she could receive in any stable matching (women-pessimal). This asymmetry is a key theoretical result. Switching to women-proposing inverts the advantage. The algorithm does not generally produce a Pareto-efficient outcome across all participants — it is only optimal for the proposing side among all stable matchings.",
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'q-ol1-l6-2',
@@ -471,7 +471,7 @@ To rank Pareto-efficient allocations, economists invoke social welfare functions
         correctAnswer: 0,
         explanation: 'Under the Boston mechanism, a student who listed their true first-choice school but was not accepted lost priority at their second-choice school to students who strategically listed it first. Sophisticated families with knowledge of this gamed the system, while naive families played truthfully and were disadvantaged. The mechanism was not strategy-proof (truthful reporting was not a dominant strategy). Deferred acceptance with student-proposing is strategy-proof for students — reporting true preferences is a weakly dominant strategy — making it fairer and more transparent.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
     ],
     content: {

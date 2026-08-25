@@ -79,7 +79,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'A leftward shift of money supply creates a shortage at the old interest rate. People sell bonds to get money, bond prices fall, and interest rates rise until the money market clears at a higher equilibrium rate.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap5-l1-2',
@@ -94,7 +94,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Higher real GDP means more goods and services are exchanged, requiring greater transaction balances. At every nominal interest rate, households and firms need to hold more money, shifting the entire demand curve right.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap5-l1-3',
@@ -109,7 +109,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The Fed controls the monetary base through open market operations, setting a fixed quantity of money at each point in time. This means supply does not respond to the nominal interest rate — hence the vertical line. The other options misstate either who controls supply or what determines its shape.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap5-l1-4',
@@ -124,7 +124,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'A higher price level increases the nominal value of every transaction. Even though real spending is unchanged, households need more dollars to buy the same basket of goods. This raises money demand at every interest rate, shifting the curve rightward and raising the equilibrium nominal rate.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap5-l1-5',
@@ -139,7 +139,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Speculative demand arises when holding money — rather than bonds — is seen as profitable because bond prices are expected to decline. Investors prefer liquid money now so they can purchase bonds at a lower price (higher yield) in the future. GDP and price-level changes drive transaction and precautionary demand, not speculative demand.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap5-l1-6',
@@ -184,7 +184,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'In the money market model, the nominal interest rate is the price of holding money — every dollar kept as cash or in a non-interest account sacrifices the yield available on bonds. This opportunity cost interpretation explains the downward-sloping money demand curve. The discount rate (Fed lending to banks) is a separate policy tool, and the real interest rate adjusts for inflation.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap5-l1-9',
@@ -214,7 +214,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The money market is a stock market: it equilibrates the total quantity of money in circulation against money demand to yield the nominal interest rate. The loanable funds market is a flow market: it equilibrates the flow of saving (supply) against the flow of desired investment (demand) to yield the real interest rate. AP FRQs frequently require drawing both separately and explaining which rate each determines.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
     ],
     content: {
@@ -336,7 +336,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Money multiplier = 1/0.20 = 5. Maximum increase in money supply = $500 × 5 = $2,500. The initial $500 deposit supports $2,500 in total deposits through repeated lending.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap5-l2-2',
@@ -351,7 +351,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: "The formula 1/rr assumes all excess reserves are lent out. When banks hold excess reserves, the money creation chain stops early, producing less money than the theoretical multiplier predicts. This is why the Fed's quantitative easing during 2008 was less inflationary than feared.",
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap5-l2-3',
@@ -361,7 +361,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Required reserves = 10% × $10,000 = $1,000. Excess reserves = $2,000 − $1,000 = $1,000. Bank A can lend out only its excess reserves — the $1,000 above the legal minimum. Lending $2,000 would leave the bank short of its required reserve cushion.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap5-l2-4',
@@ -386,7 +386,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Money multiplier = 1/rr. At rr = 10%, multiplier = 1/0.10 = 10. At rr = 5%, multiplier = 1/0.05 = 20. A lower reserve requirement means banks must set aside less of each deposit, allowing more to be lent and re-deposited, expanding the potential money supply.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap5-l2-6',
@@ -401,7 +401,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'When a $1,000 deposit arrives, the bank holds 10% ($100) as required reserves and loans out the remaining $900. The T-account must balance: total assets ($100 + $900 = $1,000) must equal total liabilities ($1,000 deposit). Option D shows no lending yet, which is the instant before the loan is made.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap5-l2-7',
@@ -431,7 +431,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The money multiplier assumes banks lend all excess reserves. During the financial crisis, banks faced weak loan demand and high credit risk, so they parked new reserves at the Fed rather than lending. This broke the money creation chain, keeping actual money supply growth far below what the 1/rr formula would predict from the reserve injection. Excess reserve accumulation is the key real-world constraint on the theoretical multiplier.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap5-l2-9',
@@ -456,7 +456,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Under fractional-reserve banking, banks keep only a fraction of deposits as reserves and lend the rest. The loan proceeds are spent and redeposited, and the next bank again keeps a fraction and lends the rest. This chain multiplies the original deposit into a larger total of deposits throughout the banking system — new purchasing power is created at each step, not just transferred.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
     ],
     content: {
@@ -584,7 +584,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Selling securities withdraws reserves from the banking system, contracting the money supply and raising interest rates. This reduces investment and aggregate demand, putting downward pressure on prices. The other options are expansionary.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap5-l3-2',
@@ -599,7 +599,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Open market operations are conducted daily through the New York Fed and are the primary instrument. The discount rate is adjusted periodically as a secondary signal. The reserve requirement is changed only rarely because of its large and disruptive effects on bank balance sheets.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap5-l3-3',
@@ -614,7 +614,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'When the Fed buys bonds, it pays by crediting the reserve account of the bank that sold the bonds. Bank reserves increase immediately, making more funds available for overnight lending and putting downward pressure on the federal funds rate. This is the primary mechanism through which expansionary OMO works.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap5-l3-4',
@@ -629,7 +629,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: "Banks borrow at the discount window only as a last resort because it can signal financial weakness to markets. The actual volume of discount lending is tiny relative to total bank reserves. However, a change in the discount rate signals the Fed's policy stance — markets interpret a discount rate cut as a sign that lower rates are coming, even before OMO takes effect.",
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap5-l3-5',
@@ -644,7 +644,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The FOMC sets a target range for the federal funds rate — the overnight interbank lending rate. It hits this target by adjusting the supply of reserves through OMO: more reserves push the rate down toward target; fewer reserves push it up. The prime rate and mortgage rates follow the federal funds rate but are set by private banks, not the FOMC.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap5-l3-6',
@@ -674,7 +674,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Expansionary OMO (the Fed buys bonds) injects reserves and expands the money supply — the vertical Ms line shifts rightward. At the old interest rate, there is now a surplus of money, driving rates down until a new equilibrium is reached at a lower nominal rate. Never shift the demand curve for a monetary policy action; only supply shifts.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap5-l3-8',
@@ -689,7 +689,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: "Conventional OMO targets short-term interest rates by buying or selling short-term Treasury bills. When short-term rates hit zero, the Fed cannot lower them further using conventional tools. QE extends the Fed's reach: by purchasing longer-dated Treasuries and mortgage-backed securities, it directly lowers long-term rates and risk premiums, stimulating investment and lending even when the short-term rate is pinned at zero.",
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap5-l3-9',
@@ -704,7 +704,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'A federal funds rate above target signals that bank reserves are scarce — banks are paying more than the target to borrow overnight. The Fed responds by purchasing securities, crediting bank reserve accounts, and increasing the supply of overnight funds. The increased supply drives the federal funds rate back down toward the target range.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap5-l3-10',
@@ -753,7 +753,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'Money multiplier = 1 ÷ rr = 1 ÷ 0.10 = 10. Maximum increase in the money supply = initial deposit × multiplier = $1,000 × 10 = $10,000. This includes the original $1,000 deposit plus $9,000 in newly created deposits through successive rounds of lending. The multiplier is a theoretical maximum that assumes all excess reserves are lent out and all loans are redeposited.',
           marks: 1,
-          difficulty: 'standard' as const,
+          difficulty: 'easy' as const,
         },
       ],
       examinerTip: 'AP FRQs on Fed tools almost always require you to name the specific action AND explain the transmission: (1) the tool used, (2) its direct effect on bank reserves or the money supply, (3) the resulting change in the interest rate, and (4) the effect on investment/AD. "The Fed should use expansionary monetary policy" earns zero points — you must say "The Fed should buy government bonds, which injects reserves, lowers the federal funds rate, reduces borrowing costs, and increases investment spending, shifting AD rightward." Practice writing this chain in under four sentences.',
@@ -837,7 +837,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'A larger deficit means more government borrowing, which shifts demand for loanable funds rightward. This raises the real interest rate, increasing the cost of borrowing for private investors and reducing private investment — the classic crowding-out effect.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap5-l4-2',
@@ -852,7 +852,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Greater supply of loanable funds drives down the real interest rate, reducing the cost of borrowing for businesses. Lower borrowing costs stimulate capital investment. While increased saving reduces current consumption, the lower real interest rate channels those savings into investment, supporting future growth.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap5-l4-3',
@@ -867,7 +867,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Investment decisions are long-lived — a firm building a factory today repays the loan over many years. What matters is the purchasing-power cost of that borrowing, which is the real interest rate (nominal rate minus expected inflation). A firm would not undertake a 10-year project based on a 6% nominal rate if 5% inflation means the real cost is only 1%. The loanable funds market therefore uses the real rate on the vertical axis.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap5-l4-4',
@@ -882,7 +882,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Foreign purchases of U.S. bonds represent an inflow of capital — foreigners are supplying funds to U.S. borrowers. This increases the supply of loanable funds (shifts the supply curve rightward), drives down the real interest rate, and allows more private investment to be financed. This mechanism explains how international capital markets can partially offset domestic crowding-out.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap5-l4-5',
@@ -912,7 +912,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Demand for loanable funds reflects the desire to borrow for investment. If expected returns on new technology rise, more investment projects become profitable at any given real interest rate — the demand curve shifts rightward. Increased saving shifts the supply curve rightward. A government surplus shifts demand leftward (less government borrowing). Reduced consumer confidence also shifts demand leftward.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap5-l4-7',
@@ -927,7 +927,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'This is a frequent AP exam error. The loanable funds market equilibrates flows of saving and investment, both of which depend on the real return to capital — the nominal return adjusted for inflation. Label the vertical axis "Real Interest Rate" in loanable funds diagrams. Reserve "Nominal Interest Rate" for the money market. Mixing the two is a common source of lost points on FRQs.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap5-l4-8',
@@ -942,7 +942,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Deficit-financed stimulus increases government demand for loanable funds without a corresponding increase in saving. The rightward demand shift raises the equilibrium real interest rate. At the higher rate, private investment is more expensive and some projects are cancelled — the crowding-out effect. The model predicts the interest rate rises and private investment falls, partially offsetting the stimulus.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap5-l4-9',
@@ -1100,7 +1100,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'A lower federal funds rate reduces the cost of borrowing throughout the economy. Businesses increase capital investment and households spend more on big-ticket items, shifting aggregate demand to the right and increasing real GDP and the price level.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap5-l5-2',
@@ -1115,7 +1115,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'In the long run, the economy returns to the natural rate of unemployment (LRPC is vertical). Faster money growth raises inflation expectations, shifting the SRPC upward until the economy reaches a higher inflation rate at the same unemployment rate. Money is neutral in the long run.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap5-l5-3',
@@ -1130,7 +1130,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The SRPC plots inflation against unemployment for a given set of inflation expectations. When workers and firms expect higher inflation, they demand higher wages and set higher prices even at the current unemployment rate — the entire SRPC shifts upward. Movement along the SRPC occurs when AD changes (e.g., from a Fed rate cut); the curve itself only shifts when expectations or supply conditions change.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap5-l5-4',
@@ -1145,7 +1145,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'An oil price shock is a negative supply shock: it raises production costs, reducing SRAS and pushing the price level higher while reducing output (raising unemployment). On the Phillips curve, this is a shift of the SRPC upward — stagflation sits above the old curve because both inflation and unemployment rise simultaneously. This cannot be represented as movement along the old SRPC.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap5-l5-5',
@@ -1160,7 +1160,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'In the short run, workers may be fooled by higher nominal wages into supplying more labour (unemployment falls). But in the long run, workers update their inflation expectations upward, demanding higher real wages. Firms hire less, and unemployment returns to the natural rate — regardless of the inflation rate. The long-run trade-off disappears because expectations fully adjust, making the LRPC vertical.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap5-l5-6',
@@ -1175,7 +1175,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Because monetary policy affects the economy 6–18 months after implementation, policymakers must predict what the economy will look like in the future, not react to current conditions. A rate cut decided today based on a mild recession forecast may over-stimulate the economy if conditions improve faster than expected — or under-stimulate if the recession deepens. This forecasting challenge, not any administrative barrier, is the core difficulty.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap5-l5-7',

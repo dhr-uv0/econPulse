@@ -203,5 +203,5 @@ export interface QuizQuestion {
   correctAnswer: string | number
   explanation: string
   marks: number
-  difficulty: 'foundation' | 'standard' | 'higher' | 'olympiad'
+  difficulty: 'easy' | 'standard' | 'higher'
 }

@@ -135,7 +135,7 @@ A crucial global comparison involves Purchasing Power Parity (PPP)-adjusted GDP.
         correctAnswer: 0,
         explanation: 'Transfer payments such as unemployment benefits are excluded from the G component of GDP because they do not represent government purchases of newly produced goods or services — they simply redistribute existing income.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'ib5-l1-q2',
@@ -150,7 +150,7 @@ A crucial global comparison involves Purchasing Power Parity (PPP)-adjusted GDP.
         correctAnswer: 0,
         explanation: 'Real GDP = (Nominal GDP / GDP deflator) × 100 = ($500 billion / 110) × 100 ≈ $454.5 billion. This is a modest real increase compared to the $450 billion baseline, showing that much of the nominal growth was driven by rising prices.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib5-l1-q3',
@@ -237,7 +237,7 @@ From a global comparative perspective, business cycles in emerging markets tend 
           correctAnswer: 0,
           explanation: 'Nominal GDP is measured at current prices, so it can rise simply because prices increased. Real GDP uses a fixed base-year price level to remove the effect of inflation, ensuring that changes in real GDP reflect genuine changes in the quantity of goods and services produced — which is what the business cycle tracks.',
           marks: 1,
-          difficulty: 'standard' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -292,7 +292,7 @@ From a global comparative perspective, business cycles in emerging markets tend 
         correctAnswer: 0,
         explanation: 'When actual GDP ($900bn) is below potential output ($950bn), there is a recessionary (deflationary) gap. This implies resources are under-utilised and unemployment exceeds the natural rate. It does not necessarily mean the economy is in a technical recession (two quarters of negative growth).',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib5-l2-q2',
@@ -322,7 +322,7 @@ From a global comparative perspective, business cycles in emerging markets tend 
         correctAnswer: 0,
         explanation: 'An inflationary gap occurs when aggregate demand is so strong that the AD/SRAS intersection lies to the right of the LRAS (potential output) line. The price level is above its long-run equilibrium, and the economy is producing beyond sustainable capacity.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
     ],
   },
@@ -394,7 +394,7 @@ Cross-country comparisons reveal substantial variation in natural unemployment r
           correctAnswer: 0,
           explanation: 'A recessionary gap occurs when actual GDP is below potential output — the economy is producing less than it sustainably can. The result is underutilised labour and capital: unemployment rises above the natural rate, which is why cyclical unemployment is sometimes called demand-deficient unemployment.',
           marks: 1,
-          difficulty: 'standard' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -449,7 +449,7 @@ Cross-country comparisons reveal substantial variation in natural unemployment r
         correctAnswer: 0,
         explanation: 'When technological change (automation) eliminates jobs requiring old skills and creates new jobs requiring different skills that current workers do not have, the result is a skills mismatch — the defining characteristic of structural unemployment. Retraining programmes are the appropriate policy response.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib5-l3-q2',
@@ -464,7 +464,7 @@ Cross-country comparisons reveal substantial variation in natural unemployment r
         correctAnswer: 0,
         explanation: 'When unemployment falls below the NRU, the labour market is tighter than its long-run equilibrium. Firms must offer higher wages to attract scarce workers, increasing production costs and consumer spending — both of which generate inflationary pressure. This is the basis of the short-run Phillips curve trade-off.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib5-l3-q3',
@@ -479,7 +479,7 @@ Cross-country comparisons reveal substantial variation in natural unemployment r
         correctAnswer: 0,
         explanation: 'Structural unemployment is caused by skills mismatches. Retraining programmes directly address the root cause by equipping workers with skills demanded by employers in growing industries. Interest rate cuts and fiscal stimulus address cyclical unemployment (weak demand) rather than structural mismatch.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
     ],
   },
@@ -551,7 +551,7 @@ Cross-country comparison reveals dramatically different inflation experiences. H
           correctAnswer: 0,
           explanation: 'Cyclical unemployment arises from insufficient aggregate demand during contractions. Expansionary fiscal policy (higher G or lower taxes) shifts AD rightward, closing the recessionary gap and increasing the demand for labour — directly reducing cyclical unemployment. Structural and frictional unemployment reflect skills mismatches and search frictions, which fiscal stimulus does not directly address.',
           marks: 1,
-          difficulty: 'standard' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -606,7 +606,7 @@ Cross-country comparison reveals dramatically different inflation experiences. H
         correctAnswer: 0,
         explanation: 'CPI = ($545 / $500) × 100 = 109. The inflation rate = ((109 − 100) / 100) × 100 = 9%. The base-year CPI is always 100 by definition, so the inflation rate equals CPI − 100.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib5-l4-q2',
@@ -621,7 +621,7 @@ Cross-country comparison reveals dramatically different inflation experiences. H
         correctAnswer: 0,
         explanation: 'Higher oil prices increase production costs for virtually all firms, shifting the SRAS curve leftward. This raises the general price level (cost-push inflation) while simultaneously reducing real output — the combination called stagflation. This is fundamentally different from demand-pull inflation, where both price and output move in the same direction.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib5-l4-q3',
@@ -708,7 +708,7 @@ From a global policy perspective, the conflict between growth and BoP equilibriu
           correctAnswer: 0,
           explanation: 'Cost-push inflation arises from higher production costs (e.g., oil prices, wages) that shift SRAS leftward. This simultaneously raises the price level and reduces real output — the combination called stagflation. Unlike demand-pull inflation (where AD shifts right and output rises), cost-push creates a dilemma for policymakers because any policy that reduces inflation worsens the output fall.',
           marks: 1,
-          difficulty: 'standard' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -778,7 +778,7 @@ From a global policy perspective, the conflict between growth and BoP equilibriu
         correctAnswer: 0,
         explanation: 'When the economy grows rapidly, consumer incomes rise and spending on imports increases faster than export growth, widening the current account deficit — a direct conflict between growth and BoP equilibrium. This is why high-growth periods often coincide with deteriorating current accounts in import-oriented economies.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib5-l5-q3',
@@ -793,7 +793,7 @@ From a global policy perspective, the conflict between growth and BoP equilibriu
         correctAnswer: 0,
         explanation: 'By expanding the economy\'s productive capacity (LRAS shifts right), supply-side policies allow real GDP and employment to grow without the demand-side inflationary pressure that creates the Phillips curve trade-off. However, their main drawback is that they operate slowly (over years or decades) and have uncertain effects — making them a long-run complement to, rather than replacement for, demand-side stabilisation.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
     ],
   },

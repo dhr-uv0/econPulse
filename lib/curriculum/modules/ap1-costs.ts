@@ -74,7 +74,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'MC = ΔTC / ΔQ = ($234 − $200) / (6 − 5) = $34. Because only the cost change between the two output levels matters, fixed costs are irrelevant to this calculation.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap1-l1-2',
@@ -84,7 +84,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'AFC = TFC / Q = $120 / 8 = $15. ATC = AVC + AFC = $9 + $15 = $24. The most common error is forgetting to include AFC entirely (giving $9.00) or using the wrong quantity in the AFC calculation.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap1-l1-3',
@@ -94,7 +94,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'ATC = TC/Q = $190/5 = $38. MC of the 5th unit = $190−$160 = $30. Because MC ($30) < ATC ($38), ATC is still falling at this output — a useful check that the numbers are consistent.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap1-l1-4',
@@ -104,7 +104,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'MC = ΔTVC/ΔQ = ($84−$60)/(4−3) = $24/1 = $24. Fixed costs are irrelevant because they do not change between units. Option A ($21) is TVC at 4 units divided by Q (AVC, not MC). Option C confuses TC with MC.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap1-l1-5',
@@ -114,7 +114,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'AFC = TFC/Q = $200/10 = $20. ATC = AVC + AFC = $15 + $20 = $35. The most common error is ignoring AFC and answering $15 — that is just AVC.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap1-l1-6',
@@ -124,7 +124,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 3,
         explanation: 'AFC = TFC/Q. Because TFC is constant and positive, dividing by ever-larger Q means AFC falls continuously — it is a declining rectangular hyperbola. MC, AVC, and ATC are all U-shaped.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap1-l1-7',
@@ -174,7 +174,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'MC of 11th unit = $317−$300 = $17. MC of 12th unit = $336−$317 = $19. MC is rising between these output levels, and Q=12 has the highest MC ($19) of the three. This rising MC pattern is consistent with diminishing marginal returns.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
     ],
     content: {
@@ -299,7 +299,7 @@ The key insight is that MC intersects both AVC and ATC at their minimum points. 
         correctAnswer: 1,
         explanation: 'By the marginal-average rule, MC = ATC at ATC\'s minimum. If MC intersects ATC before the minimum, ATC would be rising at that point, which contradicts MC < ATC implying falling ATC. The intersection must occur at the trough, not to its left.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap1-l2-3',
@@ -329,7 +329,7 @@ The key insight is that MC intersects both AVC and ATC at their minimum points. 
         correctAnswer: 1,
         explanation: 'ATC − AVC = AFC = TFC/Q. Since TFC is always positive, AFC > 0 at every finite output. ATC must always exceed AVC. If they cross, the diagram implies AFC < 0 at that point — a logical impossibility.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap1-l2-5',
@@ -344,7 +344,7 @@ The key insight is that MC intersects both AVC and ATC at their minimum points. 
         correctAnswer: 2,
         explanation: 'By the marginal-average rule: when MC < AVC, AVC is falling. Here MC ($15) < AVC ($18), so AVC is declining. This places Q=20 on the downward-sloping (left) side of the AVC curve.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap1-l2-6',
@@ -359,7 +359,7 @@ The key insight is that MC intersects both AVC and ATC at their minimum points. 
         correctAnswer: 1,
         explanation: 'When MC rises above AVC (after their intersection at AVC\'s minimum), each additional unit costs more than the current average variable cost, pulling AVC upward. ATC\'s minimum occurs at a higher output because AFC is still declining and offsetting the AVC rise.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap1-l2-7',
@@ -374,7 +374,7 @@ The key insight is that MC intersects both AVC and ATC at their minimum points. 
         correctAnswer: 0,
         explanation: 'MC = ATC at ATC\'s minimum, by the marginal-average rule. At outputs above this intersection, MC > ATC and ATC rises. The intersection is not the profit-maximising output — that is where P = MC.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap1-l2-8',
@@ -389,7 +389,7 @@ The key insight is that MC intersects both AVC and ATC at their minimum points. 
         correctAnswer: 1,
         explanation: 'AFC = TFC/Q. Because TFC is a positive constant, AFC traces a rectangular hyperbola — always declining, always positive, asymptotically approaching zero as Q increases. It has no minimum (it never stops declining) and never intersects the x-axis.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap1-l2-9',
@@ -452,7 +452,7 @@ For the AP exam, diagram precision earns full marks. Label every curve, mark the
           correctAnswer: 0,
           explanation: 'When MC < ATC, the cost of the last unit produced is below the running average. By the marginal-average rule, this pulls the average down — ATC must be falling. ATC reaches its minimum only when MC = ATC, and ATC is rising only when MC > ATC.',
           marks: 1,
-          difficulty: 'standard',
+          difficulty: 'easy',
         },
       ],
       realWorldHook: `The 2022 Federal Reserve rate hikes forced dozens of US tech firms to confront their cost structures visually for the first time. Stripe, Lyft, and Meta all laid off workers when they realised their ATC curves — bloated by years of zero-interest-rate hiring — were far above the prices the market would bear. Being able to look at a cost diagram and immediately identify whether P > ATC, P is between ATC and AVC, or P < AVC is the skill that separates financial analysts who can diagnose a distressed company from those who just read the earnings report.`,
@@ -571,7 +571,7 @@ For the AP exam, diagram precision earns full marks. Label every curve, mark the
         correctAnswer: 1,
         explanation: 'Fixed costs are sunk in the short run — rent, loan payments, and lease obligations cannot be escaped by ceasing output. The only costs a firm avoids by shutting down are variable costs. Therefore, the shutdown comparison is between revenue and variable cost (AVC), not total cost.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap1-l3-3',
@@ -601,7 +601,7 @@ For the AP exam, diagram precision earns full marks. Label every curve, mark the
         correctAnswer: 1,
         explanation: 'At the shutdown point, P = min AVC. The firm\'s total revenue exactly equals total variable cost (P×Q = AVC×Q = TVC). The firm is indifferent — it loses exactly TFC whether it produces or shuts down. Any price above this makes producing strictly better.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap1-l3-5',
@@ -616,7 +616,7 @@ For the AP exam, diagram precision earns full marks. Label every curve, mark the
         correctAnswer: 1,
         explanation: 'Shutdown loss = TFC = $100. Operating loss = TC − TR = ($100 + $80) − $95 = $85. Since the operating loss ($85) < shutdown loss ($100), the firm minimises losses by producing. The key test: TR ($95) > TVC ($80) ✓ — covers variable costs with $15 to spare.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap1-l3-6',
@@ -631,7 +631,7 @@ For the AP exam, diagram precision earns full marks. Label every curve, mark the
         correctAnswer: 1,
         explanation: 'In the long run, all costs are variable — there are no sunk fixed costs. A firm should exit if its revenue cannot cover total economic cost (including a normal profit on capital). The long-run exit condition is P < min ATC.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap1-l3-7',
@@ -646,7 +646,7 @@ For the AP exam, diagram precision earns full marks. Label every curve, mark the
         correctAnswer: 1,
         explanation: 'P = $30 < AVC = $40. Each room rented loses $10 in variable costs alone, on top of the $2 million in unavoidable fixed costs. Shutdown loss = $2M fixed costs. Operating loss = $2M + (number of rooms × $10). Every additional room deepens losses. The hotel should shut down the room operation (though it may keep staff on reduced hours).',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap1-l3-8',
@@ -661,7 +661,7 @@ For the AP exam, diagram precision earns full marks. Label every curve, mark the
         correctAnswer: 2,
         explanation: 'The short-run supply curve is the MC curve above minimum AVC. At P < min AVC, quantity supplied = 0 (shutdown). At P ≥ min AVC, the firm supplies the quantity where P = MC (from the MC curve). The supply curve \'starts\' at the minimum AVC point.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap1-l3-9',
@@ -676,7 +676,7 @@ For the AP exam, diagram precision earns full marks. Label every curve, mark the
         correctAnswer: 0,
         explanation: 'Sunk costs are irrelevant because they are the same regardless of the decision made. Whether the firm produces 0 or 1,000 units, a sunk fixed cost (like a non-refundable lease) is paid. Only costs that CHANGE with the decision — variable costs — affect the optimal output choice.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap1-l3-10',
@@ -714,7 +714,7 @@ In the long run, no costs are fixed — contracts expire, leases end, capital ca
           correctAnswer: 0,
           explanation: 'Minimum AVC is the shutdown price. If P < min AVC, revenue per unit is insufficient to cover even variable costs, so each unit produced deepens the loss beyond the fixed-cost loss of zero output. The firm minimises loss by shutting down. Exit (leaving the industry permanently) is the long-run decision triggered when P < min ATC.',
           marks: 1,
-          difficulty: 'standard',
+          difficulty: 'easy',
         },
         {
           id: 'ap1-l3-recall-2',
@@ -833,7 +833,7 @@ In the long run, no costs are fixed — contracts expire, leases end, capital ca
         correctAnswer: 2,
         explanation: 'When output rises proportionally more than inputs (150% > 100%), the firm\'s long-run average cost falls — this is economies of scale. Diminishing marginal returns is a short-run concept about adding a variable input to a fixed input, not about scaling all inputs simultaneously.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap1-l4-2',
@@ -848,7 +848,7 @@ In the long run, no costs are fixed — contracts expire, leases end, capital ca
         correctAnswer: 1,
         explanation: 'In a constant-cost industry, input prices do not rise as the industry expands, so new firms enter until price returns to the original minimum ATC. The long-run supply curve is perfectly elastic (horizontal). Total industry output is higher because more firms are now in the market, but the equilibrium price and each individual firm\'s output are unchanged.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap1-l4-3',
@@ -863,7 +863,7 @@ In the long run, no costs are fixed — contracts expire, leases end, capital ca
         correctAnswer: 1,
         explanation: 'The LRAC curve is the lower boundary formed by all possible short-run ATC curves — one for each feasible plant size. At any output level, a firm can choose the plant size that minimises average cost, so LRAC shows the best achievable cost. LRAC touches each short-run ATC curve from below (at tangency) but only intersects a short-run ATC at its minimum at the minimum efficient scale output.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap1-l4-4',
@@ -908,7 +908,7 @@ In the long run, no costs are fixed — contracts expire, leases end, capital ca
         correctAnswer: 1,
         explanation: 'MES is the lowest output at which the LRAC curve reaches its bottom — the scale beyond which no further average cost reductions are available from expanding output. It determines competitive viability: firms operating below MES have higher unit costs and are vulnerable to price competition from larger rivals. MES is about LRAC, not MC or short-run curves.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap1-l4-7',
@@ -923,7 +923,7 @@ In the long run, no costs are fixed — contracts expire, leases end, capital ca
         correctAnswer: 1,
         explanation: 'On the downward-sloping portion of LRAC, the firm has economies of scale — expanding output lowers average cost. Moving toward MES means increasing scale until LRAC reaches its minimum. Reducing output would move further from MES and raise average cost. The shape of LRAC says nothing directly about whether the firm is profitable — that depends on price relative to LRAC.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap1-l4-8',
@@ -968,7 +968,7 @@ In the long run, no costs are fixed — contracts expire, leases end, capital ca
         correctAnswer: 1,
         explanation: 'Diseconomies of scale means LRAC is rising as output increases — the firm is on the upward-sloping portion of its LRAC curve. Average cost is above the minimum attainable level. To reduce LRAC, the firm should scale back: smaller plant, lower output. Management complexity and coordination failures that cause diseconomies of scale are reduced by operating at a more manageable size.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
     ],
     content: {

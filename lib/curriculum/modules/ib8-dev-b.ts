@@ -135,7 +135,7 @@ export const lessons: Lesson[] = [
         explanation:
           'ISI deliberately shields infant industries from import competition through tariffs, quotas, and subsidies to build domestic industrial capacity — the opposite of liberalisation.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'ib8-l1-q2',
@@ -151,7 +151,7 @@ export const lessons: Lesson[] = [
         explanation:
           'The Washington Consensus centred on market-friendly reforms: fiscal austerity, trade openness, privatisation, deregulation, and property-rights protection.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'ib8-l1-q3',
@@ -201,7 +201,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'ISI uses trade protection instruments — tariffs and quotas to raise import prices plus subsidies to lower domestic production costs — to give infant industries time to develop economies of scale and learning-by-doing before facing full international competition. Its limitation was that protection often became permanent, producing high-cost, inefficient firms dependent on continued government support.',
           marks: 1,
-          difficulty: 'standard' as const,
+          difficulty: 'easy' as const,
         },
       ],
       realWorldHook:
@@ -294,7 +294,7 @@ export const lessons: Lesson[] = [
         explanation:
           'A Lorenz curve closer to the line of equality means area A (between the curve and the line) is smaller, so Gini = A/(A+B) is lower — indicating less inequality.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'ib8-l2-q2',
@@ -310,7 +310,7 @@ export const lessons: Lesson[] = [
         explanation:
           'A progressive tax takes a larger share from higher earners, redistributing after-tax income toward lower earners — shifting the Lorenz curve upward toward the line of equality and reducing the Gini.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib8-l2-q3',
@@ -360,7 +360,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'A progressive tax takes proportionally more from higher earners (reducing the income share of upper quintiles) while CCTs add income to the poorest households (raising their share). Together, these two mechanisms shift the Lorenz curve upward toward the line of perfect equality, directly reducing the Gini coefficient — the most reliable combination for measurably improving income distribution.',
           marks: 1,
-          difficulty: 'standard' as const,
+          difficulty: 'higher' as const,
         },
       ],
       realWorldHook:
@@ -453,7 +453,7 @@ export const lessons: Lesson[] = [
         explanation:
           'A Pigouvian carbon tax adds the marginal external cost to private costs, shifting MPC up to MSC so firms internalise the externality and produce at the socially optimal level — but it guarantees price, not quantity.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib8-l3-q2',
@@ -469,7 +469,7 @@ export const lessons: Lesson[] = [
         explanation:
           'The tragedy arises from the combination of rivalry (one person\'s use reduces availability for others) and non-excludability (users cannot be prevented from extracting), creating a divergence between individual and collective rational behaviour.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib8-l3-q3',
@@ -485,7 +485,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Carbon taxes are regressive in their direct impact: lower-income households allocate more of their budget to energy and fuel, so a flat per-tonne charge takes a larger share of their income. Revenue recycling can address this but is not automatic.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
     ],
   },
@@ -519,7 +519,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'A Pigouvian tax adds the marginal external cost to private costs, raising the effective supply curve from MPC to MSC. Firms reduce output until the new market equilibrium occurs where MSC = MSB — the social optimum. The tax guarantees price, not quantity: the actual emissions reduction depends on how firms and consumers respond to the higher price.',
           marks: 1,
-          difficulty: 'standard' as const,
+          difficulty: 'easy' as const,
         },
       ],
       realWorldHook:
@@ -612,7 +612,7 @@ export const lessons: Lesson[] = [
         explanation:
           'ToT = (115/125) × 100 = 92. Because import prices rose more than export prices, each unit of exports now buys fewer imports — a deterioration from 100 to 92.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib8-l4-q2',
@@ -628,7 +628,7 @@ export const lessons: Lesson[] = [
         explanation:
           'In the short run, trade volumes are sticky. Import costs rise in domestic currency (more expensive imports), while export volumes take time to respond to lower foreign-currency prices. The current account worsens before eventual volume adjustment improves it.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'ib8-l4-q3',
@@ -644,7 +644,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Prebisch and Singer argued that demand for primary commodities is income-inelastic while demand for manufactures is income-elastic, creating a long-run relative price decline for commodities — a terms-of-trade deterioration for exporters.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
     ],
   },
@@ -771,7 +771,7 @@ export const lessons: Lesson[] = [
         explanation:
           '|PED_x| + |PED_m| = 0.6 + 0.8 = 1.4 > 1, so the Marshall-Lerner condition is satisfied and the depreciation will improve the current account in the long run (subject to the J-curve in the short run).',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib8-l5-q2',
@@ -803,7 +803,7 @@ export const lessons: Lesson[] = [
         explanation:
           'The balance of payments must balance: current account + capital/financial account = 0 (abstracting from errors and omissions). A current account deficit is always matched by a capital account surplus — the country is a net borrower from abroad.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
     ],
   },

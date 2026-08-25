@@ -41,15 +41,15 @@ export function buildQuestionPool(curriculum: CurriculumModule[]): PooledQuestio
 
 export interface MockTestFilters {
   tiers: CurriculumTier[]
-  /** Optional refinement within the selected tiers. Empty/omitted = every module in those tiers. */
-  moduleIds?: string[]
+  /** Optional refinement within the selected tiers, at lesson granularity. Empty/omitted = every lesson in those tiers. */
+  lessonIds?: string[]
   difficulties: QuizQuestion['difficulty'][]
 }
 
 export function filterPool(pool: PooledQuestion[], filters: MockTestFilters): PooledQuestion[] {
   return pool.filter((p) => {
     if (!filters.tiers.includes(p.moduleTier)) return false
-    if (filters.moduleIds && filters.moduleIds.length > 0 && !filters.moduleIds.includes(p.moduleId)) return false
+    if (filters.lessonIds && filters.lessonIds.length > 0 && !filters.lessonIds.includes(p.lessonId)) return false
     if (!filters.difficulties.includes(p.question.difficulty)) return false
     return true
   })
@@ -107,8 +107,7 @@ export const TIER_LABELS: Record<CurriculumTier, string> = {
 }
 
 export const DIFFICULTY_LABELS: Record<QuizQuestion['difficulty'], string> = {
-  foundation: 'Foundation',
+  easy: 'Easy',
   standard: 'Standard',
   higher: 'Higher',
-  olympiad: 'Olympiad',
 }

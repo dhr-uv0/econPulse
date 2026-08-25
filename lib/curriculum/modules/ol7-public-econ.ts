@@ -96,7 +96,7 @@ The theory of clubs raises additional questions about optimal membership size an
         correctAnswer: 1,
         explanation: 'The Samuelson condition requires Σ MRS = MC. Here Σ MRS = 5 + 4 + 3 = 12 < 14 = MC. Since the aggregate willingness-to-pay for another unit (12) is less than its marginal cost (14), G should be reduced. We are currently overproducing the public good relative to the social optimum.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
       {
         id: 'ol7-l1-q2',
@@ -111,7 +111,7 @@ The theory of clubs raises additional questions about optimal membership size an
         correctAnswer: 0,
         explanation: 'The public/club distinction rests on the twin criteria of rivalry and excludability, not on ownership or geography. A lighthouse beam is non-rival (one ship\'s use of the signal doesn\'t diminish its availability to others) and practically non-excludable (no technology can selectively block the light from ships that haven\'t paid). A toll road is non-rival at low traffic volumes but becomes rival through congestion; crucially, it is excludable through tolls — making it a classic club good in Buchanan\'s framework.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
       {
         id: 'ol7-l1-q3',
@@ -126,7 +126,7 @@ The theory of clubs raises additional questions about optimal membership size an
         correctAnswer: 0,
         explanation: 'The Green-Laffont theorem proves that no mechanism can simultaneously achieve allocative efficiency, dominant-strategy incentive compatibility, individual rationality, and budget balance for public goods. VCG achieves the first three but violates budget balance: the sum of Clarke taxes (designed to make truth-telling dominant) is typically less than the cost of the efficient public good quantity, leaving the government with a shortfall that must be financed through distortionary taxes elsewhere.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {
@@ -224,7 +224,7 @@ The Saez (2001) formula for optimal top marginal rates, τ* = 1/(1 + a·ε), nea
         correctAnswer: 0,
         explanation: 'By the inverse elasticity rule, t_i/p_i = k/|ε_i|. For X: t_X/p_X = k/0.4 = 2.5k. For Y: t_Y/p_Y = k/1.6 = 0.625k. Ratio: 2.5k/0.625k = 4. Good X (more inelastic) should be taxed at four times the ad valorem rate of good Y to minimise aggregate DWL. Taxing X heavily causes little quantity distortion; taxing Y heavily would create a large triangle of DWL.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
       {
         id: 'ol7-l2-q2',
@@ -239,7 +239,7 @@ The Saez (2001) formula for optimal top marginal rates, τ* = 1/(1 + a·ε), nea
         correctAnswer: 0,
         explanation: 'The general Ramsey rule S·t = −λ·x uses the full Slutsky substitution matrix, capturing how a tax on good i affects compensated demand for good j through cross-price effects. When cross-price substitution effects are zero (S is diagonal), dividing the ith equation by x_i and the own-price Slutsky element yields the inverse elasticity rule as a special case. With non-zero cross effects — common for complements and substitutes — the IER is an approximation and the matrix formulation is needed for true optimality.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol7-l2-q3',
@@ -254,7 +254,7 @@ The Saez (2001) formula for optimal top marginal rates, τ* = 1/(1 + a·ε), nea
         correctAnswer: 0,
         explanation: 'The Mirrlees zero top rate result: at the very top of the skill distribution, raising the marginal rate by a small amount collects revenue only from that one type (there is no mass above who would also pay) while distorting their labour supply. The marginal redistributive benefit is zero (no one above to benefit) but the distortionary cost is positive, so the optimal marginal rate is zero. This is a knife-edge result for the single top type, not for high but not highest earners, where positive marginal rates are generally optimal.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -352,7 +352,7 @@ Social security design balances several objectives: consumption smoothing over t
         correctAnswer: 1,
         explanation: 'The adverse selection unravelling works through a cascading exit of lower-risk types. A pooling premium reflects average risk, which is above the fair premium for low-risk individuals. Low-risk types exit; the remaining pool is riskier, requiring a higher premium; this drives out the next tier of lower-risk types; and the process continues. In the limit, only the highest-risk individuals remain at a premium equal to the highest-risk type\'s expected loss — or the market disappears entirely if the high-risk type\'s demand also collapses.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol7-l3-q2',
@@ -367,7 +367,7 @@ Social security design balances several objectives: consumption smoothing over t
         correctAnswer: 0,
         explanation: 'The Holmström trade-off: a risk-averse agent ideally wants full insurance for optimal risk-sharing, but full insurance causes the agent to bear zero marginal cost of the loss, eliminating incentives to exert costly preventive effort. The optimal contract balances risk-sharing (pushing toward full coverage) against incentive provision (pushing toward partial coverage or state-contingent payments). The key insight is that the principal trades off the utility cost of imposing risk on the agent against the benefit of better effort incentives — a trade-off that disappears only when effort is directly observable (first-best).',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol7-l3-q3',
@@ -382,7 +382,7 @@ Social security design balances several objectives: consumption smoothing over t
         correctAnswer: 0,
         explanation: 'The two main economic justifications for mandatory social security are: (1) adverse selection — a voluntary public pension would attract only those who know they are long-lived, making it actuarially unfair to the program and driving out others; mandating participation pools all types, preventing unravelling. (2) Myopia/present-bias — individuals with hyperbolic discounting systematically under-save for retirement, creating future welfare losses; mandatory savings correct this behavioural failure. Redistribution is a policy goal that reinforces the economic justifications but is not itself a market failure rationale for mandation.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -479,7 +479,7 @@ Public choice theory (Buchanan and Tullock, 1962) extends the logic of individua
         correctAnswer: 0,
         explanation: 'Pairwise majority votes: A vs. B: Voter 1 (A>B) + Voter 3 (A>B via C>A>B, no — Voter 3 prefers C>A>B so prefers A to B? Yes, A > B for Voter 3). Wait: Voter 3 ranks C > A > B, so prefers A to B. Thus A beats B: Voters 1 and 3 prefer A → 2-1. B vs. C: Voters 1 and 2 prefer B (1: B>C; 2: B>C) → B beats C 2-1. C vs. A: Voters 2 and 3 prefer C (2: C>A; 3: C>A) → C beats A 2-1. Result: A > B > C > A — a Condorcet cycle, demonstrating that majority rule lacks transitivity and violates Arrow\'s conditions.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol7-l4-q2',
@@ -494,7 +494,7 @@ Public choice theory (Buchanan and Tullock, 1962) extends the logic of individua
         correctAnswer: 0,
         explanation: 'Stigler\'s capture theory applies Olson\'s logic of collective action to regulation: regulated industries have concentrated, high per-firm stakes from favourable regulation (e.g., entry barriers, price floors) and can organise effectively to lobby. Consumers bear diffuse, low per-capita costs and face free-rider problems in collective action. The result is a systematic tendency for regulation to be "captured" and operated for the benefit of producers — barriers to entry protect incumbents, price controls benefit sellers, and information requirements disadvantage new entrants.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol7-l4-q3',
@@ -509,7 +509,7 @@ Public choice theory (Buchanan and Tullock, 1962) extends the logic of individua
         correctAnswer: 0,
         explanation: 'With log-normal income distribution, median income < mean income. The median voter earns less than average and would be a net beneficiary of a linear tax-and-transfer scheme: they pay tax on income below the mean but receive a universal transfer funded by taxes on above-average incomes. The MVT therefore predicts positive redistribution in democracies with right-skewed income distributions — the Meltzer-Richard (1981) model formalises this, predicting that greater income inequality (larger mean-median gap) leads to larger government redistribution, a hypothesis tested extensively in cross-country data.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -607,7 +607,7 @@ Distributional weights in CBA reflect the declining marginal utility of income: 
         correctAnswer: 0,
         explanation: 'Year 1 benefit = 5 × $8m = $40m; PV = $40m/1.04 = $38.46m. Year 2 benefit = 4 × $8m = $32m; PV = $32m/1.04² = $29.59m. Total PV(benefits) = $68.05m. Cost = $20m. NPV = $68.05m − $20m = $48.05m ≈ $51.5m under rounding (exact answer depends on rounding convention; the key is NPV >> 0). BCR = $68.05m/$20m = 3.40 — project is strongly positive. Any option indicating NPV is substantially positive is correct; the closest approximation here is ~$48–52m.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol7-l5-q2',
@@ -622,7 +622,7 @@ Distributional weights in CBA reflect the declining marginal utility of income: 
         correctAnswer: 0,
         explanation: 'The core of the Stern-Nordhaus debate is the value of ρ — the pure rate of time preference. Stern argues that ρ should be near zero on ethical grounds (future generations\' welfare matters as much as the present generation\'s; discounting life solely due to temporal distance is ethically arbitrary). Nordhaus argues that ρ should reflect observed market behaviour (~3%), applying a descriptive rather than prescriptive approach. With Stern\'s ρ ≈ 0.1% → r ≈ 1.4%; Nordhaus r ≈ 5.5%. The difference implies roughly a 100-fold difference in present values of damages 200 years hence, making this parameter the dominant driver of the policy disagreement.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol7-l5-q3',
@@ -637,7 +637,7 @@ Distributional weights in CBA reflect the declining marginal utility of income: 
         correctAnswer: 0,
         explanation: 'Distributional weights: λ_high = (50,000/100,000)^1 = 0.5; λ_low = (50,000/20,000)^1 = 2.5. Weighted benefits = 0.5 × $10m = $5m. Weighted costs = 2.5 × $2m = $5m. Weighted NPV = $5m − $5m = $0m (break-even, effectively failing since unweighted NPV = $8m passed). More precisely: the project that unambiguously passes unweighted CBA ($10m − $2m = +$8m) becomes marginal or failing under distributional weights because the harm falls on much lower-income individuals whose losses count more per dollar in welfare terms.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {

@@ -46,7 +46,7 @@ The Ricardian model generates powerful results but rests on restrictive assumpti
           correctAnswer: 0,
           explanation: 'The parallel trends assumption requires that, absent treatment, both groups follow the same time path — not that they have equal levels. It is assessed using pre-treatment data (event study plots) and challenged if treated industries were already on different trends before the policy. For trade liberalisation studies, a common concern is that industries selected for tariff removal were already declining (endogenous policy targeting), which would violate parallel trends and bias the DiD estimate of trade\'s employment effect.',
           marks: 1,
-          difficulty: 'olympiad' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook: `Bangladesh exports garments worth over $40 billion per year despite having lower absolute productivity than Germany in virtually every sector. The Ricardian model explains why: Bangladesh's opportunity cost of garment production — measured in terms of foregone output of other goods — is lower than Germany's, because Bangladesh has a very large comparative advantage in labour-intensive assembly. Germany's comparative advantage lies in precision engineering and chemicals, where its technology lead is greatest relative to other sectors. Trade allows both countries to consume beyond their individual production possibility frontiers, and the international wage differential (Bangladeshi wages are roughly 5–10% of German levels) is entirely consistent with mutual gains — exactly as the Ricardian wage-ratio condition predicts.`,
@@ -149,7 +149,7 @@ Empirical testing of the Ricardian model has taken two main approaches. McDougal
         correctAnswer: 2,
         explanation: 'Compare relative costs: a_HW/a_HC = 4/2 = 2; a_FW/a_FC = 12/4 = 3. Since 3 > 2, Foreign\'s relative cost of wine is higher than Home\'s — so Home has a comparative advantage in wine and Foreign in cloth. Wait — re-examining: Home opportunity cost of wine = 2 units of cloth; Foreign opportunity cost of wine = 3 units of cloth. Home\'s wine is relatively cheaper, so Home exports wine. Mutually beneficial trade requires Home autarky price < world price < Foreign autarky price: 2 < P_W/P_C < 3. Option C mislabels but provides the correct range; option B correctly states Home has comparative advantage in wine with range 2 < P_W/P_C < 3.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol6-l1-q2',
@@ -164,7 +164,7 @@ Empirical testing of the Ricardian model has taken two main approaches. McDougal
         correctAnswer: 0,
         explanation: 'Comparative advantage is determined by relative unit labour coefficients: a_HX/a_HY. A uniform doubling of productivity halves all of Home\'s coefficients (a\'_HX = a_HX/2, a\'_HY = a_HY/2), leaving the ratio a\'_HX/a\'_HY = a_HX/a_HY unchanged. The pattern of comparative advantage — and therefore the direction of trade — is unaffected. However, the equilibrium wage ratio adjusts: since Home is now absolutely twice as productive, international arbitrage drives w/w* to double, leaving unit labour costs (w × a) unchanged in competitive equilibrium.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol6-l1-q3',
@@ -179,7 +179,7 @@ Empirical testing of the Ricardian model has taken two main approaches. McDougal
         correctAnswer: 0,
         explanation: 'The basic Ricardian model predicts complete specialisation: each country produces only the good(s) in which it has comparative advantage, with no intra-industry trade. However, the dominant empirical feature of trade among advanced economies (e.g., Germany and France both exporting and importing cars) is large intra-industry trade, which requires models featuring increasing returns and differentiated products (Krugman\'s new trade theory). The other options are incorrect: the Ricardian model does not require equal wages, transport costs are an extension (not a contradiction), and modern economies exhibit both increasing and constant returns.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
     ],
     lessonAssignment: {
@@ -227,7 +227,7 @@ Factor Price Equalization (FPE) is the model's most striking corollary: under th
           correctAnswer: 0,
           explanation: 'With Home producing X and Foreign producing Y: goods-market arbitrage gives P_X = w·a_HX (Home earns w per hour, uses 3 hours per unit) and P_Y = w*·a_FY (Foreign earns w* per hour, uses 12 hours per unit). Thus w/w* = (P_X/a_HX)/(P_Y/a_FY) = (P_X/P_Y)·(a_FY/a_HX) = 0.6 × (12/3) = 2.4. The wage ratio lies within the required bounds: a_FX/a_HX = 2 < 2.4 < a_FY/a_HY = 12/9 = 1.33... wait — this needs checking. The required range is a_FX/a_HX < w/w* < a_FY/a_HY, i.e., 2 < w/w* < 1.33, which is contradictory. Rechecking: Home has CA in X (a_HX/a_HY = 1/3 < a_FX/a_FY = 1/2), and the range for mutual trade is a_HX/a_HY < P_X/P_Y < a_FX/a_FY i.e. 1/3 < 0.6 < 1/2 = 0.5 — but 0.6 > 0.5, so the terms of trade are outside the range for L2 to produce Y. For exam purposes, the formula w/w* = (P_X/P_Y)·(a_FY/a_HX) illustrates the mechanism correctly.',
           marks: 1,
-          difficulty: 'olympiad' as const,
+          difficulty: 'higher' as const,
         },
       ],
       realWorldHook: `The Stolper-Samuelson theorem helps explain why US manufacturing workers lobbied fiercely against NAFTA in the 1990s. Economic theory predicted — correctly, as subsequent research by Autor, Dorn and Hanson confirmed — that expanded trade with labour-abundant Mexico would depress wages for unskilled US workers while benefiting US capital owners and highly skilled workers. The "China shock" literature (Acemoglu et al., 2016) estimated that Chinese import competition caused roughly 2 million US manufacturing job losses between 1999 and 2011, with concentrated effects in specific local labour markets — exactly the geographic and distributional pattern H-O and Stolper-Samuelson predict.`,
@@ -330,7 +330,7 @@ The H-O model's empirical performance has been decidedly mixed. The Leontief par
         correctAnswer: 0,
         explanation: 'The Stolper-Samuelson theorem: trade raises the relative price of the exported good (Aircraft in the USA). Aircraft is capital-intensive, so the magnification effect raises r (return to capital) more than proportionally and drives w (real wage) below its pre-trade level in terms of both goods. US capital owners gain; US workers lose — regardless of whether workers can buy cheaper imported textiles, the real wage in terms of both the import and export good falls.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol6-l2-q2',
@@ -345,7 +345,7 @@ The H-O model's empirical performance has been decidedly mixed. The Leontief par
         correctAnswer: 0,
         explanation: 'FPE requires: (1) both countries produce both goods — within the diversification cone — so goods prices uniquely pin down factor prices through zero-profit conditions; (2) identical technologies globally; (3) free trade with no transport costs or tariffs. Empirically, these fail because technology gaps between rich and poor countries are enormous (explaining most wage differences), many goods are non-traded (services), and countries may be completely specialised. Even within the EU\'s highly integrated single market, wages have converged but not equalised, reflecting residual technology and productivity differences.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol6-l2-q3',
@@ -360,7 +360,7 @@ The H-O model's empirical performance has been decidedly mixed. The Leontief par
         correctAnswer: 0,
         explanation: 'Rybczynski theorem: with goods prices (and therefore factor prices) fixed, expanding one factor endowment forces the factor-intensive sector to expand more than proportionally to absorb the new factor. To do so, it draws the other factor away from the other sector, which therefore shrinks in absolute terms. For example, a capital inflow (K increases) at constant goods prices: the capital-intensive sector expands by more than K%, and the labour-intensive sector actually contracts. This explains "Dutch disease": a resource boom expands the resource sector and de-industrialises other manufacturing at constant world prices.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
     ],
     lessonAssignment: {
@@ -493,7 +493,7 @@ The empirical success of new trade theory has reshaped how economists measure tr
         correctAnswer: 0,
         explanation: 'Since the countries are identical, there is no comparative advantage (Ricardian or H-O) to exploit. Gains come entirely from new trade theory mechanisms: (1) integrated market size S_H + S_F > S_H supports more total varieties n; (2) each surviving firm produces more (q* rises), reducing average fixed costs — scale efficiency; (3) consumers in each country now access all varieties produced globally, not just those of their home country. These variety and scale gains exist even with no factor endowment or technology differences.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
       {
         id: 'ol6-l3-q2',
@@ -508,7 +508,7 @@ The empirical success of new trade theory has reshaped how economists measure tr
         correctAnswer: 0,
         explanation: 'The Grubel-Lloyd index measures the share of trade that is two-way within a sector: GL = 1 − |X−M|/(X+M). Germany-France trade is dominated by differentiated manufactures where both countries are capital-abundant with similar technologies — scale economies and variety differentiation (Krugman mechanism) generate two-way trade in cars, machinery, chemicals, etc. Germany-Bangladesh trade reflects classical comparative advantage (H-O): Germany exports capital-intensive goods and imports labour-intensive textiles — minimal two-way trade in the same sectors, giving a low GL index.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
       {
         id: 'ol6-l3-q3',
@@ -523,7 +523,7 @@ The empirical success of new trade theory has reshaped how economists measure tr
         correctAnswer: 0,
         explanation: 'In the Melitz model, trade liberalisation raises the productivity threshold φ* — firms below the threshold exit (losing their workers) while above-threshold firms expand (hiring workers). In the short run, exit and entry adjustment is incomplete; the immediate effect is job losses at exiting low-productivity firms. Even in the long run, aggregate employment in the industry may fall if imports substitute for domestic production. This is the "China shock" mechanism: trade liberalisation raised aggregate welfare but caused concentrated, persistent job losses in exposed industries — a result Melitz\'s model captures and classical models miss.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {
@@ -651,7 +651,7 @@ However, strategic trade policy has severe practical limitations. First, the opt
         correctAnswer: 0,
         explanation: 'With the tariff: domestic price = world price (post-tariff) + tariff = $95 + $10 = $105. The terms-of-trade gain per tonne = the reduction in the world price × quantity imported: the foreign price fell from $100 to $95, so the country gains $5 per tonne imported (it pays $5 less to foreign exporters than before). This $5 × Q_imports is area E in the welfare diagram — the terms-of-trade improvement that can make the tariff net welfare-positive for a large country.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
       {
         id: 'ol6-l4-q2',
@@ -666,7 +666,7 @@ However, strategic trade policy has severe practical limitations. First, the opt
         correctAnswer: 0,
         explanation: 'A specific tariff t holds (P_domestic − P_world) = t constant. When domestic demand shifts outward, more imports flow in at the same price premium — volume adjusts, price is stable relative to world price. A quota fixes import volume; when domestic demand shifts outward, the additional demand cannot be met by extra imports, so domestic price rises above the tariff-equivalent level. Domestic price fluctuates more under a quota because the quantity buffer is removed. This is the key asymmetric uncertainty argument for preferring tariffs to quotas as policy instruments.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol6-l4-q3',
@@ -681,7 +681,7 @@ However, strategic trade policy has severe practical limitations. First, the opt
         correctAnswer: 0,
         explanation: 'Brander-Spencer\'s result is specific to Cournot quantity competition. Under Bertrand price competition, the same subsidy may lower welfare because it increases output and drives price toward marginal cost in both countries, reducing industry profit globally. Since governments cannot reliably determine whether an industry behaves as Cournot or Bertrand oligopolists, the optimal policy prescription is fundamentally ambiguous. While retaliation is also a real concern (option B), it does not always occur; the deeper problem is the model-sensitivity of the result itself. Options C and D are incorrect: the model uses specific functional forms that can handle non-constant costs, and some subsidies are WTO-legal.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -812,7 +812,7 @@ Customs unions, unlike FTAs, eliminate the need for rules of origin by adopting 
         correctAnswer: 0,
         explanation: 'Before FTA: Country C costs $9 × 1.4 = $12.60 in Country A (with 40% tariff); Country B costs $12 × 1.4 = $16.80 (with tariff). Country A imports from Country C. After FTA: Country B costs $12 (zero tariff); Country C still costs $12.60. Country A now switches to Country B. This is trade diversion: the PTA preference (zero tariff on B, 40% on C) makes the less efficient producer (B at $12 true cost vs C at $9) appear cheaper after tariffs. Country A pays $12 instead of $9 (true cost) — a resource misallocation. Country A still gains because $12 < $12.60 (the pre-FTA price), but the world is less efficient.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol6-l5-q2',
@@ -827,7 +827,7 @@ Customs unions, unlike FTAs, eliminate the need for rules of origin by adopting 
         correctAnswer: 0,
         explanation: 'Doha failed primarily because of irreconcilable disagreements on agriculture (USA and EU unwilling to cut farm subsidies; developing countries unwilling to grant market access without agricultural reform) and non-agricultural market access (India and other large developing countries protecting infant industries). With 160+ members, collective action is near-impossible when major issues are zero-sum. Bilateral and regional agreements have proliferated — CPTPP (11 members), RCEP (15 Asian economies), EU-Japan EPA — delivering liberalisation outside the WTO framework, but creating discriminatory preferences that fragment the trading system and impose compliance costs through overlapping rules of origin.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
       {
         id: 'ol6-l5-q3',
@@ -842,7 +842,7 @@ Customs unions, unlike FTAs, eliminate the need for rules of origin by adopting 
         correctAnswer: 0,
         explanation: 'The key structural difference: a CU has a CET — all members charge the same tariff on imports from non-members — so goods can freely circulate within the CU without rules of origin (a good imported into Germany faces the same EU tariff as if imported into France, and can then move freely within the EU). An FTA has no CET — France and Germany might have different tariffs on Chinese goods. To prevent deflection (importing through the lowest-tariff member), FTAs require "rules of origin" — goods must contain sufficient regional content to qualify for preferential treatment. Rules of origin are administratively costly and can act as non-tariff barriers, making CUs more trade-liberalising in practice but requiring greater sovereignty concession (members cannot negotiate their own trade deals independently).',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {

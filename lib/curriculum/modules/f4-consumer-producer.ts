@@ -50,7 +50,7 @@ The connection to demand is direct and powerful. A consumer is willing to pay fo
           correctAnswer: 1,
           explanation: 'High spare capacity makes supply more elastic: a factory running at 40% capacity can increase output rapidly in response to a price rise without needing to build new facilities or wait for capital investment. A factory at 95% capacity would face serious constraints and have more inelastic supply.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -171,7 +171,7 @@ Marginal utility also explains the diamond-water paradox that puzzled thinkers b
         explanation:
           'Total utility is the sum of all marginal utilities: 20 + 12 + 5 = 37 utils.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f4-l1-q2',
@@ -188,7 +188,7 @@ Marginal utility also explains the diamond-water paradox that puzzled thinkers b
         explanation:
           'DMU means MU falls with each unit, reducing willingness to pay. Lower willingness to pay at higher quantities is precisely what a downward-sloping demand curve shows.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f4-l1-q3',
@@ -205,7 +205,7 @@ Marginal utility also explains the diamond-water paradox that puzzled thinkers b
         explanation:
           'With a zero price, a rational consumer keeps consuming until MU = 0 (TU is maximised). Consuming beyond that would yield negative MU, reducing total utility.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f4-l1-q4',
@@ -222,7 +222,7 @@ Marginal utility also explains the diamond-water paradox that puzzled thinkers b
         explanation:
           'TU after 4 cups = 30 + 20 + 10 + 0 = 60 utils. Adding the 5th cup with MU = −5 reduces TU to 60 + (−5) = 55 utils. TU falls when MU is negative, confirming that rational consumers stop at MU = 0.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f4-l1-q5',
@@ -239,7 +239,7 @@ Marginal utility also explains the diamond-water paradox that puzzled thinkers b
         explanation:
           'When MU is positive but declining, each new unit still adds to total utility — so TU rises. But because each increment is smaller than the last, TU rises at a decreasing rate. This is the standard shape of the TU curve under the Law of Diminishing Marginal Utility.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f4-l1-q6',
@@ -256,7 +256,7 @@ Marginal utility also explains the diamond-water paradox that puzzled thinkers b
         explanation:
           'Water has enormous total utility (essential for life) but very low marginal utility because it is abundant — the next litre adds little satisfaction. Diamonds have low total utility but high marginal utility due to scarcity. Since prices reflect MU, water is cheap and diamonds are expensive despite the apparent paradox.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f4-l1-q7',
@@ -273,7 +273,7 @@ Marginal utility also explains the diamond-water paradox that puzzled thinkers b
         explanation:
           'A rational consumer buys a unit whenever their WTP (marginal utility in money terms) is at least equal to the price. WTP for the 1st unit (£10) ≥ £7 ✓; WTP for the 2nd unit (£7) = £7 ✓ (indifferent, but buys); WTP for the 3rd unit (£4) < £7 ✗. So the consumer buys 2 units.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f4-l1-q8',
@@ -290,7 +290,7 @@ Marginal utility also explains the diamond-water paradox that puzzled thinkers b
         explanation:
           'DMU is about how MU changes as successive units are consumed in the same period. It does not claim that MU of the first unit is low — indeed the first unit typically has the highest MU. The law simply states that MU of the 2nd unit is less than the 1st, the 3rd less than the 2nd, and so on. It applies from the first unit onwards in the sequence.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f4-l1-q9',
@@ -307,7 +307,7 @@ Marginal utility also explains the diamond-water paradox that puzzled thinkers b
         explanation:
           'The Law of DMU applies to consuming successive units of a good within a given time period, holding everything else constant. Skill development over time changes the nature of the good itself — effectively shifting the MU curve rather than moving along it. Within a single listening session, DMU still applies: the 10th song you hear today gives less marginal utility than the 1st. The student conflates long-run learning with the short-run marginal utility concept.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f4-l1-q10',
@@ -324,7 +324,7 @@ Marginal utility also explains the diamond-water paradox that puzzled thinkers b
         explanation:
           'With equal prices, the consumer maximises utility by buying units in descending order of MU: A1 (20), B1 (18), A2 (15). That uses 3 × £5 = £15. Total utility = 20 + 18 + 15 = 53 utils, which exceeds all other combinations (3A = 45, 3B = 36, 1A+2B = 20+18+12 = 50).',
         marks: 3,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -369,7 +369,7 @@ Marginal utility also explains the diamond-water paradox that puzzled thinkers b
           correctAnswer: 0,
           explanation: 'Total utility is the sum of all marginal utilities: 10 + 7 + 4 + 1 = 22 utils. Note that total utility is still rising (each MU is positive), but at a decreasing rate — consistent with the Law of Diminishing Marginal Utility.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
         {
           id: 'f4-l2-recall-2',
@@ -384,7 +384,7 @@ Marginal utility also explains the diamond-water paradox that puzzled thinkers b
           correctAnswer: 1,
           explanation: 'Willingness to pay reflects marginal utility. As MU declines with each successive unit, the maximum price a consumer will pay for the next unit also falls — this is precisely why demand curves slope downward and why there is a gap between willingness to pay and actual price for early units.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -513,7 +513,7 @@ Price discrimination is a strategy firms use to capture consumer surplus for the
         explanation:
           'Consumer surplus = willingness to pay − price paid = £25 − £15 = £10.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f4-l2-q2',
@@ -530,7 +530,7 @@ Price discrimination is a strategy firms use to capture consumer surplus for the
         explanation:
           'Consumer surplus is the area below the demand curve (representing willingness to pay) and above the price line (what is actually paid), up to the equilibrium quantity.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f4-l2-q3',
@@ -547,7 +547,7 @@ Price discrimination is a strategy firms use to capture consumer surplus for the
         explanation:
           'Buyers who succeed in purchasing at the lower ceiling price gain more CS. However, the quantity supplied falls, so some buyers are rationed out. The net effect on total CS is ambiguous — it depends on the size of the surplus gained per unit versus the units lost. Examiners expect you to note that some buyers gain while quantity traded falls.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f4-l2-q4',
@@ -559,7 +559,7 @@ Price discrimination is a strategy firms use to capture consumer surplus for the
         explanation:
           'CS = ½ × base × height = ½ × 60 × (£50 − £20) = ½ × 60 × £30 = £900.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f4-l2-q5',
@@ -576,7 +576,7 @@ Price discrimination is a strategy firms use to capture consumer surplus for the
         explanation:
           'Only buyers whose WTP ≥ price will buy. Anna (WTP £40 ≥ £25) gains £15 CS; Ben (WTP £30 ≥ £25) gains £5 CS; Cara (WTP £20 < £25) does not buy. Total CS = £15 + £5 = £20.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f4-l2-q6',
@@ -593,7 +593,7 @@ Price discrimination is a strategy firms use to capture consumer surplus for the
         explanation:
           'Under perfect price discrimination, every buyer pays exactly their WTP, leaving zero consumer surplus — all of it is transferred to the producer. However, all mutually beneficial trades still occur (the producer supplies up to the point where WTP = MC), so total surplus (CS + PS) is unchanged — it is the same efficient quantity, just all the benefit accrues to the producer.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f4-l2-q7',
@@ -610,7 +610,7 @@ Price discrimination is a strategy firms use to capture consumer surplus for the
         explanation:
           'A rightward demand shift means consumers value the good more at every quantity — the demand curve rises, increasing the area of the CS triangle (higher intercept, and typically more buyers). Options B, C, and D all reduce CS: higher prices and fewer buyers shrink the triangle.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f4-l2-q8',
@@ -627,7 +627,7 @@ Price discrimination is a strategy firms use to capture consumer surplus for the
         explanation:
           'At P = 40: 40 = 100 − 2Q → 2Q = 60 → Q = 30. Maximum WTP (where Q = 0) = 100. CS = ½ × 30 × (100 − 40) = ½ × 30 × 60 = £900.',
         marks: 3,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f4-l2-q9',
@@ -644,7 +644,7 @@ Price discrimination is a strategy firms use to capture consumer surplus for the
         explanation:
           'Consumer surplus depends on the price consumers pay and the quantity traded. The price paid by buyers rose from £30 to £38 and quantity fell from 100 to 80, both of which shrink the CS triangle. The tax is ultimately shared between buyers and sellers depending on elasticities — even a seller tax raises the buyer price and reduces CS.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f4-l2-q10',
@@ -661,7 +661,7 @@ Price discrimination is a strategy firms use to capture consumer surplus for the
         explanation:
           'This is third-degree price discrimination: the supermarket separates buyers into groups (loyalty card holders, who tend to be more price-sensitive, and non-members) and charges each group a different price. The aim is to capture consumer surplus from non-members who are willing to pay £20 while still selling to price-sensitive shoppers at £15. It does not identify each individual\'s WTP (which would be first-degree), and it does not increase total CS — it transfers some CS to the producer.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {
@@ -706,7 +706,7 @@ Price discrimination is a strategy firms use to capture consumer surplus for the
           correctAnswer: 1,
           explanation: 'Consumer surplus = willingness to pay − price paid = £20 − £14 = £6. On the diagram, CS is the triangular area below the demand curve (which represents willingness to pay) and above the market price line, up to the equilibrium quantity.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -835,7 +835,7 @@ When economists evaluate policies, they track what happens to both consumer and 
         explanation:
           'Producer surplus = price received − minimum willingness to accept = £280 − £200 = £80.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f4-l3-q2',
@@ -852,7 +852,7 @@ When economists evaluate policies, they track what happens to both consumer and 
         explanation:
           'Producer surplus is the area above the supply curve (minimum prices suppliers will accept) and below the market price (what they actually receive), up to the equilibrium quantity.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f4-l3-q3',
@@ -869,7 +869,7 @@ When economists evaluate policies, they track what happens to both consumer and 
         explanation:
           'Economic profit = producer surplus − fixed costs = £500 − £600 = −£100. The firm covers its variable costs but not all its fixed costs, resulting in a loss.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f4-l3-q4',
@@ -881,7 +881,7 @@ When economists evaluate policies, they track what happens to both consumer and 
         explanation:
           'PS = ½ × base × height = ½ × 40 × (£25 − £5) = ½ × 40 × £20 = £400.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f4-l3-q5',
@@ -898,7 +898,7 @@ When economists evaluate policies, they track what happens to both consumer and 
         explanation:
           'Producers sell only if price ≥ WTA. X (WTA £10 ≤ £22) earns £12 PS; Y (WTA £18 ≤ £22) earns £4 PS; Z (WTA £30 > £22) does not sell. Total PS = £12 + £4 = £16.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f4-l3-q6',
@@ -915,7 +915,7 @@ When economists evaluate policies, they track what happens to both consumer and 
         explanation:
           'A perfectly elastic supply curve means every unit costs exactly £15 to produce. The market price is also £15, so price = MC on every unit — there is no gap between price received and minimum WTA. PS = 0. This occurs in perfectly competitive industries with constant costs where free entry drives PS to zero in the long run.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f4-l3-q7',
@@ -932,7 +932,7 @@ When economists evaluate policies, they track what happens to both consumer and 
         explanation:
           'A price floor above equilibrium raises the price that farmers receive. For units that are sold, PS increases (each unit sold earns £50 − MC instead of £35 − MC). However, the higher price may also create a surplus of unsold wheat if supply exceeds demand at £50 — complicating the picture. At the unit level and for units actually sold, PS rises.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f4-l3-q8',
@@ -949,7 +949,7 @@ When economists evaluate policies, they track what happens to both consumer and 
         explanation:
           'At P = 12: 12 = 2 + 0.5Q → 0.5Q = 10 → Q = 20. Minimum supply price (where Q = 0) = £2. PS = ½ × 20 × (12 − 2) = ½ × 20 × 10 = £100.',
         marks: 3,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f4-l3-q9',
@@ -966,7 +966,7 @@ When economists evaluate policies, they track what happens to both consumer and 
         explanation:
           'In the short run, fixed costs are sunk (unavoidable). A firm should keep operating as long as it can cover its variable costs — i.e., as long as PS ≥ 0. Shutting down saves variable costs but the fixed costs are still owed. Staying open with positive PS reduces the overall loss compared to shutting down.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f4-l3-q10',
@@ -983,7 +983,7 @@ When economists evaluate policies, they track what happens to both consumer and 
         explanation:
           'Before: PS per barrel = £60 − £30 = £30; total PS = £300,000. After: PS per barrel = £90 − £30 = £60; total PS = £600,000. Increase = £300,000. Governments consider windfall taxes because the gain arose from external factors (geopolitics), not new investment — taxing it does not discourage the production decisions already made, making it an efficient revenue source with limited deadweight loss.',
         marks: 3,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -1028,7 +1028,7 @@ When economists evaluate policies, they track what happens to both consumer and 
           correctAnswer: 0,
           explanation: 'Producer surplus on this unit = price received − minimum WTA = £45 − £30 = £15. The economic profit on this unit, once fixed costs are allocated, would require knowing how fixed costs are spread across all units — but on a per-unit basis PS does not subtract fixed costs, while profit does. Here both figures happen to be £15 because fixed costs are separate from the MC captured by the supply curve.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
         {
           id: 'f4-l4-recall-2',
@@ -1043,7 +1043,7 @@ When economists evaluate policies, they track what happens to both consumer and 
           correctAnswer: 1,
           explanation: 'Producer surplus is the triangular area above the supply curve (which shows the minimum prices producers will accept — their marginal costs) and below the market price line, up to the equilibrium quantity. The triangle below the demand curve above the price is consumer surplus.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -1172,7 +1172,7 @@ Equity and efficiency are distinct concerns. Maximising total surplus (efficienc
         explanation:
           'Total surplus = consumer surplus + producer surplus = £500 + £350 = £850.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f4-l4-q2',
@@ -1189,7 +1189,7 @@ Equity and efficiency are distinct concerns. Maximising total surplus (efficienc
         explanation:
           'Allocative efficiency means MB = MC, so the right quantity of each good is produced. Producing at lowest cost is productive efficiency; zero long-run profit is a feature of perfect competition but is not the definition of allocative efficiency.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f4-l4-q3',
@@ -1206,7 +1206,7 @@ Equity and efficiency are distinct concerns. Maximising total surplus (efficienc
         explanation:
           'Deadweight loss is the surplus that would have been created by the 300 trades that no longer happen. It is genuine value destruction, not a transfer — it does not go to the government, consumers, or producers.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f4-l4-q4',
@@ -1223,7 +1223,7 @@ Equity and efficiency are distinct concerns. Maximising total surplus (efficienc
         explanation:
           'CS = ½ × 60 × (£80 − £50) = ½ × 60 × £30 = £900. PS = ½ × 60 × (£50 − £20) = ½ × 60 × £30 = £900. TS = £900 + £900 = £1,800.',
         marks: 3,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f4-l4-q5',
@@ -1240,7 +1240,7 @@ Equity and efficiency are distinct concerns. Maximising total surplus (efficienc
         explanation:
           'A tax redistributes some CS and PS to the government as tax revenue, but also eliminates trades that would have been mutually beneficial (the 20 units no longer traded). The lost surplus on those 20 units is deadweight loss — genuine destruction of value that goes to nobody. Therefore total surplus (CS + PS + government revenue) falls.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f4-l4-q6',
@@ -1257,7 +1257,7 @@ Equity and efficiency are distinct concerns. Maximising total surplus (efficienc
         explanation:
           'The triangle between Q = 50 and Q = 80, bounded by the demand curve above and the supply curve below, is the deadweight loss of monopoly. It represents the surplus that would have been generated by the 30 units not produced — trades that would have benefited buyers (who value them above MC) that the monopolist blocks to maintain a higher price.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f4-l4-q7',
@@ -1274,7 +1274,7 @@ Equity and efficiency are distinct concerns. Maximising total surplus (efficienc
         explanation:
           'The minimum wage above equilibrium raises wages for employed workers (increasing their producer surplus), but reduces employment below the efficient level. The workers who lose their jobs and the employers who would have hired them represent the deadweight loss — mutually beneficial trades that no longer occur. Total surplus falls by this DWL triangle, even though some workers are better off.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f4-l4-q8',
@@ -1291,7 +1291,7 @@ Equity and efficiency are distinct concerns. Maximising total surplus (efficienc
         explanation:
           'The efficiency of competitive equilibrium follows from the MB = MC condition at Q*. Below Q*, trades with MB > MC exist but do not happen (lost surplus). Above Q*, trades with MC > MB would occur (destroyed value). Only at Q* is total surplus maximised — every worthwhile trade happens and no wasteful ones do.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f4-l4-q9',
@@ -1308,7 +1308,7 @@ Equity and efficiency are distinct concerns. Maximising total surplus (efficienc
         explanation:
           'A rent cap below equilibrium creates a price ceiling. Landlords reduce supply (quantity supplied at the lower rent falls below quantity demanded), so some mutually beneficial trades — tenants who would pay more than the landlord\'s minimum WTA — no longer occur. This gap between quantity supplied and demanded represents deadweight loss: real housing services that could have benefited both parties are not provided. The equity gain (lower rents for those who get housing) comes at a cost of reduced total surplus.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f4-l4-q10',
@@ -1325,7 +1325,7 @@ Equity and efficiency are distinct concerns. Maximising total surplus (efficienc
         explanation:
           'Under monopoly: TS = CS + PS = £250 + £500 = £750. Compare to competitive TS = £600 + £400 = £1,000. The difference is £250 — but note: PS rose from £400 to £500 (the monopolist captured £100 of what was CS), and DWL = £100 (genuinely destroyed). The £150 transferred from CS to PS is a redistribution, not a loss. The £100 DWL is the actual welfare destruction: surplus that nobody gets because those trades no longer happen.',
         marks: 3,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {

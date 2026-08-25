@@ -44,7 +44,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 2,
           explanation: 'Deadweight loss is a genuine destruction of value, not a transfer. It represents the total surplus that would have been created by trades between willing buyers and sellers but no longer occurs because the market is not at its efficient equilibrium. Neither consumers nor producers receive this lost welfare — it simply disappears.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -162,7 +162,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Market failure refers to allocative inefficiency — the market still operates but produces too much or too little relative to the social optimum, creating deadweight loss. The market does not need to collapse for failure to occur.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f5-l1-q2',
@@ -178,7 +178,7 @@ export const lessons: Lesson[] = [
         explanation:
           'High prices due to genuine scarcity reflect the market working correctly — they signal that a resource is scarce and encourage conservation and substitution. This is not a market failure. The other three options are recognised causes of market failure.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f5-l1-q3',
@@ -195,7 +195,7 @@ export const lessons: Lesson[] = [
         explanation:
           'The factory imposes costs on third parties (fishers) not reflected in its production costs or output price. This negative externality means the factory over-produces from society\'s perspective, a classic example of market failure through negative externalities.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f5-l1-q4',
@@ -210,7 +210,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Information asymmetry occurs when one party knows more than the other. In the used-car example (Akerlof\'s "market for lemons"), sellers know quality but buyers do not. Buyers therefore only offer the average price, driving high-quality sellers out — a market failure caused by asymmetric information, not externalities, public goods, or market power.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f5-l1-q5',
@@ -225,7 +225,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'Coal-fired electricity has a negative externality: the pollution cost is borne by third parties, not the producer. The producer\'s private marginal cost (PMC) is below the social marginal cost (SMC). Because the market price reflects only PMC, the market equilibrium output exceeds the socially optimal output — a classic negative-externality over-production.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f5-l1-q6',
@@ -240,7 +240,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Market power (monopoly or oligopoly) allows a firm to set price above marginal cost, restricting output below the competitive level and creating deadweight loss. This is a distinct cause of market failure from externalities (noise), public goods (parks), or information asymmetry (insurance).',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f5-l1-q7',
@@ -255,7 +255,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Allocative efficiency means resources are directed to their highest-value uses: the last unit produced generates a social benefit exactly equal to its social cost (MSB = MSC). This maximises total welfare. It is distinct from productive efficiency (minimising cost at any output level) and does not require every consumer to afford the good.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f5-l1-q8',
@@ -270,7 +270,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'The standard welfare economics criterion for intervention is that benefits exceed costs. Even when a market failure is real, regulation may cost more than the welfare loss it corrects, or may itself cause government failure. The decision requires a cost-benefit comparison, not simply the existence of a market failure.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f5-l1-q9',
@@ -285,7 +285,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Deadweight loss is represented as a triangle on the diagram — the area of welfare that would exist at the social optimum but is destroyed at the market equilibrium. It lies between the market output and the social optimum, bounded by the relevant social cost or benefit curve. It is neither a rectangle (that is tax revenue) nor a transfer (which is a redistribution, not a loss).',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f5-l1-q10',
@@ -300,7 +300,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'The vaccine market is a textbook example of the social optimum differing from the market equilibrium. Private demand reflects only individual benefit (PMB), ignoring the positive spillover to others (herd immunity). The social optimum — where SMB = SMC — requires more vaccinations than the market provides. This gap between private equilibrium and social optimum defines market failure.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -347,7 +347,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 1,
           explanation: 'High prices due to genuine scarcity reflect the market working correctly — prices signal that a resource is scarce and encourage conservation and substitution. This is not a market failure. The four recognised causes are externalities, public goods, information asymmetry, and market power (monopoly).',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'higher' as const,
         },
         {
           id: 'f5-l2-recall-2',
@@ -362,7 +362,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 1,
           explanation: 'Market failure does not mean the market has broken down — goods are still bought and sold. It means the resulting quantity is not socially optimal: either too much or too little is produced relative to the level that maximises total welfare, creating deadweight loss.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -481,7 +481,7 @@ export const lessons: Lesson[] = [
         explanation:
           'A negative externality in production means the firm\'s private cost ignores the external damage it causes, so SMC > PMC. The market equilibrium, where demand meets PMC (supply), is to the right of the social optimum where demand meets SMC — the market over-produces.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f5-l2-q2',
@@ -498,7 +498,7 @@ export const lessons: Lesson[] = [
         explanation:
           'A Pigouvian carbon tax shifts the supply curve (private marginal cost) upward by the amount of the tax, bringing it into alignment with the social marginal cost. The market then settles at the socially optimal quantity — not zero, but at the level where SMC equals demand. The goal is the right amount of the activity, not elimination.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f5-l2-q3',
@@ -515,7 +515,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Flu vaccinations have positive externalities: when enough people are vaccinated, even non-vaccinated individuals benefit from reduced disease transmission (herd immunity). Because private buyers ignore this spillover benefit, private demand (PMB) understates social benefit (SMB), and the market under-provides vaccines. A subsidy corrects this by moving output toward the social optimum.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f5-l2-q4',
@@ -530,7 +530,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'The steel mill ignores pollution costs (a negative externality). Its PMC lies below the SMC, so the market supply curve understates true social costs. The market equilibrium — where demand meets PMC — sits at a higher quantity and lower price than the social optimum where demand meets SMC. This over-production relative to the social optimum is the deadweight loss from the negative externality.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f5-l2-q5',
@@ -545,7 +545,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Apprenticeships generate positive externalities: the firm providing training may not capture all the benefits if workers move to other employers who then gain a trained workforce for free. Since PMB to the training firm is below the SMB, the market under-invests in training. A Pigouvian subsidy raises the effective return to the training firm, pushing output toward the social optimum.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f5-l2-q6',
@@ -560,7 +560,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'The Coase theorem holds that if property rights are well-defined (either Country A has the right to pollute or Country B has the right to clean water) and transaction costs are zero, the parties will negotiate to the efficient outcome regardless of who holds the rights. Visibility and measurement matter for negotiations but are not the core condition — the key conditions are clear property rights and low transaction costs.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f5-l2-q7',
@@ -575,7 +575,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'The deadweight loss triangle lies between the market equilibrium (too high) and the social optimum (the right quantity). For each unit produced above the social optimum, the social cost (SMC) exceeds the social benefit (demand). The triangle formed by these values represents the net welfare destroyed by over-production. It disappears when a correctly set Pigouvian tax brings output to the social optimum.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f5-l2-q8',
@@ -590,7 +590,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'A per-unit subsidy to producers lowers their effective marginal cost by the subsidy amount, shifting the supply curve downward (rightward) by £50. The new equilibrium has higher output and a lower consumer price. This moves the market toward the social optimum where demand meets the social marginal benefit curve, reducing the deadweight loss from under-provision.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f5-l2-q9',
@@ -605,7 +605,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Cap-and-trade systems are equivalent to Pigouvian taxes in economic effect: both put a price on the externality (carbon), forcing firms to internalise the external cost. The permit price plays the role of the Pigouvian tax rate. Whether the price is set directly (carbon tax) or emerges from trading (ETS), the mechanism corrects the negative externality by making the private cost of carbon equal to its social cost.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f5-l2-q10',
@@ -620,7 +620,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'A Pigouvian tax is theoretically elegant but practically challenging to implement. Its effectiveness depends entirely on setting the rate equal to the true marginal external cost. If this is mismeasured — as it often is for complex externalities like climate change — the tax over- or under-corrects, potentially creating new welfare losses. This is a key limitation examiners expect candidates to evaluate.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -667,7 +667,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 1,
           explanation: 'A Pigouvian tax shifts the supply curve upward by the amount of the external cost per unit, making the private marginal cost equal to the social marginal cost. The market then settles at the socially optimal quantity — not zero, but the level where social MC equals demand. The goal is the right amount of the activity, not elimination.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -786,7 +786,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Because the ceiling ($900) is below the equilibrium ($1,400), it is binding. At $900 more renters want apartments than landlords want to supply, creating a shortage. Landlords cannot legally charge more, so some simply withdraw supply from the market.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f5-l3-q2',
@@ -803,7 +803,7 @@ export const lessons: Lesson[] = [
         explanation:
           'In a competitive labour market, a minimum wage above equilibrium ($18 > $14) acts as a binding price floor. At $18, more workers want to work than employers want to hire, creating a surplus of labour — unemployment. The size of this effect depends on the elasticity of labour demand.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f5-l3-q3',
@@ -820,7 +820,7 @@ export const lessons: Lesson[] = [
         explanation:
           'A price floor is only binding if set above the equilibrium. Here the floor ($2.00) is below the equilibrium ($2.50), so the market price remains at $2.50. The floor is non-binding and has no effect on the market outcome.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f5-l3-q4',
@@ -835,7 +835,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'Housing supply is more elastic in the long run than the short run. Initially, landlords may tolerate below-market rents rather than leaving the market. Over time, they have more options: converting rental units to condominiums, not replacing existing stock, or reducing maintenance. This causes supply to contract further, deepening the shortage. The long-run welfare cost of rent control is therefore larger than the short-run cost.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f5-l3-q5',
@@ -850,7 +850,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'A price floor above equilibrium raises supply (farmers respond to higher guaranteed prices) and reduces demand (consumers buy less at higher prices). The resulting surplus manifested famously as large unsold stocks of butter, beef, and cereals that the EU had to buy up, store, or dump at subsidised prices. This is a textbook example of the unintended consequence of a binding price floor.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f5-l3-q6',
@@ -865,7 +865,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'At the minimum wage of £12/hr, some workers who valued employment above £10 but below £12 from the employer\'s perspective no longer get hired. These "lost" employment relationships — where both a worker and an employer would have been willing to transact at the competitive wage — are the source of the deadweight loss triangle. The wage transfer from firms to employed workers is a redistribution, not a deadweight loss.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f5-l3-q7',
@@ -880,7 +880,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'The standard competitive model predicts disemployment from minimum wages. Card and Krueger\'s finding is consistent with monopsony in the labour market: if employers have market power over wages, they set wages below the competitive level. A minimum wage can counteract this, raising wages and actually increasing employment up to the competitive level. This has become a central argument in modern minimum wage debates.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f5-l3-q8',
@@ -895,7 +895,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'A rent ceiling suppresses prices below equilibrium, creating a shortage and deadweight loss as mutually beneficial transactions are blocked. A targeted housing voucher increases the purchasing power of low-income renters, raising their effective demand. This increases quantity supplied (the housing market expands rather than contracts) and improves welfare for the target group without the unintended consequences of a ceiling. Economists generally prefer targeted subsidies to blunt price controls as they address the distributional goal without creating allocative distortions.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f5-l3-q9',
@@ -910,7 +910,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'A price floor is binding only if it is set above the equilibrium price. A minimum wage of £12/hr when the equilibrium is £10/hr is above equilibrium, so it is binding — it prevents wages from falling to the market-clearing level, creating a surplus of labour. Option A has the minimum wage below equilibrium (non-binding); options B and D describe price ceilings.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f5-l3-q10',
@@ -925,7 +925,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'A minimum unit alcohol price set above equilibrium raises the price consumers pay. Producers benefit from higher prices and higher producer surplus. Consumers — particularly those who were buying alcohol just above or at the equilibrium price — pay more or are priced out of the market. The policy has public health justifications (reducing harmful consumption) but its costs fall disproportionately on moderate, low-income drinkers who may be consuming responsibly.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {
@@ -972,7 +972,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 1,
           explanation: 'A price ceiling set below equilibrium is binding. At the controlled rent, more renters want to rent apartments than landlords are willing to supply, creating a shortage. Landlords cannot legally charge more, so some withdraw supply from the market entirely.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
         {
           id: 'f5-l4-recall-2',
@@ -987,7 +987,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 1,
           explanation: 'A minimum wage above equilibrium acts as a price floor in the labour market. At the higher wage, quantity of labour supplied exceeds quantity demanded by employers — this excess supply of labour is unemployment, analogous to the agricultural surplus created by price floors in product markets.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -1106,7 +1106,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Tax incidence depends on elasticities, not on who legally pays. When demand is inelastic, consumers are not very responsive to price increases, so sellers can pass most of the tax on through higher prices. The legal obligation of suppliers to pay the tax does not determine who ultimately bears the burden.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f5-l4-q2',
@@ -1123,7 +1123,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Government tax revenue equals the per-unit tax (Pc − Pp, the tax wedge) multiplied by the new quantity sold. This is represented by a rectangle on the diagram. The triangle lost from consumer and producer surplus that does not go to the government is the deadweight loss.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f5-l4-q3',
@@ -1140,7 +1140,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Any subsidy pushes quantity beyond the free-market equilibrium. For the additional units produced with the subsidy, the cost of production exceeds the value consumers place on them (absent any externality justification). This generates deadweight loss — an efficiency cost borne by taxpayers. A Pigouvian subsidy justified by positive externalities can still be welfare-enhancing overall, but it still creates this inefficiency triangle.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f5-l4-q4',
@@ -1155,7 +1155,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'With a perfectly inelastic (vertical) supply curve, producers cannot reduce quantity in response to the tax. The market quantity remains the same, the consumer price is unchanged, and the entire tax falls on producers as a reduction in their after-tax price. The elasticity rule: perfectly inelastic supply → producers bear 100% of the tax, regardless of demand elasticity.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f5-l4-q5',
@@ -1170,7 +1170,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'When demand is inelastic, consumers are unresponsive to price changes. A tax causes little reduction in quantity, so the deadweight loss triangle is small while the revenue rectangle is large. This is why governments levy high excise duties on cigarettes, alcohol, and fuel — goods with relatively inelastic demand. The revenue-DWL trade-off is most favourable when demand is inelastic.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f5-l4-q6',
@@ -1185,7 +1185,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Legal and economic incidence are distinct. VAT collected from sellers raises their effective marginal cost, shifting the supply curve up by the tax amount. The new equilibrium has a higher consumer price and lower producer after-tax price. The share of the tax borne by consumers versus producers depends on relative elasticities — not on who legally remits the tax to HMRC.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f5-l4-q7',
@@ -1200,7 +1200,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Total subsidy expenditure equals subsidy per unit × new quantity. On the diagram this is the rectangle spanning the new quantity, with height equal to the subsidy wedge (the difference between the new producer price including the subsidy and the new consumer price). This rectangle is divided between the gain in consumer surplus and the gain in producer surplus, with any remaining portion being deadweight loss.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f5-l4-q8',
@@ -1215,7 +1215,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'The consumer\'s share of a tax equals PES / (PES + |PED|). With inelastic demand (0.4) and elastic supply, the consumer share is relatively large. The general rule: the less elastic side bears the greater burden. Inelastic demand means consumers are not very responsive to price rises, so sellers can pass most of the tax forward as a higher consumer price.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f5-l4-q9',
@@ -1230,7 +1230,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'A fuel tax can simultaneously serve two efficiency goals: correcting the negative externality of driving (pollution, congestion, carbon emissions) by raising the private cost toward the social cost, and raising revenue that can finance public goods or reduce other distortionary taxes. The "double dividend" argument holds that environmental taxes can improve both environmental and fiscal efficiency. The key Pigouvian condition is that the tax rate equals the marginal external cost — not that it eliminates consumption entirely.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f5-l4-q10',
@@ -1245,7 +1245,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Even a subsidy justified by positive externalities creates deadweight loss at the margin. The optimal Pigouvian subsidy exactly closes the gap between PMB and SMB. Any subsidy larger than the marginal external benefit induces units of production where SMC > SMB — production whose net social value is negative. In practice, subsidies are often set for political rather than optimal economic reasons, amplifying this inefficiency.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -1292,7 +1292,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 1,
           explanation: 'Tax incidence depends on relative elasticities, not on who legally pays. When demand is inelastic, consumers are not very responsive to price increases, so sellers can pass most of the tax on as a higher consumer price with little loss in sales. Inelastic demand → consumers bear the larger share.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -1411,7 +1411,7 @@ export const lessons: Lesson[] = [
         explanation:
           'A public good has two specific economic properties: non-rivalry and non-excludability. Government provision alone does not make something a public good — governments provide many rival and excludable services. The key is the economic characteristics, not the provider.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f5-l5-q2',
@@ -1428,7 +1428,7 @@ export const lessons: Lesson[] = [
         explanation:
           'The fundamental market failure behind public goods is non-excludability combined with the free-rider problem. A private firm supplying defence cannot charge those who benefit because it cannot exclude non-payers — everyone in the country is protected regardless of payment. Without a revenue mechanism, no private firm can profitably supply the good even when its social value is enormous.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f5-l5-q3',
@@ -1445,7 +1445,7 @@ export const lessons: Lesson[] = [
         explanation:
           'A toll-free motorway is non-excludable (no mechanism to prevent entry) but rival in the sense that congestion means one more driver imposes a cost on all other drivers. This makes it a common resource, subject to the tragedy of the commons (overuse), not a public good (which requires non-rivalry as well).',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f5-l5-q4',
@@ -1460,7 +1460,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Basic scientific knowledge is a near-pure public good. Once published, findings are non-rival (one firm using the knowledge does not reduce others\' access) and difficult to exclude others from using. Because private firms cannot easily appropriate the returns to basic research through patents or trade secrets, the private return falls below the social return and markets under-invest. Government funding corrects this positive-externality / public-good market failure.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f5-l5-q5',
@@ -1475,7 +1475,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'Non-excludability is the core problem. The firm cannot prevent non-paying households from receiving flood protection once the defences are built. Rational households will free-ride — waiting for others to subscribe — knowing they will be protected either way. If all households reason this way, too few subscribe, the firm cannot cover costs, and the defences are not built despite having high total social value. This is precisely the free-rider problem that justifies government provision.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f5-l5-q6',
@@ -1490,7 +1490,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'Netflix content is non-rival: one subscriber watching a film does not reduce the quality or availability for others. But it is excludable: Netflix can and does deny access to non-subscribers via passwords and paywalls. This combination — non-rival but excludable — defines a club good. Club goods can be profitably supplied by private firms, unlike pure public goods.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f5-l5-q7',
@@ -1505,7 +1505,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'Fish stocks are rival (one fleet\'s catch reduces available fish for others) but non-excludable in international waters (fleets cannot be prevented from fishing). Each fleet\'s rational response is to maximise its own catch before others deplete the stock, ignoring the externality it imposes on other fleets and on future fish populations. The result is over-fishing — a tragedy of the commons — requiring regulation (quotas, licences, or international treaties) to reach the social optimum.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f5-l5-q8',
@@ -1520,7 +1520,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'This is a key evaluation point about public good provision. Even after the free-rider problem is solved through compulsory taxation, the government must determine how much of the public good to provide. Because citizens know that stating higher valuations may lead to higher taxes, they have an incentive to understate their true preferences. This preference revelation problem means the government may systematically under- or over-provide even when funding is secured.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f5-l5-q9',
@@ -1535,7 +1535,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Technology can alter the excludability of goods, shifting them across the public-private-club goods boundary. If smart technology enables individual billing and remote shutdown, street lighting becomes excludable and potentially profitable for private firms to supply. This illustrates that the classification of goods is not fixed — technological and institutional innovation can convert what was a public good into a club or private good, altering the case for government provision.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f5-l5-q10',
@@ -1550,7 +1550,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Correct classification: ocean fish are rival (your catch reduces mine) and non-excludable in international waters → common resource. A national park with entry gates is excludable but non-rival below congestion → club good. A toll motorway is excludable (toll) and non-rival when uncongested → club good. BBC broadcasts are non-rival (one listener does not reduce signal for others) and largely non-excludable (without encryption) → public good. Government provision or regulation does not determine the classification — economic properties do.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {

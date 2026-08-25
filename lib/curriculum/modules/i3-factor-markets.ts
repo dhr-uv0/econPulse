@@ -40,7 +40,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'Allocative efficiency (P = MC) means resources flow to their highest-valued use — no mutually beneficial transaction is missed. This is the benchmark against which market structures are judged, and which perfect competition achieves in long-run equilibrium.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
       realWorldHook:
@@ -136,7 +136,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l1-q2',
         type: 'mcq',
-        difficulty: 'standard',
+        difficulty: 'easy',
         marks: 1,
         question: 'Which of the following will shift a firm\'s labour demand curve to the LEFT?',
         options: [
@@ -152,7 +152,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l1-q3',
         type: 'mcq',
-        difficulty: 'standard',
+        difficulty: 'easy',
         marks: 1,
         question: 'Labour demand is described as "derived demand" because:',
         options: [
@@ -183,7 +183,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l1-q5',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question: 'A firm\'s seventh worker produces 12 units of output, and the firm sells its product at £5 per unit in a competitive market. The firm will hire the seventh worker if and only if the hourly wage is:',
         options: [
@@ -198,7 +198,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l1-q6',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question: 'Which of the following best explains why demand for software engineers has risen sharply since 2000, even though wages in many other occupations have stagnated?',
         options: [
@@ -213,7 +213,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l1-q7',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question: 'A manufacturing firm currently employs 50 workers. At this level, the MRPᴸ of the 50th worker is £18/hour and the wage is £15/hour. To maximise profit the firm should:',
         options: [
@@ -228,7 +228,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l1-q8',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question: 'A government policy subsidises firms for every unit of output they sell, effectively raising the product price received by producers. The most likely effect on the labour market is:',
         options: [
@@ -310,7 +310,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'MPP_L = 112 − 100 = 12 units. In perfect competition MR = price = £8. Therefore MRP_L = 12 × £8 = £96. The firm will hire this worker only if the wage is at or below £96.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook:
@@ -395,7 +395,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l2-q1',
         type: 'mcq',
-        difficulty: 'standard',
+        difficulty: 'easy',
         marks: 1,
         question:
           'At high wage levels an individual worker reduces hours supplied. This is best explained by:',
@@ -412,7 +412,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l2-q2',
         type: 'mcq',
-        difficulty: 'standard',
+        difficulty: 'easy',
         marks: 1,
         question:
           'Compared with a competitive labour market, a monopsonist will set:',
@@ -445,7 +445,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l2-q4',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question: 'The substitution effect of a wage rise causes a worker to supply more hours because:',
         options: [
@@ -460,7 +460,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l2-q5',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question: 'A monopsonist currently employs 100 workers at £12/hour. To attract one more worker, it must raise the wage to £12.50/hour for all workers. The marginal cost of labour of hiring the 101st worker is:',
         options: [
@@ -490,7 +490,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l2-q7',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question: 'A new road is built connecting a previously isolated town (with one dominant employer) to a major city with many employers. What is the most likely effect on wages in the isolated town?',
         options: [
@@ -505,7 +505,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l2-q8',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question: 'An economy experiences a sharp increase in female labour force participation. Holding labour demand constant, what happens to the equilibrium wage?',
         options: [
@@ -587,7 +587,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'A monopsonist maximises profit by setting MRP_L = MCL, where MCL lies above the supply (ACL) curve. The profit-maximising employment level is below the competitive level, and the corresponding wage — read from the supply curve — is also below the competitive wage.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook:
@@ -672,7 +672,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l3-q1',
         type: 'mcq',
-        difficulty: 'standard',
+        difficulty: 'easy',
         marks: 1,
         question:
           'In a perfectly competitive labour market, a minimum wage set ABOVE the equilibrium wage will most likely:',
@@ -689,7 +689,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l3-q2',
         type: 'mcq',
-        difficulty: 'standard',
+        difficulty: 'easy',
         marks: 1,
         question:
           'In a bilateral monopoly, the final wage between employer and union is determined by:',
@@ -738,7 +738,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l3-q5',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question: 'Which of the following factors would most weaken a trade union\'s bargaining power?',
         options: [
@@ -768,7 +768,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l3-q7',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question: 'A union negotiates a wage above the competitive equilibrium in a competitive industry. Over the next two years, the firm invests heavily in automation to replace routine tasks. This outcome is best described as:',
         options: [
@@ -783,7 +783,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l3-q8',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question: 'The "union wage premium" refers to the fact that unionised workers earn higher wages than comparable non-unionised workers. Which combination of factors best explains this premium?',
         options: [
@@ -865,7 +865,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'In a competitive market, a wage floor above equilibrium raises the quantity of labour supplied (workers want to work at the higher wage) but reduces the quantity demanded (firms hire fewer workers). The difference is unemployment — a labour surplus. This contrasts with a monopsonistic market where a minimum wage can raise employment.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook:
@@ -969,7 +969,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l4-q2',
         type: 'mcq',
-        difficulty: 'standard',
+        difficulty: 'easy',
         marks: 1,
         question:
           'In the loanable funds market, an increase in household saving, all else equal, will:',
@@ -997,7 +997,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l4-q4',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question: 'A talented graphic designer earns £90,000/year. She says she would quit her career if paid less than £30,000/year. Which statement about her factor income is correct?',
         options: [
@@ -1012,7 +1012,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l4-q5',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'easy',
         marks: 1,
         question: 'Which of the following earns the HIGHEST proportion of its income as economic rent?',
         options: [
@@ -1027,7 +1027,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l4-q6',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question: 'The government runs a large budget deficit, increasing its borrowing in the loanable funds market. With saving unchanged, the most likely macroeconomic consequence is:',
         options: [
@@ -1139,7 +1139,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'Economic rent = total earnings − transfer earnings (opportunity cost) = £400,000 − £50,000 = £350,000. Transfer earnings are the minimum needed to keep her in her current occupation; everything above that is a surplus — economic rent.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook:
@@ -1231,7 +1231,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l5-q1',
         type: 'mcq',
-        difficulty: 'standard',
+        difficulty: 'easy',
         marks: 1,
         question:
           'Country A has a Gini coefficient of 0.25 and Country B has a Gini of 0.55. Which of the following conclusions is correct?',
@@ -1248,7 +1248,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l5-q2',
         type: 'mcq',
-        difficulty: 'standard',
+        difficulty: 'easy',
         marks: 1,
         question:
           'On a Lorenz curve diagram, if the bottom 40% of the population earns 15% of total income, the corresponding point on the curve is:',
@@ -1277,7 +1277,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l5-q4',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question: 'A government introduces a highly progressive income tax and uses the revenue to fund universal cash transfers to all citizens. The most likely effect on the Lorenz curve is:',
         options: [
@@ -1352,7 +1352,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l5-q9',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question: 'An economist argues: "The Gini coefficient is a useful summary statistic but has serious limitations as a policy guide." Which limitation is most significant?',
         options: [
@@ -1367,7 +1367,7 @@ export const lessons: Lesson[] = [
       {
         id: 'i3-l5-q10',
         type: 'mcq',
-        difficulty: 'higher',
+        difficulty: 'standard',
         marks: 1,
         question: 'A country\'s market (pre-tax) Gini is 0.52, but its post-tax, post-transfer Gini is 0.31. Which conclusion is best supported?',
         options: [

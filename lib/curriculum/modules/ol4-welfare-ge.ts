@@ -47,7 +47,7 @@ The utility possibility frontier (UPF) depicts the maximum utility pairs (u_A, u
           correctAnswer: 0,
           explanation: 'Revenue equivalence assumes risk neutrality. With risk-averse bidders (concave utility), the disutility of losing in FPSB leads bidders to bid more aggressively — shading their bids less — to increase their winning probability. In SPSB, truth-telling is dominant regardless of risk attitude, so risk aversion has no effect on SPSB bids. The net result is that FPSB bids are higher than under risk neutrality, breaking revenue equivalence in favour of FPSB. This is among the most important qualifications to the Revenue Equivalence Theorem.',
           marks: 1,
-          difficulty: 'olympiad' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook: `In 2021, the US Congressional Budget Office evaluated the Build Back Better Act using cost-benefit analysis — a direct application of the Kaldor-Hicks criterion. The CBO estimated that the bill's spending on climate, healthcare, and social programmes generated aggregate benefits (in NPV terms) that exceeded aggregate costs, even though specific groups (e.g., higher-income taxpayers facing new levies) bore net losses. Critics noted that actual compensation to losers was not guaranteed, illustrating exactly the gap between theoretical KH efficiency and real-world distributional outcomes. This tension between aggregate welfare gain and distributional impact is central to virtually every major policy debate, from carbon taxes to trade liberalisation.`,
@@ -126,7 +126,7 @@ The compensation principle also has a philosophical dimension: should hypothetic
         explanation:
           'A Pareto improvement requires that at least one agent is strictly better off and no agent is worse off. Moving from x to y: B gains (4→9) but A loses (12→10), so y does not Pareto-dominate x. Moving from y to x: A gains but B loses, so x does not Pareto-dominate y. Neither dominates the other; ranking them requires a social welfare function or an alternative criterion such as Kaldor-Hicks.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
       {
         id: 'ol4-l1-q2',
@@ -143,7 +143,7 @@ The compensation principle also has a philosophical dimension: should hypothetic
         explanation:
           'Kaldor-Hicks requires only that gainers could hypothetically compensate losers and still be better off: £500m − £200m = £300m net gain, so the criterion is satisfied. Actual payment of compensation is not required by KH — this distinguishes it from a Pareto improvement. The Pareto criterion would indeed block any project with losers unless they are fully compensated, which is why KH is the practical standard for cost-benefit analysis.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
       {
         id: 'ol4-l1-q3',
@@ -160,7 +160,7 @@ The compensation principle also has a philosophical dimension: should hypothetic
         explanation:
           'For W = u_A + u_B, the social indifference curves are straight lines with slope −1 in (u_A, u_B) space (since dW = 0 ⟹ du_B/du_A = −1). The social optimum is where the highest such line is tangent to (or, if the UPF has a linear segment, coincides with) the UPF — i.e., the point on the UPF where the frontier itself has slope −1. This is the standard optimisation of W subject to the frontier constraint.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {
@@ -210,7 +210,7 @@ The deeper problem for all SWFs is the impossibility of interpersonal utility co
           correctAnswer: 0,
           explanation: 'The Kaldor-Hicks criterion asks whether the gainers (B, gaining 6 utility units) could hypothetically compensate the losers (A, losing 4 units) and still be better off. If utilities are cardinally comparable and monetisable, the sum rises from 12 to 14, so the move passes. Crucially, actual compensation is not required — only its feasibility. The Scitovsky paradox is relevant because one must check whether the reverse move (Y→X) also passes KH; if it does, the criterion generates a cycle and yields no unambiguous ranking.',
           marks: 1,
-          difficulty: 'olympiad' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook: `The debate over universal basic income (UBI) crystallises the SWF controversy. Utilitarian economists calculate aggregate welfare gains and losses; if the sum is positive, UBI passes. Rawlsian economists focus exclusively on whether the worst-off (typically the long-term unemployed or disabled) are better off — and argue that even a UBI that reduces aggregate GDP could be justified if it raises the floor. Sen's capability approach would ask instead whether UBI expands the substantive freedoms of the most disadvantaged. The same policy looks very different depending on which SWF is adopted, illustrating that choosing a welfare criterion is inescapably a normative act.`,
@@ -289,7 +289,7 @@ The Harsanyi utilitarian theorem (1955) provides a partial rescue. If individual
         explanation:
           'Rawlsian SWF: W = min(u_A, u_B). Under P: min(8, 2) = 2. Under Q: min(5, 5) = 5. Under R: min(3, 9) = 3. Q maximises the Rawlsian welfare function. Note that P has the highest individual maximum (8) and R has the highest sum (12), illustrating how the Rawlsian criterion can diverge sharply from utilitarian and maximal-individual criteria.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
       {
         id: 'ol4-l2-q2',
@@ -306,7 +306,7 @@ The Harsanyi utilitarian theorem (1955) provides a partial rescue. If individual
         explanation:
           'Harsanyi (1955) proved: if (i) each individual has a von Neumann-Morgenstern (vNM) utility function, and (ii) the social ordering also satisfies the vNM axioms (including independence), then the social welfare function must be a weighted sum W = Σα_i u_i. This provides an axiomatic justification for utilitarianism without requiring direct interpersonal comparison — the weights α_i emerge from the social choice axioms. Rawls rejected the vNM independence axiom as inappropriate for constitutional choice, which is why he reached the maximin conclusion.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol4-l2-q3',
@@ -323,7 +323,7 @@ The Harsanyi utilitarian theorem (1955) provides a partial rescue. If individual
         explanation:
           "Ordinal utility theory, which underlies revealed preference and demand analysis, defines utility only up to a monotonic transformation — any increasing function of a utility index represents the same preferences. This means there is no natural scale for comparing utility levels across individuals: u_A = 10 and u_B = 5 could equally be represented as u_A = 100 and u_B = 4 under different (but equally valid) representations of the same preferences. Without a cardinal, inter-personally comparable scale, the sum Σu_i is arbitrary. This is the fundamental objection to utilitarian aggregation, not merely an empirical one.",
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {
@@ -372,7 +372,7 @@ The First and Second Welfare Theorems (FWT, SWT) are the central normative resul
           correctAnswer: 0,
           explanation: 'Utilitarian W = u_A + u_B: P gives 10, Q gives 10, R gives 10 — all sum to 10, so the utilitarian SWF is indifferent among P, Q, and R if all lie on the same linear UPF. Wait — re-examining sums: P: 9+1=10, Q: 5+5=10, R: 2+8=10. The utilitarian SWF is exactly indifferent. However, option A states P ranks first (sum = 10). Since sums are equal, option A\'s characterisation that "P ranks first" is incorrect in the strict sense; but among the options, only A correctly identifies that Rawlsian ranks Q first (min(Q)=5 > min(R)=2 > min(P)=1), which is the key testable claim about the Rawlsian ordering.',
           marks: 1,
-          difficulty: 'olympiad' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook: `Computable general equilibrium (CGE) models are the direct applied descendants of Walrasian theory. When economists at the IMF or World Bank analyse the effect of a tariff removal on an entire economy — tracing its impact on wages, capital returns, government revenue, and consumer welfare across all sectors simultaneously — they use calibrated CGE models with hundreds of markets. The 2017 US Tax Cuts and Jobs Act was analysed using GE models by the Congressional Budget Office and the Tax Policy Center, which found that while partial equilibrium analysis predicted large output gains, GE feedback effects (e.g., rising interest rates crowding out investment) substantially moderated those estimates.`,
@@ -451,7 +451,7 @@ Arrow-Debreu contingent commodities extend GE theory to uncertainty and time. A 
         explanation:
           "Walras' law: Σ_l p_l z_l = p_1·z_1 + p_2·z_2 + p_3·z_3 = (3)(4) + (5)(−2) + (2)(z_3) = 12 − 10 + 2z_3 = 0. Solving: 2 + 2z_3 = 0, so z_3 = −1. Good 3 has excess supply of 1 unit. This illustrates Walras' law: the value-weighted sum of all excess demands is identically zero at any price vector, not just at equilibrium.",
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
       {
         id: 'ol4-l3-q2',
@@ -468,7 +468,7 @@ Arrow-Debreu contingent commodities extend GE theory to uncertainty and time. A 
         explanation:
           'The First Welfare Theorem requires complete competitive markets and price-taking behaviour (and that agents satisfy their budget constraints — equivalently, that preferences are locally non-satiated). It does NOT require convexity of preferences. Convexity is required for the Second Welfare Theorem, which needs the competitive equilibrium concept to be well-defined (tangency between budget line and indifference curve requires convexity). The FWT proof only uses budget constraints and optimality, not the shape of indifference curves.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
       {
         id: 'ol4-l3-q3',
@@ -485,7 +485,7 @@ Arrow-Debreu contingent commodities extend GE theory to uncertainty and time. A 
         explanation:
           "For u_A = x_A y_A, MRS_A = y_A/x_A. For u_B = x_B y_B, MRS_B = y_B/x_B. The contract curve requires MRS_A = MRS_B: y_A/x_A = y_B/x_B. Using feasibility x_B = X̄ − x_A and y_B = Ȳ − y_A: y_A/x_A = (Ȳ − y_A)/(X̄ − x_A). Cross-multiplying and simplifying (when X̄ = Ȳ) yields y_A = x_A — the main diagonal. More generally, the contract curve passes through the origins of both agents along a ray determined by the endowment ratio.",
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {
@@ -535,7 +535,7 @@ Arrow\'s proof proceeds via the concept of a "decisive" coalition. A coalition S
           correctAnswer: 0,
           explanation: 'The FWT proof proceeds by contradiction: if a Pareto improvement y over x* existed, each agent would have chosen y_i over x*_i, implying p·y_i ≥ p·ω_i for all i (y_i is at least as costly). Summing gives p·Σy_i > p·Σω_i, contradicting feasibility Σy_i = Σω_i. This proof uses budget constraints (requiring local non-satiation to ensure they bind), complete markets, and price-taking — but never uses convexity of indifference curves. Convexity is needed for the SWT, which requires that a competitive equilibrium with the right prices exists at each Pareto-efficient allocation.',
           marks: 1,
-          difficulty: 'olympiad' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook: `Arrow's theorem has direct implications for electoral system design. Every voting system in use — plurality (first-past-the-post), ranked-choice (instant-runoff), Borda count, approval voting — violates at least one of Arrow\'s axioms. In the 2000 US Presidential election, the presence of Ralph Nader as a "irrelevant" third candidate arguably reversed the social ranking of Bush and Gore (by drawing votes from Gore in Florida), violating IIA. This real-world Condorcet-like cycle helped motivate academic interest in alternative voting systems such as the Condorcet method (elect the candidate who beats all others in pairwise votes, when one exists) and approval voting, each of which escapes Arrow\'s impossibility by relinquishing a different axiom.`,
@@ -614,7 +614,7 @@ The theorem\'s implications for democratic theory are profound and contested. Pu
         explanation:
           "Borda count assigns points to alternatives based on their rank in each voter\'s ordering (e.g., 2 pts for 1st, 1 pt for 2nd, 0 pts for 3rd). Adding or removing a third alternative z changes how many points x and y receive relative to each other — for instance, if z is added between x and y in some voters' rankings, x loses a point and y gains one. This means the social ranking of x vs y depends on z (an 'irrelevant' alternative), directly violating IIA. Borda count satisfies Pareto, Non-Dictatorship, and Unrestricted Domain.",
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
       {
         id: 'ol4-l4-q2',
@@ -631,7 +631,7 @@ The theorem\'s implications for democratic theory are profound and contested. Pu
         explanation:
           "With only two alternatives {x, y}, majority voting satisfies all four Arrow axioms: (1) Unrestricted Domain — it is defined for all possible preference profiles over two options. (2) Pareto — if everyone prefers x to y, majority voting chooses x. (3) IIA — there are no third alternatives to be 'irrelevant', so IIA holds trivially. (4) Non-Dictatorship — a single voter cannot override a unanimous majority. Moreover, transitivity is trivially satisfied with two alternatives (a binary relation over two elements is always transitive). This is why May\'s theorem (1952) characterises majority voting as the unique fair rule for two alternatives.",
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
       {
         id: 'ol4-l4-q3',
@@ -648,7 +648,7 @@ The theorem\'s implications for democratic theory are profound and contested. Pu
         explanation:
           "Arrow's proof proceeds as follows: (i) Pareto makes N (the grand coalition) decisive for every pair. (ii) For any decisive coalition S for some pair (x,y), one can construct a preference profile (using Unrestricted Domain) and apply IIA and transitivity to show that some strict subset of S or a single member is decisive for another pair (y,z). (iii) Repeating this 'field expansion' and 'contraction' argument shows that decisiveness must ultimately reside in a single individual, who is then decisive for all pairs — the dictator. The proof is a reductio: assuming all four axioms hold leads to the existence of a dictator, contradicting Non-Dictatorship.",
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -697,7 +697,7 @@ Ronald Coase (1960) challenged the Pigouvian framework by arguing that, with wel
           correctAnswer: 0,
           explanation: 'After the Pareto condition establishes that the grand coalition N is decisive for every pair, the proof must show decisiveness contracts to a single individual. IIA is the key tool: if S is decisive for (x, y), construct a profile where some member d of S has x > z > y and all others in S have z > x > y. By transitivity and IIA applied to various pairs, one can show d is decisive for (x, z) and (z, y) as well — and by induction this extends to all pairs, making d a dictator. IIA prevents the social ranking of any pair from depending on how alternatives outside that pair are ordered, which is exactly what enables this contraction argument.',
           marks: 1,
-          difficulty: 'olympiad' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook: `The EU Emissions Trading System (EU ETS), launched in 2005, is the world\'s largest cap-and-trade market, covering roughly 40% of EU greenhouse gas emissions. From 2021, the EU began tightening the cap and strengthening the Market Stability Reserve to reduce the chronic oversupply of permits that had kept prices too low for a decade. By 2023, EU carbon prices exceeded €90/tonne CO₂ — close to many estimates of the social cost of carbon — demonstrating that well-designed market mechanisms can approach the Pigouvian optimum in practice. The EU is now extending the ETS to shipping, buildings, and road transport, applying the same cap-and-trade logic to harder-to-abate sectors, a direct test of whether the Coase/Pigou framework scales to complex, heterogeneous emission sources.`,
@@ -776,7 +776,7 @@ The design of kidney exchange illustrates the power of market design beyond trad
         explanation:
           'Social optimum: P = SMC = PMC + EMC → 50 = (20 + Q) + 0.5Q = 20 + 1.5Q → 1.5Q = 30 → Q* = 20. Pigouvian tax: t* = EMC(Q*) = 0.5 × 20 = 10. Verify: with tax, firm sets P = PMC + t* → 50 = 20 + Q + 10 = 30 + Q → Q = 20 = Q*. ✓ Note: the option text contains the full derivation as part of the first option to assist identification.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol4-l5-q2',
@@ -793,7 +793,7 @@ The design of kidney exchange illustrates the power of market design beyond trad
         explanation:
           "The Coase theorem: with zero transaction costs and well-defined rights, private bargaining achieves efficiency regardless of right assignment. Here, abatement costs the mill £500 but prevents £800 of fishery damage — net social gain of £300 from eliminating pollution. Since the mill has the right to pollute, the fishery offers a payment between £500 and £800. The mill's reservation price (minimum to stop) is £500; the fishery's maximum willingness to pay is £800 (its damage avoided). A mutually beneficial deal exists; they agree on some payment p ∈ (500, 800) and pollution is eliminated. The same efficient Q* is reached as under Pigouvian taxation.",
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
       {
         id: 'ol4-l5-q3',
@@ -810,7 +810,7 @@ The design of kidney exchange illustrates the power of market design beyond trad
         explanation:
           'Cost-effective emission reduction minimises total abatement cost for a given total reduction. This requires equalising marginal abatement costs across all firms: if MAC_A < MAC_B, total cost falls by shifting abatement from B to A. The permit market achieves this automatically: firm A abates cheaply, reducing its permit needs below its initial allocation, and sells surplus permits to firm B. Trading continues until the permit price p* = MAC_A(Q_A) = MAC_B(Q_B). At this equilibrium, low-cost abaters (A) do more abatement and high-cost abaters (B) do less, achieving the same total reduction at minimum cost. This is the key efficiency advantage of cap-and-trade over command-and-control standards that mandate equal reductions.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {

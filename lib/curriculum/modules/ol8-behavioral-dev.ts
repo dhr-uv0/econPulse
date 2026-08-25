@@ -97,7 +97,7 @@ The dual-process framework has also reshaped the design of financial regulation.
         correctAnswer: 0,
         explanation: 'Radon risk is underestimated because its consequences are slow, invisible, and statistically distributed — rarely generating memorable media narratives. This is a textbook availability bias: the perceived frequency of a risk correlates with recall ease, not actual frequency. The correct intervention is increasing availability by making the risk vivid and memorable, consistent with Kahneman and Tversky\'s research on media salience and risk perception.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol8-l1-q2',
@@ -112,7 +112,7 @@ The dual-process framework has also reshaped the design of financial regulation.
         correctAnswer: 0,
         explanation: 'Simon\'s point was not that agents are irrational but that optimization itself has costs — information-gathering, computation, and time — that make it suboptimal to optimize fully. A satisficing rule that stops search at the first acceptable option may itself be the result of a higher-level rational calculation about search costs. This is a subtle and important distinction that olympiad examiners test by asking whether bounded rationality is compatible with rationality.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol8-l1-q3',
@@ -127,7 +127,7 @@ The dual-process framework has also reshaped the design of financial regulation.
         correctAnswer: 0,
         explanation: 'The key insight is the asymmetry: System 1 is always running and generates default responses; System 2 is lazy in the sense that it requires effort to engage. The "what you see is all there is" (WYSIATI) phenomenon means System 1 often produces confident but biased outputs, and because System 2 is rarely fully engaged, these errors persist systematically. This architecture is why cognitive biases are not random noise but predictable, directional distortions.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
     ],
     lessonAssignment: {
@@ -227,7 +227,7 @@ Prospect theory also generates precise predictions about insurance demand that s
         correctAnswer: 0,
         explanation: 'This is the "reflection effect" — one of prospect theory\'s cleanest predictions. In the gains domain the value function is concave, making the certain $400 preferred over the risky gamble with the same expected value ($400). In the losses domain the value function is convex, making the risky gamble (50% chance of -$800) preferred over the certain -$400 loss. This generates the classic asymmetric risk preference pattern that violates expected utility theory\'s prediction of consistent risk attitudes across domains.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol8-l2-q2',
@@ -242,7 +242,7 @@ Prospect theory also generates precise predictions about insurance demand that s
         correctAnswer: 0,
         explanation: 'Benartzi and Thaler\'s mechanism is specifically myopic loss aversion: if investors evaluate portfolios frequently (monthly/quarterly) rather than over long horizons, they observe many more periods of negative returns. Combined with loss aversion (losses hurting ~2x as much as equivalent gains), this makes equities subjectively far more painful to hold than their long-run risk would suggest. The calibration shows that with annual evaluation and λ ≈ 2.25, an investor is indifferent between stocks and bonds at the historical ~6% equity premium — resolving the puzzle.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol8-l2-q3',
@@ -257,7 +257,7 @@ Prospect theory also generates precise predictions about insurance demand that s
         correctAnswer: 0,
         explanation: 'This question tests two prospect theory mechanisms simultaneously. Initially, both options are in the loss domain; the value function is convex there, predicting risk-seeking behavior — appeal is preferred (50% chance of -$2.5M has higher prospect value than certain -$1M). After the announcement, the reference point adapts: the market has already priced in -$1M. Now the choice is framed as: settle (no additional loss from current reference), or appeal (50% chance of -$1.5M additional vs. 50% chance of +$1M saving). This re-frames the gamble to include a loss domain component, shifting toward risk aversion and potentially reversing the preference — a sophisticated application of reference point adaptation.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -357,7 +357,7 @@ Nudge theory faces serious theoretical and empirical challenges that olympiad ca
         correctAnswer: 0,
         explanation: 'Switching the default is the core nudge mechanism and empirically the most powerful intervention for overcoming inertia. Evidence from pension enrollment (Madrian and Shea), organ donation (Johnson and Goldstein), and energy supplier switching studies consistently shows that default changes outperform information campaigns and often outperform comparably-sized financial incentives. The default works because inertia and status quo bias are strong: most people accept the default rather than actively choosing, regardless of stated preferences. The financial incentive (option C) ignores the choice architecture dimension and may be politically costlier.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
       {
         id: 'ol8-l3-q2',
@@ -372,7 +372,7 @@ Nudge theory faces serious theoretical and empirical challenges that olympiad ca
         correctAnswer: 0,
         explanation: 'The normative criterion Thaler and Sunstein propose — making people better off "by their own lights" or "as judged by themselves" — distinguishes legitimate nudging from manipulation. The test is whether the nudge aligns behavior with the chooser\'s own considered, reflective preferences rather than exploiting biases to serve an external interest. This is a demanding criterion: it requires the architect to have knowledge of true preferences independent of the biased revealed preferences the nudge corrects. Democratic accountability (B) and non-restriction of choices (C) are necessary but not sufficient conditions for legitimacy.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
       {
         id: 'ol8-l3-q3',
@@ -387,7 +387,7 @@ Nudge theory faces serious theoretical and empirical challenges that olympiad ca
         correctAnswer: 0,
         explanation: 'The SMarT program\'s key insight is that behavioral barriers to increased savings (loss aversion, present bias) can be bypassed by changing the timing and default structure rather than the financial terms. By linking increases to pay raises, employees never experience a reduction in take-home pay (avoiding loss aversion). By making the increase automatic (exploiting inertia), the behavioral cost of maintaining higher savings is zero. Information campaigns fail because knowing one should save more does not overcome the present bias and loss aversion that make the action painful in the moment. This is the essence of nudge theory applied to a welfare-relevant outcome.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {
@@ -487,7 +487,7 @@ The RCT methodology itself has generated controversy within development economic
         correctAnswer: 0,
         explanation: 'This is the essence of the coordination failure: the low-industrialization equilibrium is Nash (no individual firm benefits from deviating) but not Pareto optimal (all firms would be better off if all deviated together). The market mechanism fails to coordinate the simultaneous deviation because firms cannot credibly commit to industrialize contingent on others doing the same. This is a standard problem of strategic complementarities — where the payoff to one player\'s action increases with the same action by others — that generates multiple equilibria, only one of which the market reaches unassisted.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
       {
         id: 'ol8-l4-q2',
@@ -502,7 +502,7 @@ The RCT methodology itself has generated controversy within development economic
         correctAnswer: 0,
         explanation: 'The trap-escape hypothesis predicts that a temporary transfer, by lifting households above the threshold, should produce permanent gains in human capital that persist after transfers end — because the household is now in the basin of attraction of the high equilibrium. A pure incentive effect would predict enrollment returns to baseline when transfers stop. Long-run follow-up data (Behrman et al. 2009; Parker and Vogl 2018) showing persistent effects on attainment and earnings provide the strongest evidence for the trap-escape interpretation over the pure-incentive interpretation.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
       {
         id: 'ol8-l4-q3',
@@ -517,7 +517,7 @@ The RCT methodology itself has generated controversy within development economic
         correctAnswer: 0,
         explanation: 'Deaton\'s central critique is external validity, not internal validity. He acknowledges that RCTs provide unbiased estimates of the average treatment effect in the study population — this is their key strength. His concern is that "the average effect in population X" may not be the relevant parameter for "what policy should government Y adopt for population Z," because the mechanisms through which the treatment operates (and therefore the size and even direction of effects) may differ across contexts. This critique has generated a productive research agenda on heterogeneous treatment effects, site selection, and meta-analysis of multiple RCTs.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {
@@ -617,7 +617,7 @@ The growth accounting literature has illuminated the "East Asian miracle" debate
         correctAnswer: 1,
         explanation: 'Applying the Solow residual: gA = gy − α·gK − (1−α)·gL = 5% − 0.40×9% − 0.60×3% = 5% − 3.6% − 1.8% = −0.4%. Negative TFP growth means factor inputs are growing faster than output — the economy is experiencing declining total factor productivity, which is consistent with overinvestment in low-return capital (as Paul Krugman argued for some East Asian economies in the early 1990s) or measurement issues. Option A computes correctly but misinterprets the fraction; option B correctly identifies both the value and the implication. The fraction is −0.4/5 = −8% of growth (factor accumulation more than accounts for observed growth), indicating technical regress.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol8-l5-q2',
@@ -632,7 +632,7 @@ The growth accounting literature has illuminated the "East Asian miracle" debate
         correctAnswer: 0,
         explanation: 'This is the key empirical interpretation of conditional convergence. US states share similar institutions, savings behavior, technology access, and legal frameworks — their structural steady-state parameters are close — so the Solow model predicts (and the data confirm) fast convergence at ~2% per year. In the full world sample, countries have vastly different savings rates, population growth rates, and institutional quality — so they are converging toward different steady states, generating the weak relationship between initial income and subsequent growth in unconditional regressions. The model is internally consistent: it predicts conditional convergence, which is exactly what the data show when the conditioning is appropriate.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol8-l5-q3',
@@ -647,7 +647,7 @@ The growth accounting literature has illuminated the "East Asian miracle" debate
         correctAnswer: 0,
         explanation: 'The relevance condition is clearly satisfied — AJR\'s first stage has a very high F-statistic (>>10), and the relationship between settler mortality and current institutional quality is historically well-documented. The hard condition to defend is the exclusion restriction. Malaria and tropical diseases that killed European settlers in the 17th-18th century are not entirely historical — many persist today and may directly affect worker productivity, cognitive development, and human capital accumulation through biological channels unrelated to institutions. Sachs and colleagues have argued this violates the exclusion restriction. AJR respond with robustness checks, but the debate is ongoing and is a standard topic in graduate econometrics courses on instrument validity.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {

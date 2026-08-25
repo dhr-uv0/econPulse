@@ -44,7 +44,7 @@ Weak dominance extends the concept by requiring only weak inequality: uᵢ(sᵢ,
           correctAnswer: 0,
           explanation: 'Under a fixed exchange rate with perfect capital mobility, the domestic interest rate is pinned at i*. A monetary expansion shifts LM right, initially lowering i below i*. Capital outflows immediately drain foreign reserves; the central bank must sell reserves (buy domestic currency) to defend the peg, contracting M until i returns to i* and LM returns to its original position. Output is unchanged — monetary policy is completely ineffective. This is the impossible trinity in action: with free capital mobility and a fixed rate, monetary autonomy is sacrificed.',
           marks: 1,
-          difficulty: 'olympiad' as const,
+          difficulty: 'easy' as const,
         },
       ],
       realWorldHook: `OPEC's output decisions exemplify dominance and strategic substitutes. Each member country choosing whether to honour production quotas or cheat (produce above quota) faces a payoff matrix in which cheating is individually tempting regardless of what other members do — the world price falls but the cheater captures extra revenue. This structure mirrors the Prisoner's Dilemma: cheating is a weakly dominant strategy for each member, yet universal cheating collapses the cartel price and leaves all members worse off than universal compliance. The 1986 Saudi decision to flood the market — abandoning the role of swing producer — can be read as a dominant-strategy move that dissolved the tacit coordination the cartel had maintained for over a decade. Understanding dominance reasoning is therefore essential for predicting when cartels form, persist, or unravel.`,
@@ -130,7 +130,7 @@ An important theoretical extension involves dominance by mixed strategies. A pur
         correctAnswer: 0,
         explanation: 'A dominant strategy must beat every alternative against ALL opponent strategies. A is better against X (6 > 4) but worse against Y (3 < 5). B is better against Y (5 > 3) but worse against X (4 < 6). Neither strategy dominates the other — the best response depends on beliefs about whether the opponent plays X or Y. This game requires Nash equilibrium analysis.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol3-l1-q2',
@@ -145,7 +145,7 @@ An important theoretical extension involves dominance by mixed strategies. A pur
         correctAnswer: 0,
         explanation: 'IESDS is justified by common knowledge of rationality (CKR). The round-1 elimination uses level-1 rationality (player knows opponent is rational). The round-2 elimination uses level-2 CKR (player knows opponent knows player is rational). The unique surviving profile is rational under all levels of iterated reasoning. Note: the IESDS outcome is always a Nash equilibrium, but a Nash equilibrium need not survive IESDS — these are distinct solution concepts.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol3-l1-q3',
@@ -160,7 +160,7 @@ An important theoretical extension involves dominance by mixed strategies. A pur
         correctAnswer: 3,
         explanation: 'Check whether L dominates C for Player 2: vs. Top, L gives 2 and C gives 1 (L > C); vs. Bottom, L gives 4 and C gives 3 (L > C). Since L strictly beats C against every Player 1 strategy, C is strictly dominated by L alone — no mixture is needed. The mixture analysis in option A is instructive but incorrect in conclusion: the mixture (½L+½R) gives 2.5 vs. Top and 3 vs. Bottom; C gives 1 and 3 — the mixture strictly dominates C vs. Top but ties vs. Bottom, so the domination is only weak. L strictly dominates C.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -207,7 +207,7 @@ Finding a mixed strategy NE requires setting up and solving indifference conditi
           correctAnswer: 0,
           explanation: 'Every strategy profile that survives IESDS is a Nash equilibrium (since no surviving strategy can be profitably deviated from given others play surviving strategies). However, a Nash equilibrium need not survive IESDS — many Nash equilibria involve strategies that are dominated at some iteration. IESDS provides a refinement of Nash equilibrium, not an equivalence. The uniqueness of the IESDS survivor set follows from the order-independence theorem for strict (not weak) dominance.',
           marks: 1,
-          difficulty: 'olympiad' as const,
+          difficulty: 'standard' as const,
         },
       ],
       realWorldHook: `Tennis and penalty kicks in football (soccer) are classic illustrations of mixed strategy NE. A tennis server can aim for the opponent's forehand or backhand; the receiver can anticipate left or right. If one strategy became predictable, the opponent would exploit it. Data from Wimbledon matches (Walker and Wooders, 2001) and professional penalty kicks (Chiappori, Levitt and Groseclose, 2002) show that elite players mix their strategies in frequencies strikingly close to the theoretically predicted Nash equilibrium probabilities — and are statistically indistinguishable from the hypothesis that players are rendering their opponents indifferent. This empirical validation of mixed strategy NE in high-stakes real-world competition is one of the most striking pieces of evidence supporting game-theoretic predictions.`,
@@ -291,7 +291,7 @@ The multiplicity of Nash equilibria creates an equilibrium selection problem. A 
         correctAnswer: 2,
         explanation: 'Apply the best-response underlining method. For Player 1: given L, Bottom (4) > Top (3), underline Bottom; given R, Top (0) < Bottom (1), underline Bottom... wait, let\'s re-examine. Given L: player 1 prefers Bottom (4 > 3); given R: player 1 prefers Bottom (1 > 0). For Player 2: given Top, player 2 prefers R (4 > 3); given Bottom, player 2 prefers L (0 > ... wait. Given Bottom: player 2 gets 0 from L and 1 from R, prefers R. Check: (Bottom,R) — player 1: Bottom gives 1 vs Top gives 0 (BR); player 2: R gives 1 vs L gives 0 (BR). NE. Check (Top,L): player 1: Top gives 3, Bottom gives 4 — Bottom is BR, NOT Top. So (Top,L) is NOT a NE. The only pure NE is (Bottom,R).',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol3-l2-q2',
@@ -306,7 +306,7 @@ The multiplicity of Nash equilibria creates an equilibrium selection problem. A 
         correctAnswer: 0,
         explanation: 'To find q that makes Player 1 indifferent, set Player 1\'s expected payoff from Heads equal to expected payoff from Tails. EU(Heads) = q(+1) + (1−q)(−1) = 2q − 1. EU(Tails) = q(−1) + (1−q)(+1) = 1 − 2q. Setting equal: 2q − 1 = 1 − 2q → 4q = 2 → q = ½. The value of q is determined by Player 1\'s payoffs in the sense that we use Player 1\'s payoff matrix to write the indifference condition — yet the object we solve for is q (Player 2\'s mixing probability). This illustrates the "opponent\'s indifference" principle.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol3-l2-q3',
@@ -321,7 +321,7 @@ The multiplicity of Nash equilibria creates an equilibrium selection problem. A 
         correctAnswer: 0,
         explanation: 'Nash\'s theorem guarantees the EXISTENCE of at least one NE, not uniqueness. Multiple NE are common (coordination games routinely have two pure NE plus a mixed NE). A generic result (Wilson, 1971) states that almost all finite games have an odd number of NE — which is consistent with three NE here. In games with two pure NE (like Battle of the Sexes), there is always a third mixed strategy NE; the mixed NE\'s payoffs are typically Pareto inferior to both pure NE. The equilibrium selection problem asks which NE players coordinate on.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {
@@ -363,7 +363,7 @@ The multiplicity of Nash equilibria creates an equilibrium selection problem. A 
           correctAnswer: 0,
           explanation: 'A strictly dominant strategy sᵢ satisfies uᵢ(sᵢ, s₋ᵢ) > uᵢ(sᵢ\', s₋ᵢ) for all sᵢ\' and all s₋ᵢ — in particular, it is a best response to the opponent\'s dominant strategy. Therefore, when both players have strictly dominant strategies, the dominant-strategy equilibrium profile is also a Nash equilibrium (each player is best-responding). Conversely, a Nash equilibrium need not involve dominant strategies — it only requires mutual best responses.',
           marks: 1,
-          difficulty: 'olympiad' as const,
+          difficulty: 'easy' as const,
         },
       ],
       conceptualExplanation: `The Prisoner's Dilemma (PD) is the most studied game in economics: two players each choose to Cooperate (C) or Defect (D). The payoff matrix (using the canonical "temptation, reward, punishment, sucker" structure) is:
@@ -457,7 +457,7 @@ The Folk Theorem (Friedman, 1971; Fudenberg and Maskin, 1986) extends this to an
         correctAnswer: 0,
         explanation: 'The critical discount factor is derived by comparing cooperation PV = R/(1−δ) with deviation PV = T + δP/(1−δ). Setting equal and solving: δ ≥ (T−R)/(T−P) = (5−3)/(5−1) = 2/4 = 0.5. Since δ=0.6 > δ*=0.5, cooperation IS sustained under grim trigger. Intuitively, the player is sufficiently patient that the future stream of cooperative payoffs (R=3 per period) outweighs the one-time temptation gain (T−R=2) from defecting.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol3-l3-q2',
@@ -472,7 +472,7 @@ The Folk Theorem (Friedman, 1971; Fudenberg and Maskin, 1986) extends this to an
         correctAnswer: 0,
         explanation: "In the last period T, no future interactions exist, so defection is the dominant strategy — both players defect. In period T−1, both players know defection will occur in T regardless of what they do in T−1; thus period T−1 is effectively the last relevant period, and both defect again. This backward induction logic propagates all the way to period 1, yielding defection in every period. This is the 'unraveling' result: even though (C,C) every period Pareto dominates (D,D), it is not a Nash equilibrium of the finitely repeated game when the number of periods is commonly known.",
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
       {
         id: 'ol3-l3-q3',
@@ -487,7 +487,7 @@ The Folk Theorem (Friedman, 1971; Fudenberg and Maskin, 1986) extends this to an
         correctAnswer: 0,
         explanation: 'Individual rationality in the Folk Theorem means each player\'s payoff at least equals their min-max value: the payoff the player can guarantee themselves even if opponents try to minimise their payoff. The min-max payoff is a lower bound — any equilibrium must give players at least this much, otherwise they would deviate. Note that the one-shot NE payoff (option B) is always individually rational (≥ min-max) but is a stricter requirement; the Folk Theorem uses the weaker min-max bound, which is why it is so permissive.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {
@@ -529,7 +529,7 @@ The Folk Theorem (Friedman, 1971; Fudenberg and Maskin, 1986) extends this to an
           correctAnswer: 0,
           explanation: 'Cooperation under grim trigger requires the discounted stream of cooperation to dominate one-shot defection: R/(1−δ) ≥ T + δP/(1−δ). Rearranging: δ(R−P) ≥ T−R, so δ ≥ (T−R)/(T−P) = 2/4 = 0.5. Economically, δ* is the patience threshold at which the value of the future cooperative relationship exactly compensates for foregoing the temptation gain T−R. With δ = 0.5, a player is just indifferent between defecting now and sustaining cooperation forever.',
           marks: 1,
-          difficulty: 'olympiad' as const,
+          difficulty: 'standard' as const,
         },
       ],
       conceptualExplanation: `While normal form games capture simultaneous choices, many strategic situations are inherently sequential: players move in order, observing some or all of previous actions. The extensive form (game tree) represents sequential games explicitly: nodes are decision points (labelled by the player to move); branches are available actions; terminal nodes carry payoff vectors; and information sets group nodes the moving player cannot distinguish. A pure strategy in an extensive form game specifies an action at every information set, including those that may not be reached in equilibrium — this completeness requirement makes strategies full contingent plans. The set of terminal nodes reachable after implementing a strategy profile determines the payoffs, and the normal form of the game can be derived by listing all strategy combinations and their resulting payoffs.
@@ -620,7 +620,7 @@ Commitment in extensive form games raises deep questions about the sources of st
         correctAnswer: 0,
         explanation: 'Apply backward induction. At the incumbent\'s node (reached only if entry occurs): Accommodate gives payoff 1, Fight gives −1; the incumbent strictly prefers Accommodate. Given that entry will be accommodated, the entrant compares: Enter (payoff 2) vs. Stay Out (payoff 0); the entrant strictly prefers to Enter. SPE: (Enter; Accommodate if entered). The strategy profile (Stay Out, Fight) is a Nash equilibrium of the normal form (no unilateral deviation is profitable given opponent\'s strategy) but NOT SPE — Fighting is not optimal when the fight node is actually reached.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
       {
         id: 'ol3-l4-q2',
@@ -635,7 +635,7 @@ Commitment in extensive form games raises deep questions about the sources of st
         correctAnswer: 0,
         explanation: 'Follower BR: q₂*(q₁) = (120 − q₁)/2. Leader profit: π₁ = (120 − q₁ − q₂*(q₁))q₁ = (120 − q₁ − (120−q₁)/2)q₁ = ((120−q₁)/2)q₁. FOC: d/dq₁[(120q₁ − q₁²)/2] = (120 − 2q₁)/2 = 0 → q₁ = 60. Then q₂ = (120−60)/2 = 30. Total Q = 90, P = 30. Leader profit = 30×60 = 1800; Follower profit = 30×30 = 900. Compare Cournot: q_C = 120/3 = 40 each, P = 40, π_C = 40×40 = 1600. Leader gains (1800 > 1600), follower loses (900 < 1600) relative to Cournot.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
       {
         id: 'ol3-l4-q3',
@@ -650,7 +650,7 @@ Commitment in extensive form games raises deep questions about the sources of st
         correctAnswer: 0,
         explanation: 'With homogeneous goods and Bertrand price competition, the follower can always undercut the leader\'s price by ε > 0 and serve the entire market. The leader, solving backward induction, anticipates that any price above marginal cost will be undercut. The unique SPE has both firms pricing at marginal cost (the Bertrand paradox). The leader derives no first-mover advantage — indeed, by committing to a high price first, the leader invites the follower to undercut. The strategic complementarity of prices (in contrast to the strategic substitutability of quantities) means leadership hurts in price competition but helps in quantity competition.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -692,7 +692,7 @@ Commitment in extensive form games raises deep questions about the sources of st
           correctAnswer: 0,
           explanation: 'By backward induction: follower BR q₂*(q₁) = (100−q₁)/2. Leader profit π₁ = (100−q₁−q₂*(q₁))q₁ = ((100−q₁)/2)q₁. FOC: 100/2 − q₁ = 0 → q₁* = 50. Then q₂* = (100−50)/2 = 25. Price = 100−75 = 25. Leader profit = 25×50 = $1,250. Cournot: each firm produces 100/3 ≈ 33.3, price = 33.3, profit ≈ 33.3² ≈ $1,111. The Stackelberg leader earns more by exploiting the credible commitment to higher output that backward induction validates.',
           marks: 1,
-          difficulty: 'olympiad' as const,
+          difficulty: 'standard' as const,
         },
       ],
       conceptualExplanation: `An auction is a mechanism for allocating a good to the highest-value bidder. The four standard auction formats are: (1) English (ascending bid) auction — price rises until one bidder remains; (2) Dutch (descending bid) auction — price falls until a bidder accepts; (3) First price sealed-bid (FPSB) auction — bidders submit simultaneous bids, highest bidder wins and pays their bid; (4) Second price sealed-bid (SPSB, or Vickrey) auction — bidders submit simultaneous bids, highest bidder wins but pays the second-highest bid. These formats differ in transparency and in the strategic incentives they create. English auctions are strategically equivalent to SPSB under private values (both implement the same allocation rule and payment), and Dutch auctions are strategically equivalent to FPSB.
@@ -779,7 +779,7 @@ VCG mechanisms have a celebrated drawback: they may not be budget-balanced (the 
         correctAnswer: 0,
         explanation: 'In a second-price sealed-bid auction, truth-telling (bid = true value) is a weakly dominant strategy for every bidder. A bids $500 and B bids $300. A has the highest bid and wins. The winner pays the second-highest bid = $300. A\'s surplus = $500 − $300 = $200; B\'s surplus = $0. The seller receives $300. Note: if A tried to shade their bid to, say, $301, they would still win and still pay $300 — no gain. If A bid below $300, they would lose, forfeiting positive surplus.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
       {
         id: 'ol3-l5-q2',
@@ -794,7 +794,7 @@ VCG mechanisms have a celebrated drawback: they may not be budget-balanced (the 
         correctAnswer: 0,
         explanation: 'In a symmetric FPSB auction with n bidders and uniform values on [0,1], the symmetric BNE bid function is b(v) = ((n−1)/n)v. With n=3: b(v) = (2/3)v. Intuition: a bidder with value v wins if their bid exceeds all n−1 rivals\' bids. Optimising the trade-off between winning probability (higher bid) and surplus (lower bid) yields bid = (n−1)/n × v. As n → ∞, b(v) → v (competition drives bids to true values). Revenue equivalence confirms that this FPSB equilibrium generates the same expected revenue as the SPSB auction with truth-telling.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'easy',
       },
       {
         id: 'ol3-l5-q3',
@@ -809,7 +809,7 @@ VCG mechanisms have a celebrated drawback: they may not be budget-balanced (the 
         correctAnswer: 0,
         explanation: 'Revenue equivalence assumes risk neutrality. With risk-averse bidders (concave utility functions), FPSB generates higher revenue than SPSB. Intuition: in FPSB, a risk-averse bidder suffers from the risk of losing (zero payoff) and therefore bids more aggressively (shades less) to increase the probability of winning. In SPSB, the payment is determined by rivals\' bids (not one\'s own), so risk aversion does not change the dominant-strategy truth-telling. More aggressive FPSB bidding raises expected revenue above the SPSB level. Common values (option B) create a winner\'s curse that reduces bidding — revenue effects depend on the auction format in complex ways. Option C is wrong: the FPSB formula accounts for n and still satisfies revenue equivalence under the theorem\'s assumptions.',
         marks: 2,
-        difficulty: 'olympiad',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {

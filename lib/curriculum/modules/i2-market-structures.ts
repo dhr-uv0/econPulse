@@ -41,7 +41,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'When MR exceeds MC, producing one more unit adds more to revenue than to cost, so profit rises. The firm should expand output until MR = MC — the universal profit-maximising rule derived in the previous module.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
       conceptualExplanation:
@@ -126,7 +126,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Because each unit is sold at the same market price, MR = P for every unit produced. This horizontal demand curve also equals MR at every output level.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i2-l1-q2',
@@ -156,7 +156,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'With many small sellers of an identical product, no individual firm\'s output decision can affect the market price — making every participant a price taker by definition.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i2-l1-q4',
@@ -166,7 +166,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Productive efficiency requires production at the lowest possible average cost — minimum ATC. In long-run perfectly competitive equilibrium, free entry and exit drive price down to minimum ATC, achieving productive efficiency. P = MC ensures allocative efficiency; both hold simultaneously in long-run PC equilibrium.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'i2-l1-q5',
@@ -176,7 +176,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'The firm shuts down in the short run if P < AVC (it can\'t even cover variable costs). Above AVC, it minimises losses by producing where P = MC. So the supply curve is the MC curve above AVC.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i2-l1-q6',
@@ -186,7 +186,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Economic profits attract new entrants under free entry. Their entry increases industry supply (shifts market supply right), reducing market price until economic profits are eliminated in the long run.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i2-l1-q7',
@@ -206,7 +206,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'When P < AVC, every unit produced loses more than the fixed costs alone. Shutting down limits the firm\'s loss to fixed costs only, which is better than continuing to produce. This is the short-run shutdown condition.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i2-l1-q9',
@@ -226,7 +226,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Perfect competition is the benchmark because it achieves both static efficiency criteria simultaneously: allocative efficiency (no deadweight loss) and productive efficiency (no waste). Other market structures are judged against this ideal.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {
@@ -269,7 +269,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'At long-run perfectly competitive equilibrium, free entry eliminates profit so P = ATC; the price-taker condition gives P = MR; and profit-maximisation gives MR = MC. The firm produces at minimum ATC, achieving both allocative (P = MC) and productive (min ATC) efficiency simultaneously.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
       conceptualExplanation:
@@ -384,7 +384,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'A monopolist restricts output below the competitive level (where P = MC) and raises price above MC. The resulting deadweight loss represents value destroyed relative to the competitive benchmark.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i2-l2-q4',
@@ -394,7 +394,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'For a downward-sloping demand curve, MR < AR (price) at every output level. So when the firm produces where MR = MC, it charges the price consumers are willing to pay — found on the AR/demand curve — which is above both MR and MC. This P > MC is the source of allocative inefficiency.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i2-l2-q5',
@@ -404,7 +404,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Set MR = MC: 100 - 2Q = 20 → 2Q = 80 → Q = 40. Price is then P = 100 - 40 = £60. Note: competitive output would be P=MC → 100-Q=20 → Q=80, showing monopoly restricts output.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i2-l2-q6',
@@ -414,7 +414,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'High short-run profits attract entry in competitive markets — they are not a barrier. Patents, resource ownership, and economies of scale are genuine structural barriers that prevent entry and sustain monopoly power long term.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i2-l2-q7',
@@ -424,7 +424,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'The monopolist restricts output to Q where MR=MC (below the competitive Q where P=MC) and charges a price above MC. This creates deadweight loss — units consumers value more than their cost that are not produced.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'i2-l2-q8',
@@ -434,7 +434,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'A natural monopoly arises from persistent economies of scale — the LRAC curve is still falling when it intersects the market demand curve. One firm can supply the entire market at lower unit cost than any two firms could, so duplication is inefficient.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'i2-l2-q9',
@@ -497,7 +497,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'A monopolist sets MR = MC at an output below the competitive level and charges the price consumers are willing to pay, which exceeds MC. The "missing" units — valued by consumers above their production cost — generate a deadweight loss triangle between monopoly output and the competitive output.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       conceptualExplanation:
@@ -582,7 +582,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Free entry drives economic profit to zero, so P = ATC. But differentiated products mean each firm faces a downward-sloping demand curve, keeping P above MC even at zero profit. This is the hallmark of monopolistic competition.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i2-l3-q2',
@@ -622,7 +622,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Free entry drives economic profit to zero in the long run. However, the firm\'s demand curve is downward-sloping (product differentiation), so the tangency with ATC occurs on the falling portion — to the left of minimum ATC. The firm has excess capacity and is productively inefficient.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i2-l3-q5',
@@ -632,7 +632,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Successful advertising both increases demand (shifts D right) and reduces its price elasticity (steepens D) by building brand identity and loyalty. Consumers become less responsive to rival price cuts. This is why firms in monopolistic competition spend heavily on advertising.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i2-l3-q6',
@@ -642,7 +642,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'Restaurants: many sellers, differentiated products (cuisine, location, atmosphere), easy entry and exit, some pricing power. Tap water: natural monopoly. Wheat: commodity (homogeneous product) — closer to perfect competition. Aircraft manufacturing: oligopoly (Boeing, Airbus).',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'i2-l3-q7',
@@ -652,7 +652,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: "Free entry allows rivals to enter with substitute (but differentiated) products. This increases the number of alternatives available to consumers, shifting each existing firm's demand left and making it more elastic, until economic profit is eliminated.",
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i2-l3-q8',
@@ -725,7 +725,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'Free entry eliminates profit so P = ATC (demand tangent to ATC). However, because each firm faces a downward-sloping demand curve, it sets MR = MC where MR < P, so P > MC persists. The tangency occurs on the falling portion of ATC, leaving excess capacity.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       conceptualExplanation:
@@ -840,7 +840,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Mutual interdependence — the need to anticipate and react to rivals\' strategic decisions — is the hallmark of oligopoly. Monopolistically competitive firms are too numerous and too small to materially affect one another.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i2-l4-q4',
@@ -850,7 +850,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: "Interdependence is the defining feature of oligopoly: one firm's price or output decision directly affects the profits of all others. This is why oligopoly requires game-theoretic analysis — a firm cannot optimise in isolation.",
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'i2-l4-q5',
@@ -860,7 +860,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: "A dominant strategy is one that gives a higher payoff regardless of the rival's choice. If your rival competes, you must compete to avoid total loss. If your rival cooperates, you can gain by undercutting. So 'compete' dominates in both cases, leading to the Nash equilibrium where both compete — a suboptimal outcome for the firms.",
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i2-l4-q6',
@@ -870,7 +870,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: "If a firm cuts price, rivals follow (fearing lost market share), so the firm gains little volume — demand is inelastic below the current price. If a firm raises price, rivals don't follow (hoping to gain customers), so the firm loses volume rapidly — demand is elastic above the current price. This asymmetry creates the kink.",
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i2-l4-q7',
@@ -953,7 +953,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'The asymmetric rival response — matching cuts but not rises — creates a kink at the current price and a discontinuity in the MR curve. As long as MC passes through this vertical gap, a firm has no incentive to change price even if its costs shift moderately.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       conceptualExplanation:
@@ -1053,7 +1053,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Arbitrage allows cheaper goods to flow to higher-price markets, equalising prices. If consumers can freely resell, the firm cannot maintain two prices — discrimination requires segmented, leak-proof markets.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i2-l5-q3',
@@ -1078,7 +1078,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'First-degree price discrimination charges each consumer their maximum willingness to pay (reservation price), extracting all consumer surplus. Car negotiation is the classic example — a skilled salesperson assesses and extracts each buyer\'s maximum. Options A and C are third-degree discrimination; D is a form of second-degree.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i2-l5-q5',
@@ -1088,7 +1088,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: "If consumers can buy in the low-price segment and resell to the high-price segment, the price differential collapses. The firm can only sustain price discrimination if markets are separable — the low-price good cannot be resold. Services (haircuts, flights, medical consultations) are particularly easy to discriminate because they cannot be resold.",
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'i2-l5-q6',
@@ -1098,7 +1098,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'The profit-maximising rule requires MR to be equal across segments. Since MR = P(1 - 1/|PED|), a higher price corresponds to lower |PED| (less elastic demand). Inelastic buyers are less responsive to price — the firm extracts more from them.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'i2-l5-q7',
@@ -1118,7 +1118,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: "Adults typically have less elastic demand for theme parks (families plan trips around children's preferences; adults pay more for the family experience). Children, or more precisely parents buying children's tickets, are more price-sensitive. Charging less for children maximises total attendance and revenue.",
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i2-l5-q9',
@@ -1128,7 +1128,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'First-degree (perfect) price discrimination produces at every unit where willingness to pay ≥ MC — the same condition as perfect competition. Every unit that generates positive surplus is produced. Deadweight loss disappears. But all consumer surplus transfers to the firm, so while total surplus is maximised, it is not distributed to consumers.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i2-l5-q10',
@@ -1181,7 +1181,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'Profit maximisation requires MR_A = MR_B = MC across market segments. Because MR = P(1 − 1/|PED|), the group with lower |PED| (less elastic demand) has higher MR at any given price, so the firm charges them more. Inelastic consumers are less price-sensitive and cannot easily switch to alternatives.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
       conceptualExplanation:
@@ -1266,7 +1266,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Allocative efficiency (P = MC) ensures resources flow to their highest-valued use — no unit that consumers value more than it costs is left unproduced, and no unit that costs more than its value is made. This is about the right quantity, not the lowest cost.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
       {
         id: 'i2-l6-q2',
@@ -1296,7 +1296,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Monopolistic competition does have excess capacity, but monopoly performs worse overall: it sustains economic profit (redistributing surplus from consumers to the producer), creates a larger deadweight loss (all units between Q_m and Q_c are unsold despite being valued above MC), and may suffer X-inefficiency. The zero-profit condition of monopolistic competition is a significant consumer-protection advantage.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'higher',
       },
       {
         id: 'i2-l6-q4',
@@ -1306,7 +1306,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Only perfect competition guarantees P = MC in long-run equilibrium. All other structures — monopoly, oligopoly, monopolistic competition — have P > MC (the firm retains pricing power), creating deadweight loss and allocative inefficiency.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'i2-l6-q5',
@@ -1316,7 +1316,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Productive efficiency occurs when a firm produces at minimum LRATC — using the least-cost combination of inputs. MR = MC is the profit-maximising condition; P = MC is allocative efficiency; zero profit is the long-run competitive equilibrium condition.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'i2-l6-q6',
@@ -1326,7 +1326,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 2,
         explanation: 'The R&D funding argument is a dynamic efficiency claim — that the larger combined firm will innovate faster and deliver long-run welfare gains. This must be weighed against the static efficiency loss from increased market power (higher prices, less output).',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i2-l6-q7',
@@ -1336,7 +1336,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 1,
         explanation: 'Perfect competition in long-run equilibrium forces firms to produce at minimum ATC — any higher-cost firm cannot survive at the market price. This is productive efficiency by definition. Monopoly and monopolistic competition produce at output levels where ATC has not yet reached its minimum.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'i2-l6-q8',

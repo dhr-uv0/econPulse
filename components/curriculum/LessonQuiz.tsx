@@ -213,7 +213,7 @@ export function LessonQuiz({ questions, moduleId, userId, alreadyPassed, onPass,
             />
           ))}
         </div>
-        <Badge variant="muted">{q.difficulty}</Badge>
+        <Badge variant="muted">{q.difficulty.charAt(0).toUpperCase() + q.difficulty.slice(1)}</Badge>
       </div>
 
       <Card>

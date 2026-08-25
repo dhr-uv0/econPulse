@@ -12,7 +12,7 @@ const dc1Lessons: Lesson[] = [
     ],
     quiz: [
       { id: 'q-dc1-l1-1', type: 'mcq', question: 'A DECA competitor wants to compete in an event that requires both a written exam and a role-play centred on financial analysis decisions. Which event best fits that description?', options: ['Business Finance Series (BFS)', 'Principles of Business Administration (PBA)', 'Sports and Entertainment Marketing (SEM)', 'Hospitality and Tourism Management (HTM)'], correctAnswer: 0, explanation: 'BFS combines a cluster exam with a role-play scenario built around financial analysis and business finance decisions, making it the strongest fit. The other events focus on marketing, general business principles, or hospitality rather than financial analysis.', marks: 2, difficulty: 'standard' },
-      { id: 'q-dc1-l1-2', type: 'mcq', question: 'Which of the following statements about the DECA cluster exam is accurate?', options: ['It covers the business administration core plus career-cluster-specific content, and economics concepts appear in both sections.', 'It is an optional component that competitors may skip if they prefer to focus solely on the role-play.', 'It tests only accounting and finance regardless of the career cluster chosen.', 'It is graded solely on a pass/fail basis and does not affect the overall competitive ranking.'], correctAnswer: 0, explanation: 'The cluster exam is mandatory and counts toward the overall score. It includes a shared business administration core — where economics is tested — plus cluster-specific questions. Competitors cannot skip it, and the score directly affects their ranking.', marks: 2, difficulty: 'standard' },
+      { id: 'q-dc1-l1-2', type: 'mcq', question: 'Which of the following statements about the DECA cluster exam is accurate?', options: ['It covers the business administration core plus career-cluster-specific content, and economics concepts appear in both sections.', 'It is an optional component that competitors may skip if they prefer to focus solely on the role-play.', 'It tests only accounting and finance regardless of the career cluster chosen.', 'It is graded solely on a pass/fail basis and does not affect the overall competitive ranking.'], correctAnswer: 0, explanation: 'The cluster exam is mandatory and counts toward the overall score. It includes a shared business administration core — where economics is tested — plus cluster-specific questions. Competitors cannot skip it, and the score directly affects their ranking.', marks: 2, difficulty: 'easy' },
     ],
     content: {
       isStub: false,
@@ -32,7 +32,7 @@ const dc1Lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'When price is above equilibrium, producers are willing to supply more than consumers are willing to buy at that price, creating a surplus (excess supply). Competitive pressure causes sellers to lower prices to move inventory, driving the market back toward the equilibrium price where quantity supplied equals quantity demanded.',
           marks: 1,
-          difficulty: 'standard' as const,
+          difficulty: 'easy' as const,
         },
       ],
       thinkAboutIt: {
@@ -60,7 +60,7 @@ const dc1Lessons: Lesson[] = [
     ],
     quiz: [
       { id: 'q-dc1-l2-1', type: 'mcq', question: 'During the judge interaction phase of a DECA role-play, the judge asks a follow-up question the competitor did not anticipate. What is the best strategy?', options: ['Pause briefly, acknowledge the question directly, apply your economic or business reasoning to the new angle, and give a concise answer tied back to your original recommendation.', 'Repeat your original presentation point most closely related to the question and hope it satisfies the judge.', 'Tell the judge you did not cover that topic and ask to move on.', 'Ask the judge to clarify the question multiple times to buy additional thinking time.'], correctAnswer: 0, explanation: 'Judges value adaptability and depth. The strongest competitors acknowledge the question, think through it using the same frameworks they applied in the presentation, and connect their answer to their prior recommendation. Repeating content or deflecting signals a lack of genuine understanding.', marks: 2, difficulty: 'standard' },
-      { id: 'q-dc1-l2-2', type: 'mcq', question: 'A competitor finishes their DECA role-play presentation in 6 minutes out of the allotted 10. The judge has not yet asked questions. What should the competitor do?', options: ['Summarise their key recommendation concisely and invite the judge to begin the interaction phase.', 'Fill the remaining time by repeating the problem statement from the role-play card.', 'Apologise for finishing early and stand silently until the judge speaks.', 'Add entirely new solutions not mentioned in the original presentation to fill time.'], correctAnswer: 0, explanation: 'Finishing under the time limit is acceptable. The best move is a clean, confident summary that reinforces the key recommendation and smoothly transitions to the judge interaction phase. Padding with repetition or unplanned content weakens the presentation; silence is awkward and wastes an opportunity to make a final positive impression.', marks: 2, difficulty: 'standard' },
+      { id: 'q-dc1-l2-2', type: 'mcq', question: 'A competitor finishes their DECA role-play presentation in 6 minutes out of the allotted 10. The judge has not yet asked questions. What should the competitor do?', options: ['Summarise their key recommendation concisely and invite the judge to begin the interaction phase.', 'Fill the remaining time by repeating the problem statement from the role-play card.', 'Apologise for finishing early and stand silently until the judge speaks.', 'Add entirely new solutions not mentioned in the original presentation to fill time.'], correctAnswer: 0, explanation: 'Finishing under the time limit is acceptable. The best move is a clean, confident summary that reinforces the key recommendation and smoothly transitions to the judge interaction phase. Padding with repetition or unplanned content weakens the presentation; silence is awkward and wastes an opportunity to make a final positive impression.', marks: 2, difficulty: 'easy' },
     ],
     content: {
       isStub: false,
@@ -80,7 +80,7 @@ const dc1Lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'The Business Administration Core is a mandatory section of every DECA cluster exam. It consistently tests fundamental economics concepts — supply and demand, market equilibrium, market structures, GDP, inflation, unemployment, and government policy — regardless of whether the competitor\'s event is in Finance, Marketing, or another cluster. No DECA competitor can skip this content.',
           marks: 1,
-          difficulty: 'standard' as const,
+          difficulty: 'easy' as const,
         },
       ],
       thinkAboutIt: {
@@ -108,7 +108,7 @@ const dc1Lessons: Lesson[] = [
     ],
     quiz: [
       { id: 'q-dc1-l3-1', type: 'mcq', question: 'According to the DECA performance indicator rubric, which behaviour most clearly distinguishes an "Advanced Exemplary" response from a "Proficient" one?', options: ['The competitor uses precise industry and economic terminology and justifies their recommendation with specific data or logical reasoning, rather than making general statements.', 'The competitor speaks for the full 10 minutes without pausing.', 'The competitor mentions more performance indicators than required by the situation card.', 'The competitor dresses more formally than other participants.'], correctAnswer: 0, explanation: '"Advanced Exemplary" is defined by depth, precision, and justification — not by volume of content or time used. Judges award the highest marks when they can clearly see that the competitor understands why their recommendation works, supported by specific reasoning, data references, or economic logic.', marks: 2, difficulty: 'standard' },
-      { id: 'q-dc1-l3-2', type: 'mcq', question: 'A DECA competitor scores 3 out of 4 on every criterion except "Recommended Action Plan," where they score 1. What does this most likely indicate?', options: ['The competitor understands the problem well but failed to translate that understanding into a specific, justified, and actionable recommendation.', 'The competitor did not study the written exam content thoroughly enough.', 'The competitor ran out of time during the presentation and could not finish.', 'The judge penalised the competitor for exceeding the time limit.'], correctAnswer: 0, explanation: 'A strong score on analysis but a weak score on the action plan is a classic pattern. It means the competitor diagnosed the situation correctly but then offered vague, generic, or insufficiently justified recommendations — the most common gap between good and great DECA performances.', marks: 2, difficulty: 'standard' },
+      { id: 'q-dc1-l3-2', type: 'mcq', question: 'A DECA competitor scores 3 out of 4 on every criterion except "Recommended Action Plan," where they score 1. What does this most likely indicate?', options: ['The competitor understands the problem well but failed to translate that understanding into a specific, justified, and actionable recommendation.', 'The competitor did not study the written exam content thoroughly enough.', 'The competitor ran out of time during the presentation and could not finish.', 'The judge penalised the competitor for exceeding the time limit.'], correctAnswer: 0, explanation: 'A strong score on analysis but a weak score on the action plan is a classic pattern. It means the competitor diagnosed the situation correctly but then offered vague, generic, or insufficiently justified recommendations — the most common gap between good and great DECA performances.', marks: 2, difficulty: 'higher' },
     ],
     content: {
       isStub: false,
@@ -176,7 +176,7 @@ const dc1Lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'A high problem-identification score combined with a low action-plan score is a classic DECA pattern: the competitor correctly diagnosed the situation but then offered vague, generic, or unjustified recommendations — for example, "improve marketing" without specifying how, to whom, at what cost, or backed by what economic logic. Bridging from strong diagnosis to specific, justified action is the skill gap most commonly separating state-level from ICDC-level performance.',
           marks: 1,
-          difficulty: 'standard' as const,
+          difficulty: 'higher' as const,
         },
       ],
       thinkAboutIt: {

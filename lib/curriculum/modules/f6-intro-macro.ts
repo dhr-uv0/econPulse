@@ -42,7 +42,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 1,
           explanation: 'A public good is defined by two economic properties: non-rivalry (one person\'s consumption does not reduce availability for others) and non-excludability (it is impossible to prevent non-payers from benefiting). National defence satisfies both — it protects all residents simultaneously regardless of individual tax contributions.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -161,7 +161,7 @@ export const lessons: Lesson[] = [
         explanation:
           'NX = exports − imports = $300 bn − $350 bn = −$50 bn. A trade deficit means net exports is negative, which reduces GDP in the expenditure equation.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l1-q2',
@@ -178,7 +178,7 @@ export const lessons: Lesson[] = [
         explanation:
           'A 10% rise in prices on a $2 trillion base gives $2.2 trillion nominal GDP, but real output is the same. Real GDP = nominal GDP / price index. Here 2.2 / 1.10 = 2.0 — unchanged.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f6-l1-q3',
@@ -195,7 +195,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Investment (I) in national accounts refers to spending on physical capital — machinery, buildings, and inventories. Buying shares is financial investment (not in GDP); unemployment benefits are transfer payments (not in G); foreign-made goods are subtracted via imports.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l1-q4',
@@ -212,7 +212,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Real GDP = (Nominal GDP ÷ GDP Deflator) × 100 = ($600 bn ÷ 120) × 100 = $500 bn. The deflator of 120 means prices are 20% higher than in the base year, so real output is lower than nominal.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f6-l1-q5',
@@ -229,7 +229,7 @@ export const lessons: Lesson[] = [
         explanation:
           'GDP only counts market transactions involving final goods and services. Unpaid household production — such as home childcare — has no market price and is excluded. The other three are all market transactions producing new goods or services counted in GDP.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l1-q6',
@@ -246,7 +246,7 @@ export const lessons: Lesson[] = [
         explanation:
           'GDP counts only final goods to avoid double-counting. The bread ($5) is the final product; the flour ($2) is an intermediate good whose value is already embedded in the bread price. The value-added approach gives the same answer: $5 − $2 = $3 of value added at the baking stage, plus the miller\'s earlier value added totalling $5.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f6-l1-q7',
@@ -263,7 +263,7 @@ export const lessons: Lesson[] = [
         explanation:
           'HDI incorporates health and education alongside income. A country can have high average GDP per capita but low HDI if income is highly concentrated (skewing the average upward) while the majority of the population has poor access to healthcare and education. The other options do not explain an HDI shortfall relative to GDP.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f6-l1-q8',
@@ -280,7 +280,7 @@ export const lessons: Lesson[] = [
         explanation:
           'GDP = C + I + G + NX = $800 + $200 + $300 + ($150 − $200) = $800 + $200 + $300 − $50 = $1,250 bn. Remember: NX = exports − imports = −$50 bn, which reduces GDP because imports represent spending on foreign-produced goods.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f6-l1-q9',
@@ -297,7 +297,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Transfer payments (pensions, unemployment benefits, welfare) are excluded from G in GDP because the government receives no current production in return — no new good or service is created. Police salaries, highway construction, and school funding all involve the government purchasing newly produced services or goods, so they count in G.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l1-q10',
@@ -314,7 +314,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Real GDP per capita = Real GDP ÷ Population. Country B: 4% − 1% ≈ 3% per capita growth. Country A: 4% − 3% ≈ 1% per capita growth. Per capita GDP better captures individual living standards than total GDP, since more people sharing the same output means each person is not necessarily better off.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -359,7 +359,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 1,
           explanation: 'Investment (I) in national accounts refers to spending on physical capital goods — machinery, buildings, and inventories. Building a new warehouse is spending on physical capital and counts as I. Buying shares is financial investment (not in GDP); unemployment benefits are transfer payments (excluded from G); imported goods are subtracted via the NX term.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
         {
           id: 'f6-l2-recall-2',
@@ -374,7 +374,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 1,
           explanation: 'Real GDP adjusts nominal GDP for inflation. If prices rose by exactly 8% and nominal GDP also rose by exactly 8%, there is no change in real output — the economy produced the same quantity of goods and services, just at higher prices. Real GDP = Nominal GDP ÷ Price Index.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
 
@@ -493,7 +493,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Falling real GDP for multiple quarters combined with rising unemployment is the hallmark of the contraction (recession) phase. The trough is the turning point at the bottom, not the sustained decline.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l2-q2',
@@ -510,7 +510,7 @@ export const lessons: Lesson[] = [
         explanation:
           'New orders for manufactured goods signal future production decisions and tend to move before GDP — making them a leading indicator. The other options are lagging indicators: they reflect conditions after the turning point has occurred.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f6-l2-q3',
@@ -527,7 +527,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Near the peak, labour and capital are fully employed, pushing up wages and costs. Strong consumer demand allows firms to raise prices, so inflation accelerates. Deflation is more associated with deep recessions, not peaks.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l2-q4',
@@ -544,7 +544,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Two consecutive quarters of negative real GDP growth (Q2 and Q3) meet the technical recession definition, so the recession began in Q2. The trough — the lowest point — is Q3. The Q4 positive reading signals the start of recovery, meaning the recession ended at the Q3 trough. Q1 was still growing so is not part of the recession.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f6-l2-q5',
@@ -561,7 +561,7 @@ export const lessons: Lesson[] = [
         explanation:
           'During an expansion, real GDP rises as firms produce more, unemployment falls as firms hire more workers, and consumer confidence improves as incomes grow and job security increases. The other combinations describe contraction or internally inconsistent scenarios.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l2-q6',
@@ -578,7 +578,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Building permits, stock market indices, and consumer confidence surveys are all classified as leading indicators — they typically change three to twelve months before the economy as a whole turns. Their simultaneous deterioration is a strong forward-looking signal, giving the central bank reason to act early rather than wait for lagging confirmation.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f6-l2-q7',
@@ -595,7 +595,7 @@ export const lessons: Lesson[] = [
         explanation:
           'The classic feature of the unemployment rate as a lagging indicator is that it keeps rising after the official end of a recession, because firms wait to confirm the recovery is sustained before rehiring. A peak six months after recession end is entirely typical and does not indicate an NBER error.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f6-l2-q8',
@@ -612,7 +612,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Fiscal stimulus during a contraction is designed to boost aggregate demand, softening the downturn and accelerating the recovery. The goal is to raise the floor of the trough and shorten its duration — not to eliminate cycles (which is impossible) or to speed up reaching the trough (which is the opposite of what policymakers want).',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f6-l2-q9',
@@ -629,7 +629,7 @@ export const lessons: Lesson[] = [
         explanation:
           'An L-shaped recovery means the GDP path literally resembles an "L": a sharp vertical drop followed by a long horizontal plateau at a depressed level. Japan\'s "Lost Decade" — actually closer to two lost decades — is the textbook example, with deflation, banking-sector weakness, and weak demand preventing a swift return to trend growth.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l2-q10',
@@ -646,7 +646,7 @@ export const lessons: Lesson[] = [
         explanation:
           'New housing permits signal future construction activity and typically turn down months before GDP, making them a leading indicator. Average duration of unemployment rises after a recession is under way and falls only well into recovery, making it a lagging indicator. The other pairings reverse the correct classifications.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -691,7 +691,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 2,
           explanation: 'Cyclical unemployment is caused by insufficient aggregate demand. It rises throughout the contraction phase and peaks at the trough — the lowest point of economic activity — when demand, output, and employment are all at their minimum. As recovery begins, cyclical unemployment starts to fall.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -810,7 +810,7 @@ export const lessons: Lesson[] = [
         explanation:
           'The workers\' skills no longer match the needs of the modern labour market — this is a skill mismatch caused by technological change, the defining feature of structural unemployment.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l3-q2',
@@ -827,7 +827,7 @@ export const lessons: Lesson[] = [
         explanation:
           'If discouraged workers stop searching and leave the labour force, they are removed from both the numerator and denominator, mathematically lowering the rate — even if no one found a job. This is a key limitation of the official measure.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f6-l3-q3',
@@ -844,7 +844,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Structural unemployment stems from a skills mismatch; retraining programmes directly address that cause. The other options are demand-side tools better suited to reducing cyclical unemployment.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l3-q4',
@@ -861,7 +861,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Unemployment rate = (unemployed ÷ labour force) × 100. Unemployed = 50m − 47.5m = 2.5m. Rate = (2.5m ÷ 50m) × 100 = 5%. The denominator is the total labour force (employed + unemployed), not just the employed.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f6-l3-q5',
@@ -878,7 +878,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Her unemployment follows a predictable, calendar-driven pattern tied to the season — the definition of seasonal unemployment. It is distinct from frictional (searching for a better match) and structural (skills mismatch) unemployment, and is not caused by a business-cycle downturn.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l3-q6',
@@ -895,7 +895,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Full employment is defined as the economy operating at its NRU (or NAIRU), not at zero unemployment. Frictional unemployment (job search) and structural unemployment (skills mismatch) always exist in a dynamic economy. Only cyclical unemployment is zero at full employment; the NRU typically sits at 4–6% in developed economies.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f6-l3-q7',
@@ -912,7 +912,7 @@ export const lessons: Lesson[] = [
         explanation:
           'A large U-6 minus U-3 gap signals substantial hidden underutilisation of labour. The 5 percentage point difference means roughly 5% of the labour force equivalent are either working part-time involuntarily or have become too discouraged to search — both signs of a weaker labour market than the headline rate suggests.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f6-l3-q8',
@@ -929,7 +929,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Job search after graduation is a textbook example of frictional unemployment — a temporary mismatch between worker and job while searching, not a skills deficit or a demand shortage. Some frictional unemployment is healthy: it allows workers to find better-matched positions, improving productivity. It becomes a concern only if search periods grow excessively long, suggesting information or market failures.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f6-l3-q9',
@@ -946,7 +946,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Cyclical unemployment is caused by insufficient aggregate demand in a recession. A fiscal stimulus package (increased government spending or tax cuts) directly boosts demand, encouraging firms to rehire. It has little effect on structural unemployment (which requires retraining) or frictional unemployment (which is natural search time) or seasonal unemployment (which follows predictable patterns).',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l3-q10',
@@ -963,7 +963,7 @@ export const lessons: Lesson[] = [
         explanation:
           'At 4%, unemployment is already below the NRU of 4.5%, meaning the labour market is tighter than sustainable. Further stimulus pushes unemployment even lower, creating excess labour demand, accelerating wage growth, rising production costs, and ultimately higher inflation — the scenario NAIRU is designed to warn against. There is no free lunch in pushing below the natural rate.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -1008,7 +1008,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 2,
           explanation: 'The engineer\'s skills no longer match what employers need, caused by technological change (AI). This is the defining feature of structural unemployment — a mismatch between workers\' skills and the structure of the modern economy. It is typically long-lasting and requires retraining to resolve.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
         {
           id: 'f6-l4-recall-2',
@@ -1023,7 +1023,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 1,
           explanation: 'Discouraged workers are excluded from the labour force because they are not actively seeking work. If they stop searching, they are removed from both the numerator (unemployed) and denominator (labour force), which can lower the official rate even if no new jobs were created — a known limitation of the headline unemployment measure.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
 
@@ -1142,7 +1142,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Rising input costs (semiconductors) squeeze firm margins, and firms pass these higher costs on to consumers — this is the definition of cost-push inflation. There is no indication that aggregate demand has increased.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l4-q2',
@@ -1159,7 +1159,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Inflation rate = (126 − 120) / 120 × 100 = 6 / 120 × 100 = 5%. Always divide the change by the base (starting) value, not the new value.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f6-l4-q3',
@@ -1176,7 +1176,7 @@ export const lessons: Lesson[] = [
         explanation:
           'The substitution bias is a well-documented CPI flaw: the fixed basket cannot reflect consumers\' rational switch to cheaper alternatives when relative prices change. The other options are incorrect: the CPI covers consumer goods only (not investment goods), is calculated monthly, and typically includes food and energy in the headline measure.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l4-q4',
@@ -1193,7 +1193,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Inflation rate = (110.25 − 105) / 105 × 100 = 5.25 / 105 × 100 = 5%. Always use the earlier period (Year 1) as the base. The answer is exactly 5%, not 5.25% — the absolute CPI level is not the inflation rate.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f6-l4-q5',
@@ -1210,7 +1210,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Real wage change ≈ nominal wage growth − inflation = 4% − 5% = −1%. The worker\'s pay rose 4% ($50k to $52k) but prices rose 5%, so purchasing power actually fell by roughly 1%. Rising nominal wages can mask declining real wages when inflation exceeds wage growth.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f6-l4-q6',
@@ -1227,7 +1227,7 @@ export const lessons: Lesson[] = [
         explanation:
           'When aggregate demand surges (spending of accumulated savings) while supply capacity is constrained (disrupted supply chains), the "too much money chasing too few goods" condition for demand-pull inflation is satisfied. Note that supply chain disruptions could simultaneously contribute cost-push elements — making 2021–22 a hybrid case — but the primary driver described here is demand exceeding supply.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l4-q7',
@@ -1244,7 +1244,7 @@ export const lessons: Lesson[] = [
         explanation:
           'A 2% inflation target provides insurance against deflation (with its dangerous spiral) and gives firms the ability to cut real labour costs by keeping nominal wages flat while prices rise — important because workers strongly resist nominal pay cuts. It also gives monetary policy "room" to cut real interest rates in a downturn before hitting the zero lower bound.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f6-l4-q8',
@@ -1261,7 +1261,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Stagflation — the combination of high inflation and economic stagnation — is the hallmark of a severe cost-push shock. When rising input costs (e.g. oil prices) simultaneously raise the price level and reduce productive capacity, output falls and unemployment rises while inflation accelerates. The 1970s OPEC oil shocks are the canonical historical example.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l4-q9',
@@ -1278,7 +1278,7 @@ export const lessons: Lesson[] = [
         explanation:
           'In hyperinflation, the domestic currency\'s purchasing power collapses so rapidly that holding cash is irrational. Citizens rationally "flight to value": converting money into physical goods (food, land, foreign currencies) immediately, since goods retain real value while currency does not. This behaviour accelerates the velocity of money and worsens the hyperinflation further.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f6-l4-q10',
@@ -1295,7 +1295,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Each component contributes its weight × price change to the overall CPI change. Housing contribution = 30% × 10% = 3%. All other prices are unchanged, so their contributions are zero. Total CPI change ≈ 3%. This illustrates why heavily-weighted categories like housing and energy can drive the headline inflation rate even if most individual prices are stable.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -1340,7 +1340,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 1,
           explanation: 'When rising production costs (energy prices) squeeze firm margins and firms pass these on to consumers, this is cost-push inflation — it originates from the supply side. The simultaneous fall in output is what makes cost-push inflation particularly damaging: it produces stagflation (inflation and stagnation together), unlike demand-pull inflation which raises both prices and output.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
         {
           id: 'f6-l5-recall-2',
@@ -1355,7 +1355,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'Inflation rate = (126.5 − 115) / 115 × 100 = 11.5 / 115 × 100 = 10%. Always divide the change by the base (starting) CPI value, not the new value.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
 
@@ -1474,7 +1474,7 @@ export const lessons: Lesson[] = [
         explanation:
           'A household tax cut increases disposable income and boosts consumption (C), shifting AD to the right. In the short run this raises both real GDP and the overall price level along the upward-sloping SRAS. Tax cuts do not directly shift SRAS or LRAS.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f6-l5-q2',
@@ -1491,7 +1491,7 @@ export const lessons: Lesson[] = [
         explanation:
           'When actual output falls short of potential (LRAS), the economy has a recessionary gap. Resources including labour are underutilised, so unemployment exceeds the natural rate. This is the opposite of an inflationary gap, and LRAS does not shift left — it reflects maximum sustainable capacity.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l5-q3',
@@ -1508,7 +1508,7 @@ export const lessons: Lesson[] = [
         explanation:
           'A supply shock that raises costs shifts SRAS to the left. The economy moves to a new short-run equilibrium with a higher price level and lower real GDP — the combination of inflation and falling output known as stagflation. This is cost-push inflation in the AD/AS model.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f6-l5-q4',
@@ -1525,7 +1525,7 @@ export const lessons: Lesson[] = [
         explanation:
           'This is a critical distinction: the AD curve\'s downward slope reflects three macroeconomic effects (wealth, interest-rate, trade) operating on the overall price level, not relative prices between goods. Microeconomic substitution between goods does not operate at the aggregate level — when all prices rise, there are no cheaper substitutes within the economy to switch to.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l5-q5',
@@ -1542,7 +1542,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Higher interest rates make borrowing more expensive, reducing investment (I) and consumer spending on credit (C). They may also attract foreign capital, appreciating the exchange rate and reducing NX. All of these reduce the components of AD, shifting it left — the intended effect of contractionary monetary policy to reduce an inflationary gap.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f6-l5-q6',
@@ -1559,7 +1559,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Increases in human capital (skilled workforce) and physical infrastructure permanently raise the economy\'s productive capacity — this shifts LRAS rightward. AD may also shift right in the short run due to higher government spending (G), but the long-run supply-side improvement is represented by LRAS. LRAS shifts outward only through genuine improvements to productive potential.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l5-q7',
@@ -1576,7 +1576,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Collapsing consumer confidence reduces C, shifting AD to the left. The new AD/SRAS intersection is to the left of LRAS: real GDP is below potential and a recessionary gap opens. Price level falls slightly along the SRAS. This is the AD/AS representation of a demand-driven recession.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f6-l5-q8',
@@ -1593,7 +1593,7 @@ export const lessons: Lesson[] = [
         explanation:
           'In a recessionary gap, unemployment is above the NRU. Excess labour supply puts downward pressure on wages over time. As wages fall, production costs decrease, and SRAS gradually shifts rightward until the AD/SRAS intersection returns to the LRAS level — restoring full employment at a lower price level. This is the classical self-correction, though it can take years.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f6-l5-q9',
@@ -1610,7 +1610,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Starting from an inflationary gap (already above potential, high inflation risk), a negative supply shock (leftward SRAS shift) simultaneously worsens inflation (higher price level) and reduces real GDP. The outcome is severe stagflation — the worst possible macroeconomic scenario combining both overheating and contraction pressures at once.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f6-l5-q10',
@@ -1627,7 +1627,7 @@ export const lessons: Lesson[] = [
         explanation:
           'Keynes was critiquing the classical argument that economies self-correct via wage flexibility over time. He argued that self-correction through falling wages is too slow and too painful — unemployment can persist for years or decades. Active government intervention (fiscal stimulus to shift AD right) can close recessionary gaps faster and with less human cost than waiting for the long-run SRAS adjustment.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {

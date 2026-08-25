@@ -31,32 +31,52 @@ describe('buildQuestionPool', () => {
       expect(tiersInPool.has(tier)).toBe(true)
     }
   })
+
+  // Regression guard: difficulty used to be tagged almost 1:1 with tier (e.g.
+  // every AP question was 'higher', every Olympiad question was 'olympiad'),
+  // which made a tier+difficulty mock-test filter frequently return zero
+  // questions. Each tier must have a genuine spread across all three levels.
+  it('gives every tier a genuine spread across all three difficulty levels', () => {
+    const byTier = new Map<string, Record<string, number>>()
+    for (const p of pool) {
+      const counts = byTier.get(p.moduleTier) ?? { easy: 0, standard: 0, higher: 0 }
+      counts[p.question.difficulty]++
+      byTier.set(p.moduleTier, counts)
+    }
+    for (const [tier, counts] of byTier) {
+      const total = counts.easy + counts.standard + counts.higher
+      for (const level of ['easy', 'standard', 'higher']) {
+        expect(counts[level], `${tier} has no '${level}' questions`).toBeGreaterThan(0)
+        expect(counts[level] / total, `${tier}'s '${level}' bucket is too dominant`).toBeLessThan(0.85)
+      }
+    }
+  })
 })
 
 describe('filterPool', () => {
   const pool: PooledQuestion[] = [
-    { question: { id: 'q1', type: 'mcq', question: '', options: ['a', 'b'], correctAnswer: 0, explanation: '', marks: 1, difficulty: 'foundation' }, moduleId: 'm1', moduleTitle: 'M1', moduleTier: 'FOUNDATIONS', lessonId: 'l1', lessonTitle: 'L1' },
-    { question: { id: 'q2', type: 'mcq', question: '', options: ['a', 'b'], correctAnswer: 0, explanation: '', marks: 1, difficulty: 'olympiad' }, moduleId: 'm2', moduleTitle: 'M2', moduleTier: 'OLYMPIAD', lessonId: 'l2', lessonTitle: 'L2' },
+    { question: { id: 'q1', type: 'mcq', question: '', options: ['a', 'b'], correctAnswer: 0, explanation: '', marks: 1, difficulty: 'easy' }, moduleId: 'm1', moduleTitle: 'M1', moduleTier: 'FOUNDATIONS', lessonId: 'l1', lessonTitle: 'L1' },
+    { question: { id: 'q2', type: 'mcq', question: '', options: ['a', 'b'], correctAnswer: 0, explanation: '', marks: 1, difficulty: 'higher' }, moduleId: 'm2', moduleTitle: 'M2', moduleTier: 'OLYMPIAD', lessonId: 'l2', lessonTitle: 'L2' },
     { question: { id: 'q3', type: 'mcq', question: '', options: ['a', 'b'], correctAnswer: 0, explanation: '', marks: 1, difficulty: 'standard' }, moduleId: 'm3', moduleTitle: 'M3', moduleTier: 'AP', lessonId: 'l3', lessonTitle: 'L3' },
   ]
 
   it('keeps only questions in the selected tiers', () => {
-    const result = filterPool(pool, { tiers: ['FOUNDATIONS'], difficulties: ['foundation', 'standard', 'higher', 'olympiad'] })
+    const result = filterPool(pool, { tiers: ['FOUNDATIONS'], difficulties: ['easy', 'standard', 'higher'] })
     expect(result.map((p) => p.question.id)).toEqual(['q1'])
   })
 
   it('keeps only questions matching the selected difficulties', () => {
-    const result = filterPool(pool, { tiers: ['FOUNDATIONS', 'OLYMPIAD', 'AP'], difficulties: ['olympiad'] })
+    const result = filterPool(pool, { tiers: ['FOUNDATIONS', 'OLYMPIAD', 'AP'], difficulties: ['higher'] })
     expect(result.map((p) => p.question.id)).toEqual(['q2'])
   })
 
-  it('applies an optional moduleIds refinement within the selected tiers', () => {
-    const result = filterPool(pool, { tiers: ['FOUNDATIONS', 'OLYMPIAD', 'AP'], moduleIds: ['m3'], difficulties: ['foundation', 'standard', 'higher', 'olympiad'] })
+  it('applies an optional lessonIds refinement within the selected tiers', () => {
+    const result = filterPool(pool, { tiers: ['FOUNDATIONS', 'OLYMPIAD', 'AP'], lessonIds: ['l3'], difficulties: ['easy', 'standard', 'higher'] })
     expect(result.map((p) => p.question.id)).toEqual(['q3'])
   })
 
-  it('treats an empty moduleIds array the same as "no refinement" (all modules in the selected tiers)', () => {
-    const result = filterPool(pool, { tiers: ['FOUNDATIONS', 'OLYMPIAD', 'AP'], moduleIds: [], difficulties: ['foundation', 'standard', 'higher', 'olympiad'] })
+  it('treats an empty lessonIds array the same as "no refinement" (all lessons in the selected tiers)', () => {
+    const result = filterPool(pool, { tiers: ['FOUNDATIONS', 'OLYMPIAD', 'AP'], lessonIds: [], difficulties: ['easy', 'standard', 'higher'] })
     expect(result).toHaveLength(3)
   })
 })

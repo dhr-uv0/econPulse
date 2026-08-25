@@ -118,7 +118,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'GDP per capita measures average income but ignores how income is distributed and says nothing about health, education, or freedom. The HDI and MPI were created precisely to capture these missing dimensions of development.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'ib7-l1-q2',
@@ -148,7 +148,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The 17 SDGs adopted in 2015 cover poverty, health, education, gender equality, clean energy, climate action, and strong institutions — explicitly acknowledging that development encompasses economic, social, and environmental dimensions. They are aspirational targets, not legally binding obligations.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
     ],
   },
@@ -177,7 +177,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'GDP per capita measures average income but says nothing about how that income is distributed, or about the quality of health, education, and freedom that people enjoy. A country with high and rising GDP per capita can simultaneously have poor HDI performance if gains accrue to a narrow elite and public investment in health and education is neglected.',
           marks: 1,
-          difficulty: 'standard' as const,
+          difficulty: 'easy' as const,
         },
       ],
       realWorldHook: `The Democratic Republic of Congo (DRC) illustrates how multiple barriers compound one another. The DRC holds vast deposits of cobalt (essential for electric vehicle batteries), coltan, gold, and diamonds — yet ranks among the world's lowest countries on the HDI. Decades of conflict, predatory governance under Mobutu Sese Seko, institutional collapse, and geographic vastness (the country is the size of Western Europe) have prevented resource wealth from translating into development. Cobalt revenues are captured by armed groups and corrupt intermediaries rather than funding schools or hospitals, illustrating the resource curse and institutional failure simultaneously.`,
@@ -257,7 +257,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The poverty trap operates through the savings-investment-productivity nexus: low income → low savings → insufficient investment → low productivity growth → low income. Breaking this cycle may require external capital injections (aid, FDI) or domestic reforms that raise savings rates.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib7-l2-q2',
@@ -272,7 +272,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Dutch disease was named after the Netherlands\' experience following North Sea gas discoveries in the 1960s. Resource export revenues strengthen the currency, raising the cost of domestically produced tradeable goods, which crowds out manufacturing and agriculture — sectors that often provide broader-based employment and learning-by-doing spillovers.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'ib7-l2-q3',
@@ -316,7 +316,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 0,
           explanation: 'Dutch disease is the exchange rate channel of the resource curse: large commodity export revenues flow into the economy and strengthen the currency, raising the cost of domestically produced tradeable goods. Manufacturing and agriculture — sectors with broader employment and productivity spillovers — become uncompetitive, reducing economic diversification and long-run development potential.',
           marks: 1,
-          difficulty: 'standard' as const,
+          difficulty: 'easy' as const,
         },
       ],
       realWorldHook: `Ghana's cocoa sector illustrates trade dependency in action. Ghana is the world's second-largest cocoa producer, yet earns most export revenue from raw cocoa beans rather than processed chocolate. Chocolate manufacturing, branding, and retailing — the value-added stages — are dominated by Swiss, US, and European firms. When world cocoa prices collapsed in the early 2000s, Ghana's export revenues fell sharply, exposing the vulnerability of commodity dependence. Fairtrade-certified Ghanaian cocoa cooperatives receive a guaranteed floor price and a social premium, which local cooperatives invest in schools, health clinics, and drinking water. However, Fairtrade cocoa represents only a small fraction of Ghana's cocoa exports, limiting its macro impact.`,
@@ -396,7 +396,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The Prebisch-Singer hypothesis argues that income elasticity of demand for primary commodities is less than one, and that productivity gains in commodities are passed on as lower prices while gains in manufacturing raise wages in rich countries. Together, these forces cause the terms of trade for commodity exporters to deteriorate over time.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'ib7-l3-q2',
@@ -411,7 +411,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Fair trade improves conditions for certified producers by guaranteeing minimum prices, but it does not change the fact that affected countries still depend on a narrow range of primary commodities for export revenue. This concentration leaves them exposed to commodity price volatility and long-run terms of trade deterioration.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib7-l3-q3',
@@ -517,7 +517,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Moyo\'s "Dead Aid" (2009) argues that aid created a "culture of dependency," entrenched corruption by providing governments with revenues outside the taxation-accountability nexus, and competed with local producers (especially food aid). She advocates trade access and private capital as superior alternatives.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'ib7-l4-q2',
@@ -532,7 +532,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Remittances are countercyclical with respect to the origin country\'s economic cycle: when origin countries face shocks (recession, natural disaster), diaspora workers increase remittance flows to support families. This was observed during the 2008–09 financial crisis and during the COVID-19 pandemic for many developing countries.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib7-l4-q3',
@@ -638,7 +638,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'By under-pricing the transaction from the high-tax to the low-tax jurisdiction, the MNC reports low profit in Country A (where it is taxed at 40%) and high profit in Country B (taxed at 2%), minimising global tax liability. Country A loses corporate tax revenue that could fund public services.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'ib7-l5-q2',
@@ -653,7 +653,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The Pillar Two global minimum corporate tax (15%) agreed by 136 countries in 2021 directly targets the race to the bottom on corporate taxation by setting a floor below which MNC subsidiaries cannot be taxed without triggering taxation by the parent country, reducing the incentive for tax competition.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'ib7-l5-q3',

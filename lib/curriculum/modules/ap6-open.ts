@@ -79,7 +79,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Higher U.S. interest rates offer better returns on dollar-denominated assets. Foreign investors convert their currencies into dollars to invest in the U.S., shifting demand for dollars rightward and appreciating the dollar.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap6-l1-2',
@@ -94,7 +94,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Higher relative inflation makes U.S. exports more expensive and imports relatively cheaper. Foreign buyers need fewer dollars to fund U.S. purchases, reducing demand for dollars. The dollar depreciates to restore purchasing power parity.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap6-l1-3',
@@ -124,7 +124,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Lower Japanese interest rates make yen-denominated assets less attractive relative to dollar-denominated assets. Japanese and global investors shift capital toward U.S. assets, supplying yen and demanding dollars. Demand for dollars rises and demand for yen falls, appreciating the dollar (and depreciating the yen).',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap6-l1-5',
@@ -139,7 +139,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Real ER = Nominal ER × (U.S. Price Level / Japan Price Level) = 100 × (120/100) = 120 yen per dollar. The higher U.S. price level means U.S. goods are relatively more expensive, giving a real exchange rate above the nominal rate — the dollar is relatively overvalued in purchasing power terms.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap6-l1-6',
@@ -169,7 +169,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Dollar appreciation means foreigners must pay more of their own currency for each U.S. dollar of goods — U.S. exports become more expensive internationally and export volume falls. At the same time, imports become cheaper for Americans (each dollar buys more foreign currency), raising import volume. Both effects reduce net exports (X − M).',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap6-l1-8',
@@ -214,7 +214,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'PPP states that arbitrage should eliminate price differences across countries for traded goods. If a basket costs $100 in the U.S. and the exchange rate makes the same basket cost $80 elsewhere, traders will buy abroad and sell in the U.S. until exchange rates adjust. In the long run, the real exchange rate should equal one for identical traded goods, though transaction costs and non-traded goods cause deviations.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
     ],
     content: {
@@ -322,7 +322,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'CA + KA = 0 is an accounting identity. A current account deficit of $X must be matched by a capital account surplus of $X — foreigners are net purchasers of U.S. assets (stocks, bonds, real estate) to fund the gap between U.S. imports and exports.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap6-l2-2',
@@ -337,7 +337,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'CA = S − I. If S falls and I is unchanged, CA = S − I becomes more negative — the deficit widens. The country must attract more foreign capital to fund the gap between its investment needs and its own saving.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap6-l2-3',
@@ -352,7 +352,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'CA = S − I = $2 trillion − $2.4 trillion = −$0.4 trillion = −$400 billion. The negative value indicates a current account deficit. By the identity CA + KA = 0, the capital account shows a surplus of $400 billion — foreigners provide $400 billion in net financing to cover the excess of domestic investment over saving.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap6-l2-4',
@@ -382,7 +382,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Foreign direct investment — the Japanese automaker acquiring a physical asset (factory) in the United States — is recorded in the capital and financial account as a capital inflow. The consumer purchase of a television and the tourist spending are current account transactions (goods and services trade). Foreign aid is a transfer payment, also recorded in the current account.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap6-l2-6',
@@ -427,7 +427,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The balance of payments identity requires CA + KA = 0. If the current account is −$50 billion (deficit), the capital account must be +$50 billion (surplus). There is no partial offset — the accounting identity holds exactly. The surplus means foreigners are providing $50 billion in net financing through purchases of Country X\'s assets.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap6-l2-9',
@@ -442,7 +442,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'CA = S − I. Government saving = Tax Revenue − Government Spending. Higher taxes reduce the budget deficit and increase government saving, raising total national saving (S). If domestic investment (I) is unchanged, CA = S − I improves (becomes less negative or more positive). This is the fiscal austerity mechanism for improving the current account — reduced government dissaving translates directly into reduced need for foreign financing.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap6-l2-10',
@@ -457,7 +457,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'A service export (licensing U.S. software to a British buyer) earns foreign currency for the U.S. and is a positive entry (credit) in the current account. The aircraft purchase from Airbus is a goods import (debit). The bond purchase is a capital outflow (recorded in the capital account, not the current account). Humanitarian aid is a transfer payment (debit in the current account).',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
     ],
     content: {
@@ -565,7 +565,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The steady state is defined as the point where gross investment equals depreciation. The capital stock is neither increasing nor decreasing. Without technological progress, per-capita output is also constant at the steady state.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap6-l3-2',
@@ -580,7 +580,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'A higher saving rate raises investment at every capital level, moving the economy to a new, higher steady state with more capital and output per worker. However, the long-run growth rate remains determined by technology — the saving rate change produces a one-time level effect, not a permanent acceleration.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap6-l3-3',
@@ -595,7 +595,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'In the Solow model, the steady state depends on the saving rate (among other factors). A higher saving rate shifts the investment curve upward, intersecting the depreciation line at a higher capital-per-worker level. Country A therefore reaches a richer steady state. Both countries have the same long-run growth rate (determined by technology), but Country A\'s steady-state income level is permanently higher.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap6-l3-4',
@@ -610,7 +610,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Only technological progress produces a permanent increase in the growth rate of output per worker — a growth rate effect. Changes in saving rate, population growth, or one-time capital injections shift the steady-state level of output per worker (level effects) but do not alter the long-run growth rate, which equals the rate of technological progress in the Solow framework.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap6-l3-5',
@@ -625,7 +625,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Below the steady state, gross investment exceeds depreciation — the capital stock is growing. Because of diminishing marginal returns, the marginal product of capital is high at low capital levels, making investment very productive. Growth slows as the economy approaches the steady state and stops when investment equals depreciation. This convergence dynamic is a core feature of the Solow model.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap6-l3-6',
@@ -640,7 +640,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Conditional convergence means countries converge to their own steady state. If two countries have the same saving rate, population growth, and technology access, the poorer one grows faster (it has higher MPK) and they converge. But if a poor country has a very low saving rate or poor institutions (a lower steady state), it may never reach the income level of rich countries — convergence is conditional on sharing the same structural fundamentals.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap6-l3-7',
@@ -670,7 +670,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'In the Solow framework, capital accumulation per worker requires outpacing both depreciation and population growth. A higher population growth rate is mathematically equivalent to a higher effective depreciation rate on capital per worker — the capital stock must grow faster just to maintain the capital-per-worker ratio. The steady-state capital-per-worker level falls, reducing steady-state output per worker and living standards. Total GDP grows faster, but per-capita income is lower.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap6-l3-9',
@@ -685,7 +685,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Technological progress is the only source of sustained long-run growth in the Solow model. Government investment in R&D raises total factor productivity (TFP), shifting the production function upward and enabling a new, higher steady state with permanently faster growth in output per worker. Tariffs, monetary policy, and labor force changes affect short-run conditions or the level of the steady state at best, but do not accelerate the long-run growth rate.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap6-l3-10',
@@ -808,7 +808,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Expansionary monetary policy (bond purchases) increases money supply — the supply curve shifts right. The rubric awards separate points for: correct shift direction, new equilibrium interest rate below original, and labeled equilibria. Writing alone or shifting the wrong curve earns zero diagram points.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap6-l4-2',
@@ -823,7 +823,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'Government deficit spending requires borrowing, which increases demand for loanable funds. The demand curve shifts right, equilibrium real interest rate rises, and equilibrium quantity of funds borrowed increases. This is the crowding-out mechanism tested frequently on AP FRQs.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap6-l4-3',
@@ -853,7 +853,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The money market diagram uses the nominal interest rate on the vertical axis — the opportunity cost of holding money (cash and checking deposits earn no or low interest). The loanable funds market uses the real interest rate. Mixing these up is one of the most common AP Macro FRQ errors. Graders award one point specifically for correctly labeling the interest rate type.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap6-l4-5',
@@ -868,7 +868,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'The point values signal time allocation: the long FRQ is worth twice as much as each short FRQ, so it deserves roughly twice the time. Spending 25 minutes on the 10-point question and 12–13 minutes on each 5-point question proportionally maximises expected score. Skipping diagrams (option D) is self-defeating — diagrams earn specific rubric points unavailable through writing alone.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap6-l4-6',
@@ -883,7 +883,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'AP FRQ graders award points for the correctness of the economic reasoning and stated direction of change — not for quantifying exact magnitudes (which are unknowable without data). This response correctly identifies: the mechanism (higher interest rate → lower investment → AD shifts left), the intermediate result (real GDP falls below potential), and the final answer (unemployment rises). A diagram is required only if the FRQ specifically says "using a diagram" — a written chain earns full written-response credit.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap6-l4-7',
@@ -898,7 +898,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'A positive supply shock (lower input costs like oil) reduces production costs, shifting SRAS rightward. The new equilibrium has a lower price level (production is cheaper) and higher real GDP (more is produced at each price level). LRAS does not shift because potential output has not changed permanently. AD does not shift because aggregate demand is unchanged. E1 and E2 are required for full diagram credit.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'standard',
       },
       {
         id: 'q-ap6-l4-8',
@@ -928,7 +928,7 @@ export const lessons: Lesson[] = [
         correctAnswer: 0,
         explanation: 'AP rubrics award points element by element. An incorrect axis label typically costs the point allocated to axis labeling (usually 1 of the 3–4 diagram points) but does not invalidate the correct shift direction, equilibrium identification, or other elements. AP grading is partial-credit: each rubric element is evaluated independently. "Price of Dollars ($)" is conceptually misleading but unlikely to cost more than the label point if the rest of the diagram correctly shows demand shifting, exchange rate rising, etc.',
         marks: 1,
-        difficulty: 'higher',
+        difficulty: 'easy',
       },
       {
         id: 'q-ap6-l4-10',

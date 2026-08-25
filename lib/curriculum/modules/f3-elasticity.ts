@@ -45,7 +45,7 @@ export const lessons: Lesson[] = [
           correctAnswer: 1,
           explanation: 'When supply decreases (frost) and demand increases (café culture boom) simultaneously, both shifts push price upward — so the price rise is certain. The quantity effect is indeterminate because supply reduction lowers quantity while demand increase raises it; the net outcome depends on relative magnitudes.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -178,7 +178,7 @@ PED also has a direct relationship with a firm's total revenue. When demand is e
         explanation:
           '% change in Q = (160 − 200) / ((200 + 160) / 2) = −40 / 180 ≈ −22.2%. % change in P = (12 − 10) / ((10 + 12) / 2) = 2 / 11 ≈ 18.2%. PED = −22.2% / 18.2% ≈ −1.8. Since |PED| > 1, demand is elastic.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f3-l1-q2',
@@ -195,7 +195,7 @@ PED also has a direct relationship with a firm's total revenue. When demand is e
         explanation:
           'Perfectly inelastic demand (PED = 0) is represented by a vertical demand curve: no matter what the price is, consumers buy the same quantity. A horizontal curve is perfectly elastic (PED = ∞). Unit elastic means |PED| = 1. A steep slope can still have PED values other than zero.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f3-l1-q3',
@@ -212,7 +212,7 @@ PED also has a direct relationship with a firm's total revenue. When demand is e
         explanation:
           'With |PED| = 0.4, a 10% price rise causes only a 4% fall in quantity demanded. Revenue = Price × Quantity. The 10% gain in price outweighs the 4% loss in quantity, so total revenue increases. This is the key revenue rule for inelastic demand: raising price boosts revenue.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f3-l1-q4',
@@ -227,7 +227,7 @@ PED also has a direct relationship with a firm's total revenue. When demand is e
         correctAnswer: 0,
         explanation: '%ΔQ = (120−80)/((80+120)/2) = 40/100 = 40%. %ΔP = (15−20)/((20+15)/2) = −5/17.5 ≈ −28.6%. PED = 40%/(−28.6%) ≈ −1.4. Wait — recalculating: PED = (40/100)/(−5/17.5) = 0.4/(−0.286) ≈ −1.4. Closest answer is −1.4 (elastic). Option A (−2.0) uses a simpler but less accurate method; the correct midpoint result is approximately −1.4.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f3-l1-q5',
@@ -242,7 +242,7 @@ PED also has a direct relationship with a firm's total revenue. When demand is e
         correctAnswer: 1,
         explanation: 'Original TR = £12 × 2,400 = £28,800. New TR = £15 × 1,800 = £27,000. TR fell by £1,800. When price rises and TR falls, demand is elastic — the quantity loss outweighs the price gain. To confirm: |PED| = [(600/2100)÷(3/13.5)] = (0.286/0.222) ≈ 1.3 > 1. Elastic demand confirmed.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f3-l1-q6',
@@ -257,7 +257,7 @@ PED also has a direct relationship with a firm's total revenue. When demand is e
         correctAnswer: 0,
         explanation: 'Perfectly elastic demand means consumers are infinitely sensitive to price. At the going price they demand as much as available; the slightest price rise causes them to stop buying entirely (switching to perfect substitutes). A vertical curve represents perfectly inelastic demand (PED = 0); unit elastic means |PED| = 1; and goods with no close substitutes tend to be inelastic, not elastic.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f3-l1-q7',
@@ -272,7 +272,7 @@ PED also has a direct relationship with a firm's total revenue. When demand is e
         correctAnswer: 2,
         explanation: 'Along a straight-line demand curve, the upper portion (high price, low quantity) is elastic and the lower portion (low price, high quantity) is inelastic. At £50 the good is near the top of its demand curve — a given price change is a smaller percentage of a high price but hits a range where quantity is lower, making proportional quantity responses large. Good B at £50 is in the elastic portion; Good A at £2 is likely in the inelastic portion.',
         marks: 2,
-        difficulty: 'standard',
+        difficulty: 'higher',
       },
       {
         id: 'f3-l1-q8',
@@ -287,7 +287,7 @@ PED also has a direct relationship with a firm's total revenue. When demand is e
         correctAnswer: 1,
         explanation: 'When demand is inelastic, consumers are relatively unresponsive to price changes. A tax raises the price, but the quantity traded falls only slightly — so the government collects significant revenue (tax × quantity) with minimal deadweight loss (lost trades). This is why governments typically impose excise taxes on cigarettes, alcohol, and fuel — all goods with inelastic demand.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f3-l1-q9',
@@ -302,7 +302,7 @@ PED also has a direct relationship with a firm's total revenue. When demand is e
         correctAnswer: 1,
         explanation: 'With |PED| = 3.0, demand is highly elastic. A price cut causes a proportionally larger quantity increase (3 times larger in percentage terms). For elastic demand: price ↓ → TR rises. The firm should cut prices to grow its subscriber base and increase total revenue. Software often has many alternatives (competing platforms, open-source options), which is consistent with elastic demand.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f3-l1-q10',
@@ -317,7 +317,7 @@ PED also has a direct relationship with a firm's total revenue. When demand is e
         correctAnswer: 1,
         explanation: 'Slope measures the absolute change in Q per unit change in P (constant along a straight line). Elasticity measures proportional changes. Along a straight-line demand curve, the slope is constant but PED varies: elastic at the top (high price, low Q), inelastic at the bottom (low price, high Q), and unit elastic at the midpoint. A flatter curve signals more elastic demand, but it is not perfectly inelastic — that would require a vertical curve.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -364,7 +364,7 @@ PED also has a direct relationship with a firm's total revenue. When demand is e
           correctAnswer: 1,
           explanation: 'With |PED| = 0.3, a 10% price rise causes only a 3% fall in quantity demanded. Revenue = Price × Quantity. The 10% gain in price outweighs the 3% loss in quantity, so total revenue rises. This is the key revenue rule for inelastic demand.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
         {
           id: 'f3-l2-recall-2',
@@ -379,7 +379,7 @@ PED also has a direct relationship with a firm's total revenue. When demand is e
           correctAnswer: 0,
           explanation: '% change in Q = (60−100)/((100+60)/2) = −40/80 = −50%. % change in P = (12−8)/((8+12)/2) = 4/10 = 40%. PED = −50%/40% = −1.25, rounded to −1.3. Since |PED| > 1, demand is elastic.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
       ],
 
@@ -512,7 +512,7 @@ Government and business strategists use PED knowledge for very different reasons
         explanation:
           'Elastic demand is associated with luxuries (consumers can forgo them), many close substitutes (easy to switch), and a high income share (strong motivation to find alternatives). The other options describe inelastic demand characteristics.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f3-l2-q2',
@@ -529,7 +529,7 @@ Government and business strategists use PED knowledge for very different reasons
         explanation:
           'A 15% price rise causing only a 6% fall in quantity gives |PED| = 0.4 — inelastic. This fits cigarettes perfectly: they are habit-forming, have few close substitutes, and are perceived as necessities by addicted consumers. The other options mischaracterise cigarettes or confuse short- and long-run elasticity.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f3-l2-q3',
@@ -546,7 +546,7 @@ Government and business strategists use PED knowledge for very different reasons
         explanation:
           'The time horizon is the key determinant here. Short-run demand for electricity is very inelastic because consumers cannot immediately change appliances or install renewables. Over years, they can adapt — making long-run demand significantly more elastic. Long-run elasticity is almost always higher (in absolute value) than short-run elasticity, not lower.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f3-l2-q4',
@@ -561,7 +561,7 @@ Government and business strategists use PED knowledge for very different reasons
         correctAnswer: 1,
         explanation: 'Good X (life-saving medication) has a PED closer to zero because: it is an absolute necessity (no lifestyle choice), it has no substitutes (patients cannot simply switch), and the income proportion is irrelevant to survival decisions. Good Y (branded sparkling water) may be inelastic due to habit/loyalty, but alternatives exist (other brands, tap water) — so its PED, while inelastic, is less extreme than a life-saving drug.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f3-l2-q5',
@@ -576,7 +576,7 @@ Government and business strategists use PED knowledge for very different reasons
         correctAnswer: 1,
         explanation: 'This is a classic illustration of time as a PED determinant. Short-run |PED| = 4/20 = 0.2 (inelastic) — consumers cannot immediately change habits or appliances. Long-run |PED| = 22/20 = 1.1 (elastic) — given years to adapt, they invest in energy efficiency, change behaviour, and seek alternatives. Time consistently makes demand more elastic because it expands the range of consumer adjustments available.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f3-l2-q6',
@@ -591,7 +591,7 @@ Government and business strategists use PED knowledge for very different reasons
         correctAnswer: 1,
         explanation: 'Premium single-origin coffee is a discretionary luxury purchase with many substitutes (standard coffee, other cafés, home brewing, instant coffee). Consumers can easily switch. Standard house coffee is more of a daily habit/necessity for regular customers — fewer immediate alternatives and stronger habit formation make it more inelastic. The key PED determinant here is the availability of substitutes combined with necessity vs luxury status.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f3-l2-q7',
@@ -606,7 +606,7 @@ Government and business strategists use PED knowledge for very different reasons
         correctAnswer: 1,
         explanation: 'When a good takes up a tiny share of the budget, even a 50% price rise adds only pennies to total spending. Consumers have little incentive to invest time and effort in finding substitutes for such a trivial cost increase. This makes demand inelastic. Contrast with rent or mortgage payments (large budget share): a 20% rise has a huge impact on household finances, strongly motivating consumers to search for alternatives.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f3-l2-q8',
@@ -621,7 +621,7 @@ Government and business strategists use PED knowledge for very different reasons
         correctAnswer: 1,
         explanation: 'Tax efficiency (revenue per unit of deadweight loss) is maximised when demand is inelastic. An inelastic-demand good sees little quantity reduction when taxed — revenue is high and DWL is small. A tax on elastic-demand goods (like fresh fruit with many substitutes) causes large quantity reductions, significant DWL, and relatively little revenue. Cigarettes\' inelasticity (due to addiction and few substitutes) makes them ideal revenue targets, though the equity implications (regressive burden) are a legitimate concern.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f3-l2-q9',
@@ -636,7 +636,7 @@ Government and business strategists use PED knowledge for very different reasons
         correctAnswer: 1,
         explanation: 'The student confuses short-run rigidity with perfectly inelastic demand. While petrol demand is indeed inelastic in the short run (people have fixed commuting habits and vehicles), it is far from perfectly inelastic. Long-run evidence shows consumers do reduce petrol consumption when prices stay high — by buying EVs, moving, carpooling, or working from home. Perfectly inelastic demand (PED = 0) means absolutely zero response to any price change, which is never observed in practice.',
         marks: 2,
-        difficulty: 'standard',
+        difficulty: 'higher',
       },
       {
         id: 'f3-l2-q10',
@@ -651,7 +651,7 @@ Government and business strategists use PED knowledge for very different reasons
         correctAnswer: 1,
         explanation: 'When close substitutes exist (rival airlines, high-speed rail), demand for any individual airline\'s route is elastic. A price rise would cause a large proportional fall in bookings as passengers switch. The correct strategy with elastic demand is competitive pricing — staying price-competitive prevents customer loss. Note that option C (price discrimination) is also something airlines practice, but the primary strategy question asks about the general pricing approach driven by the competitive market structure.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
     ],
     lessonAssignment: {
@@ -698,7 +698,7 @@ Government and business strategists use PED knowledge for very different reasons
           correctAnswer: 1,
           explanation: 'Elastic demand is driven by: many close substitutes (easy to switch), luxury status (consumers can forgo it), large income share (strong motivation to find alternatives), and a long time horizon. A good possessing all three of the first factors will have high |PED|.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -831,7 +831,7 @@ XED is vital for understanding market structure and competitive strategy. A high
         explanation:
           'YED = (−3%) ÷ (5%) = −0.6. The negative sign confirms that demand falls as income rises — the definition of an inferior good. Consumers trade up to branded or fresher alternatives when they can afford to.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f3-l3-q2',
@@ -848,7 +848,7 @@ XED is vital for understanding market structure and competitive strategy. A high
         explanation:
           'When the price of coffee rises, consumers switch to tea — quantity demanded of tea increases. A rise in the price of one good leading to a rise in demand for another good gives a positive XED. Positive XED = substitutes. Complements would show a negative XED (demand for tea would fall if the price of coffee rose).',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f3-l3-q3',
@@ -865,7 +865,7 @@ XED is vital for understanding market structure and competitive strategy. A high
         explanation:
           'A negative XED of −3.0 means the goods are strong complements. If the device price rises, device sales fall — and demand for the drug drops by three times as much proportionally. To maximise drug revenue (the high-margin product), the company should keep device prices low, or even subsidise devices, to maximise the installed user base. This is the classic "razor and blades" or "printer and ink" business model.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f3-l3-q4',
@@ -880,7 +880,7 @@ XED is vital for understanding market structure and competitive strategy. A high
         correctAnswer: 1,
         explanation: 'YED = (−8%)/(+5%) = −1.6. The negative sign confirms this is an inferior good — as incomes rise, demand falls because consumers switch to fresher, better-quality alternatives. The magnitude of 1.6 means demand falls by 1.6% for every 1% income rise, suggesting consumers are quick to trade up when they can afford to.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f3-l3-q5',
@@ -895,7 +895,7 @@ XED is vital for understanding market structure and competitive strategy. A high
         correctAnswer: 0,
         explanation: 'YED = percentage change in demand / percentage change in income. Rearranging: percentage change in demand = YED × percentage change in income = +2.8 × (−4%) = −11.2%. Luxury goods with high YED are extremely sensitive to income changes — a moderate recession causes a large proportional fall in demand. This explains why luxury car sales are highly cyclical.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f3-l3-q6',
@@ -910,7 +910,7 @@ XED is vital for understanding market structure and competitive strategy. A high
         correctAnswer: 1,
         explanation: 'XED = +0.9 means trains and flights are substitutes (positive XED). %ΔQ flights = XED × %ΔP trains = +0.9 × 20% = +18%. When train fares rise, some passengers switch to flying — demand for flights increases by approximately 18%. The magnitude 0.9 < 1 means they are moderate substitutes, not perfect ones — some rail-specific travellers stay on trains regardless.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f3-l3-q7',
@@ -925,7 +925,7 @@ XED is vital for understanding market structure and competitive strategy. A high
         correctAnswer: 2,
         explanation: 'YED determines how much demand responds to income changes. Tax cuts raise disposable income. The largest demand boost goes to goods with the highest positive YED. Overseas holidays (YED = +2.5) sees a 2.5% demand rise for every 1% income increase — by far the largest multiplier. Basic staples (YED = +0.1) barely respond. Bus travel may actually fall if it is an inferior good (negative YED). Prescription medications are income-insensitive.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f3-l3-q8',
@@ -940,7 +940,7 @@ XED is vital for understanding market structure and competitive strategy. A high
         correctAnswer: 0,
         explanation: 'Complements are goods consumed together (e.g., cars and fuel, printers and ink). When the price of cars rises, fewer cars are sold. Since fuel is used in cars, demand for fuel also falls — the cross-price elasticity (change in fuel demand ÷ change in car price) is negative. The joint consumption relationship means demand for one always moves in the opposite direction to the price of the other.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f3-l3-q9',
@@ -955,7 +955,7 @@ XED is vital for understanding market structure and competitive strategy. A high
         correctAnswer: 1,
         explanation: 'XED = −1.8 indicates strong complements: when the price of streaming rises, demand for the news site also falls significantly, and vice versa. Consumers use them together. By bundling, the company leverages this complementary usage pattern — subscribers who value both services are locked in and less likely to churn. The bundle price can be lower than buying separately, yet total revenue can be higher because it reduces cancellations of either service.',
         marks: 2,
-        difficulty: 'standard',
+        difficulty: 'higher',
       },
       {
         id: 'f3-l3-q10',
@@ -970,7 +970,7 @@ XED is vital for understanding market structure and competitive strategy. A high
         correctAnswer: 1,
         explanation: 'YED data tells policymakers how sensitive an industry\'s demand is to income changes. If an industry produces goods with high YED (e.g., leisure and tourism, YED > 2), stimulus via income support will significantly boost their demand. If goods are inferior (negative YED), income increases would actually reduce demand — making income-based stimulus counterproductive for that industry. Governments use this to target fiscal interventions effectively.',
         marks: 1,
-        difficulty: 'standard',
+        difficulty: 'easy',
       },
     ],
     lessonAssignment: {
@@ -1018,7 +1018,7 @@ XED is vital for understanding market structure and competitive strategy. A high
           correctAnswer: 1,
           explanation: 'YED = (−4%) ÷ (8%) = −0.5. The negative sign indicates that demand falls when income rises — the definition of an inferior good. Consumers switch to preferred alternatives as their purchasing power grows.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'standard' as const,
         },
         {
           id: 'f3-l4-recall-2',
@@ -1033,7 +1033,7 @@ XED is vital for understanding market structure and competitive strategy. A high
           correctAnswer: 1,
           explanation: 'A negative XED means the goods are complements: when the price of B rises, demand for A falls (because consumers buy less of B and hence less of A as well). A magnitude of 2.4 indicates a strong complementary relationship.',
           marks: 1,
-          difficulty: 'foundation' as const,
+          difficulty: 'easy' as const,
         },
       ],
 
@@ -1166,7 +1166,7 @@ Property markets illustrate inelastic supply dramatically. Land in desirable cit
         explanation:
           'PES = 18% ÷ 10% = 1.8. Since PES > 1, supply is elastic. This makes sense: the factory had significant spare capacity (35% idle), allowing it to expand output quickly without needing new investment. Spare capacity is a classic reason for elastic supply.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f3-l4-q2',
@@ -1183,7 +1183,7 @@ Property markets illustrate inelastic supply dramatically. Land in desirable cit
         explanation:
           'Beachfront land is location-specific and cannot be created — supply is essentially fixed (PES ≈ 0). Mass-produced plastic bottles, memory chips, and wheat can all be expanded relatively quickly by increasing inputs, bringing on more capacity, or new firms entering. These have much more elastic supply.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f3-l4-q3',
@@ -1200,7 +1200,7 @@ Property markets illustrate inelastic supply dramatically. Land in desirable cit
         explanation:
           'The key is inelastic supply. Fresh strawberries are perishable (cannot be stored), and replanting takes months. A supply shock — the frost — cannot be quickly offset by extra production. With inelastic supply and unchanged demand, even a modest supply reduction causes a large price increase. The demand curve does not shift; the supply curve shifts left.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f3-l4-q4',
@@ -1215,7 +1215,7 @@ Property markets illustrate inelastic supply dramatically. Land in desirable cit
         correctAnswer: 1,
         explanation: 'Aged whisky is an extreme example of time-constrained supply. Regardless of today\'s price signal, the quantity of 12-year-old whisky available was fixed at the distilling decisions made 12 years ago. No amount of price incentive can conjure more aged stock in the short run. This makes supply essentially perfectly inelastic in the very short run — a vertical supply curve for today\'s vintage. Only after 12 years of increased production does supply respond to today\'s price signal.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f3-l4-q5',
@@ -1230,7 +1230,7 @@ Property markets illustrate inelastic supply dramatically. Land in desirable cit
         correctAnswer: 1,
         explanation: 'Storability and inventory act as a supply buffer. When demand rises, a retailer with excess inventory can respond immediately by releasing stock to the market — without waiting for new production. This makes supply more elastic in the short run. Storability is a recognised PES determinant: goods that can be stored (and inventoried) have more elastic supply than perishable goods that cannot be held for future sale.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f3-l4-q6',
@@ -1245,7 +1245,7 @@ Property markets illustrate inelastic supply dramatically. Land in desirable cit
         correctAnswer: 2,
         explanation: 'Mass-produced t-shirts have elastic supply because: factories have significant spare capacity (can add shifts), inputs are widely available and mobile (fabric, thread, simple machinery), production time is short (days, not years), and many substitute manufacturers can enter the market quickly. The other options all face specific supply constraints: seasonal/quota limits (fishing), specialist labour and long production times (yachts), and fixed regional resources with long ageing requirements (Bordeaux wine).',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f3-l4-q7',
@@ -1260,7 +1260,7 @@ Property markets illustrate inelastic supply dramatically. Land in desirable cit
         correctAnswer: 0,
         explanation: 'Short-run PES = 6%/15% = 0.4 (inelastic) — skilled programmers cannot be created overnight; training takes years. Long-run PES = 20%/15% ≈ 1.3 (elastic) — given five years, more people have trained as programmers, universities expanded CS enrolment, career-switchers retrained, and immigration increased. This illustrates that factor mobility increases over time, making labour supply more elastic in the long run.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f3-l4-q8',
@@ -1275,7 +1275,7 @@ Property markets illustrate inelastic supply dramatically. Land in desirable cit
         correctAnswer: 1,
         explanation: 'Perfectly elastic supply means producers will supply any quantity at one specific price — represented by a horizontal supply curve. If the price drops even slightly below this level, supply falls to zero (unprofitable). If price rises above it, supply expands infinitely. This applies to industries with constant returns to scale and unlimited available inputs (e.g., a small firm that can buy any quantity of inputs at market prices). A vertical supply curve is perfectly inelastic (PES = 0).',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f3-l4-q9',
@@ -1290,7 +1290,7 @@ Property markets illustrate inelastic supply dramatically. Land in desirable cit
         correctAnswer: 1,
         explanation: 'City-centre apartment supply faces multiple inelastic constraints: land scarcity (location-specific), planning permission (regulatory delay of 2-5+ years), construction time (12-24 months per development), and specialist labour requirements. These factors mean PES is very low — the supply curve is steep. Even large price rises cause only modest quantity increases over many years. This is why housing in desirable city centres remains permanently expensive despite strong demand.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f3-l4-q10',
@@ -1305,7 +1305,7 @@ Property markets illustrate inelastic supply dramatically. Land in desirable cit
         correctAnswer: 0,
         explanation: 'With inelastic supply (Country A, PES = 0.1), a crop failure means available wheat cannot be quickly substituted from other sources — the supply shock hits price hard. With elastic supply (Country B, PES = 1.5), large grain reserves and diverse production allow quantity to adjust, cushioning the price impact. Inelastic supply amplifies price volatility from supply shocks. This is why countries with strategic food reserves (elastic supply capability) experience less food price volatility after harvest failures.',
         marks: 2,
-        difficulty: 'standard',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
@@ -1465,7 +1465,7 @@ Tax incidence analysis has important equity implications. Most necessities — f
         explanation:
           'Consumer burden = new consumer price − original price = $11.50 − $10 = $1.50. Producer burden = original price − new producer price = $10 − $8.50 = $1.50. Wait — those are equal in this example, so it is actually 50/50. Let\'s recheck: consumer burden $1.50, producer burden $1.50, total = $3 — but the tax is $2. The correct reading: consumer burden = $1.50, which is 75% of $2. Producer burden = $0.50, which is 25% of $2. So the consumer price rose to $11.50 (up $1.50) and the producer price fell to $9.50 (down $0.50). Consumer bears 75%.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f3-l5-q2',
@@ -1482,7 +1482,7 @@ Tax incidence analysis has important equity implications. Most necessities — f
         explanation:
           'With inelastic demand, consumers cannot easily reduce their cigarette consumption or find substitutes, so producers can pass on most of the tax as a price rise. With relatively elastic supply, producers can more easily adjust by reducing output rather than absorbing the tax. The combination means consumers bear most of the burden. The legal payer of the tax is irrelevant to economic incidence.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f3-l5-q3',
@@ -1499,7 +1499,7 @@ Tax incidence analysis has important equity implications. Most necessities — f
         explanation:
           'Tax incidence is determined by elasticities, not by legal structure. Because petrol demand is inelastic, consumers have few alternatives and cannot easily reduce purchases. Firms therefore can raise prices to shift most of the tax burden onto consumers, regardless of whether the tax is nominally levied on firms or consumers. The economist is right: changing who "legally" pays does not change who economically bears the burden when elasticities are unequal.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'higher',
       },
       {
         id: 'f3-l5-q4',
@@ -1514,7 +1514,7 @@ Tax incidence analysis has important equity implications. Most necessities — f
         correctAnswer: 0,
         explanation: 'Consumer burden = new price − original price = £12 − £10 = £2. This is 2/3 of the £3 total tax = 66.7%. The remaining £1 (33.3%) is the producer burden: the producer now receives £12 − £3 tax = £9 net, compared to the original £10 — a fall of £1. Consumer bears more because demand is more inelastic than supply in this market.',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'standard',
       },
       {
         id: 'f3-l5-q5',
@@ -1529,7 +1529,7 @@ Tax incidence analysis has important equity implications. Most necessities — f
         correctAnswer: 1,
         explanation: 'With perfectly inelastic supply, producers supply the same quantity regardless of the net price they receive. They cannot reduce production to force a price rise. Therefore, the full tax wedge falls on the producer as a reduction in the price they keep — consumers pay the same price as before. Examples: a tax on historic buildings (fixed supply of listed properties) or a windfall tax on existing oil wells (which cannot be undrilled).',
         marks: 1,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f3-l5-q6',
@@ -1559,7 +1559,7 @@ Tax incidence analysis has important equity implications. Most necessities — f
         correctAnswer: 1,
         explanation: 'A tax is regressive when it takes a larger percentage of income from lower-income households than from higher-income ones. Basic food has inelastic demand (necessity, few substitutes), so most of a sales tax is passed to consumers as higher prices. Low-income households typically spend 15-25% of income on food; high-income households spend 5-10%. The same tax amounts to a much larger income share for the poor, making it regressive even though the tax rate is identical.',
         marks: 2,
-        difficulty: 'foundation',
+        difficulty: 'easy',
       },
       {
         id: 'f3-l5-q8',
@@ -1574,7 +1574,7 @@ Tax incidence analysis has important equity implications. Most necessities — f
         correctAnswer: 1,
         explanation: 'With elastic demand, consumers are highly price-sensitive. If the final price rises by the full tax amount, many consumers exit the market. Producers, facing a large quantity fall, must lower their supply price significantly to keep enough sales. This means producers absorb a large share of the burden even though the tax is nominally on consumers. As always, legal incidence is irrelevant — economic incidence goes to the inelastic side.',
         marks: 2,
-        difficulty: 'standard',
+        difficulty: 'higher',
       },
       {
         id: 'f3-l5-q9',
@@ -1589,7 +1589,7 @@ Tax incidence analysis has important equity implications. Most necessities — f
         correctAnswer: 0,
         explanation: 'A Pigouvian tax corrects a negative externality by adding the external cost to the private price, bringing consumption to the social optimum. Sugar consumption imposes costs on public health systems (a negative externality). The tax raises the effective price consumers face, reducing over-consumption. Because demand for sugary drinks is partially inelastic (habitual consumption), the tax also raises revenue. Both goals can be achieved simultaneously — though if demand becomes more elastic as consumers switch, the revenue benefit diminishes while the health benefit grows.',
         marks: 2,
-        difficulty: 'standard',
+        difficulty: 'higher',
       },
       {
         id: 'f3-l5-q10',
@@ -1604,7 +1604,7 @@ Tax incidence analysis has important equity implications. Most necessities — f
         correctAnswer: 1,
         explanation: 'When demand is elastic relative to supply (|PED| = 3.5 vs inelastic supply), the elastic side (consumers) can escape the tax by reducing purchases, while the inelastic side (producers) cannot easily reduce supply. Producers end up absorbing most of the tax as a lower net price. Additionally, with elastic demand, the quantity fall is large — many trades are lost, creating significant deadweight loss. This is the opposite outcome from taxing inelastic-demand goods.',
         marks: 2,
-        difficulty: 'standard',
+        difficulty: 'higher',
       },
     ],
     lessonAssignment: {
