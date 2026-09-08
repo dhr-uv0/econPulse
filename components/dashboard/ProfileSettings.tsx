@@ -55,17 +55,21 @@ export function ProfileSettings({ profile, optIn, user }: Props) {
       })
       .eq('id', user.id)
 
+    let leaderboardError: string | null = null
     if (leaderboard.opted_in && trimmedDisplayName) {
-      await supabase.from('leaderboard_opt_ins').upsert(
+      const { error: optInError } = await supabase.from('leaderboard_opt_ins').upsert(
         { user_id: user.id, display_name: trimmedDisplayName, opted_in: leaderboard.opted_in },
         { onConflict: 'user_id' }
       )
+      leaderboardError = optInError?.message ?? null
     } else if (!leaderboard.opted_in) {
-      await supabase.from('leaderboard_opt_ins').update({ opted_in: false }).eq('user_id', user.id)
+      const { error: optOutError } = await supabase.from('leaderboard_opt_ins').update({ opted_in: false }).eq('user_id', user.id)
+      leaderboardError = optOutError?.message ?? null
     }
 
     setSaving(false)
     if (error) toast.error('Save failed', error.message)
+    else if (leaderboardError) toast.error('Profile saved, but leaderboard setting failed', leaderboardError)
     else toast.success('Profile updated!')
   }
 

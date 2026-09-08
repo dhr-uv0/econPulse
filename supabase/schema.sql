@@ -119,6 +119,26 @@ create table if not exists public.leaderboard_opt_ins (
 -- Row Level Security Policies
 -- ============================================================
 
+-- Role-check helper: SECURITY DEFINER so this internal query against
+-- profiles runs as the function owner (which bypasses RLS) instead of as
+-- the calling user. Do NOT inline `exists (select ... from profiles ...)`
+-- directly into a policy ON profiles itself -- that re-triggers profiles'
+-- own RLS policies, including the one being evaluated, causing Postgres
+-- to reject the query with "infinite recursion detected in policy for
+-- relation 'profiles'". See supabase/migrations/20260907_fix_profiles_rls_recursion.sql.
+create or replace function public.is_teacher_or_admin()
+returns boolean
+language sql
+security definer
+set search_path = public, pg_temp
+stable
+as $$
+  select exists (
+    select 1 from public.profiles
+    where id = auth.uid() and role in ('teacher', 'admin')
+  );
+$$;
+
 -- Profiles
 alter table public.profiles enable row level security;
 create policy "Users can view own profile"   on public.profiles for select using (auth.uid() = id);
@@ -127,12 +147,7 @@ create policy "Users can insert own profile" on public.profiles for insert with 
 -- Teachers can view all profiles (for class view)
 create policy "Teachers can view all profiles"
   on public.profiles for select
-  using (
-    exists (
-      select 1 from public.profiles p
-      where p.id = auth.uid() and p.role in ('teacher','admin')
-    )
-  );
+  using (public.is_teacher_or_admin());
 
 -- Curriculum Progress
 alter table public.curriculum_progress enable row level security;
@@ -140,9 +155,7 @@ create policy "Users can manage own progress"
   on public.curriculum_progress for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
 create policy "Teachers can view all progress"
   on public.curriculum_progress for select
-  using (
-    exists (select 1 from public.profiles p where p.id = auth.uid() and p.role in ('teacher','admin'))
-  );
+  using (public.is_teacher_or_admin());
 
 -- Quiz Results
 alter table public.quiz_results enable row level security;
@@ -150,9 +163,7 @@ create policy "Users can manage own quiz results"
   on public.quiz_results for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
 create policy "Teachers can view all quiz results"
   on public.quiz_results for select
-  using (
-    exists (select 1 from public.profiles p where p.id = auth.uid() and p.role in ('teacher','admin'))
-  );
+  using (public.is_teacher_or_admin());
 
 -- Flashcard Reviews
 alter table public.flashcard_reviews enable row level security;
@@ -165,14 +176,10 @@ create policy "Users can manage own assignments"
   on public.assignments for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
 create policy "Teachers can view and comment on all assignments"
   on public.assignments for select
-  using (
-    exists (select 1 from public.profiles p where p.id = auth.uid() and p.role in ('teacher','admin'))
-  );
+  using (public.is_teacher_or_admin());
 create policy "Teachers can update assignment feedback"
   on public.assignments for update
-  using (
-    exists (select 1 from public.profiles p where p.id = auth.uid() and p.role in ('teacher','admin'))
-  );
+  using (public.is_teacher_or_admin());
 
 -- Bookmarks
 alter table public.bookmarks enable row level security;
