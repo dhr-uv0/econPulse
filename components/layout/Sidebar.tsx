@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils'
 import {
   LayoutDashboard, BookOpen, Zap, ClipboardList, BarChart3,
   TrendingUp, User as UserIcon, Users, ChevronLeft, ChevronRight,
-  Trophy, ListChecks,
+  Trophy, ListChecks, Shield,
 } from 'lucide-react'
 
 const NAV_ITEMS = [
@@ -32,6 +32,7 @@ export function Sidebar({ profile, user }: Props) {
   const { sidebarCollapsed, setSidebarCollapsed, mobileSidebarOpen, setMobileSidebarOpen } = useAppStore()
 
   const isTeacher = profile?.role === 'teacher' || profile?.role === 'admin'
+  const isAdmin = profile?.role === 'admin'
 
   return (
     <>
@@ -127,6 +128,37 @@ export function Sidebar({ profile, user }: Props) {
                   >
                     <Users className="h-4.5 w-4.5 shrink-0" />
                     {!sidebarCollapsed && <span>Teacher View</span>}
+                  </Link>
+                </li>
+              </>
+            )}
+
+            {/* Admin section */}
+            {isAdmin && (
+              <>
+                <li className={cn(
+                  'pt-4 pb-1',
+                  sidebarCollapsed ? 'lg:hidden' : ''
+                )}>
+                  <div className="px-3 text-[10px] font-semibold uppercase tracking-widest text-[var(--muted-fg)]">
+                    Admin
+                  </div>
+                </li>
+                <li>
+                  <Link
+                    href="/admin"
+                    onClick={() => setMobileSidebarOpen(false)}
+                    className={cn(
+                      'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all',
+                      pathname.startsWith('/admin')
+                        ? 'bg-[var(--accent)]/15 text-[var(--accent)] font-semibold'
+                        : 'text-[var(--muted-fg)] hover:bg-[var(--muted)] hover:text-[var(--fg)]',
+                      sidebarCollapsed && 'lg:justify-center lg:px-2'
+                    )}
+                    title={sidebarCollapsed ? 'Admin' : undefined}
+                  >
+                    <Shield className="h-4.5 w-4.5 shrink-0" />
+                    {!sidebarCollapsed && <span>Admin</span>}
                   </Link>
                 </li>
               </>

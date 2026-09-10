@@ -25,9 +25,9 @@ All EconPulse tables live in the `econpulse` schema:
 - `econpulse.streaks` — study streak tracking
 - `econpulse.leaderboard_opt_ins` — opt-in leaderboard display names
 
-Views (with `security_invoker = true` to respect RLS):
-- `econpulse.leaderboard` — ranked users by XP
-- `econpulse.topic_performance` — quiz performance per user/unit
+Views:
+- `econpulse.leaderboard` — ranked users by XP, streak, and display name for opted-in users only. **Not** `security_invoker` — it must run with the view owner's privileges (the Postgres default for a plain `create view`) so it can read every opted-in user's `xp_points` regardless of the caller's own row-level visibility into `profiles` (a student's only SELECT policy on `profiles` is their own row). `security_invoker = true` was tried here and is wrong for this view specifically: it makes the view inherit the caller's RLS, so it silently returns nothing but the caller's own row — see `supabase/migrations/20260909_fix_leaderboard_visibility.sql`, which is the actual current definition. The view exposes only `user_id`/`display_name`/`xp_points`/`current_streak`, never the rest of `profiles`, which is what keeps this safe.
+- `econpulse.topic_performance` — quiz performance per user/unit (not currently queried anywhere in the app code; unverified whether `security_invoker` is correct for it — that depends on whether it's meant to show only the caller's own performance, in which case `security_invoker = true` would actually be right, unlike `leaderboard`)
 
 Functions:
 - `econpulse.add_xp(user_id, amount)` — atomically adds XP + updates streak

@@ -15,21 +15,16 @@ export default async function Leaderboard() {
     { data: myProfile },
     { data: myStreak },
   ] = await Promise.all([
-    supabase
-      .from('leaderboard_opt_ins')
-      .select(`
-        user_id,
-        display_name,
-        opted_in,
-        profiles!inner(xp_points),
-        streaks!inner(current_streak)
-      `)
-      .eq('opted_in', true)
-      .order('profiles(xp_points)', { ascending: false })
-      .limit(50),
-    supabase.from('leaderboard_opt_ins').select('*').eq('user_id', user.id).single(),
-    supabase.from('profiles').select('xp_points, full_name').eq('id', user.id).single(),
-    supabase.from('streaks').select('current_streak').eq('user_id', user.id).single(),
+    // Queries the econpulse.leaderboard view rather than joining
+    // leaderboard_opt_ins -> profiles/streaks directly: profiles' RLS only
+    // lets a user see their own row, so a direct join would silently drop
+    // every other opted-in student. The view runs with its owner's
+    // privileges and exposes only display_name/xp_points/current_streak,
+    // sidestepping that without widening profiles' own RLS.
+    supabase.from('leaderboard').select('*'),
+    supabase.from('leaderboard_opt_ins').select('*').eq('user_id', user.id).maybeSingle(),
+    supabase.from('profiles').select('xp_points, full_name').eq('id', user.id).maybeSingle(),
+    supabase.from('streaks').select('current_streak').eq('user_id', user.id).maybeSingle(),
   ])
 
   return (

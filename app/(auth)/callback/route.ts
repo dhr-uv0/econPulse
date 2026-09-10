@@ -26,16 +26,20 @@ export async function GET(request: Request) {
           user.user_metadata?.full_name ||
           user.user_metadata?.name ||
           user.email?.split('@')[0] ||
-          null
+          'Student'
 
         const avatarUrl =
           user.user_metadata?.avatar_url ||
           user.user_metadata?.picture ||
           null
 
-        await supabase.from('profiles').insert({
+        const { error: profileError } = await supabase.from('profiles').insert({
           id: user.id,
           full_name: fullName,
+          // `display_name` is NOT NULL on the live table but isn't part of
+          // this app's tracked schema docs/types (lib/types.ts doesn't
+          // declare it) -- without it, every signup fails this constraint.
+          display_name: fullName,
           avatar_url: avatarUrl,
           role: 'student',
           xp_points: 0,
@@ -44,13 +48,19 @@ export async function GET(request: Request) {
           dark_mode: null,
         })
 
+        if (profileError) {
+          console.error('Failed to create profile on signup:', profileError.message)
+          return NextResponse.redirect(`${origin}/login?error=profile_creation_failed`)
+        }
+
         // Initialize streak record
-        await supabase.from('streaks').insert({
+        const { error: streakError } = await supabase.from('streaks').insert({
           user_id: user.id,
           current_streak: 0,
           longest_streak: 0,
           last_study_date: null,
         })
+        if (streakError) console.error('Failed to create streak record on signup:', streakError.message)
 
         // Redirect new users to learning style quiz
         return NextResponse.redirect(`${origin}/onboarding`)

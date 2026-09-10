@@ -26,6 +26,7 @@ const ERROR_MESSAGES: Record<string, string> = {
   auth_callback_failed: 'Sign-in failed during redirect. Please try again.',
   provider_not_configured: 'Google sign-in is not yet configured. Contact the site owner.',
   access_denied: 'Access was denied. Please try again.',
+  profile_creation_failed: "We couldn't set up your account. Please try signing in again.",
 }
 
 type AuthTab = 'signup' | 'signin'

@@ -11,9 +11,8 @@ import { levelFromXP, getInitials } from '@/lib/utils'
 interface LeaderEntry {
   user_id: string
   display_name: string
-  opted_in: boolean
-  profiles: { xp_points: number } | { xp_points: number }[]
-  streaks: { current_streak: number } | { current_streak: number }[]
+  xp_points: number
+  current_streak: number
 }
 
 interface Props {
@@ -35,21 +34,12 @@ type Tab = 'xp' | 'streak'
 export function LeaderboardPage({ leaders, myOptIn, myXP, myStreak, userId }: Props) {
   const [tab, setTab] = useState<Tab>('xp')
 
-  function getXP(e: LeaderEntry) {
-    const p = e.profiles
-    return Array.isArray(p) ? (p[0]?.xp_points ?? 0) : p.xp_points
-  }
-  function getStreak(e: LeaderEntry) {
-    const s = e.streaks
-    return Array.isArray(s) ? (s[0]?.current_streak ?? 0) : s.current_streak
-  }
-
   // Always keep the XP ranking around, independent of the active tab, so the
   // "Your XP" stat card doesn't show a streak-based rank when the Streak tab is active.
-  const sortedByXP = [...leaders].sort((a, b) => getXP(b) - getXP(a))
+  const sortedByXP = [...leaders].sort((a, b) => b.xp_points - a.xp_points)
   const sorted = tab === 'xp'
     ? sortedByXP
-    : [...leaders].sort((a, b) => getStreak(b) - getStreak(a))
+    : [...leaders].sort((a, b) => b.current_streak - a.current_streak)
 
   const myRankXP = myOptIn?.opted_in
     ? sortedByXP.findIndex((l) => l.user_id === userId) + 1
@@ -127,8 +117,8 @@ export function LeaderboardPage({ leaders, myOptIn, myXP, myStreak, userId }: Pr
           ) : (
             <ul className="divide-y divide-[var(--border)]">
               {sorted.map((entry, i) => {
-                const xp = getXP(entry)
-                const streak = getStreak(entry)
+                const xp = entry.xp_points
+                const streak = entry.current_streak
                 const { level, title: lvlTitle } = levelFromXP(xp)
                 const isMe = myOptIn?.opted_in && entry.user_id === userId
                 return (
