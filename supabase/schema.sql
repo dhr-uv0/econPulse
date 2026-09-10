@@ -10,6 +10,12 @@ create extension if not exists "uuid-ossp";
 create table if not exists public.profiles (
   id                      uuid references auth.users(id) on delete cascade primary key,
   full_name               text,
+  -- Live on both projects as NOT NULL, but wasn't previously written here or
+  -- set on signup (see supabase/migrations/20260909_fix_leaderboard_visibility.sql's
+  -- notes and app/(auth)/callback/route.ts) -- every real signup was failing
+  -- against this constraint until that was fixed. Keep it set alongside
+  -- full_name wherever a profile row is created.
+  display_name            text not null,
   bio                     text,
   school                  text,
   grade                   smallint check (grade between 9 and 13),
@@ -202,7 +208,13 @@ create policy "Anyone can view opted-in leaderboard entries"
 -- Helper Functions
 -- ============================================================
 
--- Add XP to a user and handle streak updates
+-- Add XP to a user and handle streak updates.
+--
+-- The streak side is an UPSERT, not a plain UPDATE: a plain UPDATE
+-- silently does nothing if the caller doesn't already have a streaks
+-- row, which happened in practice for at least one real account whose
+-- signup partially failed (see supabase/migrations/20260909_efficiency_and_robustness.sql).
+-- With the upsert, any such account self-heals the next time it earns XP.
 create or replace function public.add_xp(p_user_id uuid, p_amount integer)
 returns void
 language plpgsql
@@ -214,24 +226,23 @@ begin
       updated_at = now()
   where id = p_user_id;
 
-  -- Update streak
-  update public.streaks
-  set
+  insert into public.streaks (user_id, current_streak, longest_streak, last_study_date)
+  values (p_user_id, 1, 1, current_date)
+  on conflict (user_id) do update set
     current_streak = case
-      when last_study_date = current_date then current_streak
-      when last_study_date = current_date - interval '1 day' then current_streak + 1
+      when public.streaks.last_study_date = current_date then public.streaks.current_streak
+      when public.streaks.last_study_date = current_date - interval '1 day' then public.streaks.current_streak + 1
       else 1
     end,
     longest_streak = greatest(
-      longest_streak,
+      public.streaks.longest_streak,
       case
-        when last_study_date = current_date then current_streak
-        when last_study_date = current_date - interval '1 day' then current_streak + 1
+        when public.streaks.last_study_date = current_date then public.streaks.current_streak
+        when public.streaks.last_study_date = current_date - interval '1 day' then public.streaks.current_streak + 1
         else 1
       end
     ),
-    last_study_date = current_date
-  where user_id = p_user_id;
+    last_study_date = current_date;
 end;
 $$;
 
@@ -253,7 +264,16 @@ create or replace view public.leaderboard as
 -- Indexes for performance
 -- ============================================================
 create index if not exists idx_curriculum_progress_user on public.curriculum_progress(user_id);
+create index if not exists idx_curriculum_progress_user_status on public.curriculum_progress(user_id, status);
 create index if not exists idx_quiz_results_user on public.quiz_results(user_id);
+create index if not exists idx_quiz_results_user_completed on public.quiz_results(user_id, completed_at desc);
 create index if not exists idx_flashcard_reviews_user_next on public.flashcard_reviews(user_id, next_review_at);
 create index if not exists idx_assignments_user on public.assignments(user_id);
+create index if not exists idx_assignments_submitted_at on public.assignments(submitted_at) where submitted_at is not null;
 create index if not exists idx_streaks_user on public.streaks(user_id);
+-- Partial indexes: only the minority-case rows matter to these lookups
+-- (role checks care about staff, not the majority of students; the
+-- leaderboard view only ever filters opted_in = true), so indexing just
+-- those keeps the index small and fast regardless of total user count.
+create index if not exists idx_profiles_role_staff on public.profiles(role) where role in ('teacher', 'admin');
+create index if not exists idx_leaderboard_opt_ins_opted_in on public.leaderboard_opt_ins(opted_in) where opted_in = true;
