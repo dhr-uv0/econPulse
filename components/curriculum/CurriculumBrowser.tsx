@@ -244,7 +244,7 @@ function ModuleGrid({
               )}
 
               {hasLessons && (
-                <Link href={next ? `/curriculum/${mod.id}/${next.id}` : `/curriculum/${mod.id}`}>
+                <Link href={`/curriculum/${mod.id}/${(next ?? mod.lessons[0]).id}`}>
                   <Button
                     variant={pct === 0 ? 'default' : 'outline'}
                     size="sm"

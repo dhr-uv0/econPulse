@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Check, X, Trophy, RotateCcw, ChevronRight } from 'lucide-react'
 import { Confetti } from '@/components/ui/confetti'
+import { toast } from '@/lib/hooks/useToast'
 
 interface Props {
   questions: QuizQuestion[]
@@ -102,7 +103,7 @@ export function LessonQuiz({ questions, moduleId, userId, alreadyPassed, onPass,
     const pass = finalScore / prepared.length >= 0.8
     setQuizDone(true)
 
-    await supabase.from('quiz_results').insert({
+    const { error } = await supabase.from('quiz_results').insert({
       user_id: userId,
       unit_id: moduleId,
       score: finalScore,
@@ -111,6 +112,11 @@ export function LessonQuiz({ questions, moduleId, userId, alreadyPassed, onPass,
       answers: { answers },
       completed_at: new Date().toISOString(),
     })
+
+    if (error) {
+      toast.error('Could not save quiz result', error.message)
+      return
+    }
 
     if (pass && !alreadyPassed) {
       onPass()

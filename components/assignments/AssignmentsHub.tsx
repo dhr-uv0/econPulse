@@ -327,7 +327,7 @@ export function AssignmentsHub({ assignments, userId }: Props) {
       }
       const { feedback, score } = body as { feedback: string; score: number }
 
-      await supabase
+      const { error: updateError } = await supabase
         .from('assignments')
         .update({
           submission_text: submissionText,
@@ -337,10 +337,18 @@ export function AssignmentsHub({ assignments, userId }: Props) {
         })
         .eq('id', activeAssignment.id)
 
-      // Award XP for completing a full assignment
-      await supabase.rpc('add_xp', { p_user_id: userId, p_amount: 75 })
+      if (updateError) {
+        toast.error('Could not save submission', updateError.message)
+        setGrading(false)
+        return
+      }
 
-      toast.success('Assignment submitted!', `AI feedback ready. Score: ${score}/10 · +75 XP`)
+      // Award XP for completing a full assignment
+      const { error: xpError } = await supabase.rpc('add_xp', { p_user_id: userId, p_amount: 75 })
+
+      if (xpError) toast.error('Submitted, but XP award failed', xpError.message)
+      else toast.success('Assignment submitted!', `AI feedback ready. Score: ${score}/10 · +75 XP`)
+
       setGrading(false)
       setActiveAssignment(null)
       setSubmissionText('')

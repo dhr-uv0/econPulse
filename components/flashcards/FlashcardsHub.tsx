@@ -110,27 +110,33 @@ export function FlashcardsHub({ cards, userId }: Props) {
     // Upsert SM-2 review record
     if (card.review) {
       const updated = sm2(card.review, quality)
-      await supabase.from('flashcard_reviews').update(updated).eq('id', card.review.id)
+      const { error } = await supabase.from('flashcard_reviews').update(updated).eq('id', card.review.id)
+      if (error) console.error('Failed to save flashcard review:', error)
     } else {
       // Create new review record
       const nextReview = new Date()
       nextReview.setDate(nextReview.getDate() + (quality < 3 ? 1 : 1))
-      await supabase.from('flashcard_reviews').upsert({
+      const { error } = await supabase.from('flashcard_reviews').upsert({
         user_id: userId,
         card_id: card.id,
         next_review_at: nextReview.toISOString(),
         ease_factor: 2.5,
         interval_days: 1,
       }, { onConflict: 'user_id,card_id' })
+      if (error) console.error('Failed to save flashcard review:', error)
     }
 
-    await supabase.rpc('add_xp', { p_user_id: userId, p_amount: 5 })
+    const { error: xpError } = await supabase.rpc('add_xp', { p_user_id: userId, p_amount: 5 })
+    if (xpError) console.error('Failed to award XP:', xpError)
 
+    // Account for the just-scheduled requeue so the completion check doesn't
+    // read the queue length from before it lands.
+    const newLen = quality < 3 ? queue.length + 1 : queue.length
     if (quality < 3) {
       setQueue((q) => [...q, q[current]])
     }
 
-    if (current >= queue.length - 1) {
+    if (current >= newLen - 1) {
       setDone(true)
     } else {
       setCurrent((c) => c + 1)

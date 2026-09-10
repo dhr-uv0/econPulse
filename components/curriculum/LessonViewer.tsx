@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import type { Lesson, CurriculumModule, LessonStatus } from '@/lib/types'
 import { createClient } from '@/lib/supabase/client'
 import { toast } from '@/lib/hooks/useToast'
@@ -38,9 +38,10 @@ type Tab = 'lesson' | 'diagram' | 'vocab' | 'assignment' | 'quiz'
 
 export function LessonViewer({ lesson, module: mod, userId, initialStatus }: Props) {
   const router = useRouter()
+  const searchParams = useSearchParams()
   const supabase = createClient()
   const { prefs } = useUserPreferences()
-  const [activeTab, setActiveTab] = useState<Tab>('lesson')
+  const [activeTab, setActiveTab] = useState<Tab>(searchParams.get('tab') === 'quiz' ? 'quiz' : 'lesson')
   const [quizPassed, setQuizPassed] = useState(initialStatus === 'completed')
   const [deeperOpen, setDeeperOpen] = useState(false)
   const [thinkRevealed, setThinkRevealed] = useState(false)

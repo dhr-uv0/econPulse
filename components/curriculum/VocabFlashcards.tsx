@@ -38,7 +38,7 @@ export function VocabFlashcards({ vocab, lessonId, userId }: Props) {
     const nextReview = new Date()
     nextReview.setDate(nextReview.getDate() + intervalDays)
 
-    await supabase.from('flashcard_reviews').upsert(
+    const { error } = await supabase.from('flashcard_reviews').upsert(
       {
         user_id: userId,
         card_id: cardId,
@@ -48,6 +48,7 @@ export function VocabFlashcards({ vocab, lessonId, userId }: Props) {
       },
       { onConflict: 'user_id,card_id' }
     )
+    if (error) console.error('Failed to save flashcard review:', error)
 
     // Auto-advance
     if (current < total - 1) {

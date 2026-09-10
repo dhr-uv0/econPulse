@@ -85,8 +85,10 @@ export function TopBar({ profile, streak, user }: Props) {
 
       {/* Notifications placeholder */}
       <button
-        className="h-8 w-8 flex items-center justify-center rounded-lg text-[var(--muted-fg)] hover:bg-[var(--muted)] hover:text-[var(--fg)] transition-colors"
+        className="h-8 w-8 flex items-center justify-center rounded-lg text-[var(--muted-fg)] opacity-40 cursor-not-allowed transition-colors"
         aria-label="Notifications"
+        title="Coming soon"
+        disabled
       >
         <Bell className="h-4 w-4" />
       </button>

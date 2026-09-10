@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import type { CurriculumModule, CurriculumTier, QuizQuestion } from '@/lib/types'
 import { createClient } from '@/lib/supabase/client'
+import { toast } from '@/lib/hooks/useToast'
 import { cn } from '@/lib/utils'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -119,7 +120,7 @@ export function MockTestBuilder({ modules, userId }: Props) {
     const earned = score * 5 + 20
     setXpEarned(earned)
 
-    await supabase.from('quiz_results').insert({
+    const { error: resultError } = await supabase.from('quiz_results').insert({
       user_id: userId,
       unit_id: 'mock-test',
       score,
@@ -128,7 +129,11 @@ export function MockTestBuilder({ modules, userId }: Props) {
       answers: { answers, tiers: selectedTiers, difficulties: selectedDifficulties },
       completed_at: new Date().toISOString(),
     })
-    await supabase.rpc('add_xp', { p_user_id: userId, p_amount: earned })
+    const { error: xpError } = await supabase.rpc('add_xp', { p_user_id: userId, p_amount: earned })
+
+    if (resultError || xpError) {
+      toast.error('Could not save your results', (resultError ?? xpError)?.message)
+    }
 
     setSaving(false)
     setPhase('review')

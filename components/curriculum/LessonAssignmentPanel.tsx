@@ -88,7 +88,7 @@ export function LessonAssignmentPanel({
       const { feedback, score } = body as { feedback: string; score: number }
 
       // Upsert so retries overwrite
-      await supabase.from('assignments').upsert({
+      const { error: upsertError } = await supabase.from('assignments').upsert({
         user_id: userId,
         assignment_type: 'lesson_practice',
         unit_id: moduleId,
@@ -102,11 +102,17 @@ export function LessonAssignmentPanel({
         submitted_at: new Date().toISOString(),
       }, { onConflict: 'user_id,lesson_id' })
 
+      if (upsertError) {
+        toast.error('Could not save submission', upsertError.message)
+        return
+      }
+
       // Award XP for completing assignment
-      await supabase.rpc('add_xp', { p_user_id: userId, p_amount: 30 })
+      const { error: xpError } = await supabase.rpc('add_xp', { p_user_id: userId, p_amount: 30 })
 
       setSubmission({ text, feedback, score })
-      toast.success('Assignment graded!', `Score: ${score}/10 · +30 XP`)
+      if (xpError) toast.error('Graded, but XP award failed', xpError.message)
+      else toast.success('Assignment graded!', `Score: ${score}/10 · +30 XP`)
       onSubmit?.()
     } catch (err) {
       const msg = err instanceof Error ? err.message : 'Please try again.'
