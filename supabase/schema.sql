@@ -19,7 +19,7 @@ create table if not exists public.profiles (
   bio                     text,
   school                  text,
   grade                   smallint check (grade between 9 and 13),
-  target_exam             text check (target_exam in ('IB_SL','IB_HL','AEO','IEO','DECA','PRINCIPLES')),
+  target_exam             text check (target_exam in ('IB_SL','IB_HL','AEO','IEO','PRINCIPLES')),
   weekly_study_goal_hours smallint default 5,
   role                    text not null default 'student' check (role in ('student','teacher','admin')),
   avatar_url              text,

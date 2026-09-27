@@ -56,10 +56,6 @@ import {
 import {
   ProspectTheorySimulator, NudgeDefaultEffect, PovertyTrapDynamics,
 } from '@/components/curriculum/diagrams/interactive/ol8-widgets'
-import {
-  MarketingMixSimulator, ROASCalculator, FinancialStatementRatios,
-  TimeValueOfMoney, InvestmentPortfolioRisk,
-} from '@/components/curriculum/diagrams/interactive/dc-widgets'
 
 interface Props {
   lessonId: string
@@ -248,22 +244,6 @@ export const LESSON_DIAGRAM_MAP: Record<string, string> = {
   'ol8-l3': 'nudge-default-effect',
   'ol8-l4': 'poverty-trap-dynamics',
   'ol8-l5': 'solow-growth-model',
-
-  // ── DECA ─────────────────────────────────────────────────────────────────
-  'dc2-l1': 'marketing-mix-simulator',
-  'dc2-l4': 'roas-calculator',
-  'dc3-l1': 'financial-statement-ratios',
-  'dc3-l2': 'time-value-of-money',
-  'dc3-l3': 'investment-portfolio-risk',
-  'dc3-l4': 'financial-statement-ratios',
-  'dc4-l2': 'revenue-curves',
-  'dc4-l3': 'monopolistic-competition-diagram',
-  'dc4-l4': 'profit-max',
-  'dc4-l5': 'cpi-calculator',
-  'dc4-l6': 'money-market-diagram',
-  'dc5-l1': 'business-cycle',
-  'dc5-l2': 'business-cycle',
-  'dc5-l3': 'exchange-rate-market',
 }
 
 export function InteractiveDiagram({ lessonId, diagramType }: Props) {
@@ -344,11 +324,6 @@ export function InteractiveDiagram({ lessonId, diagramType }: Props) {
     case 'prospect-theory-simulator': return <ProspectTheorySimulator />
     case 'nudge-default-effect':      return <NudgeDefaultEffect />
     case 'poverty-trap-dynamics':     return <PovertyTrapDynamics />
-    case 'marketing-mix-simulator':    return <MarketingMixSimulator />
-    case 'roas-calculator':            return <ROASCalculator />
-    case 'financial-statement-ratios': return <FinancialStatementRatios />
-    case 'time-value-of-money':        return <TimeValueOfMoney />
-    case 'investment-portfolio-risk':  return <InvestmentPortfolioRisk />
     default:                        return <DefaultDiagram lessonId={lessonId} exerciseText={diagramType} />
   }
 }

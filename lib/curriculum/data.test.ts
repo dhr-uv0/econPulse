@@ -2,8 +2,8 @@ import { describe, it, expect } from 'vitest'
 import { CURRICULUM, getLessonById, getModuleById } from './data'
 
 describe('CURRICULUM structure', () => {
-  it('has at least 40 modules', () => {
-    expect(CURRICULUM.length).toBeGreaterThanOrEqual(40)
+  it('has at least 34 modules', () => {
+    expect(CURRICULUM.length).toBeGreaterThanOrEqual(34)
   })
 
   it('has no duplicate module ids', () => {

@@ -103,7 +103,6 @@ export const TIER_LABELS: Record<CurriculumTier, string> = {
   AP: 'AP Economics',
   IB: 'IB Economics',
   OLYMPIAD: 'Olympiad',
-  DECA: 'DECA',
 }
 
 export const DIFFICULTY_LABELS: Record<QuizQuestion['difficulty'], string> = {

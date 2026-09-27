@@ -146,7 +146,6 @@ export function ProfileSettings({ profile, optIn, user }: Props) {
                 <option value="IB_HL">IB Economics HL</option>
                 <option value="AEO">American Economics Olympiad (AEO)</option>
                 <option value="IEO">International Economics Olympiad (IEO)</option>
-                <option value="DECA">DECA</option>
                 <option value="PRINCIPLES">Principles of Economics</option>
               </select>
             </div>

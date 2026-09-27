@@ -3,7 +3,7 @@
 import { useEffect } from 'react'
 import Link from 'next/link'
 import {
-  TrendingUp, Brain, Zap, Target, BookOpen,
+  TrendingUp, Brain, Zap, BookOpen,
   BarChart3, ArrowRight, Check,
   ChevronRight, GraduationCap, Trophy, Layers,
 } from 'lucide-react'
@@ -19,11 +19,6 @@ const TRACKS = [
     icon: Trophy,
     title: 'AEO & IEO',
     desc: 'Advanced micro, game theory, consumer theory, and olympiad-level problem sets.',
-  },
-  {
-    icon: Target,
-    title: 'DECA',
-    desc: 'American economic principles, personal finance, and business economics.',
   },
   {
     icon: BookOpen,
@@ -61,7 +56,6 @@ const CURRICULUM_PREVIEW = [
   { unit: 'Unit 3', title: 'Macroeconomics', topics: ['GDP & Growth', 'AD-AS Model', 'Fiscal Policy', 'Inflation & Unemployment'] },
   { unit: 'Unit 4', title: 'International', topics: ['Comparative Advantage', 'Exchange Rates', 'Trade Policy', 'Development'] },
   { unit: 'Advanced', title: 'AEO / IEO Topics', topics: ['Consumer Theory', 'Game Theory', 'General Equilibrium', 'Mechanism Design'] },
-  { unit: 'Applied', title: 'DECA & Principles', topics: ['Personal Finance', 'Business Economics', 'American Free Enterprise', 'Policy Debates'] },
 ]
 
 const LESSON_STEPS = [
@@ -140,7 +134,7 @@ export function LandingPage() {
                 Economics mastery<br />starts here.
               </h1>
               <p className="text-white/60 leading-relaxed max-w-sm">
-                A student-built platform covering IB Economics, DECA, AEO/IEO, and Principles of Economics.
+                A student-built platform covering IB Economics, AEO/IEO, and Principles of Economics.
               </p>
               <ul className="space-y-3.5">
                 {[
@@ -179,7 +173,7 @@ export function LandingPage() {
               </h2>
 
               <p className="mb-8 text-[var(--muted-fg)] leading-relaxed">
-                A self-study platform for high school students covering IB, DECA, AEO/IEO, and Principles of Economics — with AI explanations, interactive diagrams, and spaced repetition built in.
+                A self-study platform for high school students covering IB, AEO/IEO, and Principles of Economics — with AI explanations, interactive diagrams, and spaced repetition built in.
               </p>
 
               <div className="flex flex-col gap-3 sm:flex-row">
@@ -268,7 +262,7 @@ export function LandingPage() {
               <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-[var(--accent)]">Exam tracks</p>
               <h2 className="text-2xl font-bold text-[var(--fg)] sm:text-3xl">Pick your track — or study all of them.</h2>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {TRACKS.map(({ icon: Icon, title, desc }) => (
                 <div
                   key={title}

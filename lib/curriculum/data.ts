@@ -50,14 +50,6 @@ import * as ol6 from './modules/ol6-trade-theory'
 import * as ol7 from './modules/ol7-public-econ'
 import * as ol8 from './modules/ol8-behavioral-dev'
 
-// ── DECA (mixed formats) ──────────────────────────────────────────────────────
-import { dc1Overview } from './modules/dc1-overview'
-import * as dc2 from './modules/dc2-marketing'
-import * as dc3 from './modules/dc3-finance'
-import * as dc4 from './modules/dc4-cases'
-import * as dc5 from './modules/dc5-econ-events'
-import * as dc6 from './modules/dc6-entrepreneurship'
-
 export const CURRICULUM: CurriculumModule[] = [
   // ── Foundations ─────────────────────────────────────────────────────────────
   mod(f1.moduleInfo, f1.lessons),
@@ -103,14 +95,6 @@ export const CURRICULUM: CurriculumModule[] = [
   mod(ol6.moduleInfo, ol6.lessons),
   mod(ol7.moduleInfo, ol7.lessons),
   mod(ol8.moduleInfo, ol8.lessons),
-
-  // ── DECA ─────────────────────────────────────────────────────────────────────
-  dc1Overview,
-  mod(dc2.moduleInfo, dc2.lessons),
-  mod(dc3.moduleInfo, dc3.lessons),
-  mod(dc4.moduleInfo, dc4.lessons),
-  mod(dc5.moduleInfo, dc5.lessons),
-  mod(dc6.moduleInfo, dc6.lessons),
 ]
 
 export function getLessonById(lessonId: string): Lesson | null {

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   description:
     'Master economics from IB SL/HL to Olympiad level. AI-powered lessons, spaced repetition, interactive diagrams, and real-world case studies — the definitive economics education platform.',
-  keywords: ['economics', 'IB economics', 'economics olympiad', 'DECA', 'AEO', 'IEO', 'study', 'education'],
+  keywords: ['economics', 'IB economics', 'economics olympiad', 'AEO', 'IEO', 'study', 'education'],
   authors: [{ name: 'EconPulse' }],
   manifest: '/manifest.json',
   appleWebApp: {

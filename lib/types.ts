@@ -1,7 +1,7 @@
 export type UserRole = 'student' | 'teacher' | 'admin'
 export type LessonStatus = 'not_started' | 'in_progress' | 'completed'
 export type AssignmentType = 'econ_in_wild' | 'policy_debate' | 'tycoon_mode' | 'peer_prediction' | 'build_a_model' | 'research_brief' | 'debate_flashcard' | 'current_affairs' | 'lesson_practice'
-export type ExamTarget = 'IB_SL' | 'IB_HL' | 'AEO' | 'IEO' | 'DECA' | 'PRINCIPLES'
+export type ExamTarget = 'IB_SL' | 'IB_HL' | 'AEO' | 'IEO' | 'PRINCIPLES'
 
 // ── Adaptive learning ─────────────────────────────────────────────────────────
 export type LearningStyle = 'visual' | 'reading' | 'practice' | 'mixed'
@@ -34,7 +34,6 @@ export type CurriculumTier =
   | 'AP'            // AP Microeconomics + AP Macroeconomics
   | 'IB'            // IB Economics SL + HL
   | 'OLYMPIAD'      // AEO / IEO competitive economics
-  | 'DECA'          // DECA business + economics events (bonus)
 
 export interface Profile {
   id: string
@@ -135,7 +134,7 @@ export interface CurriculumModule {
   title: string
   description: string
   tier?: CurriculumTier
-  track: 'IB_SL' | 'IB_HL' | 'DECA' | 'AEO_IEO' | 'PRINCIPLES' | 'ADVANCED' | 'FOUNDATIONS' | 'AP' | 'INTERMEDIATE' | 'OLYMPIAD'
+  track: 'IB_SL' | 'IB_HL' | 'AEO_IEO' | 'PRINCIPLES' | 'ADVANCED' | 'FOUNDATIONS' | 'AP' | 'INTERMEDIATE' | 'OLYMPIAD'
   unit: number
   lessons: Lesson[]
   estimatedHours: number

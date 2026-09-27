@@ -33,7 +33,6 @@ const TIER_BG: Record<string, string> = {
   AP:           'bg-amber-500',
   IB:           'bg-purple-500',
   OLYMPIAD:     'bg-red-500',
-  DECA:         'bg-cyan-500',
 }
 
 export function DashboardHome({ profile, streak, progress, recentQuizzes, dueCardCount, curriculum }: Props) {

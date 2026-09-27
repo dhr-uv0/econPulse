@@ -17,7 +17,6 @@ const TIERS: { key: string; label: string }[] = [
   { key: 'AP',           label: 'AP' },
   { key: 'IB',           label: 'IB' },
   { key: 'OLYMPIAD',     label: 'Olympiad' },
-  { key: 'DECA',         label: 'DECA' },
 ]
 
 export function MasteryRadar({ progress }: Props) {

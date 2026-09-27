@@ -18,7 +18,6 @@ import { SolowGrowthModel } from './ol2-widgets'
 import { HeckscherOhlinFactorIntensity, KrugmanNewTradeModel } from './ol6-widgets'
 import { OptimalTaxationRamsey } from './ol7-widgets'
 import { PovertyTrapDynamics } from './ol8-widgets'
-import { TimeValueOfMoney, InvestmentPortfolioRisk } from './dc-widgets'
 
 describe('MonopsonyLabourMarket (default: no minimum wage)', () => {
   it('shows the correct monopsony and competitive equilibrium points', () => {
@@ -76,21 +75,5 @@ describe('PovertyTrapDynamics (default: s=30%, A=10, k0=0.3)', () => {
   it('starts below the unstable threshold (~0.38) and converges to the low trap (k*=0)', () => {
     render(<PovertyTrapDynamics />)
     expect(screen.getByText(/Converges to k\* = 0\.00 \(the low trap\)/)).toBeInTheDocument()
-  })
-})
-
-describe('TimeValueOfMoney (default: rate=8%)', () => {
-  it("shows the Rule of 72 estimate close to the exact doubling time", () => {
-    render(<TimeValueOfMoney />)
-    expect(screen.getByText('9.0 yrs')).toBeInTheDocument()
-    expect(screen.getByText('9.01 yrs')).toBeInTheDocument()
-  })
-})
-
-describe('InvestmentPortfolioRisk (default: 60% stocks, correlation=0)', () => {
-  it('shows the exact 2-asset portfolio variance formula result, below the naive weighted-average risk', () => {
-    render(<InvestmentPortfolioRisk />)
-    expect(screen.getByText('6.60%')).toBeInTheDocument()
-    expect(screen.getByText('10.98%')).toBeInTheDocument()
   })
 })

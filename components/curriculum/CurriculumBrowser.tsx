@@ -6,14 +6,14 @@ import type { CurriculumModule, CurriculumTier } from '@/lib/types'
 import { cn } from '@/lib/utils'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { BookOpen, Check, Clock, ChevronRight, Lock, Play, Target, Trophy, Briefcase, TrendingUp, Zap } from 'lucide-react'
+import { BookOpen, Check, Clock, ChevronRight, Lock, Play, Target, Trophy, TrendingUp, Zap } from 'lucide-react'
 
 interface Props {
   modules: CurriculumModule[]
   progressMap: Map<string, string>
 }
 
-const TIER_ORDER: (CurriculumTier | 'all')[] = ['all', 'FOUNDATIONS', 'INTERMEDIATE', 'AP', 'IB', 'OLYMPIAD', 'DECA']
+const TIER_ORDER: (CurriculumTier | 'all')[] = ['all', 'FOUNDATIONS', 'INTERMEDIATE', 'AP', 'IB', 'OLYMPIAD']
 
 const TIER_META: Record<string, { label: string; color: string; description: string; icon: React.ElementType }> = {
   all:          { label: 'All',          color: '#71717a', description: '',                                                icon: BookOpen },
@@ -22,11 +22,10 @@ const TIER_META: Record<string, { label: string; color: string; description: str
   AP:           { label: 'AP Econ',      color: '#f59e0b', description: 'AP Micro + AP Macro — full exam prep',           icon: Target },
   IB:           { label: 'IB Econ',      color: '#8b5cf6', description: 'IB SL + HL — full syllabus coverage',           icon: BookOpen },
   OLYMPIAD:     { label: 'Olympiad',     color: '#ef4444', description: 'AEO / IEO — university-level competition prep',  icon: Trophy },
-  DECA:         { label: 'DECA',         color: '#06b6d4', description: 'Business + economics competitive events',        icon: Briefcase },
 }
 
 const TIER_ICON_MAP: Record<string, React.ElementType> = {
-  BookOpen, TrendingUp, Target, Trophy, Briefcase, Zap,
+  BookOpen, TrendingUp, Target, Trophy, Zap,
 }
 
 export function CurriculumBrowser({ modules, progressMap }: Props) {
@@ -270,6 +269,5 @@ function inferTier(track: string): CurriculumTier {
   if (track === 'AP') return 'AP'
   if (track === 'IB_SL' || track === 'IB_HL' || track === 'IB') return 'IB'
   if (track === 'AEO_IEO' || track === 'OLYMPIAD') return 'OLYMPIAD'
-  if (track === 'DECA') return 'DECA'
   return 'FOUNDATIONS'
 }

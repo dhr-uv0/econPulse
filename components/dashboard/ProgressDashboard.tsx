@@ -25,7 +25,6 @@ const EXAM_TRACKS = [
   { key: 'IB_HL',       label: 'IB HL',        threshold: 80 },
   { key: 'AEO',         label: 'AEO',          threshold: 75 },
   { key: 'IEO',         label: 'IEO',          threshold: 85 },
-  { key: 'DECA',        label: 'DECA',         threshold: 70 },
   { key: 'PRINCIPLES',  label: 'Principles',   threshold: 65 },
 ]
 
