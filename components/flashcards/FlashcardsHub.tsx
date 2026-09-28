@@ -148,7 +148,7 @@ export function FlashcardsHub({ cards, userId }: Props) {
   if (done) {
     const total = stats.easy + stats.good + stats.hard + stats.again
     return (
-      <div className="max-w-2xl mx-auto space-y-6">
+      <div className="max-w-2xl mx-auto space-y-6 animate-fade-in">
         <h1 className="text-2xl font-extrabold text-[var(--fg)]">Session Complete</h1>
         <Card className="relative overflow-hidden text-center py-10">
           <Confetti />
@@ -192,7 +192,7 @@ export function FlashcardsHub({ cards, userId }: Props) {
     const progressPct = (current / queue.length) * 100
 
     return (
-      <div className="max-w-2xl mx-auto space-y-6">
+      <div className="max-w-2xl mx-auto space-y-6 animate-fade-in">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-extrabold text-[var(--fg)]">Flashcard Review</h1>
@@ -326,7 +326,7 @@ export function FlashcardsHub({ cards, userId }: Props) {
           {modules.map((mod) => (
             <Card
               key={mod.id}
-              className="cursor-pointer transition-all hover:shadow-md border-2 border-[var(--border)]"
+              className="card-hover cursor-pointer border-2 border-[var(--border)]"
               onClick={() => setSelectedModule(mod.id)}
             >
               <CardContent className="pt-4 pb-4 flex items-center justify-between">
@@ -364,7 +364,7 @@ export function FlashcardsHub({ cards, userId }: Props) {
               <Card
                 key={lesson.id}
                 className={cn(
-                  'cursor-pointer transition-all hover:shadow-md border-2',
+                  'card-hover cursor-pointer border-2',
                   isSelected ? 'border-[var(--accent)] bg-[var(--accent)]/5' : 'border-[var(--border)]'
                 )}
                 onClick={() => setSelectedLesson(isSelected ? null : lesson.id)}

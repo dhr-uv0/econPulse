@@ -5,6 +5,13 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+const STAGGER_DELAY_CLASSES = ['', 'delay-100', 'delay-200', 'delay-300', 'delay-400']
+
+/** Cycling animation-delay class for staggered grid/list entrances (pairs with .animate-fade-up in globals.css). */
+export function staggerDelay(index: number): string {
+  return STAGGER_DELAY_CLASSES[index % STAGGER_DELAY_CLASSES.length]
+}
+
 export function formatDate(date: string | Date): string {
   return new Date(date).toLocaleDateString('en-US', {
     year: 'numeric',

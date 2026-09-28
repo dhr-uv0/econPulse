@@ -6,7 +6,8 @@ import { Trophy, Flame, Star, Medal, Crown, TrendingUp } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
-import { levelFromXP, getInitials } from '@/lib/utils'
+import { levelFromXP, getInitials, cn, staggerDelay } from '@/lib/utils'
+import { useCountUp } from '@/lib/hooks/useCountUp'
 
 interface LeaderEntry {
   user_id: string
@@ -45,8 +46,11 @@ export function LeaderboardPage({ leaders, myOptIn, myXP, myStreak, userId }: Pr
     ? sortedByXP.findIndex((l) => l.user_id === userId) + 1
     : null
 
+  const myXPCount = useCountUp(myXP)
+  const myStreakCount = useCountUp(myStreak)
+
   return (
-    <div className="max-w-2xl mx-auto space-y-6">
+    <div className="max-w-2xl mx-auto space-y-6 animate-fade-in">
       <div className="flex items-center gap-3">
         <Trophy className="h-7 w-7 text-[var(--accent)]" />
         <div>
@@ -64,7 +68,7 @@ export function LeaderboardPage({ leaders, myOptIn, myXP, myStreak, userId }: Pr
             </div>
             <div>
               <div className="text-xs text-[var(--muted-fg)]">Your XP</div>
-              <div className="text-xl font-bold text-[var(--fg)]">{myXP.toLocaleString()}</div>
+              <div className="text-xl font-bold text-[var(--fg)]">{myXPCount.toLocaleString()}</div>
               {myRankXP && <div className="text-xs text-[var(--accent)]">Rank #{myRankXP}</div>}
             </div>
           </CardContent>
@@ -76,7 +80,7 @@ export function LeaderboardPage({ leaders, myOptIn, myXP, myStreak, userId }: Pr
             </div>
             <div>
               <div className="text-xs text-[var(--muted-fg)]">Your Streak</div>
-              <div className="text-xl font-bold text-[var(--fg)]">{myStreak} days</div>
+              <div className="text-xl font-bold text-[var(--fg)]">{myStreakCount} days</div>
             </div>
           </CardContent>
         </Card>
@@ -124,9 +128,11 @@ export function LeaderboardPage({ leaders, myOptIn, myXP, myStreak, userId }: Pr
                 return (
                   <li
                     key={entry.user_id}
-                    className={`flex items-center gap-4 px-5 py-3.5 transition-colors ${
-                      isMe ? 'bg-[var(--accent)]/8' : 'hover:bg-[var(--card-bg)]'
-                    }`}
+                    className={cn(
+                      'flex items-center gap-4 px-5 py-3.5 transition-colors animate-fade-up',
+                      isMe ? 'bg-[var(--accent)]/8' : 'hover:bg-[var(--card-bg)]',
+                      staggerDelay(i)
+                    )}
                   >
                     {/* Rank */}
                     <div className="w-8 flex items-center justify-center shrink-0">

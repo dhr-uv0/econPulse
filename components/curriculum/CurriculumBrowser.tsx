@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import type { CurriculumModule, CurriculumTier } from '@/lib/types'
-import { cn } from '@/lib/utils'
+import { cn, staggerDelay } from '@/lib/utils'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { BookOpen, Check, Clock, ChevronRight, Lock, Play, Target, Trophy, TrendingUp, Zap } from 'lucide-react'
@@ -69,7 +69,7 @@ export function CurriculumBrowser({ modules, progressMap }: Props) {
   const totalLessons = modules.reduce((s, m) => s + m.lessons.length, 0)
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto">
+    <div className="space-y-6 max-w-7xl mx-auto animate-fade-in">
       {/* Header */}
       <div>
         <h1 className="text-2xl font-extrabold text-[var(--fg)]">Curriculum</h1>
@@ -159,16 +159,15 @@ function ModuleGrid({
 }) {
   return (
     <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-      {mods.map((mod) => {
+      {mods.map((mod, i) => {
         const pct = moduleProgress(mod)
         const next = nextLesson(mod)
         const hasLessons = mod.lessons.length > 0
         const mTier = mod.tier ?? inferTier(mod.track)
         const tierMeta = TIER_META[mTier] ?? TIER_META['all']
         const ModIcon = TIER_ICON_MAP[mod.icon] ?? BookOpen
-
         return (
-          <Card key={mod.id} className="card-hover flex flex-col">
+          <Card key={mod.id} className={cn('card-hover animate-fade-up flex flex-col', staggerDelay(i))}>
             <CardHeader className="pb-3">
               <div className="flex items-start justify-between gap-3">
                 <div
@@ -196,7 +195,7 @@ function ModuleGrid({
                 </div>
                 <div className="h-1.5 w-full rounded-full bg-[var(--muted)] overflow-hidden">
                   <div
-                    className="h-full rounded-full transition-all"
+                    className="h-full rounded-full transition-all duration-700 ease-out"
                     style={{ width: `${pct}%`, backgroundColor: mod.color ?? tierMeta.color }}
                   />
                 </div>

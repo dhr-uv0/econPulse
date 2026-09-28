@@ -18,7 +18,7 @@ export function TeacherView({ students, assignments }: Props) {
     : 0
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto">
+    <div className="space-y-6 max-w-7xl mx-auto animate-fade-in">
       <div>
         <h1 className="text-2xl font-extrabold text-[var(--fg)]">Teacher Dashboard</h1>
         <p className="text-[var(--muted-fg)] mt-1">

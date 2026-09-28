@@ -74,7 +74,7 @@ export function ProfileSettings({ profile, optIn, user }: Props) {
   }
 
   return (
-    <div className="max-w-2xl mx-auto space-y-6">
+    <div className="max-w-2xl mx-auto space-y-6 animate-fade-in">
       <h1 className="text-2xl font-extrabold text-[var(--fg)]">Profile & Settings</h1>
 
       {/* Profile card */}

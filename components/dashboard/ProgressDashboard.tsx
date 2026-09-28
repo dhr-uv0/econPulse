@@ -95,7 +95,7 @@ export function ProgressDashboard({ profile, progress, quizzes, streak }: Props)
     : null
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto">
+    <div className="space-y-6 max-w-7xl mx-auto animate-fade-in">
       <div>
         <h1 className="text-2xl font-extrabold text-[var(--fg)]">Progress & Analytics</h1>
         <p className="text-[var(--muted-fg)] mt-1">Your complete learning journey at a glance</p>
@@ -210,7 +210,7 @@ export function ProgressDashboard({ profile, progress, quizzes, streak }: Props)
                       </div>
                       <div className="h-2 rounded-full overflow-hidden bg-[var(--muted)]">
                         <div
-                          className="h-full rounded-full transition-all"
+                          className="h-full rounded-full transition-all duration-700 ease-out"
                           style={{ width: `${pct}%`, backgroundColor: MODULE_COLORS[mod] ?? 'var(--accent)' }}
                         />
                       </div>

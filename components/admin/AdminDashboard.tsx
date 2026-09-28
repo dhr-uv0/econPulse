@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react'
 import type { UserRole } from '@/lib/types'
 import { toast } from '@/lib/hooks/useToast'
+import { useCountUp } from '@/lib/hooks/useCountUp'
 import { cn } from '@/lib/utils'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -65,6 +66,11 @@ export function AdminDashboard({ users: initialUsers, currentUserId }: Props) {
   const optedInCount = users.filter((u) => u.leaderboard_opted_in).length
   const staffCount = users.filter((u) => u.role !== 'student').length
 
+  const totalUsersCount = useCountUp(users.length)
+  const totalXPCount = useCountUp(totalXP)
+  const optedInCountAnimated = useCountUp(optedInCount)
+  const staffCountAnimated = useCountUp(staffCount)
+
   async function changeRole(userId: string, newRole: UserRole) {
     setSavingId(userId)
     const res = await fetch('/api/admin/update-role', {
@@ -100,7 +106,7 @@ export function AdminDashboard({ users: initialUsers, currentUserId }: Props) {
   }
 
   return (
-    <div className="max-w-6xl mx-auto space-y-6">
+    <div className="max-w-6xl mx-auto space-y-6 animate-fade-in">
       <div className="flex items-center gap-3">
         <Shield className="h-7 w-7 text-[var(--accent)]" />
         <div>
@@ -111,39 +117,39 @@ export function AdminDashboard({ users: initialUsers, currentUserId }: Props) {
 
       {/* Summary stats */}
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-        <Card className="p-4 flex items-center gap-3">
+        <Card className="p-4 flex items-center gap-3 animate-fade-up">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--accent)]/15">
             <Users className="h-4.5 w-4.5 text-[var(--accent)]" />
           </div>
           <div>
-            <div className="text-lg font-bold text-[var(--fg)]">{users.length}</div>
+            <div className="text-lg font-bold text-[var(--fg)]">{totalUsersCount}</div>
             <div className="text-xs text-[var(--muted-fg)]">Total users</div>
           </div>
         </Card>
-        <Card className="p-4 flex items-center gap-3">
+        <Card className="p-4 flex items-center gap-3 animate-fade-up delay-100">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--accent)]/15">
             <Star className="h-4.5 w-4.5 text-[var(--accent)]" />
           </div>
           <div>
-            <div className="text-lg font-bold text-[var(--fg)]">{totalXP.toLocaleString()}</div>
+            <div className="text-lg font-bold text-[var(--fg)]">{totalXPCount.toLocaleString()}</div>
             <div className="text-xs text-[var(--muted-fg)]">Total XP earned</div>
           </div>
         </Card>
-        <Card className="p-4 flex items-center gap-3">
+        <Card className="p-4 flex items-center gap-3 animate-fade-up delay-200">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-orange-500/15">
             <Trophy className="h-4.5 w-4.5 text-orange-500" />
           </div>
           <div>
-            <div className="text-lg font-bold text-[var(--fg)]">{optedInCount}</div>
+            <div className="text-lg font-bold text-[var(--fg)]">{optedInCountAnimated}</div>
             <div className="text-xs text-[var(--muted-fg)]">On leaderboard</div>
           </div>
         </Card>
-        <Card className="p-4 flex items-center gap-3">
+        <Card className="p-4 flex items-center gap-3 animate-fade-up delay-300">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--accent)]/15">
             <ShieldCheck className="h-4.5 w-4.5 text-[var(--accent)]" />
           </div>
           <div>
-            <div className="text-lg font-bold text-[var(--fg)]">{staffCount}</div>
+            <div className="text-lg font-bold text-[var(--fg)]">{staffCountAnimated}</div>
             <div className="text-xs text-[var(--muted-fg)]">Teachers + admins</div>
           </div>
         </Card>

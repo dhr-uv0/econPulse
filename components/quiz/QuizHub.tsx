@@ -5,7 +5,7 @@ import type { CurriculumModule, QuizResult } from '@/lib/types'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { formatDate } from '@/lib/utils'
+import { cn, formatDate, staggerDelay } from '@/lib/utils'
 import { Target, ChevronRight, Check, X, Clock, ClipboardList } from 'lucide-react'
 
 interface Props {
@@ -16,7 +16,7 @@ interface Props {
 
 export function QuizHub({ modules, recentResults }: Props) {
   return (
-    <div className="space-y-6 max-w-4xl mx-auto">
+    <div className="space-y-6 max-w-4xl mx-auto animate-fade-in">
       <div>
         <h1 className="text-2xl font-extrabold text-[var(--fg)]">Practice & Quiz</h1>
         <p className="text-[var(--muted-fg)] mt-1">
@@ -76,13 +76,13 @@ export function QuizHub({ modules, recentResults }: Props) {
           Practice by Module
         </h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {modules.map((mod) => {
+          {modules.map((mod, i) => {
             const totalQuestions = mod.lessons.reduce((s, l) => s + l.quiz.length, 0)
             if (totalQuestions === 0) return null
             const firstLesson = mod.lessons.find((l) => l.quiz.length > 0)
 
             return (
-              <Card key={mod.id} className="card-hover p-5 flex flex-col gap-4">
+              <Card key={mod.id} className={cn('card-hover animate-fade-up p-5 flex flex-col gap-4', staggerDelay(i))}>
                 <div className="flex items-start gap-3">
                   <div
                     className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"

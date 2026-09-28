@@ -366,7 +366,7 @@ export function AssignmentsHub({ assignments, userId }: Props) {
     const minWords = 150
 
     return (
-      <div className="max-w-3xl mx-auto space-y-6">
+      <div className="max-w-3xl mx-auto space-y-6 animate-fade-in">
         <div className="flex items-center gap-3">
           <Button variant="ghost" size="sm" onClick={() => setActiveAssignment(null)}>
             ← Back
@@ -434,7 +434,7 @@ export function AssignmentsHub({ assignments, userId }: Props) {
 
   // ── Assignment hub ────────────────────────────────────────────────────────────
   return (
-    <div className="space-y-8 max-w-5xl mx-auto">
+    <div className="space-y-8 max-w-5xl mx-auto animate-fade-in">
       {/* Header */}
       <div>
         <h1 className="text-2xl font-extrabold text-[var(--fg)]">Assignments</h1>
@@ -489,7 +489,7 @@ export function AssignmentsHub({ assignments, userId }: Props) {
           {GENERIC_ASSIGNMENTS.map(({ type, label, description, icon: Icon, color, bg, border, estimatedMins }) => {
             const alreadyDone = assignments.some((a) => a.assignment_type === type && a.submitted_at)
             return (
-              <Card key={type} className={`border ${border} flex flex-col`}>
+              <Card key={type} className={`card-hover border ${border} flex flex-col`}>
                 <CardContent className="pt-5 flex flex-col flex-1 gap-3">
                   <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${bg}`}>
                     <Icon className={`h-5 w-5 ${color}`} />

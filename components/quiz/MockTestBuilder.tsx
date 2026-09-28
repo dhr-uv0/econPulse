@@ -149,7 +149,7 @@ export function MockTestBuilder({ modules, userId }: Props) {
   // ── Setup phase ──────────────────────────────────────────────────────────
   if (phase === 'setup') {
     return (
-      <div className="max-w-3xl mx-auto space-y-6">
+      <div className="max-w-3xl mx-auto space-y-6 animate-fade-in">
         <div className="flex items-center gap-3">
           <ClipboardList className="h-7 w-7 text-[var(--accent)]" />
           <div>
@@ -289,7 +289,7 @@ export function MockTestBuilder({ modules, userId }: Props) {
     const isLast = current === testQuestions.length - 1
 
     return (
-      <div className="max-w-2xl mx-auto space-y-4">
+      <div className="max-w-2xl mx-auto space-y-4 animate-fade-in">
         <div className="flex items-center justify-between text-sm">
           <span className="text-[var(--muted-fg)]">Question {current + 1} of {testQuestions.length}</span>
           <span className="text-[var(--muted-fg)]">{answeredCount} answered</span>
@@ -382,7 +382,7 @@ export function MockTestBuilder({ modules, userId }: Props) {
   const passed = pct >= 70
 
   return (
-    <div className="max-w-2xl mx-auto space-y-6">
+    <div className="max-w-2xl mx-auto space-y-6 animate-fade-in">
       <Card className="relative overflow-hidden">
         {passed && <Confetti />}
         <CardContent className="pt-8 pb-8 flex flex-col items-center text-center gap-6">
