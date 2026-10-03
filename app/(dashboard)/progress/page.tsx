@@ -9,11 +9,12 @@ export default async function ProgressPage() {
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return null
 
-  const [{ data: profile }, { data: progress }, { data: quizzes }, { data: streak }] = await Promise.all([
-    supabase.from('profiles').select('*').eq('id', user.id).single(),
+  const [{ data: profile }, { data: progress }, { data: quizzes }, { data: streak }, { data: topicPerformance }] = await Promise.all([
+    supabase.from('profiles').select('*').eq('id', user.id).maybeSingle(),
     supabase.from('curriculum_progress').select('*').eq('user_id', user.id),
     supabase.from('quiz_results').select('*').eq('user_id', user.id).order('completed_at', { ascending: true }),
-    supabase.from('streaks').select('*').eq('user_id', user.id).single(),
+    supabase.from('streaks').select('*').eq('user_id', user.id).maybeSingle(),
+    supabase.from('topic_performance').select('*').eq('user_id', user.id),
   ])
 
   return (
@@ -22,6 +23,7 @@ export default async function ProgressPage() {
       progress={progress ?? []}
       quizzes={quizzes ?? []}
       streak={streak}
+      topicPerformance={topicPerformance ?? []}
     />
   )
 }

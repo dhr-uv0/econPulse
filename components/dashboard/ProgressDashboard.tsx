@@ -1,9 +1,9 @@
 'use client'
 
 import { useMemo } from 'react'
-import type { Profile, CurriculumProgress, QuizResult, Streak } from '@/lib/types'
+import type { Profile, CurriculumProgress, QuizResult, Streak, TopicPerformance } from '@/lib/types'
 import { levelFromXP, clampProgress } from '@/lib/utils'
-import { CURRICULUM } from '@/lib/curriculum/data'
+import { CURRICULUM, getModuleById } from '@/lib/curriculum/data'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
@@ -18,6 +18,7 @@ interface Props {
   progress: CurriculumProgress[]
   quizzes: QuizResult[]
   streak: Streak | null
+  topicPerformance: TopicPerformance[]
 }
 
 const EXAM_TRACKS = [
@@ -28,18 +29,7 @@ const EXAM_TRACKS = [
   { key: 'PRINCIPLES',  label: 'Principles',   threshold: 65 },
 ]
 
-const MODULE_COLORS: Record<string, string> = {
-  'ib-intro':   '#3b82f6',
-  'ib-micro':   '#6366f1',
-  'ib-macro':   '#8b5cf6',
-  'ib-intl':    '#7c3aed',
-  'aeo-micro':  '#f59e0b',
-  'aeo-macro':  '#d97706',
-  'deca':       '#10b981',
-  'principles': '#14b8a6',
-}
-
-export function ProgressDashboard({ profile, progress, quizzes, streak }: Props) {
+export function ProgressDashboard({ profile, progress, quizzes, streak, topicPerformance }: Props) {
   const xp = profile?.xp_points ?? 0
   const { level, title: levelTitle, nextLevelXP } = levelFromXP(xp)
 
@@ -202,24 +192,62 @@ export function ProgressDashboard({ profile, progress, quizzes, streak }: Props)
             </CardHeader>
             <CardContent className="space-y-3">
               {moduleGroups.length > 0
-                ? moduleGroups.map(({ mod, pct }) => (
-                    <div key={mod} className="space-y-1">
-                      <div className="flex justify-between text-sm">
-                        <span className="text-[var(--fg)] font-medium capitalize">{mod.replace('-', ' ')}</span>
-                        <span className="text-[var(--muted-fg)]">{pct}%</span>
+                ? moduleGroups.map(({ mod, pct }) => {
+                    const modInfo = getModuleById(mod)
+                    return (
+                      <div key={mod} className="space-y-1">
+                        <div className="flex justify-between text-sm">
+                          <span className="text-[var(--fg)] font-medium">{modInfo?.title ?? mod}</span>
+                          <span className="text-[var(--muted-fg)]">{pct}%</span>
+                        </div>
+                        <div className="h-2 rounded-full overflow-hidden bg-[var(--muted)]">
+                          <div
+                            className="h-full rounded-full transition-all duration-700 ease-out"
+                            style={{ width: `${pct}%`, backgroundColor: modInfo?.color ?? 'var(--accent)' }}
+                          />
+                        </div>
                       </div>
-                      <div className="h-2 rounded-full overflow-hidden bg-[var(--muted)]">
-                        <div
-                          className="h-full rounded-full transition-all duration-700 ease-out"
-                          style={{ width: `${pct}%`, backgroundColor: MODULE_COLORS[mod] ?? 'var(--accent)' }}
-                        />
-                      </div>
-                    </div>
-                  ))
+                    )
+                  })
                 : <p className="text-sm text-[var(--muted-fg)]">Start studying to track your progress.</p>
               }
             </CardContent>
           </Card>
+
+          {/* Quiz accuracy by topic — weakest first, so it reads as "what to review" */}
+          {topicPerformance.length > 0 && (
+            <Card>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-sm">Quiz Accuracy by Topic</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                {[...topicPerformance]
+                  .sort((a, b) => a.pct_correct - b.pct_correct)
+                  .slice(0, 8)
+                  .map((t) => {
+                    const modInfo = getModuleById(t.unit_id)
+                    const pct = Math.round(t.pct_correct)
+                    return (
+                      <div key={t.unit_id} className="space-y-1">
+                        <div className="flex justify-between text-sm">
+                          <span className="text-[var(--fg)] font-medium">{modInfo?.title ?? t.unit_id}</span>
+                          <span className="text-[var(--muted-fg)]">{pct}% · {t.total_quizzes} quiz{t.total_quizzes !== 1 ? 'zes' : ''}</span>
+                        </div>
+                        <div className="h-2 rounded-full overflow-hidden bg-[var(--muted)]">
+                          <div
+                            className="h-full rounded-full transition-all duration-700 ease-out"
+                            style={{
+                              width: `${pct}%`,
+                              backgroundColor: pct >= 80 ? '#22c55e' : pct >= 60 ? 'var(--accent)' : '#ef4444',
+                            }}
+                          />
+                        </div>
+                      </div>
+                    )
+                  })}
+              </CardContent>
+            </Card>
+          )}
         </div>
 
         {/* Right column */}

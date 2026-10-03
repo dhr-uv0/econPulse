@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import type { User } from '@supabase/supabase-js'
 import type { Profile } from '@/lib/types'
 import { createClient } from '@/lib/supabase/client'
@@ -10,7 +11,12 @@ import { Button } from '@/components/ui/button'
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { getInitials, levelFromXP } from '@/lib/utils'
-import { Save, Award, Trophy } from 'lucide-react'
+import { Save, Award, Trophy, Download, AlertTriangle } from 'lucide-react'
+
+const EXPORT_TABLES = [
+  'profiles', 'user_preferences', 'curriculum_progress', 'quiz_results',
+  'flashcard_reviews', 'assignments', 'bookmarks', 'streaks', 'leaderboard_opt_ins',
+] as const
 
 interface Props {
   profile: Profile | null
@@ -20,7 +26,12 @@ interface Props {
 
 export function ProfileSettings({ profile, optIn, user }: Props) {
   const supabase = createClient()
+  const router = useRouter()
   const [saving, setSaving] = useState(false)
+  const [exporting, setExporting] = useState(false)
+  const [confirmingDelete, setConfirmingDelete] = useState(false)
+  const [deleteEmailInput, setDeleteEmailInput] = useState('')
+  const [deleting, setDeleting] = useState(false)
   const [form, setForm] = useState({
     full_name: profile?.full_name ?? '',
     school: profile?.school ?? '',
@@ -71,6 +82,53 @@ export function ProfileSettings({ profile, optIn, user }: Props) {
     if (error) toast.error('Save failed', error.message)
     else if (leaderboardError) toast.error('Profile saved, but leaderboard setting failed', leaderboardError)
     else toast.success('Profile updated!')
+  }
+
+  async function handleExportData() {
+    setExporting(true)
+    const data: Record<string, unknown> = { exported_at: new Date().toISOString(), user_id: user.id, email: user.email }
+
+    for (const table of EXPORT_TABLES) {
+      const idColumn = table === 'profiles' ? 'id' : 'user_id'
+      const { data: rows, error } = await supabase.from(table).select('*').eq(idColumn, user.id)
+      if (error) {
+        toast.error('Export failed', `Could not read ${table}: ${error.message}`)
+        setExporting(false)
+        return
+      }
+      data[table] = rows
+    }
+
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `econpulse-data-${user.id}.json`
+    document.body.appendChild(a)
+    a.click()
+    a.remove()
+    URL.revokeObjectURL(url)
+
+    setExporting(false)
+    toast.success('Data exported', 'Your data has been downloaded as a JSON file.')
+  }
+
+  async function handleDeleteAccount() {
+    setDeleting(true)
+    const res = await fetch('/api/account/delete', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ confirmEmail: deleteEmailInput }),
+    })
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}))
+      toast.error('Could not delete account', body.error ?? 'Please try again.')
+      setDeleting(false)
+      return
+    }
+    await supabase.auth.signOut()
+    router.push('/')
+    router.refresh()
   }
 
   return (
@@ -212,6 +270,68 @@ export function ProfileSettings({ profile, optIn, user }: Props) {
         <Save className="h-4 w-4" />
         Save changes
       </Button>
+
+      {/* Your data */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Your Data</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          <p className="text-sm text-[var(--muted-fg)]">
+            Download everything EconPulse has stored for your account — profile, progress, quiz results, flashcard scheduling, assignments, bookmarks, streaks, and leaderboard settings — as a single JSON file.
+          </p>
+          <Button variant="outline" onClick={handleExportData} loading={exporting} className="gap-1.5">
+            <Download className="h-4 w-4" />
+            Download my data
+          </Button>
+        </CardContent>
+      </Card>
+
+      {/* Danger zone */}
+      <Card className="border-red-500/30">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-red-600 dark:text-red-400">
+            <AlertTriangle className="h-4 w-4" />
+            Danger Zone
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          <p className="text-sm text-[var(--muted-fg)]">
+            Permanently deletes your account and every record tied to it — progress, quiz history, flashcards, assignments, streaks, and leaderboard entry. This cannot be undone.
+          </p>
+          {!confirmingDelete ? (
+            <Button variant="destructive" onClick={() => setConfirmingDelete(true)} className="gap-1.5">
+              <AlertTriangle className="h-4 w-4" />
+              Delete my account
+            </Button>
+          ) : (
+            <div className="space-y-2.5 rounded-xl border border-red-500/30 bg-red-500/5 p-4">
+              <label className="text-sm font-semibold text-[var(--fg)]">
+                Type your email address (<span className="font-mono">{user.email}</span>) to confirm
+              </label>
+              <input
+                value={deleteEmailInput}
+                onChange={(e) => setDeleteEmailInput(e.target.value)}
+                placeholder={user.email ?? ''}
+                className="w-full h-10 rounded-lg border border-[var(--border)] bg-[var(--bg)] px-3 text-sm text-[var(--fg)] focus:outline-none focus:border-red-500"
+              />
+              <div className="flex gap-2">
+                <Button
+                  variant="destructive"
+                  onClick={handleDeleteAccount}
+                  loading={deleting}
+                  disabled={deleteEmailInput !== user.email}
+                >
+                  Permanently delete my account
+                </Button>
+                <Button variant="outline" onClick={() => { setConfirmingDelete(false); setDeleteEmailInput('') }}>
+                  Cancel
+                </Button>
+              </div>
+            </div>
+          )}
+        </CardContent>
+      </Card>
     </div>
   )
 }

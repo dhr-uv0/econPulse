@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import Groq from 'groq-sdk'
 import { createClient } from '@/lib/supabase/server'
+import { checkRateLimit } from '@/lib/rate-limit'
 
 export async function POST(request: Request) {
   const supabase = await createClient()
@@ -11,6 +12,14 @@ export async function POST(request: Request) {
     return NextResponse.json(
       { error: 'Grading service is not configured. Contact support.' },
       { status: 503 }
+    )
+  }
+
+  const allowed = await checkRateLimit(supabase, user.id, 'grade', 15, 60)
+  if (!allowed) {
+    return NextResponse.json(
+      { error: "You've hit the grading limit for this hour. Try again soon." },
+      { status: 429 }
     )
   }
 

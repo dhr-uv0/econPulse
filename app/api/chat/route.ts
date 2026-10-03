@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import Groq from 'groq-sdk'
 import { createClient } from '@/lib/supabase/server'
+import { checkRateLimit } from '@/lib/rate-limit'
 
 const SYSTEM_PROMPT = `You are Eco-Clippy, the embedded AI economics tutor inside EconPulse — a premier economics mastery platform.
 
@@ -44,6 +45,14 @@ export async function POST(request: Request) {
     const supabase = await createClient()
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+
+    const allowed = await checkRateLimit(supabase, user.id, 'chat', 30, 60)
+    if (!allowed) {
+      return NextResponse.json(
+        { error: "You've hit the chat limit for this hour. Try again soon." },
+        { status: 429 }
+      )
+    }
 
     const { messages, context } = await request.json()
     if (!messages || !Array.isArray(messages) || messages.length === 0) {

@@ -79,6 +79,16 @@ export interface QuizResult {
   completed_at: string
 }
 
+export interface TopicPerformance {
+  user_id: string
+  unit_id: string
+  total_quizzes: number
+  total_points: number
+  total_questions: number
+  pct_correct: number
+  passed_count: number
+}
+
 export interface FlashcardReview {
   id: string
   user_id: string

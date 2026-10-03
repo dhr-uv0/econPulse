@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import Groq from 'groq-sdk'
+import { checkRateLimit } from '@/lib/rate-limit'
 
 /**
  * GET /api/weekly-digest
@@ -20,6 +21,14 @@ export async function GET() {
     const supabase = await createClient()
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+
+    const allowed = await checkRateLimit(supabase, user.id, 'weekly-digest', 5, 1440)
+    if (!allowed) {
+      return NextResponse.json(
+        { error: "You've hit the digest generation limit for today. Try again tomorrow." },
+        { status: 429 }
+      )
+    }
 
     const oneWeekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()
 

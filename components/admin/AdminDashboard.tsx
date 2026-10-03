@@ -7,9 +7,11 @@ import { useCountUp } from '@/lib/hooks/useCountUp'
 import { cn } from '@/lib/utils'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 import { getInitials } from '@/lib/utils'
-import { Shield, Search, Users, Star, Flame, Trophy, X, ShieldCheck } from 'lucide-react'
+import { Shield, Search, Users, Star, Flame, Trophy, X, ShieldCheck, Eye, RotateCcw, AlertTriangle, BookOpen, ClipboardCheck, FileCheck } from 'lucide-react'
 
 export interface AdminUserRow {
   id: string
@@ -48,6 +50,12 @@ export function AdminDashboard({ users: initialUsers, currentUserId }: Props) {
   const [query, setQuery] = useState('')
   const [roleFilter, setRoleFilter] = useState<RoleFilter>('all')
   const [savingId, setSavingId] = useState<string | null>(null)
+  const [detailUserId, setDetailUserId] = useState<string | null>(null)
+  const [confirmingReset, setConfirmingReset] = useState(false)
+  const [resetConfirmText, setResetConfirmText] = useState('')
+  const [resetting, setResetting] = useState(false)
+
+  const detailUser = users.find((u) => u.id === detailUserId) ?? null
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -103,6 +111,33 @@ export function AdminDashboard({ users: initialUsers, currentUserId }: Props) {
     }
     setUsers((prev) => prev.map((u) => (u.id === userId ? { ...u, leaderboard_opted_in: false } : u)))
     toast.success('Removed from leaderboard')
+  }
+
+  function closeDetail() {
+    setDetailUserId(null)
+    setConfirmingReset(false)
+    setResetConfirmText('')
+  }
+
+  async function handleResetProgress(userId: string) {
+    setResetting(true)
+    const res = await fetch('/api/admin/reset-progress', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ targetUserId: userId }),
+    })
+    setResetting(false)
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}))
+      toast.error('Could not reset progress', body.error ?? 'Please try again.')
+      return
+    }
+    setUsers((prev) => prev.map((u) => (u.id === userId
+      ? { ...u, xp_points: 0, current_streak: 0, longest_streak: 0, lessons_completed: 0, quizzes_passed: 0, assignments_submitted: 0 }
+      : u)))
+    setConfirmingReset(false)
+    setResetConfirmText('')
+    toast.success('Progress reset', "This user's learning data has been cleared.")
   }
 
   return (
@@ -203,6 +238,7 @@ export function AdminDashboard({ users: initialUsers, currentUserId }: Props) {
                     <th className="px-4 py-3 font-semibold text-right">Quizzes</th>
                     <th className="px-4 py-3 font-semibold text-right">Assignments</th>
                     <th className="px-4 py-3 font-semibold">Leaderboard</th>
+                    <th className="px-4 py-3 font-semibold" />
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[var(--border)]">
@@ -233,6 +269,7 @@ export function AdminDashboard({ users: initialUsers, currentUserId }: Props) {
                               value={u.role}
                               disabled={saving}
                               onChange={(e) => changeRole(u.id, e.target.value as UserRole)}
+                              aria-label={`Change role for ${u.full_name ?? u.email ?? 'user'}`}
                               className="rounded-lg border border-[var(--border)] bg-[var(--card-bg)] px-2 py-1 text-xs font-medium text-[var(--fg)] capitalize disabled:opacity-50"
                             >
                               <option value="student">Student</option>
@@ -268,6 +305,16 @@ export function AdminDashboard({ users: initialUsers, currentUserId }: Props) {
                             <Badge variant="muted" className="text-[10px]">Not opted in</Badge>
                           )}
                         </td>
+                        <td className="px-4 py-3">
+                          <button
+                            onClick={() => setDetailUserId(u.id)}
+                            title="View details"
+                            aria-label={`View details for ${u.full_name ?? u.email ?? 'user'}`}
+                            className="text-[var(--muted-fg)] hover:text-[var(--accent)]"
+                          >
+                            <Eye className="h-4 w-4" />
+                          </button>
+                        </td>
                       </tr>
                     )
                   })}
@@ -281,6 +328,98 @@ export function AdminDashboard({ users: initialUsers, currentUserId }: Props) {
       <p className="text-xs text-[var(--muted-fg)]">
         Role changes and leaderboard removal apply immediately. You can&apos;t change your own role here to avoid accidentally losing admin access.
       </p>
+
+      {/* User detail */}
+      <Dialog open={detailUserId !== null} onOpenChange={(open) => !open && closeDetail()}>
+        <DialogContent>
+          {detailUser && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="flex items-center gap-2">
+                  <Avatar className="h-8 w-8">
+                    <AvatarFallback className="text-xs font-bold">{getInitials(detailUser.full_name ?? detailUser.email ?? '?')}</AvatarFallback>
+                  </Avatar>
+                  {detailUser.full_name ?? 'Unnamed'}
+                </DialogTitle>
+                <DialogDescription>{detailUser.email ?? 'No email on file'}</DialogDescription>
+              </DialogHeader>
+
+              <div className="space-y-5">
+                <div className="grid grid-cols-2 gap-3 text-sm">
+                  <div><span className="text-[var(--muted-fg)]">School:</span> <span className="text-[var(--fg)]">{detailUser.school ?? '—'}</span></div>
+                  <div><span className="text-[var(--muted-fg)]">Grade:</span> <span className="text-[var(--fg)]">{detailUser.grade ?? '—'}</span></div>
+                  <div><span className="text-[var(--muted-fg)]">Target exam:</span> <span className="text-[var(--fg)]">{detailUser.target_exam ?? '—'}</span></div>
+                  <div><span className="text-[var(--muted-fg)]">Joined:</span> <span className="text-[var(--fg)]">{new Date(detailUser.created_at).toLocaleDateString()}</span></div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-3">
+                  <div className="rounded-xl border border-[var(--border)] p-3 text-center">
+                    <BookOpen className="mx-auto h-4 w-4 text-[var(--accent)] mb-1" />
+                    <div className="text-lg font-bold text-[var(--fg)]">{detailUser.lessons_completed}</div>
+                    <div className="text-[10px] text-[var(--muted-fg)] uppercase tracking-wide">Lessons</div>
+                  </div>
+                  <div className="rounded-xl border border-[var(--border)] p-3 text-center">
+                    <ClipboardCheck className="mx-auto h-4 w-4 text-[var(--accent)] mb-1" />
+                    <div className="text-lg font-bold text-[var(--fg)]">{detailUser.quizzes_passed}</div>
+                    <div className="text-[10px] text-[var(--muted-fg)] uppercase tracking-wide">Quizzes</div>
+                  </div>
+                  <div className="rounded-xl border border-[var(--border)] p-3 text-center">
+                    <FileCheck className="mx-auto h-4 w-4 text-[var(--accent)] mb-1" />
+                    <div className="text-lg font-bold text-[var(--fg)]">{detailUser.assignments_submitted}</div>
+                    <div className="text-[10px] text-[var(--muted-fg)] uppercase tracking-wide">Assignments</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-[var(--muted-fg)]">XP / Streak</span>
+                  <span className="font-semibold text-[var(--fg)]">{detailUser.xp_points.toLocaleString()} XP · {detailUser.current_streak}d streak (best {detailUser.longest_streak}d)</span>
+                </div>
+
+                <div className="border-t border-[var(--border)] pt-4 space-y-2.5">
+                  <h3 className="flex items-center gap-1.5 text-sm font-bold text-red-600 dark:text-red-400">
+                    <AlertTriangle className="h-3.5 w-3.5" />
+                    Reset Progress
+                  </h3>
+                  <p className="text-xs text-[var(--muted-fg)]">
+                    Clears this user&apos;s XP, streak, lesson progress, quiz history, flashcard scheduling, and assignments. Their account and login stay intact. This cannot be undone.
+                  </p>
+                  {!confirmingReset ? (
+                    <Button variant="destructive" size="sm" onClick={() => setConfirmingReset(true)} className="gap-1.5">
+                      <RotateCcw className="h-3.5 w-3.5" />
+                      Reset this user&apos;s progress
+                    </Button>
+                  ) : (
+                    <div className="space-y-2 rounded-xl border border-red-500/30 bg-red-500/5 p-3">
+                      <label className="text-xs font-semibold text-[var(--fg)]">
+                        Type RESET to confirm
+                      </label>
+                      <input
+                        value={resetConfirmText}
+                        onChange={(e) => setResetConfirmText(e.target.value)}
+                        className="w-full h-9 rounded-lg border border-[var(--border)] bg-[var(--bg)] px-3 text-sm text-[var(--fg)] focus:outline-none focus:border-red-500"
+                      />
+                      <div className="flex gap-2">
+                        <Button
+                          variant="destructive"
+                          size="sm"
+                          onClick={() => handleResetProgress(detailUser.id)}
+                          loading={resetting}
+                          disabled={resetConfirmText !== 'RESET'}
+                        >
+                          Confirm reset
+                        </Button>
+                        <Button variant="outline" size="sm" onClick={() => { setConfirmingReset(false); setResetConfirmText('') }}>
+                          Cancel
+                        </Button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
