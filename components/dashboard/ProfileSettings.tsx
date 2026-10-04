@@ -29,9 +29,9 @@ export function ProfileSettings({ profile, optIn, user }: Props) {
   const router = useRouter()
   const [saving, setSaving] = useState(false)
   const [exporting, setExporting] = useState(false)
-  const [confirmingDelete, setConfirmingDelete] = useState(false)
-  const [deleteEmailInput, setDeleteEmailInput] = useState('')
-  const [deleting, setDeleting] = useState(false)
+  const [confirmingArchive, setConfirmingArchive] = useState(false)
+  const [archiveEmailInput, setArchiveEmailInput] = useState('')
+  const [archiving, setArchiving] = useState(false)
   const [form, setForm] = useState({
     full_name: profile?.full_name ?? '',
     school: profile?.school ?? '',
@@ -113,17 +113,17 @@ export function ProfileSettings({ profile, optIn, user }: Props) {
     toast.success('Data exported', 'Your data has been downloaded as a JSON file.')
   }
 
-  async function handleDeleteAccount() {
-    setDeleting(true)
-    const res = await fetch('/api/account/delete', {
+  async function handleArchiveAccount() {
+    setArchiving(true)
+    const res = await fetch('/api/account/archive', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ confirmEmail: deleteEmailInput }),
+      body: JSON.stringify({ confirmEmail: archiveEmailInput }),
     })
     if (!res.ok) {
       const body = await res.json().catch(() => ({}))
-      toast.error('Could not delete account', body.error ?? 'Please try again.')
-      setDeleting(false)
+      toast.error('Could not archive account', body.error ?? 'Please try again.')
+      setArchiving(false)
       return
     }
     await supabase.auth.signOut()
@@ -287,22 +287,22 @@ export function ProfileSettings({ profile, optIn, user }: Props) {
         </CardContent>
       </Card>
 
-      {/* Danger zone */}
+      {/* Archive account */}
       <Card className="border-red-500/30">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-red-600 dark:text-red-400">
             <AlertTriangle className="h-4 w-4" />
-            Danger Zone
+            Archive Account
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
           <p className="text-sm text-[var(--muted-fg)]">
-            Permanently deletes your account and every record tied to it — progress, quiz history, flashcards, assignments, streaks, and leaderboard entry. This cannot be undone.
+            Archiving deactivates your account and signs you out — you won&apos;t be able to log back in. Nothing is deleted: your progress, quiz history, flashcards, assignments, streak, and leaderboard entry are all kept exactly as they are. An admin can reactivate your account later if you want back in.
           </p>
-          {!confirmingDelete ? (
-            <Button variant="destructive" onClick={() => setConfirmingDelete(true)} className="gap-1.5">
+          {!confirmingArchive ? (
+            <Button variant="destructive" onClick={() => setConfirmingArchive(true)} className="gap-1.5">
               <AlertTriangle className="h-4 w-4" />
-              Delete my account
+              Archive my account
             </Button>
           ) : (
             <div className="space-y-2.5 rounded-xl border border-red-500/30 bg-red-500/5 p-4">
@@ -310,21 +310,21 @@ export function ProfileSettings({ profile, optIn, user }: Props) {
                 Type your email address (<span className="font-mono">{user.email}</span>) to confirm
               </label>
               <input
-                value={deleteEmailInput}
-                onChange={(e) => setDeleteEmailInput(e.target.value)}
+                value={archiveEmailInput}
+                onChange={(e) => setArchiveEmailInput(e.target.value)}
                 placeholder={user.email ?? ''}
                 className="w-full h-10 rounded-lg border border-[var(--border)] bg-[var(--bg)] px-3 text-sm text-[var(--fg)] focus:outline-none focus:border-red-500"
               />
               <div className="flex gap-2">
                 <Button
                   variant="destructive"
-                  onClick={handleDeleteAccount}
-                  loading={deleting}
-                  disabled={deleteEmailInput !== user.email}
+                  onClick={handleArchiveAccount}
+                  loading={archiving}
+                  disabled={archiveEmailInput !== user.email}
                 >
-                  Permanently delete my account
+                  Archive my account
                 </Button>
-                <Button variant="outline" onClick={() => { setConfirmingDelete(false); setDeleteEmailInput('') }}>
+                <Button variant="outline" onClick={() => { setConfirmingArchive(false); setArchiveEmailInput('') }}>
                   Cancel
                 </Button>
               </div>

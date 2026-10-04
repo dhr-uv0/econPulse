@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { UserRole } from '@/lib/types'
 import { toast } from '@/lib/hooks/useToast'
 import { useCountUp } from '@/lib/hooks/useCountUp'
@@ -11,7 +11,10 @@ import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 import { getInitials } from '@/lib/utils'
-import { Shield, Search, Users, Star, Flame, Trophy, X, ShieldCheck, Eye, RotateCcw, AlertTriangle, BookOpen, ClipboardCheck, FileCheck } from 'lucide-react'
+import {
+  Shield, Search, Users, Star, Flame, Trophy, X, Plus, ShieldCheck, Eye, RotateCcw,
+  AlertTriangle, BookOpen, ClipboardCheck, FileCheck, Archive, ArchiveRestore, Pencil, Save,
+} from 'lucide-react'
 
 export interface AdminUserRow {
   id: string
@@ -30,6 +33,7 @@ export interface AdminUserRow {
   school: string | null
   grade: number | null
   target_exam: string | null
+  archived: boolean
 }
 
 interface Props {
@@ -54,8 +58,30 @@ export function AdminDashboard({ users: initialUsers, currentUserId }: Props) {
   const [confirmingReset, setConfirmingReset] = useState(false)
   const [resetConfirmText, setResetConfirmText] = useState('')
   const [resetting, setResetting] = useState(false)
+  const [confirmingArchive, setConfirmingArchive] = useState(false)
+  const [archiving, setArchiving] = useState(false)
+  const [editingProfile, setEditingProfile] = useState(false)
+  const [editForm, setEditForm] = useState({ full_name: '', school: '', grade: 11, target_exam: '' })
+  const [savingProfile, setSavingProfile] = useState(false)
 
   const detailUser = users.find((u) => u.id === detailUserId) ?? null
+
+  // Depend on the id, not the derived `detailUser` object -- `users.find(...)`
+  // returns a new reference every render, which would re-run this (and wipe
+  // in-progress edits) far more often than the dialog actually opens.
+  useEffect(() => {
+    const u = users.find((x) => x.id === detailUserId)
+    if (u) {
+      setEditForm({
+        full_name: u.full_name ?? '',
+        school: u.school ?? '',
+        grade: u.grade ?? 11,
+        target_exam: u.target_exam ?? '',
+      })
+      setEditingProfile(false)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [detailUserId])
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -113,10 +139,86 @@ export function AdminDashboard({ users: initialUsers, currentUserId }: Props) {
     toast.success('Removed from leaderboard')
   }
 
+  async function addToLeaderboard(userId: string) {
+    setSavingId(userId)
+    const res = await fetch('/api/admin/leaderboard-opt-in', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ targetUserId: userId }),
+    })
+    setSavingId(null)
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}))
+      toast.error('Could not add to leaderboard', body.error ?? 'Please try again.')
+      return
+    }
+    const body = await res.json().catch(() => ({}))
+    setUsers((prev) => prev.map((u) => (u.id === userId
+      ? { ...u, leaderboard_opted_in: true, leaderboard_display_name: body.displayName ?? u.full_name }
+      : u)))
+    toast.success('Added to leaderboard')
+  }
+
   function closeDetail() {
     setDetailUserId(null)
     setConfirmingReset(false)
     setResetConfirmText('')
+    setConfirmingArchive(false)
+  }
+
+  async function archiveUser(userId: string) {
+    setArchiving(true)
+    const res = await fetch('/api/admin/archive-user', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ targetUserId: userId }),
+    })
+    setArchiving(false)
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}))
+      toast.error('Could not archive user', body.error ?? 'Please try again.')
+      return
+    }
+    setUsers((prev) => prev.map((u) => (u.id === userId ? { ...u, archived: true } : u)))
+    setConfirmingArchive(false)
+    toast.success('User archived', 'They can no longer log in. Their data is untouched.')
+  }
+
+  async function unarchiveUser(userId: string) {
+    setArchiving(true)
+    const res = await fetch('/api/admin/unarchive-user', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ targetUserId: userId }),
+    })
+    setArchiving(false)
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}))
+      toast.error('Could not unarchive user', body.error ?? 'Please try again.')
+      return
+    }
+    setUsers((prev) => prev.map((u) => (u.id === userId ? { ...u, archived: false } : u)))
+    toast.success('User unarchived', 'They can log in again.')
+  }
+
+  async function saveProfileEdits(userId: string) {
+    setSavingProfile(true)
+    const res = await fetch('/api/admin/update-profile', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ targetUserId: userId, updates: editForm }),
+    })
+    setSavingProfile(false)
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}))
+      toast.error('Could not save changes', body.error ?? 'Please try again.')
+      return
+    }
+    setUsers((prev) => prev.map((u) => (u.id === userId
+      ? { ...u, full_name: editForm.full_name, school: editForm.school, grade: editForm.grade, target_exam: editForm.target_exam }
+      : u)))
+    setEditingProfile(false)
+    toast.success('Profile updated')
   }
 
   async function handleResetProgress(userId: string) {
@@ -256,6 +358,7 @@ export function AdminDashboard({ users: initialUsers, currentUserId }: Props) {
                               <div className="flex items-center gap-1.5">
                                 <span className="font-semibold text-[var(--fg)] truncate">{u.full_name ?? 'Unnamed'}</span>
                                 {isMe && <Badge variant="gold" className="text-[10px] px-1.5 py-0">You</Badge>}
+                                {u.archived && <Badge variant="danger" className="text-[10px] px-1.5 py-0">Archived</Badge>}
                               </div>
                               <div className="text-xs text-[var(--muted-fg)] truncate">{u.email ?? '—'}</div>
                             </div>
@@ -302,7 +405,18 @@ export function AdminDashboard({ users: initialUsers, currentUserId }: Props) {
                               </button>
                             </div>
                           ) : (
-                            <Badge variant="muted" className="text-[10px]">Not opted in</Badge>
+                            <div className="flex items-center gap-2">
+                              <Badge variant="muted" className="text-[10px]">Not opted in</Badge>
+                              <button
+                                onClick={() => addToLeaderboard(u.id)}
+                                disabled={saving}
+                                title="Add to leaderboard"
+                                aria-label={`Add ${u.full_name ?? u.email ?? 'user'} to the leaderboard`}
+                                className="text-[var(--muted-fg)] hover:text-green-500 disabled:opacity-50"
+                              >
+                                <Plus className="h-3.5 w-3.5" />
+                              </button>
+                            </div>
                           )}
                         </td>
                         <td className="px-4 py-3">
@@ -345,12 +459,75 @@ export function AdminDashboard({ users: initialUsers, currentUserId }: Props) {
               </DialogHeader>
 
               <div className="space-y-5">
-                <div className="grid grid-cols-2 gap-3 text-sm">
-                  <div><span className="text-[var(--muted-fg)]">School:</span> <span className="text-[var(--fg)]">{detailUser.school ?? '—'}</span></div>
-                  <div><span className="text-[var(--muted-fg)]">Grade:</span> <span className="text-[var(--fg)]">{detailUser.grade ?? '—'}</span></div>
-                  <div><span className="text-[var(--muted-fg)]">Target exam:</span> <span className="text-[var(--fg)]">{detailUser.target_exam ?? '—'}</span></div>
-                  <div><span className="text-[var(--muted-fg)]">Joined:</span> <span className="text-[var(--fg)]">{new Date(detailUser.created_at).toLocaleDateString()}</span></div>
-                </div>
+                {!editingProfile ? (
+                  <div className="space-y-2">
+                    <div className="grid grid-cols-2 gap-3 text-sm">
+                      <div><span className="text-[var(--muted-fg)]">School:</span> <span className="text-[var(--fg)]">{detailUser.school ?? '—'}</span></div>
+                      <div><span className="text-[var(--muted-fg)]">Grade:</span> <span className="text-[var(--fg)]">{detailUser.grade ?? '—'}</span></div>
+                      <div><span className="text-[var(--muted-fg)]">Target exam:</span> <span className="text-[var(--fg)]">{detailUser.target_exam ?? '—'}</span></div>
+                      <div><span className="text-[var(--muted-fg)]">Joined:</span> <span className="text-[var(--fg)]">{new Date(detailUser.created_at).toLocaleDateString()}</span></div>
+                    </div>
+                    <Button variant="outline" size="sm" onClick={() => setEditingProfile(true)} className="gap-1.5">
+                      <Pencil className="h-3 w-3" />
+                      Edit profile
+                    </Button>
+                  </div>
+                ) : (
+                  <div className="space-y-3 rounded-xl border border-[var(--border)] p-3">
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <div className="space-y-1">
+                        <label className="text-xs font-semibold text-[var(--fg)]">Full name</label>
+                        <input
+                          value={editForm.full_name}
+                          onChange={(e) => setEditForm({ ...editForm, full_name: e.target.value })}
+                          className="w-full h-9 rounded-lg border border-[var(--border)] bg-[var(--bg)] px-2.5 text-sm text-[var(--fg)] focus:outline-none focus:border-[var(--accent)]"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-xs font-semibold text-[var(--fg)]">School</label>
+                        <input
+                          value={editForm.school}
+                          onChange={(e) => setEditForm({ ...editForm, school: e.target.value })}
+                          className="w-full h-9 rounded-lg border border-[var(--border)] bg-[var(--bg)] px-2.5 text-sm text-[var(--fg)] focus:outline-none focus:border-[var(--accent)]"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-xs font-semibold text-[var(--fg)]">Grade</label>
+                        <select
+                          value={editForm.grade}
+                          onChange={(e) => setEditForm({ ...editForm, grade: Number(e.target.value) })}
+                          className="w-full h-9 rounded-lg border border-[var(--border)] bg-[var(--bg)] px-2.5 text-sm text-[var(--fg)] focus:outline-none focus:border-[var(--accent)]"
+                        >
+                          {[9, 10, 11, 12].map((g) => <option key={g} value={g}>Grade {g}</option>)}
+                        </select>
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-xs font-semibold text-[var(--fg)]">Target exam</label>
+                        <select
+                          value={editForm.target_exam}
+                          onChange={(e) => setEditForm({ ...editForm, target_exam: e.target.value })}
+                          className="w-full h-9 rounded-lg border border-[var(--border)] bg-[var(--bg)] px-2.5 text-sm text-[var(--fg)] focus:outline-none focus:border-[var(--accent)]"
+                        >
+                          <option value="">—</option>
+                          <option value="IB_SL">IB Economics SL</option>
+                          <option value="IB_HL">IB Economics HL</option>
+                          <option value="AEO">AEO</option>
+                          <option value="IEO">IEO</option>
+                          <option value="PRINCIPLES">Principles of Economics</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div className="flex gap-2">
+                      <Button variant="gold" size="sm" onClick={() => saveProfileEdits(detailUser.id)} loading={savingProfile} className="gap-1.5">
+                        <Save className="h-3 w-3" />
+                        Save
+                      </Button>
+                      <Button variant="outline" size="sm" onClick={() => setEditingProfile(false)}>
+                        Cancel
+                      </Button>
+                    </div>
+                  </div>
+                )}
 
                 <div className="grid grid-cols-3 gap-3">
                   <div className="rounded-xl border border-[var(--border)] p-3 text-center">
@@ -409,6 +586,46 @@ export function AdminDashboard({ users: initialUsers, currentUserId }: Props) {
                           Confirm reset
                         </Button>
                         <Button variant="outline" size="sm" onClick={() => { setConfirmingReset(false); setResetConfirmText('') }}>
+                          Cancel
+                        </Button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                <div className="border-t border-[var(--border)] pt-4 space-y-2.5">
+                  <h3 className="flex items-center gap-1.5 text-sm font-bold text-[var(--fg)]">
+                    {detailUser.archived ? <ArchiveRestore className="h-3.5 w-3.5" /> : <Archive className="h-3.5 w-3.5" />}
+                    Account Access
+                  </h3>
+                  {detailUser.archived ? (
+                    <>
+                      <p className="text-xs text-[var(--muted-fg)]">
+                        This account is archived — they can&apos;t log in. Their data is untouched.
+                      </p>
+                      <Button variant="outline" size="sm" onClick={() => unarchiveUser(detailUser.id)} loading={archiving} className="gap-1.5">
+                        <ArchiveRestore className="h-3.5 w-3.5" />
+                        Unarchive — restore login access
+                      </Button>
+                    </>
+                  ) : !confirmingArchive ? (
+                    <>
+                      <p className="text-xs text-[var(--muted-fg)]">
+                        Archiving blocks this user from logging in. Their data is kept and this is reversible.
+                      </p>
+                      <Button variant="destructive" size="sm" onClick={() => setConfirmingArchive(true)} className="gap-1.5">
+                        <Archive className="h-3.5 w-3.5" />
+                        Archive this user
+                      </Button>
+                    </>
+                  ) : (
+                    <div className="space-y-2 rounded-xl border border-red-500/30 bg-red-500/5 p-3">
+                      <p className="text-xs text-[var(--fg)]">Block {detailUser.full_name ?? detailUser.email} from logging in?</p>
+                      <div className="flex gap-2">
+                        <Button variant="destructive" size="sm" onClick={() => archiveUser(detailUser.id)} loading={archiving}>
+                          Confirm archive
+                        </Button>
+                        <Button variant="outline" size="sm" onClick={() => setConfirmingArchive(false)}>
                           Cancel
                         </Button>
                       </div>

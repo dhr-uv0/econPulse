@@ -27,6 +27,7 @@ function makeUser(overrides: Partial<AdminUserRow> = {}): AdminUserRow {
     school: 'Test High',
     grade: 11,
     target_exam: 'IB_HL',
+    archived: false,
     ...overrides,
   }
 }

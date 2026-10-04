@@ -2,12 +2,12 @@ import { NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { createAdminClient } from '@/lib/supabase/admin'
 
-// Self-service account deletion. Every table referencing profiles.id (and
-// profiles itself) is declared `on delete cascade` from auth.users(id) in
-// the schema, so deleting the auth user via the admin API cascades through
-// curriculum_progress/quiz_results/flashcard_reviews/assignments/bookmarks/
-// streaks/leaderboard_opt_ins/user_preferences automatically -- no manual
-// per-table cleanup needed here.
+// Self-service account archiving. Bans the auth user (effectively
+// forever -- 100 years) rather than deleting anything: Supabase Auth
+// rejects sign-in for a banned user, but every row the user owns stays
+// exactly as it is. This is reversible (an admin can unban), unlike a
+// real delete which permanently destroys the account and cascades
+// through every table referencing it.
 export async function POST(request: Request) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
@@ -19,7 +19,7 @@ export async function POST(request: Request) {
   }
 
   const admin = createAdminClient()
-  const { error } = await admin.auth.admin.deleteUser(user.id)
+  const { error } = await admin.auth.admin.updateUserById(user.id, { ban_duration: '876000h' })
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
 
   return NextResponse.json({ ok: true })

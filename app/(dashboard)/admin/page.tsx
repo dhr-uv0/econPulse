@@ -34,6 +34,13 @@ export default async function AdminPage() {
   ])
 
   const emailByUserId = new Map((authUsers?.users ?? []).map((u) => [u.id, u.email ?? null]))
+  // /api/admin/archive-user sets banned_until ~100 years out; unarchiving
+  // sets ban_duration: 'none', which clears it back to unset. So presence
+  // alone (no "is it still in the future" check, which would need the
+  // impure Date.now()) is enough to tell archived apart from active.
+  const archivedByUserId = new Map(
+    (authUsers?.users ?? []).map((u) => [u.id, !!u.banned_until])
+  )
   const streakByUserId = new Map((streaks ?? []).map((s) => [s.user_id, s]))
   const optInByUserId = new Map((optIns ?? []).map((o) => [o.user_id, o]))
 
@@ -70,6 +77,7 @@ export default async function AdminPage() {
     school: p.school,
     grade: p.grade,
     target_exam: p.target_exam,
+    archived: archivedByUserId.get(p.id) ?? false,
   }))
 
   return <AdminDashboard users={users} currentUserId={user.id} />
